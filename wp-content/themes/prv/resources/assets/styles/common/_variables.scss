@@ -1,0 +1,27 @@
+/** Import Bootstrap functions */
+@import "~bootstrap/scss/functions";
+
+//## Font, line-height, and color for body text, headings, and more.
+
+$font-family-sans-serif: "Gilroy", Helvetica, Arial, sans-serif;
+
+// Color system
+
+$primary: #1d185c;
+
+$secondary: #565656;
+
+$theme-colors: (
+  special: #fff
+);
+
+// Body
+//
+// Settings for the `<body>` element.
+
+$body-bg: #fff9ef;
+$body-color: #fff9ef;
+
+/** Bootstrap navbar fix (https://git.io/fADqW) */
+$navbar-dark-toggler-icon-bg: none;
+$navbar-light-toggler-icon-bg: none;

@@ -1,0 +1,214 @@
+{
+    // EDITOR-START
+    "editor.fontSize": 16,
+    //"editor.fontFamily": "Inconsolata-g",
+    //"editor.fontFamily": "Fira Code",
+    //"editor.fontFamily": "Fira Code Medium",
+    "editor.fontFamily": "Fira Code Light",
+    //"editor.fontFamily": "Fira Code Retina",
+    "editor.tabSize": 2,
+    "editor.wordWrapColumn": 80,
+    "editor.fontLigatures": true,
+    "editor.snippetSuggestions": "bottom",
+    "editor.minimap.enabled": false,
+    "editor.formatOnSave": false,
+    "editor.renderIndentGuides": true,
+    "editor.quickSuggestions.other": true,
+    "editor.quickSuggestions.comments": true,
+    "editor.quickSuggestions.strings": false,
+    "editor.acceptSuggestionOnEnter": "on",
+    "editor.quickSuggestionsDelay": 10,
+    "editor.suggestOnTriggerCharacters": true,
+    "editor.tabCompletion": "on",
+    "editor.suggest.localityBonus": true,
+    "editor.suggestSelection": "recentlyUsed",
+    "editor.wordBasedSuggestions": true,
+    "editor.parameterHints.enabled": true,
+    "editor.trimAutoWhitespace": true,
+    // EDITOR-END
+    // WORKBENCH-START
+    "workbench.colorTheme": "GitHub Plus",
+    "workbench.iconTheme": "vs-seti",
+    "workbench.statusBar.visible": true,
+    // WORKBENCH-END
+    // TEMINAL-START
+    "terminal.integrated.fontSize": 14,
+    "terminal.integrated.fontFamily": "Consolas",
+    "terminal.integrated.cursorStyle": "underline",
+    "terminal.integrated.rendererType": "dom",
+    // TEMINAL-END
+    //WINDOW-START
+    "window.zoomLevel": 1,
+    //WINDOW-END
+    //PLUGİNS-START
+    "fontAwesomeAutocomplete.version": "4",
+    "html-css-class-completion.includeGlobPattern": "wp-content/themes/prv/resources/assets/styles/**/*.{scss}",
+    "html-css-class-completion.remoteStyleSheets": [
+        "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    ],
+    "npm.enableScriptExplorer": true,
+    "npm-intellisense.scanDevDependencies": true,
+    "sync.gist": "f8ccf1f28206867b010dff2bbb2c3b15",
+    "sync.lastUpload": "",
+    "sync.autoDownload": false,
+    "sync.autoUpload": false,
+    "sync.lastDownload": "",
+    "sync.forceDownload": false,
+    "sync.anonymousGist": false,
+    "sync.host": "",
+    "sync.pathPrefix": "",
+    "sync.quietSync": false,
+    "sync.askGistName": false,
+    "sync.removeExtensions": true,
+    "sync.syncExtensions": true,
+    "emmet.triggerExpansionOnTab": true,
+    "emmet.syntaxProfiles": {
+        "javascript": "jsx"
+    },
+    "emmet.preferences": {
+        "css.webkitProperties": "border-right,animation",
+        "css.mozProperties": "",
+        "css.oProperties": "",
+        "css.msProperties": ""
+    },
+    "emmet.includeLanguages": {
+        "blade": "html"
+    },
+    "prettier.disableLanguages": [
+        "javascript",
+        "json"
+    ],
+    "stylelint.enable": true,
+    "eslint.validate": [
+        "javascript",
+    ],
+    "intelephense.files.associations": [
+        "*.blade.php",
+        "*.php",
+    ],
+    "intelephense.files.exclude": [
+        "**/.git/**",
+        "**/.svn/**",
+        "**/.hg/**",
+        "**/CVS/**",
+        "**/.DS_Store/**",
+        "**/node_modules/**",
+        "**/bower_components/**",
+        "**/vendor/**/{Test,test,Tests,tests}/**"
+    ],
+    //PLUGİNS-END
+    //LANGUAGES-START
+    "javascript.validate.enable": false,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "javascript.implicitProjectConfig.checkJs": true,
+    "[javasscript]": {
+        "editor.formatOnSave": false
+    },
+    "css.validate": false,
+    "less.validate": false,
+    "scss.validate": false,
+    "[scss]": {
+        "editor.formatOnSave": true
+    },
+    "css.remoteStyleSheets": [
+        "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    ],
+    "css.fileExtensions": [
+        "css",
+        "scss"
+    ],
+    "[njk]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "vscode.html-language-features",
+    },
+    "html.suggest.html5": true,
+    "[html]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "vscode.html-language-features",
+    },
+    "blade.format.enable": true,
+    "[blade]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "onecentlin.laravel-blade",
+    },
+    "php.validate.executablePath": "/opt/lampp/bin/php",
+    "php.executablePath": "/opt/lampp/bin/php",
+    "php.suggest.basic": false,
+    "[php]": {
+        "editor.formatOnSave": true
+    },
+    "[jsonc]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "vscode.json-language-features",
+    },
+    //LANGUAGES-END
+    //FILES-START
+    "files.trimTrailingWhitespace": true,
+    "files.associations": {
+        "*.module": "php",
+        "blade": "html,php",
+    },
+    "files.exclude": {
+        "**/*.json": true,
+        "**/*.md": true,
+        "**/*.git": true,
+        "**/*.gitignore": true,
+        "**/*.svn": true,
+        "**/*.DS_Store": true,
+        "**/*gulp": true,
+        "**/*.idea": true,
+        "**/.vscode": false,
+        "**/*node_modules": true, // Node Modukes
+        "**/*.lock": true, // Lock Files
+        "**/*.babelrc": true,
+        "**/*.editorconfig": true,
+        "**/*.eslintrc.js": true,
+        "**/*phpcs.xml": true,
+        "**/*editorconfig": true,
+        "**/*.stylelintrc.js": true,
+        "**/*.map": true, //JS Map Files
+        "**/*.gitkeep": true,
+        "**/*.stylelintrc": true,
+        "**/*/.cache-loader": true,
+        "**/*.config.*js": true, //JS Config Files
+        "**/config.js": true, //JS Config Files
+        ".htaccess": true,
+        "license.txt": true,
+        "readme.html": true,
+        "LICENSE": true,
+        //FOLDERS
+        "**/*cache": true,
+        "**/*tmp": true,
+        "**/*temp": true,
+        "wp-content/themes/*teen": true,
+        "wp-content/themes/*ty": true,
+        "wp-content/languages": true,
+        "wp-content/uploads": true,
+    },
+    "files.watcherExclude": {
+        "**/.git/objects/**": true,
+        "**/node_modules/**": true,
+        "**/tmp": true,
+        "wp-content/languages": true,
+        "wp-content/uploads": true,
+    },
+    //FILES-END
+    //SEARCH-START
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "**/.git": true,
+        "**/.DS_Store": true,
+        "**/tmp": true,
+        "**/coverage": true,
+        "**/ios": true,
+        "**/android": true,
+        "**/*.config.*js": true,
+        "*.php": true,
+        "wp-content/languages": true,
+        "wp-content/uploads": true,
+        "wp-content/themes/*teen": true,
+        "wp-content/themes/*ty": true
+    },
+    //SEARCH-END
+}

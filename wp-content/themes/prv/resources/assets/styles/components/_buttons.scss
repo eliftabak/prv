@@ -1,0 +1,32 @@
+.btn-nav-menu {
+  background-color: $white;
+  border-radius: 28px;
+  height: 2.6rem;
+  margin-top: 6px;
+  line-height: 1rem;
+  box-shadow: 0 12px 47px rgba(0, 0, 0, 0.5);
+
+  a {
+    color: $primary !important;
+    font-weight: bold;
+    letter-spacing: 6.22272px;
+  }
+}
+
+.btn-purple {
+  background-color: #ca29c2;
+  border-radius: 33px;
+  box-shadow: -5px 3px 18px rgba(0, 0, 0, 0.16);
+
+  &:hover {
+    background-color: #ca29c2f3;
+  }
+}
+
+.btn-subscriber-submit {
+  background: linear-gradient(172.25deg, #9b66ff -39.89%, #6236ff 99.96%);
+  left: -45px;
+  position: relative;
+  font-size: xx-large;
+  padding: 0.31em 1em !important;
+}

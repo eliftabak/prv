@@ -1,0 +1,64 @@
+.footer {
+  height: auto;
+  position: relative;
+
+  .subscriber {
+    height: 300px;
+    background: #063c6f;
+    position: relative;
+  }
+
+  .subscriber::after {
+    transform: translateY(-102px);
+    position: absolute;
+    display: block;
+    top: 300px;
+    content: "";
+    height: 154px;
+    width: 100%;
+    background: url("../../images/footer-background-head.png");
+    background-repeat: repeat-x;
+  }
+
+  &__wrapper {
+    background: url("../../images/footer-sub-backgrounds.svg"),
+      linear-gradient(
+        180deg,
+        rgb(86, 86, 86) -0.3%,
+        rgba(138, 138, 138, 0.9734742239619909) 41.1%,
+        rgba(255, 255, 255, 0) 100%
+      );
+    height: 500px;
+    width: 100%;
+    position: relative;
+    background-position: right;
+    background-repeat: no-repeat;
+    background-blend-mode: color-dodge;
+    background-size: contain;
+  }
+
+  &-widget__title {
+    letter-spacing: 0.2em;
+    color: $primary;
+    padding-bottom: 0.5em;
+    text-transform: uppercase;
+  }
+
+  &-widget__social {
+    font-size: 1.5em;
+  }
+
+  &-widget__content {
+    ul {
+      list-style-type: none;
+      padding-left: unset;
+    }
+
+    li a {
+      color: $primary;
+      line-height: 2em;
+      font-weight: light;
+      text-shadow: 0.5px 0.5px 1px rgba(255, 255, 255, 0.39);
+    }
+  }
+}

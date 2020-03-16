@@ -1,0 +1,38 @@
+.section-1 {
+  &__wrapper {
+    height: 1850px;
+    position: relative;
+  }
+
+  &__container {
+    height: 1000px;
+    z-index: 1;
+  }
+}
+
+.section-2 {
+  &__wrapper {
+    height: 1000px;
+    top: -150px;
+    position: relative;
+    z-index: 1;
+    clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%);
+    background: linear-gradient(158.09deg, #7db4ea 1.21%, #f3f8ff 226.64%);
+  }
+}
+
+.section-3 {
+  &__wrapper {
+    background-color: #3ed19c;
+    height: 928px;
+    position: relative;
+    background-image: url("/wp-content/themes/prv/dist/images/section-3-background.svg");
+    opacity: 0.75;
+  }
+}
+
+.home {
+  .page-header {
+    display: none;
+  }
+}
