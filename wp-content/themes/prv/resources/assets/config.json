@@ -8,7 +8,7 @@
       "./scripts/customizer.js"
     ]
   },
-  "publicPath": "/wp-content/themes/prv",
+  "publicPath": "/websiteler/pruvaakademi.com/wp-content/themes/prv",
   "devUrl": "http://localhost/websiteler/pruvaakademi.com",
   "proxyUrl": "http://localhost:3000",
   "cacheBusting": "[name]_[hash:8]",

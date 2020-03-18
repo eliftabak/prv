@@ -16,6 +16,9 @@ if (url.parse(target).protocol === 'https:') {
 }
 
 module.exports = {
+   watchOptions: {
+    ignored: ['files/**/*.{jpg,svg,png}']
+   },
   output: {
     pathinfo: true,
     publicPath: config.proxyUrl + config.publicPath,

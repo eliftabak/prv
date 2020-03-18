@@ -57,5 +57,6 @@
       </div>
     </section>
   </div>
-
+  <a id="back-to-top" href="#" class="btn btn-primary back-to-top shadow font-weight-bold" role="button"><i
+      class="fa fa-chevron-up pr-2"></i>Başa dön</a>
 </footer>

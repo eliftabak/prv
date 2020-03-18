@@ -26,7 +26,7 @@
     background-color: #3ed19c;
     height: 928px;
     position: relative;
-    background-image: url("/wp-content/themes/prv/dist/images/section-3-background.svg");
+    background-image: url("../../images/section-3-background.svg");
     opacity: 0.75;
   }
 }
@@ -34,5 +34,203 @@
 .home {
   .page-header {
     display: none;
+  }
+}
+
+section.sorular-konusuyor {
+  height: 1100px;
+  background-color: #fff9ef;
+  background-image: url("../../images/sorular-konusuyor-background-1.svg"),
+    url("../../images/sorular-konusuyor-background-2.svg"),
+    linear-gradient(
+      198.89deg,
+      #afabd4 -41.12%,
+      rgba(234, 228, 254, 0.00237653) 112.77%
+    );
+  background-position: right top, left bottom;
+  background-repeat: no-repeat, no-repeat;
+
+  .sorular-konusuyor {
+    &__title {
+      color: #9dc7ef;
+      font-size: 110px;
+      font-weight: bold;
+      letter-spacing: -4.99px;
+    }
+
+    &__subtitle {
+      color: #1d185c;
+      font-size: 80px;
+      font-weight: bold;
+      letter-spacing: -3.63px;
+    }
+
+    &__description {
+      color: #b5a39b;
+      font-size: 24px;
+      font-weight: 100;
+      letter-spacing: -1.09px;
+    }
+
+    &__modal-dialog {
+      max-width: 800px;
+      margin: auto;
+      top: 50%;
+      transform: translateY(-50%) !important;
+    }
+
+    &__modal-body {
+      position: relative;
+      padding: 0;
+    }
+
+    &__model-close {
+      transition: all 0.4s;
+      background-color: $primary;
+      border-radius: 50%;
+      padding: 3px 10px 0 10px;
+      position: absolute;
+      right: -45px;
+      top: 0;
+      z-index: 999;
+      font-size: 2rem;
+      color: #fff;
+      opacity: 1;
+
+      &:hover {
+        background-color: darken($color: $primary, $amount: 5);
+      }
+    }
+
+    &__play {
+      transition: all 0.4s;
+      color: #9dc7ef;
+      font-size: 100px;
+      text-shadow: 0 0 104px rgba(107, 80, 119, 0.336156);
+      animation: shadow-pulse 3000ms infinite;
+
+      &:hover {
+        cursor: pointer;
+        animation-play-state: paused;
+        text-shadow: 0 0 150px rgba(107, 80, 119, 0.336156);
+        color: darken($color: #9dc7ef, $amount: 10) !important;
+      }
+    }
+  }
+
+  .emoji {
+    &__item {
+      transition: all 0.4s;
+      cursor: pointer;
+      position: absolute;
+      top: 0;
+      left: 0;
+      box-sizing: content-box;
+      background-color: $white;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+      transform: scale(1);
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+
+    &__item-1 {
+      height: 80px;
+      top: 33%;
+      left: 9%;
+    }
+
+    &__item-2 {
+      height: 86px;
+      top: 22%;
+      left: 30%;
+    }
+
+    &__item-3 {
+      height: 74px;
+      top: 35%;
+      left: 50%;
+    }
+
+    &__item-4 {
+      height: 60px;
+      top: 55%;
+      left: 7%;
+    }
+
+    &__item-5 {
+      height: 55px;
+      top: 50%;
+      left: 29%;
+    }
+
+    &__item-6 {
+      height: 80px;
+      top: 54%;
+      left: 55%;
+    }
+
+    &__item-7 {
+      height: 80px;
+      top: 73%;
+      left: 11%;
+    }
+
+    &__item-8 {
+      height: 80px;
+      top: 67%;
+      left: 35%;
+    }
+
+    &__item-9 {
+      height: 80px;
+      top: 74%;
+      left: 56%;
+    }
+  }
+}
+
+.tooltip-inner {
+  padding: 1em;
+  background: $primary;
+  border-radius: 9px;
+  opacity: unset;
+
+  p {
+    text-align: justify;
+  }
+}
+
+@keyframes shadow-pulse {
+  0% {
+    transform: scale(0.95);
+    text-shadow: 0 0 0 rgba(173, 68, 68, 0.7);
+  }
+
+  70% {
+    transform: scale(1);
+    text-shadow: 0 0 250px rgba(173, 68, 68, 0);
+  }
+
+  100% {
+    transform: scale(0.95);
+    text-shadow: 0 0 0 rgba(173, 68, 68, 0);
+  }
+}
+
+section.benimsorumnet {
+  transition: all 0.4s;
+
+  a.btn[role="button"] {
+    font-weight: bold;
+    background-color: #d10b77;
+    border-color: #d10b77;
+
+    &:hover {
+      background-color: darken($color: #d10b77, $amount: 10) !important;
+    }
   }
 }
