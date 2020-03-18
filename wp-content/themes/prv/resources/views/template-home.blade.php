@@ -55,6 +55,158 @@
 
 <!-- section-3__wrapper end -->
 
+<!-- section6__wrapper start -->
+<section class="section-6__wrapper beceri-temelli pt-5">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="d-flex justify-content-center">
+        <h1 class="beceri-temelli__title">Beceri Temelli Sorular</h1>
+      </div>
+    </div>
+    <div class="col-lg-12 p-5">
+      <div class="d-flex justify-content-center">
+        <div class="row beceri-temelli__box p-3">
+          <div class="col-12 beceri-temelli__icon"><i class="fonksiyonel-soru-prv-icon" aria-hidden="true"></i></div>
+          <div class="col-12 beceri-temelli__header">
+            <h2>Fonksiyonel Soru</h2>
+          </div>
+          <div class="col-12 beceri-temelli__description">
+            <h3>Modelleme Yöntemi</h3>
+          </div>
+        </div>
+        <div class="row beceri-temelli__box p-3">
+          <div class="col-12 beceri-temelli__icon"><i class="ogreten-sorular-icon-prv-icon" aria-hidden="true"></i>
+          </div>
+          <div class="col-12 beceri-temelli__header">
+            <h2>Öğreten Sorular</h2>
+          </div>
+          <div class="col-12 beceri-temelli__description">
+            <h3>Konu Kavrama Testi</h3>
+          </div>
+        </div>
+        <div class="row beceri-temelli__box p-3">
+          <div class="col-12 beceri-temelli__icon"><i class="kazanim-odakli-icon-prv-icon" aria-hidden="true"></i></div>
+          <div class="col-12 beceri-temelli__header">
+            <h2>Kazanım Odaklı</h2>
+          </div>
+          <div class="col-12 beceri-temelli__description">
+            <h3>EBA Soruları</h3>
+          </div>
+        </div>
+        <div class="row beceri-temelli__box p-3">
+          <div class="col-12 beceri-temelli__icon"><i class="yeni-nesil-sorular-prv-icon" aria-hidden="true"></i></div>
+          <div class="col-12 beceri-temelli__header">
+            <h2>Yeni Nesil Sorular</h2>
+          </div>
+          <div class="col-12 beceri-temelli__description">
+            <h3>MEB,PISA,TIMSS</h3>
+          </div>
+        </div>
+        <div class="row beceri-temelli__box p-3">
+          <div class="col-12 beceri-temelli__icon"><i class="grafik-tablo-prv-icon" aria-hidden="true"></i></div>
+          <div class="col-12 beceri-temelli__header">
+            <h2>Grafik & Tablo</h2>
+          </div>
+          <div class="col-12 beceri-temelli__description">
+            <h3>Yorumlama ve Analiz</h3>
+          </div>
+        </div>
+        <div class="row beceri-temelli__box p-3">
+          <div class="col-12 beceri-temelli__icon"><i class="mantik-muhakeme-prv-icon" aria-hidden="true"></i></div>
+          <div class="col-12 beceri-temelli__header">
+            <h2>Mantık Muhakeme</h2>
+          </div>
+          <div class="col-12 beceri-temelli__description">
+            <h3>Bilgiyi İşleme Kuramı</h3>
+          </div>
+        </div>
+        <div class="row beceri-temelli__box p-3">
+          <div class="col-12 beceri-temelli__icon"><i class="sinav-modu-prv-icon" aria-hidden="true"></i></div>
+          <div class="col-12 beceri-temelli__header">
+            <h2>SınavModu</h2>
+          </div>
+          <div class="col-12 beceri-temelli__description">
+            <h3>Gerçek Sınav Deneyimi</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+<!-- section6__wrapper end -->
+
+
+<!-- section7__wrapper start -->
+<section class="section-7__wrapper yorumlar pt-5">
+  <div class="row mx-auto">
+    <div class="col-lg-12">
+      <div class="d-flex justify-content-center">
+        <h1 class="yorumlar__title">Öğrenci Görüşleri</h1>
+      </div>
+    </div>
+    <div class="col-lg-12">
+      <div class="row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8">
+          <div class="d-flex justify-content-center align-items-center flex-column">
+            <div class="w-75 p-3 yorumlar__wrapper">
+              <div class="row">
+                <div class="col-lg-2 text-right"><img class="yorumlar__profile rounded-pill"
+                    src="wp-content/themes/prv/resources/assets/images/user-1.jpg" alt=""></div>
+                <div class="col-lg-10 vmx-auto p-4 yorumlar__content">
+                  <h5 class="yorumlar__isim">Hatice DÖNMEZ</h5>
+                  <p class="yorumlar__yorum d-inline">Nulla vehicula consectetur nulla et posuere. Vivamus maximus eros
+                    at
+                    egestas
+                    auctor. </p>
+                </div>
+              </div>
+            </div>
+            <div class="w-75 p-3 yorumlar__wrapper">
+              <div class="row">
+                <div class="col-lg-2 text-right"><img class="yorumlar__profile rounded-pill"
+                    src="wp-content/themes/prv/resources/assets/images/user-2.jpg" alt=""></div>
+                <div class="col-lg-10 vmx-auto p-4 yorumlar__content">
+                  <h5 class="yorumlar__isim">Mehmet ŞAFAK</h5>
+                  <p class="yorumlar__yorum d-inline">Nulla vehicula consectetur nulla et posuere. Vivamus maximus eros
+                    at
+                    egestas
+                    auctor.Nulla vehicula consectetur nulla et posuere. Vivamus maximus eros at
+                    egestas
+                    auctor. </p>
+                </div>
+              </div>
+            </div>
+            <div class="w-75 p-3 yorumlar__wrapper">
+              <div class="row">
+                <div class="col-lg-2 text-right"><img class="yorumlar__profile rounded-pill"
+                    src="wp-content/themes/prv/resources/assets/images/user-3.jpg" alt=""></div>
+                <div class="col-lg-10 vmx-auto p-4 yorumlar__content">
+                  <h5 class="yorumlar__isim">Nuriye VERDENDİ</h5>
+                  <p class="yorumlar__yorum d-inline">Nulla vehicula consectetur nulla et posuere. Vivamus maximus eros
+                    at
+                    egestas
+                    auctor. </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2"></div>
+      </div>
+    </div>
+    <div class="col-lg-12 pt-5">
+      <div class="d-flex justify-content-center w-100">
+        <img src="wp-content/themes/prv/resources/assets/images/yourmlar-picture.svg" alt=""
+          class="yorumlar__picture w-50">
+      </div>
+    </div>
+  </div>
+</section>
+<!-- section7__wrapper end -->
+
+<!-- section8__wrapper end -->
 <section class="section-8__wrapper sorular-konusuyor">
   <div class="row h-100">
     <div class="col-lg-6 vmx-auto">
@@ -109,31 +261,58 @@
       <div class="emoji pt-5">
         <div class="pt-5">
           <img class="emoji__item emoji__item-1" data-toggle="tooltip" data-html="true" data-placement="left" title="<div>
-          <h5>Yeni Nesil Yarım Zor</h5>
-          <p>Yeni Nesil Soruyum. Açık konuşmak gerekirse kolaylık adına bende hiçbir şey yok. Sakın beni hafife
-          alma! Evet, orta uzunlukta fakat zorum.</p></div>"
-            src="wp-content/themes/prv/resources/assets/images/mavi-icon-1.svg" alt="">
-          <img class="emoji__item emoji__item-2" data-toggle="tooltip" data-placement="top" title="Tooltip on top"
-            src="wp-content/themes/prv/resources/assets/images/mavi-icon-1.svg" alt="">
-          <img class="emoji__item emoji__item-3" data-toggle="tooltip" data-placement="top" title="Tooltip on top"
-            src="wp-content/themes/prv/resources/assets/images/mavi-icon-1.svg" alt="">
-          <img class="emoji__item emoji__item-4" data-toggle="tooltip" data-placement="top" title="Tooltip on top"
-            src="wp-content/themes/prv/resources/assets/images/mavi-icon-1.svg" alt="">
-          <img class="emoji__item emoji__item-5" data-toggle="tooltip" data-placement="top" title="Tooltip on top"
-            src="wp-content/themes/prv/resources/assets/images/mavi-icon-1.svg" alt="">
-          <img class="emoji__item emoji__item-6" data-toggle="tooltip" data-placement="top" title="Tooltip on top"
-            src="wp-content/themes/prv/resources/assets/images/mavi-icon-1.svg" alt="">
-          <img class="emoji__item emoji__item-7" data-toggle="tooltip" data-placement="top" title="Tooltip on top"
-            src="wp-content/themes/prv/resources/assets/images/mavi-icon-1.svg" alt="">
-          <img class="emoji__item emoji__item-8" data-toggle="tooltip" data-placement="top" title="Tooltip on top"
-            src="wp-content/themes/prv/resources/assets/images/mavi-icon-1.svg" alt="">
-          <img class="emoji__item emoji__item-9" data-toggle="tooltip" data-placement="top" title="Tooltip on top"
-            src="wp-content/themes/prv/resources/assets/images/mavi-icon-1.svg" alt="">
+          <h5>Klasik Kolay</h5>
+          <p>Klasik soru kalıpları içinde temelleri sağlam atmak için hızlı çözülebilen kolay bir soruyum. Konuya
+            devam etmeden önce benden birkaç tane çözmen lazım.</p></div>"
+            src="wp-content/themes/prv/resources/assets/images/emoji-icon-1.svg" alt="">
+          <img class="emoji__item emoji__item-2" data-toggle="tooltip" data-html="true" data-placement="top" title="<div>
+            <h5>Klasik Orta</h5>
+            <p>Eğer klasik kalıplarda temel sorulardan çözdüysen seni bir tık öteye taşıyacak orta şiddette bir soru-
+              yum. Kendini zor sorulara hazırlamak için bu aşama önemli!</p></div>"
+            src="wp-content/themes/prv/resources/assets/images/emoji-icon-2.svg" alt="">
+          <img class="emoji__item emoji__item-3" data-toggle="tooltip" data-html="true" data-placement="top" title="<div>
+            <h5>Klasik Zor</h5>
+            <p>Evet, artık kendini zorlama zamanı. Ben, klasik soru tarzlarında o sevilmeyen zor soruyum. İyi kon-
+              santre ol, dikkatini topla ve bitir işimi!</p></div>"
+            src="wp-content/themes/prv/resources/assets/images/emoji-icon-3.svg" alt="">
+          <img class="emoji__item emoji__item-4" data-toggle="tooltip" data-html="true" data-placement="top" title="<div>
+            <h5>Yeni Nesil Çeyrek Kolay</h5>
+            <p>Bu konuda Yeni Nesil Sorulara giriş yapmak için kurgu çözümleme yeteneğini geliştirebileceğin kısa
+              ve kolay bir soruyum.</p></div>" src="wp-content/themes/prv/resources/assets/images/emoji-icon-4.svg"
+            alt="">
+          <img class="emoji__item emoji__item-5" data-toggle="tooltip" data-html="true" data-placement="top" title="<div>
+            <h5>Yeni Nesil Çeyrek Orta</h5>
+            <p>Yeni Nesil Sorularda bir tık öteye geçme zamanı! Merak etme, çok yormam seni. Yine kısa fakat orta
+              şiddette bir soru olduğumu bilmeni isterim.</p></div>"
+            src="wp-content/themes/prv/resources/assets/images/emoji-icon-5.svg" alt="">
+          <img class="emoji__item emoji__item-6" data-toggle="tooltip" data-html="true" data-placement="top" title="<div>
+            <h5>Yeni Nesil Çeyrek Zor</h5>
+            <p>Uzun uzun Yeni Nesil Sorulara geçmeden önce kendini alıştırman için seni biraz yormak istiyorum.
+              Kısa fakat zor bir soruyum. Sana güveniyorum!</p></div>"
+            src="wp-content/themes/prv/resources/assets/images/emoji-icon-6.svg" alt="">
+          <img class="emoji__item emoji__item-7" data-toggle="tooltip" data-html="true" data-placement="top" title="<div>
+            <h5>Yeni Nesil Yarım Orta</h5>
+            <p>Yeni Nesil Soruyum. Kısa bir soru değilim, kabul ediyorum. Fakat çok uzun bir soru da değilim. Çok
+              basit değilim, bunu da kabul ediyorum. Ama çok zor bir soru da değilim, seni zorlamam. Kısaca orta
+              uzunlukta ve orta şiddette bir soruyum.</p></div>"
+            src="wp-content/themes/prv/resources/assets/images/emoji-icon-7.svg" alt="">
+          <img class="emoji__item emoji__item-8" data-toggle="tooltip" data-html="true" data-placement="top" title="<div>
+            <h5>Yeni Nesil Yarım Zor</h5>
+            <p>Yeni Nesil Soruyum. Açık konuşmak gerekirse kolaylık adına bende hiçbir şey yok. Sakın beni hafife
+              alma! Evet, orta uzunlukta fakat zorum.</p></div>"
+            src="wp-content/themes/prv/resources/assets/images/emoji-icon-8.svg" alt="">
+          <img class="emoji__item emoji__item-9" data-toggle="tooltip" data-html="true" data-placement="top" title="<div>
+            <h5>Yeni Nesil Tam Zor</h5>
+            <p>Yeni Nesil Soruların en kralıyım. Bütün sorular seni bana ulaştırmak için çırpındı. Beni çözersen olayın
+              çoğu bitmiş demektir. Baştan söyleyim seni bunaltmak için elimden geleni yapacağım. Çünkü uzun ve
+              zor bir soruyum. Fakat beni çözmeye başladıysan yine de senden korkarım.</p></div>"
+            src="wp-content/themes/prv/resources/assets/images/emoji-icon-9.svg" alt="">
         </div>
       </div>
     </div>
   </div>
 </section>
+<!-- section-8__wrapper end -->
 
 <!-- section-9__wrapper start -->
 <section class="section-9__wrapper p-0 benimsorumnet">

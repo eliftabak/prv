@@ -37,6 +37,168 @@
   }
 }
 
+section.beceri-temelli {
+  height: 1200px;
+  background-color: #fff9ef;
+  background-image: linear-gradient(
+    200.25deg,
+    #c2abd4 -41.12%,
+    rgba(234, 228, 254, 0.00237653) 112.77%
+  ),
+    url("../../images/beceri-temelli-background-1.svg");
+  background-position: 0 0, right bottom -1px;
+  background-size: cover, 62.2%;
+  background-repeat: repeat, no-repeat;
+
+  .beceri-temelli {
+    &__title {
+      font-size: 90px;
+      line-height: 103px;
+      letter-spacing: -4.0865px;
+      color: #3a2a39;
+    }
+
+    &__box {
+      margin-right: 2.5em;
+      transition: all 0.4s;
+      height: 314px;
+      width: 314px;
+      background-color: white;
+      box-shadow: 0 32px 44px rgba(190, 168, 194, 0.24623);
+      border-radius: 0 100px 0 0;
+      color: #bb41b8;
+
+      &:nth-child(2) {
+        border-radius: 100px 0 0 0;
+        color: #da6262;
+      }
+
+      &:nth-child(3) {
+        border-radius: 0 0 0 100px;
+        color: #7f357e;
+      }
+
+      &:nth-child(4) {
+        border-radius: 0 0 0 100px;
+        color: #e1a459;
+      }
+
+      &:nth-child(5) {
+        border-radius: 0 100px 0 0;
+        color: #bb85a3;
+      }
+
+      &:nth-child(6) {
+        border-radius: 100px 0 0 0;
+        color: #5b9f;
+      }
+
+      &:nth-child(7) {
+        border-radius: 0 0 0 100px;
+        color: #767f84;
+      }
+
+      &:hover {
+        cursor: pointer;
+        color: white;
+        background: linear-gradient(149.76deg, #f18843 -43%, #de5020 157.11%),
+          #f18843;
+      }
+    }
+
+    &__icon {
+      font-weight: bold;
+      color: inherit;
+      font-size: 120px;
+      line-height: 149px;
+      letter-spacing: -5.44867px;
+    }
+
+    &__header h2 {
+      font-weight: bold;
+      font-size: 40px;
+      line-height: 50px;
+      letter-spacing: -1.81622px;
+      color: inherit;
+    }
+
+    &__description h3 {
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 24px;
+      letter-spacing: -0.908111px;
+      color: inherit;
+      mix-blend-mode: normal;
+      opacity: 0.5;
+    }
+  }
+}
+
+section.yorumlar {
+  color: $primary;
+  background-color: #fff9ef;
+  background-image: linear-gradient(
+    211.77deg,
+    rgba(255, 244, 243, 0.0803376) 2.82%,
+    #fee6e4 93.92%
+  ),
+    url("../../images/comments-background-1.svg"),
+    url("../../images/comments-background-2.svg"),
+    url("../../images/comments-background-3.svg");
+  background-position: 0 0, right top, left 9% top 26%, left 10% bottom 49%;
+  background-size: cover, 62%, 45%, 35%;
+  background-repeat: repeat, no-repeat, no-repeat, no-repeat;
+
+  .yorumlar {
+    &__wrapper {
+      margin-top: 2em;
+    }
+
+    &__wrapper:nth-child(even) {
+      align-self: flex-start;
+    }
+
+    &__wrapper:nth-child(odd) {
+      align-self: flex-end;
+    }
+
+    &__title {
+      padding-top: 1.5em;
+      font-weight: bold;
+      font-size: 70px;
+      line-height: 87px;
+      letter-spacing: -3.17839px;
+      color: #9dc7ef;
+    }
+
+    &__content {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 22px 34px rgba(0, 0, 0, 0.0671165);
+    }
+
+    &__isim {
+      font-size: 20px;
+      line-height: 25px;
+      letter-spacing: -0.908111px;
+      color: #3c4c5c;
+    }
+
+    &__yorum {
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 30px;
+      letter-spacing: -0.908111px;
+      color: #9dc7ef;
+    }
+
+    &__profile {
+      height: 123px;
+      opacity: 0.8;
+    }
+  }
+}
+
 section.sorular-konusuyor {
   height: 1100px;
   background-color: #fff9ef;

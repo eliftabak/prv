@@ -82,3 +82,16 @@
   font-weight: normal;
   font-style: normal;
 }
+
+@font-face {
+  font-family: "pruvaicons";
+  src: url("../../fonts/pruvaicons.eot?lup0tn");
+  src: url("../../fonts/pruvaicons.eot?lup0tn#iefix")
+    format("embedded-opentype"),
+    url("../../fonts/pruvaicons.ttf?lup0tn") format("truetype"),
+    url("../../fonts/pruvaicons.woff?lup0tn") format("woff"),
+    url("../../fonts/pruvaicons.svg?lup0tn#pruvaicons") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
