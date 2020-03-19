@@ -24,6 +24,4 @@
         ] )!!}
         @endif
   </nav>
-  </ul>
-  </div>
 </header>

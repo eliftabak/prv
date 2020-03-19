@@ -25,6 +25,4 @@
 
         <?php endif; ?>
   </nav>
-  </ul>
-  </div>
 </header>

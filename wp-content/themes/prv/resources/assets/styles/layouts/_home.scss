@@ -37,6 +37,49 @@
   }
 }
 
+section.teke-tek {
+  background: linear-gradient(163.37deg, #3e3595 -31.84%, #1d185c 102.61%);
+}
+
+section.muhendis-kafasi {
+  clip-path: polygon(0 0, 100% 7%, 100% 100%, 0% 100%);
+  background: url("../../images/muhendis-kafasi-background.svg"),
+    linear-gradient(190.02deg, #a250a0 -41.64%, #682867 93.77%);
+  background-position: left bottom, center;
+  background-size: 89vh, cover;
+  background-repeat: no-repeat, repeat;
+
+  .muhendis-kafasi {
+    color: #fff;
+
+    &__book-name {
+      font-weight: 700;
+      font-size: 6.25rem;
+      line-height: 5.1875rem;
+      letter-spacing: -0.2838rem;
+    }
+
+    &__book-category {
+      font-weight: 200;
+      font-size: 4.375rem;
+      line-height: 5.1875rem;
+      letter-spacing: -0.1986rem;
+    }
+
+    &__book-descp {
+      font-size: 1.5rem;
+      line-height: 2.1875rem;
+      letter-spacing: -0.0681rem;
+      mix-blend-mode: normal;
+      opacity: 0.5;
+    }
+
+    &__book-button {
+      background-color: #6236ff;
+    }
+  }
+}
+
 section.beceri-temelli {
   height: 1200px;
   background-color: #fff9ef;
@@ -50,53 +93,67 @@ section.beceri-temelli {
   background-size: cover, 62.2%;
   background-repeat: repeat, no-repeat;
 
-  .beceri-temelli {
-    &__title {
-      font-size: 90px;
-      line-height: 103px;
-      letter-spacing: -4.0865px;
-      color: #3a2a39;
+  .grid {
+    &__container {
+      padding-top: 5em;
+      display: grid;
+      grid-gap: 2em;
+      grid-template-columns:
+        minmax(200px, 1fr) minmax(200px, 1fr) minmax(200px, 1fr)
+        minmax(200px, 1fr) minmax(200px, 1fr);
+      grid-template-rows: minmax(200px, 1fr) minmax(200px, 1fr);
+      grid-template-areas:
+        "a b c d e"
+        ". . ı . k";
     }
 
-    &__box {
-      margin-right: 2.5em;
+    &__item {
+      //border: 1px red solid;
+
+      &-a {
+        grid-area: a;
+        grid-row: 1/3;
+      }
+
+      &-b {
+        grid-area: b;
+        grid-row: 1/3;
+        align-self: center;
+      }
+
+      &-c {
+        grid-area: c;
+      }
+
+      &-d {
+        grid-area: d;
+        grid-row: 1/3;
+        align-self: center;
+      }
+
+      &-e {
+        grid-area: e;
+      }
+
+      &-ı {
+        grid-area: ı;
+      }
+
+      &-k {
+        grid-area: k;
+      }
+    }
+
+    &__inner {
+      padding: 1.5rem !important;
+      margin-right: unset;
+      margin-left: unset;
+      height: 23rem;
+      width: auto;
       transition: all 0.4s;
-      height: 314px;
-      width: 314px;
-      background-color: white;
+      font-size: 150%;
+      background-color: #fff;
       box-shadow: 0 32px 44px rgba(190, 168, 194, 0.24623);
-      border-radius: 0 100px 0 0;
-      color: #bb41b8;
-
-      &:nth-child(2) {
-        border-radius: 100px 0 0 0;
-        color: #da6262;
-      }
-
-      &:nth-child(3) {
-        border-radius: 0 0 0 100px;
-        color: #7f357e;
-      }
-
-      &:nth-child(4) {
-        border-radius: 0 0 0 100px;
-        color: #e1a459;
-      }
-
-      &:nth-child(5) {
-        border-radius: 0 100px 0 0;
-        color: #bb85a3;
-      }
-
-      &:nth-child(6) {
-        border-radius: 100px 0 0 0;
-        color: #5b9f;
-      }
-
-      &:nth-child(7) {
-        border-radius: 0 0 0 100px;
-        color: #767f84;
-      }
 
       &:hover {
         cursor: pointer;
@@ -104,28 +161,71 @@ section.beceri-temelli {
         background: linear-gradient(149.76deg, #f18843 -43%, #de5020 157.11%),
           #f18843;
       }
+
+      &-a {
+        border-radius: 0 100px 0 0;
+        color: #bb41b8;
+      }
+
+      &-b {
+        border-radius: 100px 0 0 0;
+        color: #da6262;
+        align-self: center;
+      }
+
+      &-c {
+        border-radius: 0 0 0 100px;
+        color: #7f357e;
+      }
+
+      &-d {
+        border-radius: 0 100px 0 0;
+        color: #bb85a3;
+      }
+
+      &-e {
+        border-radius: 100px 0 0 0;
+        color: #5b9f;
+      }
+
+      &-ı {
+        border-radius: 100px 0 0 0;
+        color: #e1a459;
+      }
+
+      &-k {
+        border-radius: 0 0 0 100px;
+        color: #767f84;
+      }
+    }
+  }
+
+  .beceri-temelli {
+    &__title {
+      font-size: 5.6rem;
+      line-height: 6.4rem;
+      letter-spacing: -4.0865px;
+      color: #3a2a39;
     }
 
     &__icon {
       font-weight: bold;
       color: inherit;
-      font-size: 120px;
-      line-height: 149px;
-      letter-spacing: -5.44867px;
+      font-size: 7.5rem;
     }
 
     &__header h2 {
       font-weight: bold;
-      font-size: 40px;
-      line-height: 50px;
+      font-size: 2.5rem;
+      line-height: 3.125rem;
       letter-spacing: -1.81622px;
       color: inherit;
     }
 
     &__description h3 {
       font-weight: 400;
-      font-size: 20px;
-      line-height: 24px;
+      font-size: 1.25rem;
+      line-height: 1.5rem;
       letter-spacing: -0.908111px;
       color: inherit;
       mix-blend-mode: normal;
@@ -151,7 +251,7 @@ section.yorumlar {
 
   .yorumlar {
     &__wrapper {
-      margin-top: 2em;
+      margin-top: 2rem;
     }
 
     &__wrapper:nth-child(even) {
@@ -163,44 +263,44 @@ section.yorumlar {
     }
 
     &__title {
-      padding-top: 1.5em;
+      padding-top: 1.5rem;
       font-weight: bold;
-      font-size: 70px;
-      line-height: 87px;
-      letter-spacing: -3.17839px;
+      font-size: 4.375rem;
+      line-height: 5.4375rem;
+      letter-spacing: -0.1986rem;
       color: #9dc7ef;
     }
 
     &__content {
       background-color: white;
-      border-radius: 8px;
+      border-radius: 0.5rem;
       box-shadow: 0 22px 34px rgba(0, 0, 0, 0.0671165);
     }
 
     &__isim {
-      font-size: 20px;
-      line-height: 25px;
-      letter-spacing: -0.908111px;
+      font-size: 1.25rem;
+      line-height: 1.5625rem;
+      letter-spacing: -0.0568rem;
       color: #3c4c5c;
     }
 
     &__yorum {
       font-weight: 400;
-      font-size: 20px;
-      line-height: 30px;
-      letter-spacing: -0.908111px;
+      font-size: 1.25rem;
+      line-height: 1.875rem;
+      letter-spacing: -0.0568rem;
       color: #9dc7ef;
     }
 
     &__profile {
-      height: 123px;
+      height: 7.6875rem;
       opacity: 0.8;
     }
   }
 }
 
 section.sorular-konusuyor {
-  height: 1100px;
+  height: 68.75rem;
   background-color: #fff9ef;
   background-image: url("../../images/sorular-konusuyor-background-1.svg"),
     url("../../images/sorular-konusuyor-background-2.svg"),
@@ -215,27 +315,27 @@ section.sorular-konusuyor {
   .sorular-konusuyor {
     &__title {
       color: #9dc7ef;
-      font-size: 110px;
+      font-size: 6.875rem;
       font-weight: bold;
-      letter-spacing: -4.99px;
+      letter-spacing: -0.3119rem;
     }
 
     &__subtitle {
       color: #1d185c;
-      font-size: 80px;
+      font-size: 5rem;
       font-weight: bold;
-      letter-spacing: -3.63px;
+      letter-spacing: -0.2269rem;
     }
 
     &__description {
       color: #b5a39b;
-      font-size: 24px;
+      font-size: 1.5rem;
       font-weight: 100;
-      letter-spacing: -1.09px;
+      letter-spacing: -0.0681rem;
     }
 
     &__modal-dialog {
-      max-width: 800px;
+      max-width: 50rem;
       margin: auto;
       top: 50%;
       transform: translateY(-50%) !important;
@@ -250,9 +350,9 @@ section.sorular-konusuyor {
       transition: all 0.4s;
       background-color: $primary;
       border-radius: 50%;
-      padding: 3px 10px 0 10px;
+      padding: 0.1875rem 0.625rem 0 0.625rem;
       position: absolute;
-      right: -45px;
+      right: -2.8125rem;
       top: 0;
       z-index: 999;
       font-size: 2rem;
@@ -267,8 +367,8 @@ section.sorular-konusuyor {
     &__play {
       transition: all 0.4s;
       color: #9dc7ef;
-      font-size: 100px;
-      text-shadow: 0 0 104px rgba(107, 80, 119, 0.336156);
+      font-size: 6.25rem;
+      text-shadow: 0 0 6.5rem rgba(107, 80, 119, 0.336156);
       animation: shadow-pulse 3000ms infinite;
 
       &:hover {
@@ -289,8 +389,8 @@ section.sorular-konusuyor {
       left: 0;
       box-sizing: content-box;
       background-color: $white;
-      padding: 10px;
-      border-radius: 10px;
+      padding: 0.625rem;
+      border-radius: 0.625rem;
       box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
       transform: scale(1);
 
@@ -300,55 +400,55 @@ section.sorular-konusuyor {
     }
 
     &__item-1 {
-      height: 80px;
+      height: 5rem;
       top: 33%;
       left: 9%;
     }
 
     &__item-2 {
-      height: 86px;
+      height: 5.375rem;
       top: 22%;
       left: 30%;
     }
 
     &__item-3 {
-      height: 74px;
+      height: 4.625rem;
       top: 35%;
       left: 50%;
     }
 
     &__item-4 {
-      height: 60px;
+      height: 3.75rem;
       top: 55%;
       left: 7%;
     }
 
     &__item-5 {
-      height: 55px;
+      height: 3.4375rem;
       top: 50%;
       left: 29%;
     }
 
     &__item-6 {
-      height: 80px;
+      height: 5rem;
       top: 54%;
       left: 55%;
     }
 
     &__item-7 {
-      height: 80px;
+      height: 5rem;
       top: 73%;
       left: 11%;
     }
 
     &__item-8 {
-      height: 80px;
+      height: 5rem;
       top: 67%;
       left: 35%;
     }
 
     &__item-9 {
-      height: 80px;
+      height: 5rem;
       top: 74%;
       left: 56%;
     }
@@ -356,9 +456,9 @@ section.sorular-konusuyor {
 }
 
 .tooltip-inner {
-  padding: 1em;
+  padding: 1rem;
   background: $primary;
-  border-radius: 9px;
+  border-radius: 0.5625rem;
   opacity: unset;
 
   p {
