@@ -3,7 +3,7 @@ export default {
 
     function sorularKonusuyorModalVideo(){
       const modelID = '#SKModal';
-      const playButtonClass = '.sorular-konusuyor__play';
+      const playButtonClass = '.neden-sorular-konusuyor__play';
       const videoID = '#video';
       let videoSource='';
 

@@ -31,4 +31,10 @@ class App extends Controller
         }
         return get_the_title();
     }
+
+    public static function home_url_with_slash()
+    {
+
+        return home_url('/');
+    }
 }

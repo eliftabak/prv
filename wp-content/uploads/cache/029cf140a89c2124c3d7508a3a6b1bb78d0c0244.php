@@ -19,8 +19,7 @@
     </div>
     <section class="footer__wrapper p-5">
       <a class="navbar-brand text-uppercase font-weight-bold mb-3" href="<?php echo e(home_url('/')); ?>">
-        <img
-          src="http://localhost:3000/websiteler/pruvaakademi.com/wp-content/themes/prv/resources/assets/images/pruva-akademi-logo.svg"
+        <img src="<?php echo e(home_url('/')); ?>wp-content/themes/prv/resources/assets/images/pruva-akademi-logo.svg"
           alt="<?php echo e(get_bloginfo('name', 'display')); ?>" width="276" height="auto">
       </a>
       <div class="container-fluid">
@@ -52,9 +51,7 @@
       <div class="container-fluid">
         <div class="row mx-auto">
           <div class="col-lg-12 text-center">
-            <img
-              src="http://localhost:3000/websiteler/pruvaakademi.com/wp-content/themes/prv/resources/assets/images/credit-cards.png"
-              alt="">
+            <img src="<?php echo e(home_url('/')); ?>wp-content/themes/prv/resources/assets/images/credit-cards.png" alt="">
           </div>
         </div>
       </div>

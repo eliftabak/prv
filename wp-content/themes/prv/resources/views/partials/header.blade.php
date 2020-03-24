@@ -1,8 +1,7 @@
 <header>
   <nav class="navbar navbar-expand-lg fixed-top">
     <a class="navbar-brand text-uppercase font-weight-bold" href="{{ home_url('/') }}">
-      <img
-        src="http://localhost:3000/websiteler/pruvaakademi.com/wp-content/themes/prv/resources/assets/images/pruva-akademi-logo.svg"
+      <img src="{{ home_url('/') }}wp-content/themes/prv/resources/assets/images/pruva-akademi-logo.svg"
         alt="{{ get_bloginfo('name', 'display') }}" width="103" height="auto">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
