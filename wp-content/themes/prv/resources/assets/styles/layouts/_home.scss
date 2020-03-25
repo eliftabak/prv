@@ -59,6 +59,10 @@ section.home-slider {
       bottom: 14%;
     }
 
+    .carousel-indicators li {
+      background-color: rgba(255, 255, 255, 0.356);
+    }
+
     .carousel-control-prev,
     .carousel-control-next {
       color: rgba(255, 255, 255, 0.356);

@@ -13,6 +13,15 @@ $primary: #1d185c;
 
 $secondary: #565656;
 
+$general-text-color: #3b352b;
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px
+);
+
 $theme-colors: (
   special: #fff
 );

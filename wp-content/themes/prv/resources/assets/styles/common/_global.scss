@@ -77,3 +77,68 @@ i[class$="-prv-icon"] {
     transform: translate3d(0, 0, 0);
   }
 }
+
+.container {
+  &__page-content {
+    color: $general-text-color;
+    background: #fff;
+    box-shadow: 0 72px 124px rgba(0, 0, 0, 0.111396);
+    border-radius: 5px;
+    margin-top: -100px;
+    min-height: 500px;
+    margin-bottom: 150px;
+    padding: 80px 28px 32px 26px;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      margin: 30px 0 30px 0;
+      letter-spacing: -0.7px;
+    }
+
+    p {
+      color: lighten($color: $general-text-color, $amount: 10);
+      text-align: justify;
+      letter-spacing: -0.5;
+      font-weight: 300;
+      line-height: 1.5rem;
+    }
+  }
+}
+
+#breadcrumbs {
+  color: lighten($color: $primary, $amount: 60);
+  letter-spacing: -0.2px;
+  font-weight: 400;
+  background-color: darken($color: $primary, $amount: 3);
+  width: fit-content;
+  padding: 10px 25px 10px 25px;
+  border-radius: 21px;
+
+  a {
+    color: inherit;
+
+    &:hover {
+      color: darken($color: white, $amount: 30);
+      text-decoration: unset;
+    }
+  }
+
+  > span {
+    a:nth-child(1) {
+      background-color: unset;
+    }
+  }
+
+  .seperator-icon {
+    font-size: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .home-icon {
+    font-size: 16px;
+  }
+}
