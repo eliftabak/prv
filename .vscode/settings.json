@@ -1,6 +1,6 @@
 {
     // EDITOR-START
-    "editor.fontSize": 16,
+    "editor.fontSize": 14,
     //"editor.fontFamily": "Inconsolata-g",
     //"editor.fontFamily": "Fira Code",
     //"editor.fontFamily": "Fira Code Medium",
@@ -111,7 +111,7 @@
         "editor.formatOnSave": true
     },
     "css.remoteStyleSheets": [
-        "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css"
     ],
     "css.fileExtensions": [
         "css",

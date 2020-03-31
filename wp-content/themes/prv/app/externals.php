@@ -2,14 +2,17 @@
 
 namespace App;
 
-class ExternalClasses
+class ExternalClassesLoader
 {
 
-    public function __construct()
+    public function load()
     {
 
         require_once dirname(__DIR__) . '/vendor/wp-bootstrap/wp-bootstrap-navwalker/class-wp-bootstrap-navwalker.php';
+
     }
 }
 
-$externals = new ExternalClasses();
+$externals = new ExternalClassesLoader();
+
+$externals->load();

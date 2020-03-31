@@ -1,0 +1,141 @@
+// Woocommerce Styling
+.woocommerce {
+  .woocommerce-breadcrumb {
+    color: #fff;
+    font-size: 14px;
+    letter-spacing: -0.2px;
+    font-weight: 500;
+    background-color: #00000026;
+    width: fit-content;
+    padding: 10px 25px 10px 25px;
+    border-radius: 21px;
+    margin-bottom: 50px;
+
+    a:nth-child(1)::before {
+      color: #ffffff9c;
+      padding-right: 5px;
+      font-family: FontAwesome;
+      content: "\f015";
+    }
+
+    a {
+      color: inherit;
+      font-weight: 100;
+
+      &:hover {
+        color: darken($color: white, $amount: 30);
+        text-decoration: unset;
+      }
+    }
+
+    &__seperator-icon {
+      color: #ffffff9c;
+      font-size: 10px;
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+  }
+
+  .woocommerce-products-header {
+    display: none;
+  }
+}
+
+// Fix Woocommerce CheckOut Styling
+
+.woocommerce-billing-fields .form-row,
+.woocommerce-shipping-fields .form-row,
+.woocommerce form .form-row {
+  display: block;
+}
+
+.woocommerce .col2-set .col-1,
+.woocommerce-page .col2-set .col-1,
+.woocommerce .col2-set .col-2,
+.woocommerce-page .col2-set .col-2 {
+  max-width: unset;
+}
+
+// Pagination Styling
+.pagination {
+  justify-content: center;
+
+  .page-item:hover {
+    cursor: pointer;
+  }
+
+  .page-item a:hover {
+    text-decoration: unset;
+  }
+}
+
+//Hide Product Filter Count at shop
+
+.woocommerce-widget-layered-nav ul li .count {
+  display: none;
+}
+
+.single.single-product {
+  div[id^="product-"] {
+    padding: 6rem 5rem 0 5rem;
+    background: linear-gradient(163.71deg, #321131 -77.53%, #631d62 122.63%);
+    box-shadow: 0 32px 144px rgba(0, 0, 0, 0.127049);
+
+    &::after {
+      clear: both;
+      content: " ";
+      display: table;
+    }
+  }
+
+  .summary.entry-summary {
+    width: 54%;
+    position: relative;
+  }
+
+  .woocommerce-product-gallery {
+    width: 46%;
+    margin-left: -78px;
+    bottom: -230px;
+    margin-top: -340px;
+  }
+  //realted products styling
+  .products ul,
+  ul.products {
+    margin: 17px 68px 1em;
+  }
+
+  .woocommerce-product-details {
+    &__short-description {
+      color: rgba(255, 255, 255, 0.76);
+      text-shadow: 0.1px 0.1px 3px #00000021;
+    }
+  }
+
+  .product {
+    &_title {
+      font-size: 60px;
+      line-height: 74px;
+      letter-spacing: -2.33185px;
+      color: #fff;
+      padding-bottom: 50px !important;
+    }
+  }
+
+  .product_meta {
+    color: #ffffff24;
+
+    a {
+      color: inherit;
+    }
+  }
+}
+
+.woocommerce-filters {
+  &__title {
+    letter-spacing: 0;
+    background-color: #00000008;
+    padding: 5px;
+    border-radius: 6px;
+  }
+}

@@ -1,7 +1,7 @@
 <!-- benimsorumnet section start -->
 <section class="benimsorumnet p-0">
   <div class="container-fluid">
-    <div class="row">
+    <div class="row bg-white">
       <div class="col-lg-6 p-0">
         <div id="benimsorumnet-slider" class="slider carousel slide carousel-fade" data-ride="carousel">
           <ol class="carousel-indicators">

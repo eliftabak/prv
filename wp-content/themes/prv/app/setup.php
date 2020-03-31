@@ -11,6 +11,21 @@ use Roots\Sage\Template\BladeProvider;
  * Theme assets
  */
 add_action('wp_enqueue_scripts', function () {
+
+    if (class_exists('woocommerce')) {
+        //dequeue select2 at woocommerce
+        wp_dequeue_style('selectWoo');
+        wp_deregister_style('selectWoo');
+
+
+        //dequeue select2 at woocommerce
+        wp_dequeue_script('selectWoo');
+        wp_deregister_script('selectWoo');
+        //dequeue password stremgth meter
+        wp_dequeue_script( 'wc-password-strength-meter' );
+
+    }
+
     wp_enqueue_style('sage/main.css', asset_path('styles/main.css'), false, null);
     wp_enqueue_style('fontawesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css', false, '4.7.0');
     wp_enqueue_script('sage/main.js', asset_path('scripts/main.js'), ['jquery'], null, true);
@@ -82,7 +97,6 @@ add_action('after_setup_theme', function () {
 
     add_theme_support('custom-logo');
 
-
 }, 20);
 
 /**
@@ -129,11 +143,20 @@ add_action('widgets_init', function () {
         'before_title' => '<h5 class="footer-widget__title">',
         'after_title' => '</h5>',
     ];
+    $shop = [
+        'name' => __('Woocommerce Filtreleri', 'sage'),
+        'id' => 'sidebar-shop',
+        'before_widget' => '<div class="woocommerce-filters %1$s %2$s col-12 text-right pt-5">',
+        'after_widget' => '</div>',
+        'before_title' => '<h5 class="woocommerce-filters__title">',
+        'after_title' => '</h5>',
+    ];
     register_sidebar($primary_config);
     register_sidebar($footer_config_1);
     register_sidebar($footer_config_2);
     register_sidebar($footer_config_3);
     register_sidebar($footer_config_4);
+    register_sidebar($shop);
 });
 
 /**

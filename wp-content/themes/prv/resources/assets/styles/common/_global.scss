@@ -1,3 +1,11 @@
+body {
+  &.wp-frontend {
+    overflow-x: hidden;
+    background-color: $body-bg-front;
+    color: $body-color-front;
+  }
+}
+
 i[class$="-prv-icon"] {
   font-family: $pruva-icons !important;
   speak: none;
@@ -50,6 +58,8 @@ i[class$="-prv-icon"] {
   display: none;
 }
 
+// Carousel Fade Helpers
+
 .carousel-fade {
   .carousel-item {
     opacity: 0;
@@ -77,6 +87,8 @@ i[class$="-prv-icon"] {
     transform: translate3d(0, 0, 0);
   }
 }
+
+// Page Container General Styling
 
 .container {
   &__page-content {
@@ -107,7 +119,7 @@ i[class$="-prv-icon"] {
     }
   }
 }
-
+// Yoast Styling
 #breadcrumbs {
   color: lighten($color: $primary, $amount: 60);
   letter-spacing: -0.2px;
