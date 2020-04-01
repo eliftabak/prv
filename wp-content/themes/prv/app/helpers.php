@@ -161,26 +161,80 @@ function color_converter($hex, $steps)
     return $return;
 }
 
-function view_container_handler()
+function view_container_html()
 {
 
-    global $product;
-
-    $book_url = $product->get_attribute("kitap-incele");
-    $video_url = $product->get_attribute("video-cozum");
+    $post_id = get_the_ID();
+    $video_cozum = esc_url(get_post_meta($post_id, "prv_video-cozum_url", 1));
 
     $html = '<div class="view-container">';
     $html .= '<div class="view-container__element view-container__sample">
-              <a href="' . $book_url . '">
+              <a href="" data-toggle="modal" data-target="#PDFModal">
               <i class="fa fa-search" aria-hidden="true"></i><h6>Kitabı İncele</h5>
               </a>
               </div>';
     $html .= '<div class="view-container__element view-container__book mt-2">
-              <a href="' . $video_url . '">
+              <a href="' . $video_cozum . '">
               <i class="fa fa-play" aria-hidden="true"></i><h6>Video Çözümlü</h5>
               </a>
               </div>';
     $html .= '</div>';
+    echo $html;
+
+}
+
+function product_background_color_generate()
+{
+
+    $post_id = get_the_ID();
+    $background_color = get_post_meta($post_id, 'prv_kitap_arkaplan_renk', 1);
+    $lighter = color_converter($background_color, 100);
+    $darker = color_converter($background_color, -100);
+    $image = wp_get_attachment_image_src(get_post_meta($post_id, 'prv_kitap_arkaplan_resim_id', 1), 'full')[0];
+    $result = 'url(' . $image . '),linear-gradient(163deg, ' . $lighter . ' -77%, ' . $darker . ' 122%)';
+    return $result;
+
+}
+
+function woocommerce_the_content_with_wrapper()
+{
+    $content = get_the_content();
+
+    $html = '<div class="woocommerce-product-details__full-content mb-2">';
+    $html .= '<div>' . $content . '</div>';
+    $html .= '</div>';
+    $html .= '<hr class="mb-3">';
+
+    echo $html;
+
+}
+
+function pdf_modal_html()
+{
+    $post_id = get_the_ID();
+    $kitab_incele = esc_url(get_post_meta($post_id, 'prv_kitap_inceleme_pdf', 1));
+    $html = '<!-- pdf modal start -->
+     <div class="modal fade pdf-viewer__modal" id="PDFModal" tabindex="-1" role="dialog"
+       aria-labelledby="exampleModalLabel" aria-hidden="true">
+       <div class="modal-dialog pdf-viewer__modal-dialog" role="document">
+         <div class="modal-content shadow-lg">
+           <div class="modal-body pdf-viewer__modal-body">
+             <button type="button" class="btn btn-light rounded-pill model-close pdf-viewer__model-close" data-dismiss="modal"
+               aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+             </button>
+             <!-- 16:9 aspect ratio -->
+             <div class="embed-responsive-">
+               <iframe class="embed-responsive-item pdf-viewer__iframe"
+               src="' . $kitab_incele . '" id="pdf"  frameborder="0">
+                </iframe>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+     <!-- pdf modal end -->';
+
     echo $html;
 
 }

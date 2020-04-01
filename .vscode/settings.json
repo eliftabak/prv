@@ -188,9 +188,13 @@
     "files.watcherExclude": {
         "**/.git/objects/**": true,
         "**/node_modules/**": true,
-        "**/tmp": true,
-        "wp-content/languages": true,
-        "wp-content/uploads": true,
+        "**/*cache": true,
+        "**/*tmp": true,
+        "**/*temp": true,
+        "wp-content/languages/**": true,
+        "wp-content/uploads/**": true,
+        "wp-content/plugins/**": true,
+        "wp-includes/**": true,
     },
     //FILES-END
     //SEARCH-START
@@ -208,7 +212,11 @@
         "wp-content/languages": true,
         "wp-content/uploads": true,
         "wp-content/themes/*teen": true,
-        "wp-content/themes/*ty": true
+        "wp-content/themes/*ty": true,
+        "wp-content/plugins/*": true,
+        "wp-admin/*": true,
+        "wp-includes/*": true,
+        "wp-content/themes/prv/vendor/**": true,
     },
     //SEARCH-END
 }

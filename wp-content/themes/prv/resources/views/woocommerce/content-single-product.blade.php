@@ -18,7 +18,7 @@
 defined( 'ABSPATH' ) || exit;
 
 global $product;
-use function  App\color_converter;
+use function  App\product_background_color_generate;
 
 /**
  * Hook: woocommerce_before_single_product.
@@ -32,19 +32,11 @@ if ( post_password_required() ) {
 	return;
 }
 
-
-
-$background_color= $product->get_attribute( 'background-color' );
-$lighter = color_converter($background_color, 100);
-$darker =  color_converter($background_color, -100);
-$image = wp_get_attachment_image_src( get_post_meta( get_the_ID(), 'prv_kitap_arkaplan_resim_id', 1 ), 'full' )[0];
-$result ='url('.$image.'),linear-gradient(163deg, '.$lighter.' -77%, '.$darker.' 122%)';
-
 ?>
 
 
 
-<div style="background:<?php echo $result; ?>" id="product-<?php the_ID(); ?>"
+<div style="background:<?php echo product_background_color_generate(); ?>" id="product-<?php the_ID(); ?>"
   <?php wc_product_class( '', $product ); ?>>
 
   <?php

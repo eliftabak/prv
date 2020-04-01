@@ -29,8 +29,9 @@
                     <div class="modal-dialog neden-sorular-konusuyor__modal-dialog" role="document">
                       <div class="modal-content shadow-lg">
                         <div class="modal-body neden-sorular-konusuyor__modal-body">
-                          <button type="button" class="close neden-sorular-konusuyor__model-close" data-dismiss="modal"
-                            aria-label="Close">
+                          <button type="button"
+                            class="btn btn-light rounded-pill model-close neden-sorular-konusuyor__model-close"
+                            data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                           </button>
                           <!-- 16:9 aspect ratio -->

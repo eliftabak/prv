@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 export default {
   init() {
     $(window).on('scroll', function () {

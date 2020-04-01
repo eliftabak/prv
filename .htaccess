@@ -13,3 +13,7 @@ RewriteRule . /websiteler/pruvaakademi.com/index.php [L]
 </IfModule>
 
 # END WordPress
+
+
+#Disable Directory Browsing
+Options -Indexes

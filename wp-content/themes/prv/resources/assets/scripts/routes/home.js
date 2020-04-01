@@ -1,6 +1,7 @@
+import $ from 'jquery';
+
 export default {
   init() {
-
     function sorularKonusuyorModalVideo(){
       const modelID = '#SKModal';
       const playButtonClass = '.neden-sorular-konusuyor__play';
@@ -36,8 +37,6 @@ export default {
 
       sorularKonusuyorModalVideo();
       toolTipInit();
-
-
       });
   },
   finalize() {

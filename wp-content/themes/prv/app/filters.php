@@ -281,7 +281,9 @@ add_action('template_redirect', function () {
 
         add_action('woocommerce_before_single_product_summary', 'woocommerce_breadcrumb', 15);
         add_action('woocommerce_before_single_product_summary', 'woocommerce_output_all_notices', 16);
-        add_action('woocommerce_before_single_product_summary', 'App\view_container_handler', 25);
+        add_action('woocommerce_before_single_product_summary', 'App\pdf_modal_html', 24);
+        add_action('woocommerce_before_single_product_summary', 'App\view_container_html', 25);
+        add_action('woocommerce_single_product_summary', 'App\woocommerce_the_content_with_wrapper', 6);
         add_action('woocommerce_after_add_to_cart_quantity', 'woocommerce_template_single_price', 5);
         add_action('woocommerce_after_single_product_summary', 'woocommerce_template_single_add_to_cart', 5);
         add_action('woocommerce_after_main_content', 'woocommerce_output_related_products', 20);

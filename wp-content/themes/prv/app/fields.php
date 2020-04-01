@@ -4,11 +4,13 @@ namespace App;
 
 add_action('cmb2_admin_init', function () {
     /**
+     *
      * Single Product Meta Boxes
+     *
      */
     $cmb = new_cmb2_box(array(
-        'id' => 'single_product_metabox',
         'title' => __('Ürün ekstra alanları', 'sage'),
+        'id' => 'single_product_metabox',
         'object_types' => array('product'), // Post type
         'context' => 'normal',
         'priority' => 'high',
@@ -17,7 +19,6 @@ add_action('cmb2_admin_init', function () {
         // 'closed'     => true, // Keep the metabox closed by default
     ));
 
-    // URL text field
     $cmb->add_field(array(
         'name' => __('Video çözüm linki', 'sage'),
         'desc' => __('Örnek: "http://domain.com/link" gibi', 'sage'),
@@ -27,15 +28,6 @@ add_action('cmb2_admin_init', function () {
         // 'repeatable' => true,
     ));
 
-    // URL text field
-    $cmb->add_field(array(
-        'name' => __('Kitap inceleme pdf linki', 'sage'),
-        'desc' => __('Örnek: "http://domain.com/exapmle.pdf" gibi', 'sage'),
-        'id' => 'prv_kitap_inceleme_url',
-        'type' => 'text_url',
-        // 'protocols' => array('http', 'https', 'ftp', 'ftps', 'mailto', 'news', 'irc', 'gopher', 'nntp', 'feed', 'telnet'), // Array of allowed protocols
-        // 'repeatable' => true,
-    ));
     $cmb->add_field(array(
         'name' => __('Sayfa arkaplan rengi', 'sage'),
         'desc' => __('Kitabın arka planında gözüken renk seçme alanı', 'sage'),
@@ -48,8 +40,27 @@ add_action('cmb2_admin_init', function () {
     ));
 
     $cmb->add_field(array(
-        'name' => 'Akraplan resmi',
-        'desc' => 'Kitap arka plan desen resmi yükleyin',
+        'name' => __('Kitap inceleme pdf linki', 'sage'),
+        'desc' => __('Örnek: "http://domain.com/exapmle.pdf" gibi', 'sage'),
+        'id' => 'prv_kitap_inceleme_pdf',
+        'type' => 'file',
+        // Optional:
+        'options' => array(
+            'url' => false, // Hide the text input for the url
+        ),
+        'text' => array(
+            'add_upload_file_text' => __('PDF ekle', 'sage'), // Change upload button text. Default: "Add or Upload File"
+        ),
+        // query_args are passed to wp.media's library query.
+        'query_args' => array(
+            'type' => 'application/pdf', // Make library only display PDFs.
+        ),
+        'preview_size' => 'large', // Image size to use when previewing in the admin.
+    ));
+
+    $cmb->add_field(array(
+        'name' => __('Akraplan resmi', 'sage'),
+        'desc' => __('Kitap arka plan desen resmi yükleyin', 'sage'),
         'id' => 'prv_kitap_arkaplan_resim',
         'type' => 'file',
         // Optional:
@@ -57,11 +68,10 @@ add_action('cmb2_admin_init', function () {
             'url' => false, // Hide the text input for the url
         ),
         'text' => array(
-            'add_upload_file_text' => 'Resim ekle', // Change upload button text. Default: "Add or Upload File"
+            'add_upload_file_text' => __('Resim ekle', 'sage'), // Change upload button text. Default: "Add or Upload File"
         ),
         // query_args are passed to wp.media's library query.
         'query_args' => array(
-            //Or only allow gif, jpg, or png images
             'type' => array(
                 'image/gif',
                 'image/jpeg',
