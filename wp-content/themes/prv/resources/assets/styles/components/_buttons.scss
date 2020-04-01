@@ -30,3 +30,20 @@
   font-size: xx-large;
   padding: 0.31em 1em !important;
 }
+
+.btn-single-product-add-to-cart {
+  transition: all 0.4s;
+  float: unset;
+  height: 102%;
+  border: unset;
+  color: white;
+  background: linear-gradient(140.65deg, #9b66ff -39.89%, #6236ff 99.96%);
+  border-radius: 53px;
+  padding-right: 3rem !important;
+  padding-left: 3rem !important;
+
+  &:hover {
+    color: inherit;
+    background: linear-gradient(140.65deg, #9b66ff -39.89%, #4226a7 99.96%);
+  }
+}

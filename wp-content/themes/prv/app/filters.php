@@ -94,13 +94,6 @@ add_filter('comments_template', function ($comments_template) {
     return $comments_template;
 }, 100);
 
-// Tutorial: http://www.skyverge.com/blog/change-woocommerce-return-to-shop-button/
-
-add_filter('woocommerce_return_to_shop_redirect', function () {
-    return get_site_url();
-    //Can use any page instead, like return '/sample-page/';
-});
-
 add_filter('sage/display_sidebar', function ($display) {
     static $display;
 
@@ -111,6 +104,13 @@ add_filter('sage/display_sidebar', function ($display) {
     ]);
 
     return $display;
+});
+
+// Tutorial: http://www.skyverge.com/blog/change-woocommerce-return-to-shop-button/
+
+add_filter('woocommerce_return_to_shop_redirect', function () {
+    return get_site_url();
+    //Can use any page instead, like return '/sample-page/';
 });
 
 /**
@@ -209,6 +209,12 @@ $defaults = array(
 
 add_filter('jpeg_quality', function ($arg) {return 100;});
 
+// SVG Support Upload Support
+add_filter('upload_mimes', function ($mimes) {
+    $mimes['svg'] = 'image/svg+xml';
+    return $mimes;
+});
+
 // WooCommerce Picture Size Filters
 
 add_filter('woocommerce_get_image_size_thumbnail', function ($size) {
@@ -265,7 +271,7 @@ add_action('template_redirect', function () {
 
     if (is_product()) {
 
-        remove_action('woocommerce_before_single_product', 'wc_print_notices', 10);
+        remove_action('woocommerce_before_single_product', 'woocommerce_output_all_notices', 10);
         remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20);
         remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10);
         remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20);
@@ -274,8 +280,61 @@ add_action('template_redirect', function () {
         remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30);
 
         add_action('woocommerce_before_single_product_summary', 'woocommerce_breadcrumb', 15);
+        add_action('woocommerce_before_single_product_summary', 'woocommerce_output_all_notices', 16);
+        add_action('woocommerce_before_single_product_summary', 'App\view_container_handler', 25);
+        add_action('woocommerce_after_add_to_cart_quantity', 'woocommerce_template_single_price', 5);
+        add_action('woocommerce_after_single_product_summary', 'woocommerce_template_single_add_to_cart', 5);
         add_action('woocommerce_after_main_content', 'woocommerce_output_related_products', 20);
 
     }
 
 });
+
+// WooCommerce Produckt Quantity Filters
+
+add_action('wp_footer', function () {
+// To run this on the single product page
+    if (!is_product()) {
+        return;
+    }
+
+    ?>
+<script type="text/javascript">
+
+jQuery(document).ready(function($){
+
+$('form.cart').on( 'click', 'i.cart-qty-plus, i.cart-qty-minus', function() {
+
+// Get current quantity values
+var qty = $( this ).closest( 'form.cart' ).find( '.qty' );
+var val = parseFloat(qty.val());
+var max = parseFloat(qty.attr( 'max' ));
+var min = parseFloat(qty.attr( 'min' ));
+var step = parseFloat(qty.attr( 'step' ));
+
+// Change the value if plus or minus
+if ( $( this ).is( '.cart-qty-plus' ) ) {
+if ( max && ( max <= val ) ) {
+qty.val( max );
+}
+else {
+qty.val( val + step );
+}
+}
+else {
+if ( min && ( min >= val ) ) {
+qty.val( min );
+}
+else if ( val > 1 ) {
+qty.val( val - step );
+}
+}
+
+});
+
+});
+
+</script>
+<?php
+}
+);

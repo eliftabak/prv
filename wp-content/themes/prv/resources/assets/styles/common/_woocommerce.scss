@@ -89,7 +89,7 @@
   }
 
   .summary.entry-summary {
-    width: 54%;
+    width: 44%;
     position: relative;
   }
 
@@ -126,6 +126,121 @@
     color: #ffffff24;
 
     a {
+      color: inherit;
+    }
+  }
+
+  .woocommerce-Price-amount.amount {
+    color: black;
+    font-weight: 600;
+  }
+
+  //Hide Arrows From Input Number
+
+  /* Chrome, Safari, Edge, Opera */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  input[type="number"] {
+    -moz-appearance: textfield;
+    border-style: none;
+    background-color: unset;
+    font: 600 1.3rem $font-family-sans-serif !important;
+    padding-right: 5px;
+    width: 50px;
+  }
+
+  form.cart {
+    position: absolute;
+    right: 43px;
+    bottom: -31px;
+    background: $white;
+    border-radius: 53px;
+    margin-bottom: unset !important;
+    height: 66px;
+    display: flex;
+    align-items: center;
+    padding-left: 11px;
+    box-shadow: 0 12px 47px rgba(0, 0, 0, 0.157616);
+  }
+
+  .quantity {
+    float: unset !important;
+    margin: unset !important;
+    display: inline-block;
+  }
+
+  .cart-qty {
+    font-size: 1.3rem;
+    position: relative;
+    color: #9b66ff;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &-minus {
+      left: -10px;
+    }
+
+    &-plus {
+      right: -10px;
+    }
+  }
+
+  .price {
+    font-size: 1.8rem !important;
+    padding-left: 10px;
+    float: unset;
+    margin: unset;
+  }
+
+  .view-container {
+    color: $white;
+    float: left;
+    width: 10%;
+    position: relative;
+    left: -5.56%;
+    margin-top: 23%;
+
+    i {
+      font-size: 2rem;
+      float: inherit;
+      padding-right: 10px;
+    }
+
+    h6 {
+      margin: unset;
+      line-height: 1;
+    }
+
+    &__element {
+      height: 80px;
+      transition: all 0.4s;
+      background: linear-gradient(140.65deg, #9b66ff -39.89%, #6236ff 99.96%);
+      border-radius: 0 100px 100px 0;
+      box-shadow: 8px 0 0 rgba(0, 0, 0, 0.07),
+        0 12px 47px rgba(0, 0, 0, 0.157616);
+
+      &:hover {
+        background: linear-gradient(140.65deg, #9b66ff -39.89%, #4925cc 99.96%);
+
+        a {
+          text-decoration: unset;
+        }
+      }
+    }
+
+    a {
+      align-items: center;
+      padding: 19px;
+      height: 100%;
+      width: 100%;
+      display: flex;
       color: inherit;
     }
   }

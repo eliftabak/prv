@@ -23,51 +23,14 @@ msgstr "Yirmi Yirmi"
 msgid "Show author bio"
 msgstr "Yazar biyografisini göster"
 
-#: template-parts/entry-author-bio.php:29
-msgid "View Archive <span aria-hidden=\"true\">&rarr;</span>"
-msgstr "Arşivi görüntüle <span aria-hidden=\"true\">&rarr;</span>"
-
 #: inc/starter-content.php:38
 msgctxt "Theme starter content"
 msgid "The New UMoMA Opens its Doors"
 msgstr "Yeni UMoMA kapılarını açıyor"
 
-#: inc/template-tags.php:393
-msgctxt "A string that is output before one or more categories"
-msgid "In"
-msgstr "Kategori"
-
-#: inc/starter-content.php:150
-msgid "Join the Club"
-msgstr "Kulübe katılın"
-
-#: inc/starter-content.php:147
-msgid "Members get access to exclusive exhibits and sales. Our memberships cost $99.99 and are billed annually."
-msgstr "Üyeler özel sergilere ve satışlara ulaşabiliyor. Üyelik ücretimiz 99,99$ ve yıllık ücretlendirilir."
-
-#: inc/starter-content.php:144
-msgid "Become a Member and Get Exclusive Offers!"
-msgstr "Üye olun ve özel teklifler alın!"
-
-#: inc/starter-content.php:136
-msgid "The exhibitions are produced by UMoMA in collaboration with artists and museums around the world and they often attract international attention. UMoMA has received a Special Commendation from the European Museum of the Year, and was among the top candidates for the Swedish Museum of the Year Award as well as for the Council of Europe Museum Prize."
-msgstr "Sergiler UMoMA tarafından yapılmaktadır ve dünyanın her yerinden sanatçılar ve müzeler tarafından desteklenmektedir, çoğunlukla da uluslararası bir ilgi görmektedir. UMoMA Avrupa Yılın müzesi özel ödülünü almıştır ve İsveç Yılın Müzesi, Avrupa Konseyi Müze ödülü gibi bir çok ödül için de üst sıralarda aday gösterilmektedir."
-
-#: inc/starter-content.php:133
-msgid "With seven floors of striking architecture, UMoMA shows exhibitions of international contemporary art, sometimes along with art historical retrospectives. Existential, political and philosophical issues are intrinsic to our programme. As visitor you are invited to guided tours artist talks, lectures, film screenings and other events with free admission"
-msgstr "Yedi katlı çarpıcı mimarisi ile UMoMA uluslararası modern sanat sergileri ve kimi zaman da retrospektif tarihi sanat sergileri sergiler. Varoluçu, politik ve felsefi konular programımızın vazgeçilmez parçalarıdır. Ziyaretçilerimiz olarak rehberleri sanatçı konuşmaları, dersler, film gösterimleri ve bir çok etkinliğe ücretsiz katılabilirsiniz"
-
-#: inc/starter-content.php:129
-msgid "”Cyborgs, as the philosopher Donna Haraway established, are not reverent. They do not remember the cosmos.”"
-msgstr "\"Sayborglar, filozof Donna Haraway'in konumlandırdığı gibi, hürmetkar değiller. Evreni hatırlamıyorlar.\""
-
-#: inc/starter-content.php:113
-msgid "From Signac to Matisse"
-msgstr "Signac'tan Matisse'e"
-
-#: inc/starter-content.php:98
-msgid "The Life I Deserve"
-msgstr "Hak Ettiğim Yaşam"
+#: template-parts/entry-author-bio.php:29
+msgid "View Archive <span aria-hidden=\"true\">&rarr;</span>"
+msgstr "Arşivi görüntüle <span aria-hidden=\"true\">&rarr;</span>"
 
 #: inc/starter-content.php:84 inc/starter-content.php:116
 msgid "October 1 -- December 1"
@@ -90,9 +53,26 @@ msgstr "Ağustos 1 -- Aralık 1"
 msgid "Works and Days"
 msgstr "Çalışmalar ve Günler"
 
-#: inc/starter-content.php:55
-msgid "The premier destination for modern art in Northern Sweden. Open from 10 AM to 6 PM every day during the summer months."
-msgstr "Kuzey İsveç'te çağdaş sanat için birincil varış noktanız. Yaz aylarında her gün 10 ile 18 arası açık."
+#: classes/class-twentytwenty-customize.php:126
+msgid "Custom"
+msgstr "Özel"
+
+#: classes/class-twentytwenty-customize.php:125
+msgid "Default"
+msgstr "Varsayılan"
+
+#: classes/class-twentytwenty-customize.php:123
+msgid "Primary Color"
+msgstr "Birincil renk"
+
+#: inc/template-tags.php:393
+msgctxt "A string that is output before one or more categories"
+msgid "In"
+msgstr "Kategori"
+
+#: inc/starter-content.php:150
+msgid "Join the Club"
+msgstr "Kulübe katılın"
 
 #: inc/starter-content.php:47
 msgid "The New UMoMA Opens its Doors"
@@ -101,6 +81,22 @@ msgstr "Yeni UMoMA kapılarını açıyor"
 #: classes/class-twentytwenty-customize.php:395
 msgid "Overlay Opacity"
 msgstr "Kaplama şeffaflığı"
+
+#: inc/starter-content.php:113
+msgid "From Signac to Matisse"
+msgstr "Signac'tan Matisse'e"
+
+#: inc/starter-content.php:98
+msgid "The Life I Deserve"
+msgstr "Hak Ettiğim Yaşam"
+
+#: inc/starter-content.php:147
+msgid "Members get access to exclusive exhibits and sales. Our memberships cost $99.99 and are billed annually."
+msgstr "Üyeler özel sergilere ve satışlara ulaşabiliyor. Üyelik ücretimiz 99,99$ ve yıllık ücretlendirilir."
+
+#: inc/starter-content.php:144
+msgid "Become a Member and Get Exclusive Offers!"
+msgstr "Üye olun ve özel teklifler alın!"
 
 #: classes/class-twentytwenty-customize.php:375
 msgid "The color used for the text in the overlay."
@@ -126,113 +122,132 @@ msgstr "\"Kapak şablonu\" sayfa şablonu için ayarlar. Arka plan olarak kullan
 msgid "Apply a custom color for links, buttons, featured images."
 msgstr "Bağlantılar, düğmeler ve öne çıkan görseller için özel bir renk uygulayın."
 
-#: classes/class-twentytwenty-customize.php:126
-msgid "Custom"
-msgstr "Özel"
+#: inc/starter-content.php:136
+msgid "The exhibitions are produced by UMoMA in collaboration with artists and museums around the world and they often attract international attention. UMoMA has received a Special Commendation from the European Museum of the Year, and was among the top candidates for the Swedish Museum of the Year Award as well as for the Council of Europe Museum Prize."
+msgstr "Sergiler UMoMA tarafından yapılmaktadır ve dünyanın her yerinden sanatçılar ve müzeler tarafından desteklenmektedir, çoğunlukla da uluslararası bir ilgi görmektedir. UMoMA Avrupa Yılın müzesi özel ödülünü almıştır ve İsveç Yılın Müzesi, Avrupa Konseyi Müze ödülü gibi bir çok ödül için de üst sıralarda aday gösterilmektedir."
 
-#: classes/class-twentytwenty-customize.php:125
-msgid "Default"
-msgstr "Varsayılan"
+#: inc/starter-content.php:55
+msgid "The premier destination for modern art in Northern Sweden. Open from 10 AM to 6 PM every day during the summer months."
+msgstr "Kuzey İsveç'te çağdaş sanat için birincil varış noktanız. Yaz aylarında her gün 10 ile 18 arası açık."
 
-#: classes/class-twentytwenty-customize.php:123
-msgid "Primary Color"
-msgstr "Birincil renk"
+#: inc/starter-content.php:133
+msgid "With seven floors of striking architecture, UMoMA shows exhibitions of international contemporary art, sometimes along with art historical retrospectives. Existential, political and philosophical issues are intrinsic to our programme. As visitor you are invited to guided tours artist talks, lectures, film screenings and other events with free admission"
+msgstr "Yedi katlı çarpıcı mimarisi ile UMoMA uluslararası modern sanat sergileri ve kimi zaman da retrospektif tarihi sanat sergileri sergiler. Varoluçu, politik ve felsefi konular programımızın vazgeçilmez parçalarıdır. Ziyaretçilerimiz olarak rehberleri sanatçı konuşmaları, dersler, film gösterimleri ve bir çok etkinliğe ücretsiz katılabilirsiniz"
 
-#: template-parts/modal-search.php:20 searchform.php:24
+#: searchform.php:24 template-parts/modal-search.php:20
 msgid "Search for:"
 msgstr "Arama yap:"
 
-#: index.php:99
-msgid "search again"
-msgstr "tekrar arayın"
+#. translators: Copyright date format, see https://www.php.net/date
+#: footer.php:25
+msgctxt "copyright date format"
+msgid "Y"
+msgstr "Y"
 
-#. translators: %s: Number of search results
+#. translators: %s: Number of search results.
 #: index.php:39
 msgid "We found %s result for your search."
 msgid_plural "We found %s results for your search."
 msgstr[0] "Aramanız için %s sonuç bulduk."
 msgstr[1] "Aramanız için %s sonuç bulduk."
 
-#. translators: %s: HTML character for up arrow
+#. translators: %s: HTML character for up arrow.
 #: footer.php:49
 msgid "Up %s"
 msgstr "Yukarı %s"
 
-#. translators: %s: HTML character for up arrow
+#. translators: %s: HTML character for up arrow.
 #: footer.php:43
 msgid "To the top %s"
 msgstr "Tepeye %s"
-
-#. translators: Copyright date format, see https://secure.php.net/date
-#: footer.php:25
-msgctxt "copyright date format"
-msgid "Y"
-msgstr "Y"
 
 #: 404.php:24
 msgid "404 not found"
 msgstr "404 bulunamadı"
 
-#. Template Name of the theme
-msgid "Full Width Template"
-msgstr "Tam genişlikli şablon"
+#: index.php:99
+msgid "search again"
+msgstr "tekrar arayın"
 
-#: template-parts/pagination.php:25
-msgid "Older <span class=\"nav-short\">Posts</span>"
-msgstr "Daha eski <span class=\"nav-short\">yazılar</span>"
+#. translators: 1: Comment date, 2: Comment time.
+#: classes/class-twentytwenty-walker-comment.php:69
+msgid "%1$s at %2$s"
+msgstr "%1$s, %2$s"
 
-#: template-parts/pagination.php:21
-msgid "Newer <span class=\"nav-short\">Posts</span>"
-msgstr "Daha yeni <span class=\"nav-short\">yazılar</span>"
+#: classes/class-twentytwenty-walker-comment.php:77
+msgid "Edit"
+msgstr "Düzenle"
 
-#: template-parts/navigation.php:25
-msgid "Post"
-msgstr "Gönderi"
+#: classes/class-twentytwenty-walker-comment.php:92
+msgid "Your comment is awaiting moderation."
+msgstr "Yorumunuz denetim için bekliyor."
 
-#: template-parts/modal-search.php:26
-msgid "Close search"
-msgstr "Aramayı kapat"
+#: comments.php:34
+msgid "Leave a comment"
+msgstr "Yorum Gönderin"
 
-#: template-parts/modal-menu.php:117
-msgid "Expanded Social links"
-msgstr "Sosyal bağlantıları genişlet"
+#. translators: %s: Post title.
+#: comments.php:37
+msgctxt "comments title"
+msgid "One reply on &ldquo;%s&rdquo;"
+msgstr "&ldquo;%s&rdquo; için bir yanıt"
 
-#: template-parts/modal-menu.php:73
-msgid "Mobile"
-msgstr "Mobil"
+#. translators: 1: Number of comments, 2: Post title.
+#: comments.php:41
+msgctxt "comments title"
+msgid "%1$s reply on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s replies on &ldquo;%2$s&rdquo;"
+msgstr[0] "&ldquo;%2$s&rdquo; için %1$s yanıt"
+msgstr[1] "&ldquo;%2$s&rdquo; için %1$s yanıt"
 
-#: template-parts/modal-menu.php:48
-msgid "Expanded"
-msgstr "Genişletilmiş"
+#: comments.php:88
+msgid "Comments"
+msgstr "Yorumlar"
 
-#: template-parts/modal-menu.php:21
-msgid "Close Menu"
-msgstr "Menüyü kapat"
+#: comments.php:127
+msgid "Comments are closed."
+msgstr "Yorumlar kapatıldı."
 
-#: template-parts/footer-menus-widgets.php:57
-msgid "Social links"
-msgstr "Sosyal Ağ Linkleri"
+#: inc/starter-content.php:176 inc/starter-content.php:186 functions.php:494
+msgid "Primary"
+msgstr "Birincil"
+
+#: inc/starter-content.php:196
+msgid "Social Links Menu"
+msgstr "Sosyal bağlantılar menüsü"
+
+#. translators: %s: Post title. Only visible to screen readers.
+#: inc/template-tags.php:206
+msgid "Edit <span class=\"screen-reader-text\">%s</span>"
+msgstr "Düzenle <span class=\"screen-reader-text\">%s</span>"
+
+#: functions.php:261
+msgid "Footer Menu"
+msgstr "Site altı menüsü"
+
+#: template-parts/content-cover.php:138 template-parts/content.php:48
+msgid "Pages:"
+msgstr "Sayfalar:"
 
 #: template-parts/footer-menus-widgets.php:37
 msgid "Footer"
 msgstr "Dip"
 
-#. translators: %s: Author name
-#: template-parts/entry-author-bio.php:20 inc/template-tags.php:354
-msgid "By %s"
-msgstr "Yazar %s"
-
-#: template-parts/content.php:48 template-parts/content-cover.php:138
-msgid "Pages:"
-msgstr "Sayfalar:"
-
-#: template-parts/content.php:48 template-parts/content-cover.php:138
+#: template-parts/content-cover.php:138 template-parts/content.php:48
 msgid "Page"
 msgstr "Sayfa"
 
-#: template-parts/content-cover.php:88
-msgid "Scroll Down"
-msgstr "Aşağı kaydır"
+#: functions.php:499
+msgid "Secondary"
+msgstr "İkincil"
+
+#: template-parts/modal-menu.php:73
+msgid "Mobile"
+msgstr "Mobil"
+
+#: template-parts/footer-menus-widgets.php:57
+msgid "Social links"
+msgstr "Sosyal Ağ Linkleri"
 
 #: searchform.php:27
 msgctxt "submit button"
@@ -244,47 +259,14 @@ msgctxt "placeholder"
 msgid "Search &hellip;"
 msgstr "Ara &hellip;"
 
-#: index.php:48
-msgid "We could not find any results for your search. You can give it another try through the search form below."
-msgstr "Aramanızla örtüşen sonuç bulamadık. Aşağıdaki form ile tekrar arama yapmayı deneyebilirsiniz."
-
-#: index.php:32
-msgid "Search:"
-msgstr "Arama:"
-
-#. translators: %s: Post title. Only visible to screen readers.
-#: inc/template-tags.php:206
-msgid "Edit <span class=\"screen-reader-text\">%s</span>"
-msgstr "Düzenle <span class=\"screen-reader-text\">%s</span>"
-
-#: inc/template-tags.php:445
-msgid "Sticky post"
-msgstr "Sabit yazı"
-
 #: inc/template-tags.php:407
 msgid "Tags"
 msgstr "Etiketler"
 
-#: template-parts/content-cover.php:70 template-parts/entry-header.php:36
-#: inc/template-tags.php:389
+#: inc/template-tags.php:389 template-parts/entry-header.php:36
+#: template-parts/content-cover.php:70
 msgid "Categories"
 msgstr "Kategoriler"
-
-#: inc/template-tags.php:371
-msgid "Post date"
-msgstr "Yazı tarihi"
-
-#: inc/template-tags.php:347
-msgid "Post author"
-msgstr "Yazının yazarı"
-
-#: inc/starter-content.php:196
-msgid "Social Links Menu"
-msgstr "Sosyal bağlantılar menüsü"
-
-#: functions.php:491 inc/starter-content.php:176 inc/starter-content.php:186
-msgid "Primary"
-msgstr "Birincil"
 
 #: header.php:88
 msgid "Horizontal"
@@ -302,113 +284,61 @@ msgstr "Site araması"
 msgid "Continue reading"
 msgstr "Okumaya devam et"
 
-#: functions.php:548
+#: functions.php:551
 msgctxt "Short name of the larger font size in the block editor."
 msgid "XL"
 msgstr "XL"
 
-#: functions.php:547
+#: functions.php:550
 msgctxt "Name of the larger font size in the block editor"
 msgid "Larger"
 msgstr "Daha büyük"
 
-#: functions.php:542
+#: functions.php:545
 msgctxt "Short name of the large font size in the block editor."
 msgid "L"
 msgstr "L"
 
-#: functions.php:541
+#: functions.php:544
 msgctxt "Name of the large font size in the block editor"
 msgid "Large"
 msgstr "Büyük"
 
-#: functions.php:536
+#: functions.php:539
 msgctxt "Short name of the regular font size in the block editor."
 msgid "M"
 msgstr "P"
 
-#: functions.php:535
+#: functions.php:538
 msgctxt "Name of the regular font size in the block editor"
 msgid "Regular"
 msgstr "Normal"
 
-#: functions.php:530
+#: functions.php:533
 msgctxt "Short name of the small font size in the block editor."
 msgid "S"
 msgstr "P"
 
-#: functions.php:529
+#: functions.php:532
 msgctxt "Name of the small font size in the block editor"
 msgid "Small"
 msgstr "Küçük"
 
-#: functions.php:514
+#: functions.php:517
 msgid "Background Color"
 msgstr "Arka Plan Rengi"
 
-#: functions.php:501
-msgid "Subtle Background"
-msgstr "Hafif arka plan"
-
-#: functions.php:496
-msgid "Secondary"
-msgstr "İkincil"
-
-#: functions.php:486
-msgid "Accent Color"
-msgstr "Vurgu rengi"
-
-#: functions.php:377
-msgid "Widgets in this area will be displayed in the second column in the footer."
-msgstr "Bu alandaki bileşenler alt kısımda ikinci sütunda görüntülenirler."
-
-#: functions.php:375
-msgid "Footer #2"
-msgstr "Alt kısım #2"
-
-#: functions.php:365
-msgid "Widgets in this area will be displayed in the first column in the footer."
-msgstr "Bu alandaki bileşenler alt kısımda birinci sütunda görüntülenirler."
-
-#: functions.php:363
-msgid "Footer #1"
-msgstr "Alt kısım #1"
-
-#: functions.php:338
-msgid "Skip to the content"
-msgstr "İçeriğe atla"
-
-#: functions.php:259
+#: functions.php:262
 msgid "Social Menu"
 msgstr "Sosyal Menü"
 
-#: functions.php:258
-msgid "Footer Menu"
-msgstr "Site altı menüsü"
-
-#: functions.php:257
+#: functions.php:260
 msgid "Mobile Menu"
 msgstr "Mobil menü"
-
-#: functions.php:256
-msgid "Desktop Expanded Menu"
-msgstr "Masaüstü genişletilmiş menü"
-
-#: functions.php:255
-msgid "Desktop Horizontal Menu"
-msgstr "Masaüstü yatay menü"
 
 #: footer.php:33
 msgid "Powered by WordPress"
 msgstr "WordPress'in desteğiyle"
-
-#: comments.php:127
-msgid "Comments are closed."
-msgstr "Yorumlar kapatıldı."
-
-#: comments.php:88
-msgid "Comments"
-msgstr "Yorumlar"
 
 #: comments.php:75
 msgid "Older Comments"
@@ -418,53 +348,131 @@ msgstr "Eski yorumlar"
 msgid "Newer Comments"
 msgstr "Yeni yorumlar"
 
-#. translators: 1: number of comments, 2: post title
-#: comments.php:41
-msgctxt "comments title"
-msgid "%1$s reply on &ldquo;%2$s&rdquo;"
-msgid_plural "%1$s replies on &ldquo;%2$s&rdquo;"
-msgstr[0] "&ldquo;%2$s&rdquo; için %1$s yanıt"
-msgstr[1] "&ldquo;%2$s&rdquo; için %1$s yanıt"
-
-#. translators: %s: post title
-#: comments.php:37
-msgctxt "comments title"
-msgid "One reply on &ldquo;%s&rdquo;"
-msgstr "&ldquo;%s&rdquo; için bir yanıt"
-
-#: comments.php:34
-msgid "Leave a comment"
-msgstr "Yorum Gönderin"
-
-#: classes/class-twentytwenty-walker-page.php:134 inc/template-tags.php:555
-msgid "Show sub menu"
-msgstr "Alt menüyü göster"
-
-#. translators: %d: ID of a post
-#: classes/class-twentytwenty-walker-page.php:82
+#. translators: %d: ID of a post.
+#: classes/class-twentytwenty-walker-page.php:70
 msgid "#%d (no title)"
 msgstr "#%d (başlık yok)"
-
-#: classes/class-twentytwenty-walker-comment.php:127
-msgid "By Post Author"
-msgstr "Yazı yazarına göre"
-
-#: classes/class-twentytwenty-walker-comment.php:92
-msgid "Your comment is awaiting moderation."
-msgstr "Yorumunuz denetim için bekliyor."
-
-#: classes/class-twentytwenty-walker-comment.php:77
-msgid "Edit"
-msgstr "Düzenle"
-
-#. Translators: 1 = comment date, 2 = comment time
-#: classes/class-twentytwenty-walker-comment.php:69
-msgid "%1$s at %2$s"
-msgstr "%1$s, %2$s"
 
 #: classes/class-twentytwenty-walker-comment.php:56
 msgid "says:"
 msgstr "diyorki:"
+
+#: classes/class-twentytwenty-customize.php:270
+msgid "Summary"
+msgstr "Özet"
+
+#: classes/class-twentytwenty-customize.php:269
+msgid "Full text"
+msgstr "Tüm metin"
+
+#: classes/class-twentytwenty-customize.php:202
+msgid "Theme Options"
+msgstr "Tema seçenekleri"
+
+#: 404.php:17
+msgid "Page Not Found"
+msgstr "Sayfa Bulunamadı"
+
+#: template-parts/navigation.php:25
+msgid "Post"
+msgstr "Gönderi"
+
+#: template-parts/modal-search.php:26
+msgid "Close search"
+msgstr "Aramayı kapat"
+
+#: template-parts/modal-menu.php:117
+msgid "Expanded Social links"
+msgstr "Sosyal bağlantıları genişlet"
+
+#: template-parts/modal-menu.php:48
+msgid "Expanded"
+msgstr "Genişletilmiş"
+
+#: template-parts/modal-menu.php:21
+msgid "Close Menu"
+msgstr "Menüyü kapat"
+
+#. Template Name of the theme
+msgid "Full Width Template"
+msgstr "Tam genişlikli şablon"
+
+#: template-parts/pagination.php:25
+msgid "Older <span class=\"nav-short\">Posts</span>"
+msgstr "Daha eski <span class=\"nav-short\">yazılar</span>"
+
+#: template-parts/pagination.php:21
+msgid "Newer <span class=\"nav-short\">Posts</span>"
+msgstr "Daha yeni <span class=\"nav-short\">yazılar</span>"
+
+#. translators: %s: Author name.
+#: inc/template-tags.php:354 template-parts/entry-author-bio.php:20
+msgid "By %s"
+msgstr "Yazar %s"
+
+#: template-parts/content-cover.php:88
+msgid "Scroll Down"
+msgstr "Aşağı kaydır"
+
+#: index.php:48
+msgid "We could not find any results for your search. You can give it another try through the search form below."
+msgstr "Aramanızla örtüşen sonuç bulamadık. Aşağıdaki form ile tekrar arama yapmayı deneyebilirsiniz."
+
+#: index.php:32
+msgid "Search:"
+msgstr "Arama:"
+
+#: inc/template-tags.php:445
+msgid "Sticky post"
+msgstr "Sabit yazı"
+
+#: inc/template-tags.php:371
+msgid "Post date"
+msgstr "Yazı tarihi"
+
+#: inc/template-tags.php:347
+msgid "Post author"
+msgstr "Yazının yazarı"
+
+#: functions.php:504
+msgid "Subtle Background"
+msgstr "Hafif arka plan"
+
+#: functions.php:489
+msgid "Accent Color"
+msgstr "Vurgu rengi"
+
+#: functions.php:380
+msgid "Widgets in this area will be displayed in the second column in the footer."
+msgstr "Bu alandaki bileşenler alt kısımda ikinci sütunda görüntülenirler."
+
+#: functions.php:378
+msgid "Footer #2"
+msgstr "Alt kısım #2"
+
+#: functions.php:368
+msgid "Widgets in this area will be displayed in the first column in the footer."
+msgstr "Bu alandaki bileşenler alt kısımda birinci sütunda görüntülenirler."
+
+#: functions.php:366
+msgid "Footer #1"
+msgstr "Alt kısım #1"
+
+#: functions.php:341
+msgid "Skip to the content"
+msgstr "İçeriğe atla"
+
+#: functions.php:258
+msgid "Desktop Horizontal Menu"
+msgstr "Masaüstü yatay menü"
+
+#: classes/class-twentytwenty-walker-page.php:107 inc/template-tags.php:555
+msgid "Show sub menu"
+msgstr "Alt menüyü göster"
+
+#: classes/class-twentytwenty-walker-comment.php:127
+msgid "By Post Author"
+msgstr "Yazı yazarına göre"
 
 #: classes/class-twentytwenty-customize.php:396
 msgid "Make sure that the contrast is high enough so that the text is readable."
@@ -483,14 +491,6 @@ msgstr "Sabit arka plan görseli"
 msgid "Cover Template"
 msgstr "Kapak şablonu"
 
-#: classes/class-twentytwenty-customize.php:270
-msgid "Summary"
-msgstr "Özet"
-
-#: classes/class-twentytwenty-customize.php:269
-msgid "Full text"
-msgstr "Tüm metin"
-
 #: classes/class-twentytwenty-customize.php:267
 msgid "On archive pages, posts show:"
 msgstr "Sayfa ve yazı arşivlerinde göster:"
@@ -498,10 +498,6 @@ msgstr "Sayfa ve yazı arşivlerinde göster:"
 #: classes/class-twentytwenty-customize.php:225
 msgid "Show search in header"
 msgstr "Üst kısımda aramayı göster"
-
-#: classes/class-twentytwenty-customize.php:202
-msgid "Theme Options"
-msgstr "Tema seçenekleri"
 
 #: classes/class-twentytwenty-customize.php:101
 msgid "Header &amp; Footer Background Color"
@@ -519,9 +515,9 @@ msgstr "Retina logo"
 msgid "The page you were looking for could not be found. It might have been removed, renamed, or did not exist in the first place."
 msgstr "Aradığınız sayfa bulunamadı. Kaldırılmış, adı değiştirilmiş ya da hiç var olmamış olabilir."
 
-#: 404.php:17
-msgid "Page Not Found"
-msgstr "Sayfa Bulunamadı"
+#: functions.php:259
+msgid "Desktop Expanded Menu"
+msgstr "Masaüstü genişletilmiş menü"
 
 #. Author URI of the theme
 #: footer.php:32

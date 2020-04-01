@@ -160,3 +160,27 @@ function color_converter($hex, $steps)
 
     return $return;
 }
+
+function view_container_handler()
+{
+
+    global $product;
+
+    $book_url = $product->get_attribute("kitap-incele");
+    $video_url = $product->get_attribute("video-cozum");
+
+    $html = '<div class="view-container">';
+    $html .= '<div class="view-container__element view-container__sample">
+              <a href="' . $book_url . '">
+              <i class="fa fa-search" aria-hidden="true"></i><h6>Kitabı İncele</h5>
+              </a>
+              </div>';
+    $html .= '<div class="view-container__element view-container__book mt-2">
+              <a href="' . $video_url . '">
+              <i class="fa fa-play" aria-hidden="true"></i><h6>Video Çözümlü</h5>
+              </a>
+              </div>';
+    $html .= '</div>';
+    echo $html;
+
+}
