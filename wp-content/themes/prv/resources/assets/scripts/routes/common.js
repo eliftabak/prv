@@ -24,6 +24,23 @@ export default {
         }, 1000);
         return false;
       });
+
+
+      //Bootstrap Sub Dropdown Show Helper
+      $('.dropdown-menu a.dropdown-toggle').on('click', function(e) {
+        e.preventDefault();
+        if (!$(this).next().hasClass('show')) {
+          $(this).parents('.dropdown-menu').first().find('.show').removeClass('show');
+        }
+        var $subMenu = $(this).next('.dropdown-menu');
+        $subMenu.toggleClass('show');
+
+        $(this).parents('li.nav-item.dropdown.show').on('hidden.bs.dropdown', function(e) {
+          e.preventDefault();
+          $('.dropdown-submenu .show').removeClass('show');
+        });
+        return false;
+      });
   },
   finalize() {
     // JavaScript to be fired on all pages, after page specific JS is fired

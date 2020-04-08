@@ -1,15 +1,21 @@
-.btn-nav-menu {
-  background-color: $white;
+.btn-navbar {
+  background-color: #fff;
   border-radius: 28px;
-  height: 2.6rem;
-  margin-top: 6px;
-  line-height: 1rem;
   box-shadow: 0 12px 47px rgba(0, 0, 0, 0.5);
 
   a {
     color: $primary !important;
     font-weight: bold;
     letter-spacing: 6.22272px;
+  }
+
+  &.menu {
+    a {
+      &::after {
+        font-family: FontAwesome;
+        content: "\f0c9";
+      }
+    }
   }
 }
 
