@@ -26,21 +26,43 @@ export default {
       });
 
 
-      //Bootstrap Sub Dropdown Show Helper
-      $('.dropdown-menu a.dropdown-toggle').on('click', function(e) {
-        e.preventDefault();
-        if (!$(this).next().hasClass('show')) {
-          $(this).parents('.dropdown-menu').first().find('.show').removeClass('show');
-        }
-        var $subMenu = $(this).next('.dropdown-menu');
-        $subMenu.toggleClass('show');
 
-        $(this).parents('li.nav-item.dropdown.show').on('hidden.bs.dropdown', function(e) {
-          e.preventDefault();
-          $('.dropdown-submenu .show').removeClass('show');
-        });
-        return false;
-      });
+
+
+      //Bootstrap Menu Dropdown Open Closing Logic
+
+      const timeOut  = 100;
+
+      function toggleDropdown (e) {
+        const _d = $(e.target).closest('.dropdown'),
+          _m = $('> .dropdown-menu', _d);
+        setTimeout(function(){
+          const shouldOpen = e.type !== 'click' && _d.is(':hover');
+          _m.toggleClass('show', shouldOpen);
+          _d.toggleClass('show', shouldOpen);
+          $('[data-toggle="dropdown"]', _d).attr('aria-expanded', shouldOpen);
+        }, e.type === 'mouseleave' ? timeOut : 0);
+      }
+
+      function toggleDark (e){
+        const _d = $(e.target).closest('.dropdown'),
+             _c = $('> .cart__dropdown-menu', _d),
+             _b =$('body');
+        setTimeout(function(){
+          const cartOpen = e.type !== 'click' && _c.is(':hover') || _d.is(':hover');
+              _b.toggleClass('dark', cartOpen);
+        }, e.type === 'mouseleave' ? timeOut : 0);
+
+      }
+
+      $('body')
+        .on('mouseenter mouseleave','.dropdown',(e)=>{
+          toggleDropdown(e);
+          toggleDark(e);
+        })
+        .on('click', '.dropdown-menu a', toggleDropdown);
+
+
   },
   finalize() {
     // JavaScript to be fired on all pages, after page specific JS is fired

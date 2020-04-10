@@ -4,6 +4,18 @@ body {
     background-color: $body-bg-front;
     color: $body-color-front;
   }
+
+  &.dark {
+    &::before {
+      display: block;
+      position: fixed;
+      content: "";
+      height: 100vh;
+      width: 100vw;
+      background-color: #000000b5;
+      z-index: 998;
+    }
+  }
 }
 
 i[class$="-prv-icon"] {

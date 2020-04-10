@@ -19,8 +19,8 @@ function sage($abstract = null, $parameters = [], Container $container = null)
         return $container;
     }
     return $container->bound($abstract)
-    ? $container->makeWith($abstract, $parameters)
-    : $container->makeWith("sage.{$abstract}", $parameters);
+        ? $container->makeWith($abstract, $parameters)
+        : $container->makeWith("sage.{$abstract}", $parameters);
 }
 
 /**
@@ -180,7 +180,6 @@ function view_container_html()
               </div>';
     $html .= '</div>';
     echo $html;
-
 }
 
 function product_background_color_generate()
@@ -193,7 +192,6 @@ function product_background_color_generate()
     $image = wp_get_attachment_image_src(get_post_meta($post_id, 'prv_kitap_arkaplan_resim_id', 1), 'full')[0];
     $result = 'url(' . $image . '),linear-gradient(163deg, ' . $lighter . ' -77%, ' . $darker . ' 122%)';
     return $result;
-
 }
 
 function woocommerce_the_content_with_wrapper()
@@ -206,7 +204,6 @@ function woocommerce_the_content_with_wrapper()
     $html .= '<hr class="mb-3">';
 
     echo $html;
-
 }
 
 function pdf_modal_html()
@@ -236,5 +233,167 @@ function pdf_modal_html()
      <!-- pdf modal end -->';
 
     echo $html;
+}
 
+
+function add_to_cart_html($args)
+{
+    $total_count = $args["total_count"];
+    $cart_url = $args["cart_ul"];
+    $name = $args["name"];
+    $total_amount = $args["total_amount"];
+    $shop_page_url  = $args["shop_page_url"];
+    $items = $args["items"];
+    $checkout_url = $args["checkout_url"];
+
+
+?>
+    <div id="Cart" class="cart text-white d-inline">
+        <ul class="d-flex m-0 p-0 align-items-center">
+            <li class="cart__count"><?php echo $total_count ?></li>
+            <li>
+                <div class="dropdown">
+                    <a class="btn cart__button dropdown-toggle" href="<?php echo $cart_url; ?>" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-shopping-cart cart__icon pr-1"></i><span class="cart__text">SEPET</span>
+                        <span class="cart__user text-center"><?php echo $name; ?></span>
+                    </a>
+                    <div class="dropdown-menu cart__dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <div class="row cart__total-header-section">
+                            <div class="col-lg-6 col-sm-6 col-6">
+                                <a href="<?php echo $cart_url; ?>">Sepet | <span><i class="fa fa-shopping-cart cart__detail-shopping-icon" aria-hidden="true"></i>
+                                        <span class="badge badge-pill badge-danger cart__detail-shopping-badge"><?php echo $total_count ?></span></span>
+                                </a>
+                            </div>
+                            <div class="col-lg-6 col-sm-6 col-6 cart__total-section text-right">
+                                <p>Toplam: <span class="text-info"><?php echo $total_amount ?> TL</span></p>
+                            </div>
+                        </div>
+                        <?php
+                        if ($total_count == 0) {
+                        ?>
+                            <div class="row">
+                                <div class="col-lg-12 col-sm-12 col-12 text-center p-5">
+                                    <p>Sepetinizde herhangi bir ürün bulunmamaktadır.</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 col-sm-12 col-12 text-center cart__checkout">
+                                    <a name="" id="" class="btn btn-primary btn-block" href="<? echo $shop_page_url ?>" role="button">Alışverişe
+                                        başla</a>
+                                </div>
+                            </div>
+                            <?php
+                        } else {
+
+                            foreach ($items as $item => $values) {
+                                $_product = wc_get_product($values['data']->get_id());
+                                $getProductDetail = wc_get_product($values['product_id']);
+                                $product_url = get_permalink($values['data']->get_id());
+                            ?>
+
+                                <div class="row cart__detail">
+                                    <div class="col-lg-4 col-sm-4 col-4 cart__detail-img">
+                                        <a href="<?php echo $product_url ?>">
+                                            <?php echo $getProductDetail->get_image("thumbnail") ?>
+                                        </a>
+                                    </div>
+                                    <div class="col-lg-8 col-sm-8 col-8 cart__detail-product">
+                                        <a href="<?php echo $product_url ?>">
+                                            <p> <?php echo $_product->get_title() ?></p>
+                                        </a>
+                                        <span class="cart__product-price text-info">
+                                            <?php echo get_post_meta($values['product_id'], '_regular_price', true) ?> TL
+                                        </span>
+                                        <span class="count">
+                                            <?php echo $values['quantity'] ?>
+                                            Adet
+                                        </span>
+                                    </div>
+                                </div>
+                            <?php
+                            }
+                            ?>
+                            <div class="row">
+                                <div class="col-lg-12 col-sm-12 col-12 text-center cart__checkout">
+                                    <a name="" id="" class="btn btn-success btn-block" href="<?php echo  $checkout_url; ?>" role="button">Ödeme</a>
+                                </div>
+                            </div>
+                        <?php
+                        }
+                        ?>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+<?php
+
+}
+
+
+function cart_fragment_logic($fragments)
+{
+    global $current_user;
+    wp_get_current_user();
+    $items = WC()->cart->get_cart();
+    $total_count = WC()->cart->cart_contents_count;
+    $total_amount = WC()->cart->total;
+    $shop_page_url = get_permalink(wc_get_page_id('shop'));
+    $cart_url = wc_get_cart_url();
+    $checkout_url = wc_get_checkout_url();
+    $name = is_user_logged_in()
+        ? '<i class="fa fa-user-o cart__user-icon" aria-hidden="true"></i>' . $current_user->first_name[0] . "" . $current_user->last_name[0]
+        : '<i class="fa fa-user-o cart__user-icon" style="display: inline-block!important;
+    visibility: visible;" aria-hidden="true"></i>';
+
+
+    $args  = array();
+    $args["total_amount"] = $total_amount;
+    $args["cart_ul"] = $cart_url;
+    $args["name"] = $name;
+    $args["total_count"] = $total_count;
+    $args["shop_page_url"] = $shop_page_url;
+    $args["items"] = $items;
+    $args["checkout_url"] =  $checkout_url;
+
+    ob_start();
+
+    add_to_cart_html($args);
+
+    $fragments['#Cart.cart'] = ob_get_clean();
+    return $fragments;
+};
+
+function add_to_cart_template_html()
+{
+
+    global $current_user;
+    wp_get_current_user();
+    $items = WC()->cart->get_cart();
+    $total_count = WC()->cart->cart_contents_count;
+    $total_amount = WC()->cart->total;
+    $shop_page_url = get_permalink(wc_get_page_id('shop'));
+    $cart_url = wc_get_cart_url();
+    $checkout_url = wc_get_checkout_url();
+    $name = is_user_logged_in()
+        ? '<i class="fa fa-user-o cart__user-icon" aria-hidden="true"></i>' . $current_user->first_name[0] . "" . $current_user->last_name[0]
+        : '<i class="fa fa-user-o cart__user-icon" style="display: inline-block!important;
+    visibility: visible;" aria-hidden="true"></i>';
+
+
+    $args  = array();
+    $args["total_amount"] = $total_amount;
+    $args["cart_ul"] = $cart_url;
+    $args["name"] = $name;
+    $args["total_count"] = $total_count;
+    $args["shop_page_url"] = $shop_page_url;
+    $args["items"] = $items;
+    $args["checkout_url"] =  $checkout_url;
+
+    ob_start();
+
+    add_to_cart_html($args);
+
+    $html = ob_get_clean();
+    echo $html;
 }

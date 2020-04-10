@@ -83,7 +83,6 @@
         "javascript",
     ],
     "intelephense.files.associations": [
-        "*.blade.php",
         "*.php",
     ],
     "intelephense.files.exclude": [
@@ -135,7 +134,8 @@
     "php.executablePath": "/opt/lampp/bin/php",
     "php.suggest.basic": false,
     "[php]": {
-        "editor.formatOnSave": true
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "bmewburn.vscode-intelephense-client",
     },
     "[jsonc]": {
         "editor.formatOnSave": true,
