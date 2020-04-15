@@ -48,21 +48,12 @@ class Custom_Nav_Menu extends Walker_Nav_Menu
         if ($this->mega_menu_id === intval($item->menu_item_parent) && $depth == 0) {
 
             $this->mega_menu_id = 0;
-
-            //$this->count++;
-            //if ($this->count > 2) {
-            //    $output .= "</ul></li><li class=\"col-lg-3\"><ul>\n";
-            //    $this->count = 1;
-            //
-            //}
-            //$output .= $this->count;
         }
 
         $coloumn_divider_class_position = array_search('megamenu__column', $classes);
 
         if ($coloumn_divider_class_position !== false) {
             $output .= "</ul></li><li class=\"megamenu__column\"><ul>\n";
-
         }
 
         $divider_class_position = array_search('divider', $classes);

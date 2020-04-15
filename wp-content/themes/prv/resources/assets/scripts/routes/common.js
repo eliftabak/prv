@@ -63,6 +63,36 @@ export default {
         .on('click', '.dropdown-menu a', toggleDropdown);
 
 
+
+
+        // Slider action logic
+        $('#home-page-slider').on('slid.bs.carousel', function(e){
+
+          const slideToIndex = e.to;
+          const slideFromIndex = e.from;
+
+          const nextCarouselItem = $(this).find(`.carousel-item:nth-child(${slideToIndex+1})`);
+          const previousCarouselItem = $(this).find(`.carousel-item:nth-child(${slideFromIndex+1})`);
+
+          const nextLeftImage = $('.home-slider__left-image', nextCarouselItem);
+          const previousLeftImage = $('.home-slider__left-image', previousCarouselItem);
+          const nextImage = $('.home-slider__child-draw', nextCarouselItem);
+          const previousImage = $('.home-slider__child-draw', previousCarouselItem);
+          const nextTextBlock = $('.home-slider__right-text-block', nextCarouselItem);
+          const previousTextBlock = $('.home-slider__right-text-block', previousCarouselItem);
+
+
+          nextLeftImage.toggleClass('show');
+          previousLeftImage.toggleClass('show');
+          nextImage.toggleClass('show');
+          previousImage.toggleClass('show');
+          nextTextBlock.toggleClass('show');
+          previousTextBlock.toggleClass('show');
+
+        });
+
+
+
   },
   finalize() {
     // JavaScript to be fired on all pages, after page specific JS is fired

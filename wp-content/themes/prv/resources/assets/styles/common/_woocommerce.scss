@@ -296,3 +296,61 @@
     border-radius: 6px;
   }
 }
+
+#magaza-slider__ID {
+  color: #fff;
+  text-align: right;
+
+  .carousel-indicators {
+    left: 2%;
+    justify-content: unset;
+    margin-right: unset;
+    margin-left: unset;
+    margin-bottom: 3px;
+  }
+
+  p {
+    margin-bottom: 0.2rem;
+  }
+
+  .magaza-slider {
+    &__carousel-item {
+      border-radius: 5px;
+      min-height: 250px;
+    }
+
+    &__carousel-item-inner {
+      height: 100%;
+      padding: 25px 50px 0 50px;
+      text-align: inherit;
+    }
+
+    &__text-1,
+    &__text-2,
+    &__text-3,
+    &__desc {
+      color: inherit;
+    }
+
+    &__text-1 {
+      margin: 0 0 10px 0;
+    }
+
+    &__text-2 {
+      text-align: inherit;
+    }
+
+    &__text-3 {
+      text-align: inherit;
+    }
+
+    &__desc {
+      text-align: inherit;
+    }
+
+    &__button {
+      margin-top: 5px;
+      padding: 10px 50px;
+    }
+  }
+}

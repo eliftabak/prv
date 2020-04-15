@@ -166,6 +166,15 @@ add_action('cmb2_admin_init', function () {
         //'repeatable' => true,
     ));
 
+    // Id's for group's fields only need to be unique for the group. Prefix is not needed.
+    $cmb->add_group_field($group_field_id, array(
+        'name' => __('Buton İç Yazı', 'sage'),
+        'description' => __('Buton Yazı', 'sage'),
+        'id'   => 'prv_slider_button_text',
+        'type' => 'text',
+        // 'repeatable' => true, // Repeatable fields are supported w/in repeatable groups (for most types)
+    ));
+
 
     $cmb->add_group_field($group_field_id, array(
         'name' => __('Sol Resim', 'sage'),
@@ -204,5 +213,16 @@ add_action('cmb2_admin_init', function () {
             ),
         ),
         'preview_size' => 'large', // Image size to use when previewing in the admin.
+    ));
+
+    $cmb->add_group_field($group_field_id, array(
+        'name' => __('Sayfa arkaplan rengi', 'sage'),
+        'desc' => __('Slayt arka planında gözüken renk seçme alanı', 'sage'),
+        'id' => 'prv_slider_background_color',
+        'type' => 'colorpicker',
+        'default' => '#1d185c',
+        'options' => array(
+            'alpha' => true, // Make this a rgba color picker.
+        ),
     ));
 });
