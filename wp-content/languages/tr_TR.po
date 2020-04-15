@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WordPress - 5.4.x - Development package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-03-24 11:52:40+0000\n"
+"PO-Revision-Date: 2020-04-13 20:18:20+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1738,7 +1738,7 @@ msgstr "Kullanıcının yorum verisi."
 msgid "Unchanged:"
 msgstr "Değişmemiş:"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-revisions-controller.php:392
+#: wp-includes/rest-api/endpoints/class-wp-rest-revisions-controller.php:415
 msgid "Sorry, you are not allowed to delete revisions of this post."
 msgstr "Üzgünüz. Bu yazının sürümlerini silmenize izin verilmiyor."
 
@@ -2485,15 +2485,15 @@ msgid_plural "Failed <span class=\"count\">(%s)</span>"
 msgstr[0] "Başarısız oldu <span class=\"count\">(%s)</span>"
 msgstr[1] "Başarısız oldu <span class=\"count\">(%s)</span>"
 
-#: wp-includes/class-walker-comment.php:271
-#: wp-includes/class-walker-comment.php:361
-msgid "Your comment is awaiting moderation. This is a preview, your comment will be visible after it has been approved."
-msgstr "Yorumunuz denetim bekliyor. Bu bir önizlemedir, yorumunuz onaylandıktan sonra görünür olacaktır."
-
 #. translators: %s: Database table name.
 #: wp-includes/ms-site.php:1322
 msgid "The %s table is not installed. Please run the network database upgrade."
 msgstr "%s tablosu kurulu değil. Ağ veritabını yükseltmesini çalıştırın."
+
+#: wp-includes/class-walker-comment.php:271
+#: wp-includes/class-walker-comment.php:361
+msgid "Your comment is awaiting moderation. This is a preview, your comment will be visible after it has been approved."
+msgstr "Yorumunuz denetim bekliyor. Bu bir ön izlemedir, yorumunuz onaylandıktan sonra görünür olacaktır."
 
 #. translators: %d: Site ID.
 #: wp-includes/ms-site.php:692
@@ -5126,10 +5126,6 @@ msgstr "Nesne türü."
 msgid "Object subtype."
 msgstr "Nesne alt türü"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-autosaves-controller.php:326
-msgid "Preview link for the post."
-msgstr "Yazı için önizleme bağlantısı."
-
 #: wp-includes/rest-api/endpoints/class-wp-rest-autosaves-controller.php:271
 msgid "There is no autosave revision for this post."
 msgstr "Bu yazı için otomatik kaydedilmiş sürüm yok."
@@ -5187,6 +5183,10 @@ msgstr "Nesne için kalıcı bağlantı şablonu."
 #: wp-includes/rest-api/endpoints/class-wp-rest-themes-controller.php:480
 msgid "Limit result set to themes assigned one or more statuses."
 msgstr "Bir ya da daha fazla durum atanmış temala sonuç kümesini sınırlandır."
+
+#: wp-includes/rest-api/endpoints/class-wp-rest-autosaves-controller.php:326
+msgid "Preview link for the post."
+msgstr "Yazı için ön izleme bağlantısı."
 
 #. translators: %s: Block name.
 #: wp-includes/class-wp-block-type-registry.php:107

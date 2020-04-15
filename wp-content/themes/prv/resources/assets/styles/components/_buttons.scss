@@ -1,19 +1,37 @@
 .btn-navbar {
+  font-size: 17.6px !important;
+  padding: 0 0 0 16px;
   background-color: #fff;
   border-radius: 28px;
   box-shadow: 0 12px 47px rgba(0, 0, 0, 0.5);
 
-  a {
+  > a {
     color: $primary !important;
     font-weight: bold;
-    letter-spacing: 6.22272px;
+    letter-spacing: 1.2px;
   }
 
   &.menu {
-    a {
+    > a {
       &::after {
         font-family: FontAwesome;
         content: "\f0c9";
+        border-top: unset;
+        border-right: unset;
+        border-left: unset;
+        vertical-align: unset;
+        margin-left: unset;
+        border-bottom: unset !important;
+        background-color: #6edbb0;
+        padding: 4px 16px;
+        border-radius: 28px;
+        margin-right: -2px;
+      }
+    }
+
+    &.show {
+      &::after {
+        bottom: -1.2rem !important;
       }
     }
   }
