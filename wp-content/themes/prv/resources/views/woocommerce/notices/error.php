@@ -1,10 +1,8 @@
 <?php
 /**
- * Proceed to checkout button
+ * Show error messages
  *
- * Contains the markup for the proceed to checkout button on the cart.
- *
- * This template can be overridden by copying it to yourtheme/woocommerce/cart/proceed-to-checkout-button.php.
+ * This template can be overridden by copying it to yourtheme/woocommerce/notices/error.php.
  *
  * HOWEVER, on occasion WooCommerce will need to update template files and you
  * (the theme developer) will need to copy the new files to your theme to
@@ -13,15 +11,23 @@
  * the readme will list any important changes.
  *
  * @see     https://docs.woocommerce.com/document/template-structure/
- * @author  WooThemes
  * @package WooCommerce/Templates
- * @version 3.6.1
+ * @version 3.9.0
  */
 
-// Exit if accessed directly.
-defined( 'ABSPATH' ) || exit;
-?>
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
-<a href="<?php echo esc_url( wc_get_checkout_url() );?>" class="btn btn-primary btn-lg btn-block">
-	<?php esc_html_e( 'Proceed to checkout', 'woocommerce' ); ?>
-</a>
+if ( ! $notices ) {
+	return;
+}
+
+?>
+<ul class="woocommerce-error" role="alert">
+	<?php foreach ( $notices as $notice ) : ?>
+		<li<?php echo wc_get_notice_data_attr( $notice ); ?>>
+			<?php echo wc_kses_notice( $notice['notice'] ); ?>
+		</li>
+	<?php endforeach; ?>
+</ul>
