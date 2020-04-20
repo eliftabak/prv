@@ -133,9 +133,6 @@ add_action('home_page_slider', function () {
     $carausel_li_element = [];
     $data = [];
 
-    get_post_meta($post_id, 'prv_kitap_arkaplan_renk', 1);
-
-
     $index = 0;
     foreach ((array) $sliders as $key => $slider) {
 
@@ -257,3 +254,110 @@ add_action('home_page_slider', function () {
 
 
 add_action('cart_html_output', 'App\add_to_cart_template_html');
+
+
+
+add_action('sorular_konusuyor_slider', function () {
+
+    $products = [];
+    $carousel_indicator = [];
+    $terms = get_terms("pa_sinif");
+    $product_ids = [];
+    $index = 0;
+    $carausel_li_element = [];
+    $sorular_konusuyor_slider_css_id = "sorular-konusuyor-slider";
+
+    foreach ($terms as $term) {
+        $lesson = str_replace("-sinif", "", $term->slug);
+        $term_data = array(
+            "name" => $term->name,
+            "slug" => $term->slug,
+            "lesson" => $lesson,
+        );
+
+        $products_query = new \WP_Query(array(
+            'post_type' => array('product'),
+            'post_status' => 'publish',
+            'posts_per_page' => -1,
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'pa_urun-cesitleri',
+                    'field' => 'slug',
+                    'terms' => array('sorular-konusuyor'),
+                    'operator' => 'IN',
+                ),
+                array(
+                    'taxonomy' => 'pa_sinif',
+                    'field' => 'slug',
+                    'terms' => array($term->slug),
+                    'operator' => 'IN',
+                )
+            )
+        ));
+
+        // The Loop
+        if ($products_query->have_posts()) : while ($products_query->have_posts()) :
+                $products_query->the_post();
+                $product_ids[] = $products_query->post->ID;
+
+                $product_data = array(
+                    "lesson" => $lesson,
+                    "category_name" => $term->name,
+                    "products_inner" => $product_ids,
+                );
+            endwhile;
+            wp_reset_postdata();
+        endif;
+
+        array_push($carousel_indicator, $term_data);
+        array_push($products, $product_data);
+        $product_ids = [];
+
+        $active = ($index == 0) ? 'active' : '';
+        $li_element = '<li data-target="#' . $sorular_konusuyor_slider_css_id . '" data-slide-to="' . $index . '" class="' . $active . '"><div>' . $lesson . '.</div></li>';
+        array_push($carausel_li_element, $li_element);
+        $index  += 1;
+    }
+
+    //print_r($products);
+    ob_start();
+?>
+    <div id="<?php echo $sorular_konusuyor_slider_css_id ?>" class="carousel slide sorular-konusuyor__slider pl-5" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <?php
+            foreach ($carausel_li_element as $value) {
+                echo $value;
+            }
+            ?>
+        </ol>
+        <div class="carousel-inner">
+
+            <?php
+            $index = 0;
+            foreach ($products as $data) {
+                $active = ($index == 0) ? 'active' : '';
+                $html .= '<div class="carousel-item ' . $active . '">';
+                $html .= '<div class="row">';
+                foreach ($data["products_inner"] as $product_id) {
+                    $title = get_the_title($product_id);
+                    $image = wp_get_attachment_image_src(get_post_thumbnail_id($product_id), 'medium');
+                    $url = esc_url(get_permalink($product_id));
+                    $html .= '<div class="col-sm-6 col-lg-6">';
+                    $html .= '<div class="sorular-konusuyor__book-picture mx-auto text-center">';
+                    $html .= '<a href="' . $url . '"><img src=' .  $image[0] . '" alt=""></a>';
+                    $html .= '<h3 class="sorular-konusuyor__book-category">' . $data["category_name"] . '</h3>';
+                    $html .= '<h3 class="sorular-konusuyor__book-branch">' . $title . '</h3>';
+                    $html .= '</div></div>';
+                }
+                $html .= '</div></div>';
+                $index = +1;
+            }
+            echo $html;
+
+            ?>
+        </div>
+    </div>
+<?php
+    $html = ob_get_clean();
+    echo $html;
+});

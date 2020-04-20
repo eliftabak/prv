@@ -166,7 +166,10 @@ section.sorular-konusuyor {
       margin-bottom: 6rem;
       padding-bottom: 0.3rem;
       box-shadow: 0 42px 104px rgba(107, 134, 171, 0.520733);
-      transition: all 0.4s;
+
+      a {
+        transition: all 0.4s;
+      }
 
       img {
         transition: inherit;
