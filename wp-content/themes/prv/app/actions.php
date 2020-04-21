@@ -115,8 +115,8 @@ add_action('woocommerce_shop_slider', function () {
     </div>
 
 <?php
-    $html = ob_get_clean();
-    echo $html;
+    $buffer  = ob_get_clean();
+    echo  $buffer;
 });
 
 
@@ -219,8 +219,8 @@ add_action('home_page_slider', function () {
                 $show = ($index == 0) ? 'show' : '';
                 $html = '<div class="carousel-item ' . $active . ' h-100">';
                 $html .= '<div class="' . $magaza_slider_css_class . '__slider-item h-100" style="background-color:' . $value["background_color"] . ';">';
-                $html .= '<img class="p-0 position-absolute ' . $magaza_slider_css_class . '__left-image ' . $show . '" style="z-index:2" src="' . $value["background_img"] . '">';
-                $html .= '<img class="p-0 position-absolute ' . $magaza_slider_css_class . '__child-draw ' . $show . '" style="z-index:3" src="' . $value["left_img"] . '">';
+                $html .= '<img loading="lazy" class="p-0 position-absolute ' . $magaza_slider_css_class . '__left-image ' . $show . '" style="z-index:2" src="' . $value["background_img"] . '">';
+                $html .= '<img loading="lazy" class="p-0 position-absolute ' . $magaza_slider_css_class . '__child-draw ' . $show . '" style="z-index:3" src="' . $value["left_img"] . '">';
                 $html .= '<div class="position-relative ' . $magaza_slider_css_class . '__right-text-block ' . $show . '" style="z-index:3">';
                 $html .= '<div class="pt-5 text-white text-right pr-5">';
                 $html .= '<div class="pt-5 mt-5">';
@@ -248,12 +248,12 @@ add_action('home_page_slider', function () {
     </div>
 
 <?php
-    $html = ob_get_clean();
-    echo $html;
+    $buffer  = ob_get_clean();
+    echo  $buffer;
 });
 
 
-add_action('cart_html_output', 'App\add_to_cart_template_html');
+add_action('cart_html_output', __NAMESPACE__ . '\add_to_cart_template_html');
 
 
 
@@ -279,6 +279,8 @@ add_action('sorular_konusuyor_slider', function () {
             'post_type' => array('product'),
             'post_status' => 'publish',
             'posts_per_page' => -1,
+            'orderby'        => 'menu_order',
+            'order'          => 'DESC',
             'tax_query' => array(
                 array(
                     'taxonomy' => 'pa_urun-cesitleri',
@@ -340,11 +342,11 @@ add_action('sorular_konusuyor_slider', function () {
                 $html .= '<div class="row">';
                 foreach ($data["products_inner"] as $product_id) {
                     $title = get_the_title($product_id);
-                    $image = wp_get_attachment_image_src(get_post_thumbnail_id($product_id), 'medium');
+                    $image = wp_get_attachment_image(get_post_thumbnail_id($product_id), 'medium');
                     $url = esc_url(get_permalink($product_id));
                     $html .= '<div class="col-sm-6 col-lg-6">';
                     $html .= '<div class="sorular-konusuyor__book-picture mx-auto text-center">';
-                    $html .= '<a href="' . $url . '"><img src=' .  $image[0] . '" alt=""></a>';
+                    $html .= '<a href="' . $url . '">' .  $image . '</a>';
                     $html .= '<h3 class="sorular-konusuyor__book-category">' . $data["category_name"] . '</h3>';
                     $html .= '<h3 class="sorular-konusuyor__book-branch">' . $title . '</h3>';
                     $html .= '</div></div>';
@@ -358,6 +360,361 @@ add_action('sorular_konusuyor_slider', function () {
         </div>
     </div>
 <?php
-    $html = ob_get_clean();
+    $buffer  = ob_get_clean();
+    echo $buffer;
+});
+
+
+add_action("section_brans_denemeleri", function () {
+
+    $products = [];
+    $carousel_indicator = [];
+    $terms = get_terms("pa_sinif");
+    $product_ids = [];
+
+    foreach ($terms as $term) {
+        $lesson = str_replace("-sinif", "", $term->slug);
+        $term_data = array(
+            "name" => $term->name,
+            "slug" => $term->slug,
+            "lesson" => $lesson,
+        );
+
+        $products_query = new \WP_Query(array(
+            'post_type' => array('product'),
+            'post_status' => 'publish',
+            'posts_per_page' => -1,
+            'orderby'        => 'menu_order',
+            'order'          => 'DESC',
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'pa_urun-cesitleri',
+                    'field' => 'slug',
+                    'terms' => array('sinav-modu'),
+                    'operator' => 'IN',
+                ),
+                array(
+                    'taxonomy' => 'pa_sinif',
+                    'field' => 'slug',
+                    'terms' => array($term->slug),
+                    'operator' => 'IN',
+                )
+            )
+        ));
+
+        // The Loop
+        if ($products_query->have_posts()) : while ($products_query->have_posts()) :
+                $products_query->the_post();
+                $product_ids[] = $products_query->post->ID;
+
+                $product_data = array(
+                    "lesson" => $lesson,
+                    "category_name" => $term->name,
+                    "products_inner" => $product_ids,
+                );
+            endwhile;
+            wp_reset_postdata();
+        endif;
+
+        array_push($carousel_indicator, $term_data);
+        array_push($products, $product_data);
+        $product_ids = [];
+    }
+
+    //print_r($products);
+    ob_start();
+?>
+    <?php
+    foreach ($products as $data) {
+        if (isset($data)) {
+            foreach ($data["products_inner"] as $product_id) {
+                //$title = get_the_title($product_id);
+                $image = wp_get_attachment_image(get_post_thumbnail_id($product_id), "large");
+                $url = esc_url(get_permalink($product_id));
+                $html .= '<div class="col-sm-6 col-lg-3 text-center">';
+                $html .= '<div class="brans-denemeleri__book-picture">';
+                $html .= $image;
+                $html .= '<a name="" id="" class="btn btn-primary btn-lg rounded-pill pl-lg-5 pr-lg-5 shadow-lg" href="' . $url . '" role="button">İncele<i class="fa fa-external-link pl-2" aria-hidden="true"></i></a>';
+                $html .= '</div></div>';
+            }
+        }
+    }
     echo $html;
+    ?>
+<?php
+    $buffer = ob_get_clean();
+    echo $buffer;
+});
+
+
+add_action("section_teke_tek", function () {
+
+    $products = [];
+    $carousel_indicator = [];
+    $terms = get_terms("pa_sinif");
+    $product_ids = [];
+
+    foreach ($terms as $term) {
+        $lesson = str_replace("-sinif", "", $term->slug);
+        $term_data = array(
+            "name" => $term->name,
+            "slug" => $term->slug,
+            "lesson" => $lesson,
+        );
+
+        $products_query = new \WP_Query(array(
+            'post_type' => array('product'),
+            'post_status' => 'publish',
+            'posts_per_page' => -1,
+            'orderby'        => 'menu_order',
+            'order'          => 'DESC',
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'pa_urun-cesitleri',
+                    'field' => 'slug',
+                    'terms' => array('teke-tek'),
+                    'operator' => 'IN',
+                ),
+                array(
+                    'taxonomy' => 'pa_sinif',
+                    'field' => 'slug',
+                    'terms' => array($term->slug),
+                    'operator' => 'IN',
+                )
+            )
+        ));
+
+        // The Loop
+        if ($products_query->have_posts()) : while ($products_query->have_posts()) :
+                $products_query->the_post();
+                $product_ids[] = $products_query->post->ID;
+
+                $product_data = array(
+                    "lesson" => $lesson,
+                    "category_name" => $term->name,
+                    "products_inner" => $product_ids,
+                );
+            endwhile;
+            wp_reset_postdata();
+        endif;
+
+        array_push($carousel_indicator, $term_data);
+        array_push($products, $product_data);
+        $product_ids = [];
+    }
+
+    //print_r($products);
+    ob_start();
+?>
+
+    <?php
+    foreach ($products as $data) {
+        if (isset($data)) {
+            $index = 0;
+            foreach ($data["products_inner"] as $product_id) {
+                //$title = get_the_title($product_id);
+                $margin = ($index % 2) === 0 ? "pt-lg-5" : "";
+                $image = wp_get_attachment_image(get_post_thumbnail_id($product_id), 'large');
+                $url = esc_url(get_permalink($product_id));
+                $html .= '<div class="col-sm-6 col-lg-6 ' . $margin . '">';
+                $html .= '<a class="teke-tek__book-picture" href="' . $url . '">';
+                $html .= $image;
+                $html .= '</a></div>';
+                $index += 1;
+            }
+        }
+    }
+    echo $html;
+    ?>
+<?php
+    $buffer  = ob_get_clean();
+    echo  $buffer;
+});
+
+
+add_action("section_muhendis_kafasi", function () {
+
+    $products = [];
+    $carousel_indicator = [];
+    $terms = get_terms("pa_sinif");
+    $product_ids = [];
+
+    foreach ($terms as $term) {
+        $lesson = str_replace("-sinif", "", $term->slug);
+        $term_data = array(
+            "name" => $term->name,
+            "slug" => $term->slug,
+            "lesson" => $lesson,
+        );
+
+        $products_query = new \WP_Query(array(
+            'post_type' => array('product'),
+            'post_status' => 'publish',
+            'posts_per_page' => -1,
+            'orderby'        => 'menu_order',
+            'order'          => 'DESC',
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'pa_urun-cesitleri',
+                    'field' => 'slug',
+                    'terms' => array('muhendis-kafasi'),
+                    'operator' => 'IN',
+                ),
+                array(
+                    'taxonomy' => 'pa_sinif',
+                    'field' => 'slug',
+                    'terms' => array($term->slug),
+                    'operator' => 'IN',
+                )
+            )
+        ));
+
+        // The Loop
+        if ($products_query->have_posts()) : while ($products_query->have_posts()) :
+                $products_query->the_post();
+                $product_ids[] = $products_query->post->ID;
+
+                $product_data = array(
+                    "lesson" => $lesson,
+                    "category_name" => $term->name,
+                    "products_inner" => $product_ids,
+                );
+            endwhile;
+            wp_reset_postdata();
+        endif;
+
+        array_push($carousel_indicator, $term_data);
+        array_push($products, $product_data);
+        $product_ids = [];
+    }
+
+    //print_r($products);
+    ob_start();
+?>
+    <?php
+    foreach ($products as $data) {
+        if (isset($data)) {
+            foreach ($data["products_inner"] as $product_id) {
+                //$title = get_the_title($product_id);
+                $image = wp_get_attachment_image(get_post_thumbnail_id($product_id), 'large');
+                $url = esc_url(get_permalink($product_id));
+                $html .= '<a class="muhendis-kafasi__book-picture" href="' . $url . '">';
+                $html .= $image;
+                $html .= '</a>';
+            }
+        }
+    }
+    echo $html;
+    ?>
+
+<?php
+    $buffer  = ob_get_clean();
+    echo  $buffer;
+});
+
+
+add_action("section_yorumlar", function () {
+
+    $products = [];
+    $carousel_indicator = [];
+    $terms = get_terms("pa_sinif");
+    $product_ids = [];
+
+    foreach ($terms as $term) {
+        $lesson = str_replace("-sinif", "", $term->slug);
+        $term_data = array(
+            "name" => $term->name,
+            "slug" => $term->slug,
+            "lesson" => $lesson,
+        );
+
+        $products_query = new \WP_Query(array(
+            'post_type' => array('product'),
+            'post_status' => 'publish',
+            'posts_per_page' => -1,
+            'orderby'        => 'menu_order',
+            'order'          => 'DESC',
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'pa_urun-cesitleri',
+                    'field' => 'slug',
+                    'terms' => array('muhendis-kafasi'),
+                    'operator' => 'IN',
+                ),
+                array(
+                    'taxonomy' => 'pa_sinif',
+                    'field' => 'slug',
+                    'terms' => array($term->slug),
+                    'operator' => 'IN',
+                )
+            )
+        ));
+
+        // The Loop
+        if ($products_query->have_posts()) : while ($products_query->have_posts()) :
+                $products_query->the_post();
+                $product_ids[] = $products_query->post->ID;
+
+                $product_data = array(
+                    "lesson" => $lesson,
+                    "category_name" => $term->name,
+                    "products_inner" => $product_ids,
+                );
+            endwhile;
+            wp_reset_postdata();
+        endif;
+
+        array_push($carousel_indicator, $term_data);
+        array_push($products, $product_data);
+        $product_ids = [];
+    }
+
+    //print_r($products);
+    ob_start();
+?>
+    <div class="w-75 p-3 yorumlar__wrapper">
+        <div class="row">
+            <div class="col-lg-2 text-right"><img class="yorumlar__profile rounded-pill" src="wp-content/themes/prv/resources/assets/images/user-1.jpg" alt=""></div>
+            <div class="col-lg-10 vmx-auto p-4 yorumlar__content">
+                <h5 class="yorumlar__isim">Hatice DÖNMEZ</h5>
+                <p class="yorumlar__yorum d-inline">Nulla vehicula consectetur nulla et posuere. Vivamus maximus
+                    eros
+                    at
+                    egestas
+                    auctor. </p>
+            </div>
+        </div>
+    </div>
+    <div class="w-75 p-3 yorumlar__wrapper">
+        <div class="row">
+            <div class="col-lg-2 text-right"><img class="yorumlar__profile rounded-pill" src="wp-content/themes/prv/resources/assets/images/user-2.jpg" alt=""></div>
+            <div class="col-lg-10 vmx-auto p-4 yorumlar__content">
+                <h5 class="yorumlar__isim">Mehmet ŞAFAK</h5>
+                <p class="yorumlar__yorum d-inline">Nulla vehicula consectetur nulla et posuere. Vivamus maximus
+                    eros
+                    at
+                    egestas
+                    auctor.Nulla vehicula consectetur nulla et posuere. Vivamus maximus eros at
+                    egestas
+                    auctor. </p>
+            </div>
+        </div>
+    </div>
+    <div class="w-75 p-3 yorumlar__wrapper">
+        <div class="row">
+            <div class="col-lg-2 text-right"><img class="yorumlar__profile rounded-pill" src="wp-content/themes/prv/resources/assets/images/user-3.jpg" alt=""></div>
+            <div class="col-lg-10 vmx-auto p-4 yorumlar__content">
+                <h5 class="yorumlar__isim">Nuriye VERDENDİ</h5>
+                <p class="yorumlar__yorum d-inline">Nulla vehicula consectetur nulla et posuere. Vivamus maximus
+                    eros
+                    at
+                    egestas
+                    auctor. </p>
+            </div>
+        </div>
+    </div>
+
+<?php
+    $buffer  = ob_get_clean();
+    echo  $buffer;
 });

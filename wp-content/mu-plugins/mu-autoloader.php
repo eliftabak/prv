@@ -9,4 +9,4 @@
 /**
  * CMB2 Get the bootstrap!
  */
-require WPMU_PLUGIN_DIR . '/cmb2/init.php';
+require_once WPMU_PLUGIN_DIR . '/cmb2/init.php';

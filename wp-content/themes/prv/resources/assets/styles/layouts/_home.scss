@@ -175,6 +175,7 @@ section.sorular-konusuyor {
         transition: inherit;
         margin-top: -4.375rem;
         width: 100%;
+        height: inherit;
         transform: translateY(0);
       }
     }
@@ -310,7 +311,8 @@ section.brans-denemeleri {
       }
 
       img {
-        width: 100%;
+        width: inherit;
+        height: inherit;
         filter: blur(0);
       }
     }
@@ -381,6 +383,7 @@ section.teke-tek {
 
       img {
         width: 100%;
+        height: auto;
       }
 
       &:hover {
@@ -401,6 +404,21 @@ section.muhendis-kafasi {
 
   .muhendis-kafasi {
     color: #fff;
+
+    &__book-picture {
+      display: block;
+      width: 50%;
+      height: auto;
+
+      img {
+        width: 100%;
+        height: inherit;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
 
     &__book-name {
       font-weight: 700;

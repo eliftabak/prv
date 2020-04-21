@@ -8,8 +8,9 @@
         <div class="row">
           <div class="col-lg-12 pt-5 pb-5">
             <div class="muhendis-kafasi__book">
-              <div class="muhendis-kafasi__book-picture"><img
-                  src="wp-content/themes/prv/resources/assets/images/muhendis-kafasi.png" alt=""></div>
+              @php
+              do_action("section_muhendis_kafasi");
+              @endphp
               <div class="muhendis-kafasi__book-name">Mühendis Kafası</div>
               <div class="muhendis-kafasi__book-category">Matematik</div>
               <div class="muhendis-kafasi__book-descp">When it comes to software design, animation is alimitless way

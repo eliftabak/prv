@@ -226,3 +226,57 @@ add_action('cmb2_admin_init', function () {
         ),
     ));
 });
+
+
+
+/**
+ *
+ * Testimonals Meta Boxes
+ *
+ */
+
+add_action('cmb2_admin_init', function () {
+
+    $cmb = new_cmb2_box(array(
+        'title' => __('İnceleme ekstra alanları', 'sage'),
+        'id' => 'testimonal_metabox',
+        'object_types' => array('testimonal'), // Post type
+        'context' => 'normal',
+        'priority' => 'high',
+        'show_names' => true, // Show field names on the left
+        // 'cmb_styles' => false, // false to disable the CMB stylesheet
+        // 'closed'     => true, // Keep the metabox closed by default
+    ));
+
+
+    $cmb->add_field(array(
+        'name' => __('Açıklama', 'sage'),
+        'description' => __('İnceleme yazısı', 'sage'),
+        'id'   => 'prv_testimonal_student_review',
+        'type' => 'textarea_small',
+    ));
+
+    $cmb->add_field(array(
+        'name' => __('Öğrenci resmi', 'sage'),
+        'desc' => __('Öğrenci resmi yükleyin', 'sage'),
+        'id' => 'prv_testimonal_student_pic',
+        'type' => 'file',
+        // Optional:
+        'options' => array(
+            'url' => false, // Hide the text input for the url
+        ),
+        'text' => array(
+            'add_upload_file_text' => __('Resim ekle', 'sage'), // Change upload button text. Default: "Add or Upload File"
+        ),
+        // query_args are passed to wp.media's library query.
+        'query_args' => array(
+            'type' => array(
+                'image/gif',
+                'image/jpeg',
+                'image/png',
+                'image/svg+xml',
+            ),
+        ),
+        'preview_size' => 'medium', // Image size to use when previewing in the admin.
+    ));
+});
