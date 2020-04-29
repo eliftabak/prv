@@ -11,6 +11,7 @@ module.exports = {
     'selector-combinator-space-before':null,
     'value-list-comma-newline-after':null,
     'font-family-no-missing-generic-family-keyword':null,
+    'media-feature-name-no-unknown':null,
     'at-rule-no-unknown': [
       true,
       {

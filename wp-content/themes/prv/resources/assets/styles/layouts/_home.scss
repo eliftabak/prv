@@ -620,6 +620,10 @@ section.yorumlar {
   .yorumlar {
     &__wrapper {
       margin-top: 2rem;
+
+      > .row {
+        align-items: center;
+      }
     }
 
     &__wrapper:nth-child(even) {
@@ -628,6 +632,11 @@ section.yorumlar {
 
     &__wrapper:nth-child(odd) {
       align-self: flex-end;
+      text-align: end;
+
+      > .row {
+        flex-direction: row-reverse;
+      }
     }
 
     &__title {
@@ -662,6 +671,7 @@ section.yorumlar {
 
     &__profile {
       height: 7.6875rem;
+      width: auto;
       opacity: 0.8;
     }
   }

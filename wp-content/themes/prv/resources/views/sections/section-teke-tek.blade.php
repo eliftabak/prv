@@ -19,7 +19,7 @@
           <div class="teke-tek__book-desc">When it comes to software design, animation is alimitless way to make digital
           </div>
           <div class="pt-5">
-            <a name="" id="" class="teke-tek_book-button btn btn-primary btn-lg rounded-pill pr-5 pl-5" href="#"
+            <a name="" id="" class="teke-tek_book-button btn btn-primary btn-lg rounded-pill pr-5 pl-5" href="teke-tek/"
               role="button">DETAY</a>
           </div>
         </div>

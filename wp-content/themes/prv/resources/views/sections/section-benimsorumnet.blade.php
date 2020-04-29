@@ -49,7 +49,7 @@
           <p class="w-75">Pruva Akademi’nin ciddi gayretlerle ve özenle hazırlanmış sorularını örnek üniteler linkimize
             tıklayıp
             inceleyebilirsiniz.</p>
-          <a id="benimsorum" class="btn btn-primary p-3 pl-5 pr-5 mt-3 rounded-pill" href="www.benimsorum.net"
+          <a id="benimsorum" class="btn btn-primary p-3 pl-5 pr-5 mt-3 rounded-pill" href="http://www.benimsorum.net"
             target="_blank" role="button">www.benimsorum.net</a>
         </div>
       </div>

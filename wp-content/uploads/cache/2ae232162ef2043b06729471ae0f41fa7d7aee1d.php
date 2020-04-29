@@ -18,7 +18,7 @@
                 make digital</div>
               <div class="pt-5">
                 <a name="" id="" class="muhendis-kafasi_book-button btn btn-primary btn-lg rounded-pill pr-5 pl-5"
-                  href="#" role="button">DETAY</a>
+                  href="muhendis-kafasi/" role="button">DETAY</a>
               </div>
             </div>
           </div>

@@ -615,105 +615,52 @@ add_action("section_muhendis_kafasi", function () {
 
 add_action("section_yorumlar", function () {
 
-    $products = [];
     $carousel_indicator = [];
-    $terms = get_terms("pa_sinif");
-    $product_ids = [];
+    $comments = [];
 
-    foreach ($terms as $term) {
-        $lesson = str_replace("-sinif", "", $term->slug);
-        $term_data = array(
-            "name" => $term->name,
-            "slug" => $term->slug,
-            "lesson" => $lesson,
+    $args = array(
+        'post_type'   => 'testimonal',
+        'orderby'    => 'menu_order',
+        'sort_order' => 'asc',
+        'fields' => 'ids',
+    );
+
+    $testimonals_ids = get_posts($args);
+
+    foreach ($testimonals_ids as $testimonal_id) {
+        $name = get_the_title($testimonal_id);
+        $review = get_post_meta($testimonal_id, 'prv_testimonal_student_review', 1);
+        $picture = wp_get_attachment_image(get_post_meta($testimonal_id, 'prv_testimonal_student_pic_id', 1), "", "", array("class" => "yorumlar__profile rounded-pill"));
+
+        $comments_data = array(
+            "name" => $name,
+            "review" => $review,
+            "picture" => $picture
         );
 
-        $products_query = new \WP_Query(array(
-            'post_type' => array('product'),
-            'post_status' => 'publish',
-            'posts_per_page' => -1,
-            'orderby'        => 'menu_order',
-            'order'          => 'DESC',
-            'tax_query' => array(
-                array(
-                    'taxonomy' => 'pa_urun-cesitleri',
-                    'field' => 'slug',
-                    'terms' => array('muhendis-kafasi'),
-                    'operator' => 'IN',
-                ),
-                array(
-                    'taxonomy' => 'pa_sinif',
-                    'field' => 'slug',
-                    'terms' => array($term->slug),
-                    'operator' => 'IN',
-                )
-            )
-        ));
-
-        // The Loop
-        if ($products_query->have_posts()) : while ($products_query->have_posts()) :
-                $products_query->the_post();
-                $product_ids[] = $products_query->post->ID;
-
-                $product_data = array(
-                    "lesson" => $lesson,
-                    "category_name" => $term->name,
-                    "products_inner" => $product_ids,
-                );
-            endwhile;
-            wp_reset_postdata();
-        endif;
-
-        array_push($carousel_indicator, $term_data);
-        array_push($products, $product_data);
-        $product_ids = [];
+        //array_push($carousel_indicator, $term_data);
+        array_push($comments, $comments_data);
     }
 
-    //print_r($products);
+    //print_r($comments);
     ob_start();
 ?>
-    <div class="w-75 p-3 yorumlar__wrapper">
-        <div class="row">
-            <div class="col-lg-2 text-right"><img class="yorumlar__profile rounded-pill" src="wp-content/themes/prv/resources/assets/images/user-1.jpg" alt=""></div>
-            <div class="col-lg-10 vmx-auto p-4 yorumlar__content">
-                <h5 class="yorumlar__isim">Hatice DÖNMEZ</h5>
-                <p class="yorumlar__yorum d-inline">Nulla vehicula consectetur nulla et posuere. Vivamus maximus
-                    eros
-                    at
-                    egestas
-                    auctor. </p>
-            </div>
-        </div>
-    </div>
-    <div class="w-75 p-3 yorumlar__wrapper">
-        <div class="row">
-            <div class="col-lg-2 text-right"><img class="yorumlar__profile rounded-pill" src="wp-content/themes/prv/resources/assets/images/user-2.jpg" alt=""></div>
-            <div class="col-lg-10 vmx-auto p-4 yorumlar__content">
-                <h5 class="yorumlar__isim">Mehmet ŞAFAK</h5>
-                <p class="yorumlar__yorum d-inline">Nulla vehicula consectetur nulla et posuere. Vivamus maximus
-                    eros
-                    at
-                    egestas
-                    auctor.Nulla vehicula consectetur nulla et posuere. Vivamus maximus eros at
-                    egestas
-                    auctor. </p>
-            </div>
-        </div>
-    </div>
-    <div class="w-75 p-3 yorumlar__wrapper">
-        <div class="row">
-            <div class="col-lg-2 text-right"><img class="yorumlar__profile rounded-pill" src="wp-content/themes/prv/resources/assets/images/user-3.jpg" alt=""></div>
-            <div class="col-lg-10 vmx-auto p-4 yorumlar__content">
-                <h5 class="yorumlar__isim">Nuriye VERDENDİ</h5>
-                <p class="yorumlar__yorum d-inline">Nulla vehicula consectetur nulla et posuere. Vivamus maximus
-                    eros
-                    at
-                    egestas
-                    auctor. </p>
-            </div>
-        </div>
-    </div>
 
+    <?php
+    foreach ($comments as $data) {
+        $html = '<div class="w-75 p-3 yorumlar__wrapper">';
+        $html .= '<div class="row">';
+        $html .= '<div class="col-lg-2 text-right">';
+        $html .=  $data["picture"];
+        $html .= '</div><div class="col-lg-10 vmx-auto p-4 yorumlar__content">';
+        $html .= '<h5 class="yorumlar__isim">' . $data["name"] . '</h5>';
+        $html .= '<p class="yorumlar__yorum d-inline"> ' . $data["review"] . '</p>';
+        $html .= '</div>';
+        $html .= '</div>';
+        $html .= '</div>';
+        echo $html;
+    }
+    ?>
 <?php
     $buffer  = ob_get_clean();
     echo  $buffer;

@@ -14,8 +14,8 @@
                 kullandıkları
                 yöntemleri dikkate aldığımızda ihtiyaca göre genel olarak 2 farklı metot görürüz</p>
               <a name="" id=""
-                class="btn btn-primary btn-lg neden-sorular-konusuyor__button pl-5 pr-5 mt-5 rounded-pill" href="#"
-                role="button">Detay</a>
+                class="btn btn-primary btn-lg neden-sorular-konusuyor__button pl-5 pr-5 mt-5 rounded-pill"
+                href="sorular-konusuyor/" role="button">Detay</a>
             </div>
           </div>
           <div class="col-lg-12 pt-5">
