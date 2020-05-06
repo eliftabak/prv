@@ -11,6 +11,7 @@ import home from './routes/home';
 import aboutUs from './routes/about';
 import singleProduct from './routes/singleProduct';
 import iletisim from './routes/iletisim';
+import search from './routes/search';
 
 /** Populate Router instance with DOM routes */
 const routes = new Router({
@@ -24,6 +25,8 @@ const routes = new Router({
   singleProduct,
 
   iletisim,
+
+  search,
 });
 
 // Load Events
