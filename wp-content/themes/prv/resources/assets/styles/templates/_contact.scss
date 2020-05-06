@@ -1,0 +1,38 @@
+.iletisim {
+  .container__page-content {
+    padding: 0 !important;
+  }
+}
+
+.contact {
+  background-color: #ffc57f;
+
+  &__form {
+    background-color: white;
+  }
+
+  i {
+    color: gray;
+  }
+
+  ul {
+    list-style-type: none;
+  }
+
+  a {
+    color: inherit;
+
+    &:hover {
+      text-decoration: unset;
+    }
+  }
+
+  .succes-icon {
+    font-size: 12rem;
+    background-color: #221c6e;
+    border-radius: 50%;
+    padding: 20px;
+    color: white;
+    margin-top: 20px;
+  }
+}

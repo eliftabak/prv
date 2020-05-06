@@ -38,7 +38,7 @@
     "terminal.integrated.rendererType": "dom",
     // TEMINAL-END
     //WINDOW-START
-    "window.zoomLevel": 0,
+    "window.zoomLevel": 1,
     //WINDOW-END
     //PLUGİNS-START
     "fontAwesomeAutocomplete.version": "4",

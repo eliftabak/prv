@@ -10,6 +10,7 @@ import common from './routes/common';
 import home from './routes/home';
 import aboutUs from './routes/about';
 import singleProduct from './routes/singleProduct';
+import iletisim from './routes/iletisim';
 
 /** Populate Router instance with DOM routes */
 const routes = new Router({
@@ -21,6 +22,8 @@ const routes = new Router({
   aboutUs,
    // Single Product page
   singleProduct,
+
+  iletisim,
 });
 
 // Load Events
