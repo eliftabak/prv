@@ -10,3 +10,7 @@
  * CMB2 Get the bootstrap!
  */
 require_once WPMU_PLUGIN_DIR . '/cmb2/init.php';
+
+
+
+require_once WPMU_PLUGIN_DIR . '/login/custom-login.php';

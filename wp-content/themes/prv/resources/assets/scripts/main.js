@@ -8,10 +8,11 @@ import './autoload/**/*'
 import Router from './util/Router';
 import common from './routes/common';
 import home from './routes/home';
-import aboutUs from './routes/about';
+import hakkimizda from './routes/hakkimizda';
 import singleProduct from './routes/singleProduct';
 import iletisim from './routes/iletisim';
 import search from './routes/search';
+import akilliTahtaUygulamalari from './routes/akilliTahtaUygulamari';
 
 /** Populate Router instance with DOM routes */
 const routes = new Router({
@@ -20,13 +21,15 @@ const routes = new Router({
   // Home page
   home,
   // About Us page, note the change from about-us to aboutUs.
-  aboutUs,
+  hakkimizda,
    // Single Product page
   singleProduct,
 
   iletisim,
 
   search,
+
+  akilliTahtaUygulamalari,
 });
 
 // Load Events

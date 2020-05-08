@@ -14,6 +14,7 @@
 
 /** Import theme styles */
 @import "common/global";
+@import "../../../node_modules/bs-stepper/dist/css/bs-stepper.css";
 @import "common/woocommerce";
 @import "components/buttons";
 @import "components/comments";

@@ -341,3 +341,54 @@ add_action(
  * Show cart contents / total Ajax
  */
 add_filter('woocommerce_add_to_cart_fragments', __NAMESPACE__ . '\cart_fragment_logic');
+
+
+
+
+
+
+
+/**
+ *
+ * Add user type column in admin users page
+ *
+ */
+add_filter('manage_users_columns', function ($column) {
+    print_r($column);
+    $column['user_type'] = 'Kullanıcı Tipi';
+    return $column;
+});
+
+
+add_filter('manage_users_custom_column', function ($val, $column_name, $user_id) {
+    switch ($column_name) {
+        case 'user_type':
+            return get_the_author_meta('prv_user_type', $user_id);
+        default:
+    }
+    return $val;
+}, 10, 3);
+
+
+/**
+ *
+ * Add sortable column in admin users page
+ *
+ */
+
+add_filter('manage_users_sortable_columns', function ($columns) {
+    $columns['user_type'] = 'prv_user_type';
+    return $columns;
+});
+
+
+add_action('pre_get_users', function ($query) {
+    if (!is_admin() || !$query->is_main_query()) {
+        return;
+    }
+
+    if ('prv_user_type' === $query->get('orderby')) {
+        $query->set('orderby', 'meta_value');
+        $query->set('meta_key', 'prv_user_type');
+    }
+});

@@ -280,3 +280,83 @@ add_action('cmb2_admin_init', function () {
         'preview_size' => 'medium', // Image size to use when previewing in the admin.
     ));
 });
+
+
+/**
+ *
+ * Akıllı Tahta Meta Boxes
+ *
+ */
+
+add_action('cmb2_admin_init', function () {
+
+    $cmb = new_cmb2_box(array(
+        'title' => __('Akıllı tahta ekstra alanları', 'sage'),
+        'id' => 'akilli_tahta_metabox',
+        'object_types' => array('akilli_tahta'), // Post type
+        'context' => 'normal',
+        'priority' => 'high',
+        'show_names' => true, // Show field names on the left
+        // 'cmb_styles' => false, // false to disable the CMB stylesheet
+        // 'closed'     => true, // Keep the metabox closed by default
+    ));
+
+    $cmb->add_field(array(
+        'name' => __('Akllı Tahta Dosyası', 'sage'),
+        'desc' => __('Örnek: "http://pruvakademi.com/dosyaismi.zip" gibi', 'sage'),
+        'id' => 'prv_akilli_tahta',
+        'type' => 'file',
+        // Optional:
+        'options' => array(
+            'url' => false, // Hide the text input for the url
+        ),
+        'text' => array(
+            'add_upload_file_text' => __('Dosya yükle', 'sage'), // Change upload button text. Default: "Add or Upload File"
+        ),
+        // query_args are passed to wp.media's library query.
+        'query_args' => array(
+            'type' => array(
+                'application/zip',
+                'application/octet-stream',
+                'application/x-zip-compressed',
+                'multipart/x-zip',
+            ), // Make library only display ZIP files.
+        ),
+        'preview_size' => 'thumbnail', // Image size to use when previewing in the admin.
+    ));
+});
+
+
+
+/**
+ *
+ * Akıllı Tahta Meta Boxes
+ *
+ */
+
+add_action('cmb2_admin_init', function () {
+
+    $cmb = new_cmb2_box(array(
+        'title' => __('Akıllı tahta ekstra alanları', 'sage'),
+        'id' => 'user_metabox',
+        'object_types' => array('user'), // Post type
+        'context' => 'normal',
+        'priority' => 'high',
+        'show_names' => true, // Show field names on the left
+        // 'cmb_styles' => false, // false to disable the CMB stylesheet
+        // 'closed'     => true, // Keep the metabox closed by default
+    ));
+
+    $cmb->add_field(array(
+        'name'             => 'Kullanıcı Tipi',
+        'desc'             => 'Kullanıcı tipi belirleyin',
+        'id'               => 'prv_user_type',
+        'type'             => 'select',
+        'show_option_none' => true,
+        'default'          => 'standart',
+        'options'          => array(
+            'Öğretmen'   => __('Öğretmen', 'sage'),
+            'Öğrenci' => __('Öğrenci', 'sage')
+        ),
+    ));
+});

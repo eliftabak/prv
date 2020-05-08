@@ -195,3 +195,31 @@ i[class$="-prv-icon"] {
   font-size: 1rem;
   opacity: 1;
 }
+
+.akilli-tahta-uygulamalari {
+  .bs-stepper-pane {
+    min-height: 454px;
+  }
+
+  .imagePreview {
+    width: 100%;
+    height: 180px;
+    background: url(../../images/resim-yok.png);
+    background-position: center center;
+    border: 1px #c3c3c3 dashed;
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: inline-block;
+  }
+
+  .btn-primary {
+    display: block;
+    border-radius: 0;
+    box-shadow: 0 4px 6px 2px rgba(0, 0, 0, 0.2);
+    margin-top: -5px;
+  }
+
+  .imgUp {
+    margin-bottom: 15px;
+  }
+}
