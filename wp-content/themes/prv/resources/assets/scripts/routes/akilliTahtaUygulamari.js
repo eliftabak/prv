@@ -4,14 +4,24 @@ import Stepper from  'bs-stepper'
 export default {
   init() {
 
+
+    function isEmail(email) {
+      var expr = /^[\w]{1,}[\w.+-]{0,}@[\w-]{2,}([.][a-zA-Z]{2,}|[.][\w-]{2,}[.][a-zA-Z]{2,})$/;
+      return expr.test(email);
+    }
+
     var stepperForm;
     var stepperFormEl = document.querySelector('#stepperForm')
     stepperForm = new Stepper(stepperFormEl);
     var btnNextList = [].slice.call(document.querySelectorAll('.btn-next-form'))
     var btnPreviousList = [].slice.call(document.querySelectorAll('.btn-previous-form'))
     var stepperPanList = [].slice.call(stepperFormEl.querySelectorAll('.bs-stepper-pane'))
-    var inputMailForm = document.getElementById('inputMailForm')
-    var inputPasswordForm = document.getElementById('inputPasswordForm')
+    var inputMailForm = document.getElementById('user-email')
+    var inputUserDisplayName = document.getElementById('user-display-name')
+    var inputUserFirstName = document.getElementById('user-first-name')
+    var inputUserLastName = document.getElementById('user-last-name')
+    var inputPasswordForm = document.getElementById('user-password')
+    var inputPasswordRepeat = document.getElementById('user-password-repeat')
     var form = stepperFormEl.querySelector('.bs-stepper-content form')
 
     btnNextList.forEach(function (btn) {
@@ -37,8 +47,15 @@ export default {
 
       var stepperPan = stepperPanList[currentStep]
 
-      if ((stepperPan.getAttribute('id') === 'test-form-1' && !inputMailForm.value.length)
-      || (stepperPan.getAttribute('id') === 'test-form-2' && !inputPasswordForm.value.length)) {
+      if (
+         (stepperPan.getAttribute('id') === 'test-form-1' && (!inputMailForm.value.length || !isEmail(inputMailForm.value)))
+      || (stepperPan.getAttribute('id') === 'test-form-1' && !inputUserDisplayName.value.length)
+      || (stepperPan.getAttribute('id') === 'test-form-1' && !inputUserFirstName.value.length)
+      || (stepperPan.getAttribute('id') === 'test-form-1' && !inputUserLastName.value.length)
+      || (stepperPan.getAttribute('id') === 'test-form-1' && !inputPasswordForm.value.length)
+      || (stepperPan.getAttribute('id') === 'test-form-1' && !inputPasswordRepeat.value.length)
+      )
+      {
         event.preventDefault()
         form.classList.add('was-validated')
       }
@@ -50,7 +67,7 @@ export default {
         $(document).on('change','.uploadFile', function()
         {
             var uploadFile = $(this);
-            console.log(uploadFile);
+            //console.log(uploadFile);
             // eslint-disable-next-line no-extra-boolean-cast
             var files = !!this.files ? this.files : [];
             if (!files.length || !window.FileReader) return; // no file selected, or no FileReader support

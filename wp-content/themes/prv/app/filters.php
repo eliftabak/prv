@@ -392,3 +392,49 @@ add_action('pre_get_users', function ($query) {
         $query->set('meta_key', 'prv_user_type');
     }
 });
+
+
+/**
+ *
+ * Add user validate column in admin users page
+ *
+ */
+add_filter('manage_users_columns', function ($column) {
+    print_r($column);
+    $column['user_validate'] = 'Kullanıcı Onayı';
+    return $column;
+});
+
+
+add_filter('manage_users_custom_column', function ($val, $column_name, $user_id) {
+    switch ($column_name) {
+        case 'user_validate':
+            return get_the_author_meta('prv_user_validate', $user_id);
+        default:
+    }
+    return $val;
+}, 10, 3);
+
+
+/**
+ *
+ * Add sortable column in admin users page
+ *
+ */
+
+add_filter('manage_users_sortable_columns', function ($columns) {
+    $columns['user_validate'] = 'prv_user_validate';
+    return $columns;
+});
+
+
+add_action('pre_get_users', function ($query) {
+    if (!is_admin() || !$query->is_main_query()) {
+        return;
+    }
+
+    if ('prv_user_type' === $query->get('orderby')) {
+        $query->set('orderby', 'meta_value');
+        $query->set('meta_key', 'prv_user_validate');
+    }
+});

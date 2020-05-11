@@ -25,9 +25,12 @@
     "editor.wordBasedSuggestions": true,
     "editor.parameterHints.enabled": true,
     "editor.trimAutoWhitespace": true,
+    "workbench.colorCustomizations": {
+        "editor.lineHighlightBorder": "#ffffff00"
+    },
     // EDITOR-END
     // WORKBENCH-START
-    "workbench.colorTheme": "GitHub Plus",
+    "workbench.colorTheme": "HelloSpaceboy",
     "workbench.iconTheme": "vs-seti",
     "workbench.statusBar.visible": true,
     // WORKBENCH-END

@@ -353,10 +353,23 @@ add_action('cmb2_admin_init', function () {
         'id'               => 'prv_user_type',
         'type'             => 'select',
         'show_option_none' => true,
-        'default'          => 'standart',
+        'default'          => 'Standart',
         'options'          => array(
             'Öğretmen'   => __('Öğretmen', 'sage'),
-            'Öğrenci' => __('Öğrenci', 'sage')
+            'Öğrenci' => __('Öğrenci', 'sage'),
+        ),
+    ));
+
+    $cmb->add_field(array(
+        'name'             => 'Kullanıcı Onay',
+        'desc'             => 'Kullanıcıyı onaylayın',
+        'id'               => 'prv_user_validate',
+        'type'             => 'select',
+        'show_option_none' => true,
+        'default'          => 'Onaylanmadı',
+        'options'          => array(
+            'Onaylandı'   => __('Onaylandı', 'sage'),
+            'Onaylanmadı' => __('Onaylanmadı', 'sage')
         ),
     ));
 });

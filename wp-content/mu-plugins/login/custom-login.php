@@ -1,7 +1,7 @@
 <?php
 
 
-//TODO:Resume from here
+require(dirname(__FILE__) . "/helpers/login-utility.php");
 
 class StepLogin
 {
@@ -9,70 +9,77 @@ class StepLogin
   public function __construct()
   {
 
-    add_action('init', array($this, 'pippin_register_css'));
-    add_action('wp_footer', array($this, 'pippin_print_css'));
-    add_shortcode('register_form', array($this, 'pippin_registration_form'));
-    add_shortcode('login_form', array($this, 'pippin_login_form'));
-    add_action('init', array($this, 'pippin_login_member'));
-    add_action('init', array($this, 'pippin_add_new_member'));
+    add_action('wp_ajax_register_user_front_end', array($this, 'register_process'), 0);
+    add_action('wp_ajax_nopriv_register_user_front_end', array($this, 'register_process'));
+    add_shortcode('register_form', array($this, 'html_logic'));
   }
 
-  // register our form css
-  function pippin_register_css()
+  function html_logic()
   {
 
-    //wp_register_style('pippin-form-vendor-css', plugin_dir_url(__FILE__) . 'vendor/stepper/stepper.min.css');
-    //wp_register_script('pippin-form-vendor-js', plugin_dir_url(__FILE__) . 'vendor/stepper/stepper.min.js', ['jquery']);
-    wp_register_style('pippin-form-css', plugin_dir_url(__FILE__) . 'app.css');
-    //wp_register_script('pippin-form-js', plugin_dir_url(__FILE__) . 'app.js', ['jquery']);
-  }
+    if (!is_user_logged_in()) {
+      return $this->registration_form_html();
+    } else {
+      $user_id = get_current_user_id();
+      $user_type = get_user_meta($user_id, "prv_user_type", true);
+      $user_validation_status = get_user_meta($user_id, "prv_user_validate", true);
 
-  // load our form css
-  function pippin_print_css()
-  {
-    global $pippin_load_css;
-
-    // this variable is set to TRUE if the short code is used on a page/post
-    if (!$pippin_load_css)
-      return; // this means that neither short code is prestyleent, so we get out of here
-
-    //wp_print_styles('pippin-form-vendor-css');
-    wp_print_styles('pippin-form-css');
-    //wp_print_scripts('pippin-form-vendor-js');
-    //wp_print_scripts('pippin-form-js');
-  }
-
-
-  // displays error messages from form submissions
-  function pippin_show_error_messages()
-  {
-    if ($codes = $this->pippin_errors()->get_error_codes()) {
-      echo '<div class="pippin_errors">';
-      // Loop error codes and display errors
-      foreach ($codes as $code) {
-        $message = $this->pippin_errors()->get_error_message($code);
-        echo '<span class="error"><strong>' . __('Error') . '</strong>: ' . $message . '</span><br/>';
+      if ($user_type === "Öğretmen") {
+        if ($user_validation_status === "Onaylanmadı") {
+          return $this->validation_waiting_html();
+        } elseif ($user_validation_status === "Onaylandı") {
+          return $this->akilli_defter_html();
+        }
+      } else {
+        return $this->change_user_type_to_ogretmen_html();
       }
-      echo '</div>';
     }
   }
 
-  // used for tracking error messages
-  function pippin_errors()
+  function validation_waiting_html()
   {
-    static $wp_error; // Will hold global variable safely
-    return isset($wp_error) ? $wp_error : ($wp_error = new WP_Error(null, null, null));
+    ob_start(); ?>
+
+    <h3 class="text-center">Onay süreciniz devam ediyor.</h3>
+
+  <?php
+    return ob_get_clean();
   }
 
-  // registration form fields
-  function pippin_registration_form_fields()
+
+  function change_user_type_to_ogretmen_html()
+  {
+    ob_start(); ?>
+
+    <h3 class="text-center">Ogretmen Olmak istiyorum</h3>
+
+
+    </script>
+  <?php
+    return ob_get_clean();
+  }
+
+
+  function akilli_defter_html()
+  {
+    ob_start(); ?>
+
+    <h3 class="text-center">Akıllı defterleriniz.</h3>
+
+
+    </script>
+  <?php
+    return ob_get_clean();
+  }
+
+  function registration_form_html()
+
   {
 
     ob_start(); ?>
-    <h3 class="text-center"><?php _e('Talep Formu'); ?></h3>
+    <h3 class="text-center">Talep Formu</h3>
 
-    <?php
-    $this->pippin_show_error_messages(); ?>
+    <div class="notice" style="display:none"></div>
 
     <div id="stepperForm" class="bs-stepper linear">
       <div class="bs-stepper-header" role="tablist">
@@ -93,20 +100,66 @@ class StepLogin
         <div class="step" data-target="#test-form-3">
           <button type="button" class="step-trigger" role="tab" id="stepperFormTrigger3" aria-controls="test-form-3" aria-selected="false" disabled="disabled">
             <span class="bs-stepper-circle">3</span>
-            <span class="bs-stepper-label">Onay</span>
+            <span class="bs-stepper-label">Sonuç</span>
           </button>
         </div>
       </div>
       <div class="bs-stepper-content">
-        <form class="needs-validation pippin_form" onsubmit="return false" novalidate="" id="pippin_registration_form" action="" method="POST">
+        <form class="needs-validation akilli-tahta-talep-form" onsubmit="return false" novalidate="" action="#" method="POST" name="akilli-tahta-talep-form">
           <div id="test-form-1" role="tabpanel" class="bs-stepper-pane fade active dstepper-block" aria-labelledby="stepperFormTrigger1">
             <div class="container-fluid mt-5">
               <div class="row">
-                <div class="col-12 no-gutters">
+                <div class="col-lg-6">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="form-group">
+                        <label for="user-email">E-Posta adresiniz <span class="text-danger font-weight-bold">*</span></label>
+                        <input pattern="^[\w]{1,}[\w.+-]{0,}@[\w-]{2,}([.][a-zA-Z]{2,}|[.][\w-]{2,}[.][a-zA-Z]{2,})$" id="user-email" type="mail" name="user-email" class="form-control" placeholder="Mail adresi giriniz" required data-cip-id="user-email">
+                        <div class="invalid-feedback">Geçerli bir mail adresi giriniz.</div>
+                      </div>
+                    </div>
+                    <div class="col-lg-12">
+                      <div class="form-group">
+                        <label for="user-display-name">Kullaıcı Adınız<span class="text-danger font-weight-bold">*</span></label>
+                        <input id="user-display-name" type="text" name="user-display-name" class="form-control" placeholder="Kullanıcı adınızı giriniz" required data-cip-id="user-display-name">
+                        <div class="invalid-feedback">Bu alan doldurulması zorunludur.</div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label for="user-first-name">Adınız <span class="text-danger font-weight-bold">*</span></label>
+                        <input id="user-first-name" name="user-first-name" type="text" class="form-control" placeholder="Adınızı giriniz" required data-cip-id="user-first-name">
+                        <div class="invalid-feedback">Bu alan doldurulması zorunludur.</div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label for="user-last-name">Soyadınız <span class="text-danger font-weight-bold">*</span></label>
+                        <input id="user-last-name" name="user-last-name" type="text" class="form-control" placeholder="Soyadınızı giriniz" required data-cip-id="user-last-name">
+                        <div class="invalid-feedback">Bu alan doldurulması zorunludur.</div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label for="user-password">Şifre <span class="text-danger font-weight-bold">*</span></label>
+                        <input id="user-password" name="user-password" type="password" class="form-control" placeholder="Şifrenizi giriniz" required data-cip-id="user-password">
+                        <div class="invalid-feedback">Bu alan doldurulması zorunludur.</div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label for="user-password-repeat">Şifre Tekrar <span class="text-danger font-weight-bold">*</span></label>
+                        <input id="user-password-repeat" name="user-password-repeat" type="password" class="form-control" placeholder="Tekrar şifrenizi giriniz" required data-cip-id="user-password-repeat">
+                        <div class="invalid-feedback">Bu alan doldurulması zorunludur.</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 vmx-auto">
                   <div class="row justify-content-center">
-                    <div class="col-sm-4 imgUp">
-                      <div class="imagePreview"></div>
-                      <label class="btn btn-primary">
+                    <div class="col-sm-8 imgUp">
+                      <div class="imagePreview" id="user-image"></div>
+                      <label class="btn btn-primary btn-img-upload">
                         Öğretmen Kimliğinizi Yükleyin
                         <input required type="file" class="uploadFile img" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;">
                         <div class="invalid-feedback">Lütfen bir fotoğraf yükleyiniz.</div>
@@ -114,47 +167,10 @@ class StepLogin
                     </div>
                   </div>
                 </div>
-                <div class="col-lg-12 no-gutters">
-                  <div class="row justify-content-center">
-                    <div class="col-sm-4">
-                      <div class="form-group">
-                        <label for="inputMailForm">E-Posta adresiniz <span class="text-danger font-weight-bold">*</span></label>
-                        <input id="inputMailForm" type="email" class="form-control" placeholder="Mail adresi giriniz" required data-cip-id="inputMailForm">
-                        <div class="invalid-feedback">Bu alan doldurulması zorunludur.</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-3">
-                  <div class="form-group">
-                    <label for="inputMailForm">Adınız <span class="text-danger font-weight-bold">*</span></label>
-                    <input id="inputMailForm" type="text" class="form-control" placeholder="Adınızı giriniz" required data-cip-id="inputMailForm">
-                    <div class="invalid-feedback">Bu alan doldurulması zorunludur.</div>
-                  </div>
-                </div>
-                <div class="col-lg-3">
-                  <div class="form-group">
-                    <label for="inputMailForm">Soyadınız <span class="text-danger font-weight-bold">*</span></label>
-                    <input id="inputMailForm" type="text" class="form-control" placeholder="Soyadınızı giriniz" required data-cip-id="inputMailForm">
-                    <div class="invalid-feedback">Bu alan doldurulması zorunludur.</div>
-                  </div>
-                </div>
-                <div class="col-lg-3">
-                  <div class="form-group">
-                    <label for="inputMailForm">Şifre <span class="text-danger font-weight-bold">*</span></label>
-                    <input id="inputMailForm" type="password" class="form-control" placeholder="Şifrenizi giriniz" required data-cip-id="inputMailForm">
-                    <div class="invalid-feedback">Bu alan doldurulması zorunludur.</div>
-                  </div>
-                </div>
-                <div class="col-lg-3">
-                  <div class="form-group">
-                    <label for="inputMailForm">Şifre Tekrar <span class="text-danger font-weight-bold">*</span></label>
-                    <input id="inputMailForm" type="password" class="form-control" placeholder="Tekrar şifrenizi giriniz" required data-cip-id="inputMailForm">
-                    <div class="invalid-feedback">Bu alan doldurulması zorunludur.</div>
-                  </div>
-                </div>
               </div>
-              <button class="btn btn-info btn-next-form d-inline-block">Sonraki</button>
+              <div class="container-fluid text-right mt-5">
+                <button class="btn btn-info btn-lg shadow btn-next-form d-inline-block">Sonraki</button>
+              </div>
             </div>
           </div>
           <div id="test-form-2" role="tabpanel" class="bs-stepper-pane fade dstepper-none" aria-labelledby="stepperFormTrigger2">
@@ -162,228 +178,230 @@ class StepLogin
               <div class="row">
                 <div class="col-lg-6">
                   <div class="form-group">
-                    <label for="inputMailForm">İl <span class="text-danger font-weight-bold">*</span></label>
-                    <input id="inputMailForm" type="text" class="form-control form-control-lg" placeholder="Adınızı giriniz" required data-cip-id="inputMailForm">
+                    <label for="user-city">İl <span class="text-danger font-weight-bold">*</span></label>
+                    <input id="user-city" type="text" name="user-city" class="form-control form-control-lg" placeholder="Adınızı giriniz" required data-cip-id="user-city">
                     <div class="invalid-feedback">Bu alan doldurulması zorunludur.</div>
                   </div>
                 </div>
                 <div class="col-lg-6">
                   <div class="form-group">
-                    <label for="inputMailForm">İlçe <span class="text-danger font-weight-bold">*</span></label>
-                    <input id="inputMailForm" type="text" class="form-control form-control-lg" placeholder="Adınızı giriniz" required data-cip-id="inputMailForm">
+                    <label for="user-district">İlçe <span class="text-danger font-weight-bold">*</span></label>
+                    <input id="user-district" type="text" name="user-district" class="form-control form-control-lg" placeholder="Adınızı giriniz" required data-cip-id="user-district">
                     <div class="invalid-feedback">Bu alan doldurulması zorunludur.</div>
                   </div>
                 </div>
                 <div class="col-lg-12">
                   <div class="form-group">
-                    <label for="inputMailForm">Okul <span class="text-danger font-weight-bold">*</span></label>
-                    <input id="inputMailForm" type="text" class="form-control form-control-lg" placeholder="Adınızı giriniz" required data-cip-id="inputMailForm">
+                    <label for="user-school">Okul <span class="text-danger font-weight-bold">*</span></label>
+                    <input id="user-school" type="text" name="user-school" class="form-control form-control-lg" placeholder="Adınızı giriniz" required data-cip-id="user-school">
                     <div class="invalid-feedback">Bu alan doldurulması zorunludur.</div>
                   </div>
                 </div>
                 <div class="col-lg-6">
                   <div class="form-group">
-                    <label for="inputMailForm">Branş <span class="text-danger font-weight-bold">*</span></label>
-                    <input id="inputMailForm" type="text" class="form-control form-control-lg" placeholder="Adınızı giriniz" required data-cip-id="inputMailForm">
+                    <label for="user-subject">Branş <span class="text-danger font-weight-bold">*</span></label>
+                    <input id="user-subject" type="text" name="user-subject" class="form-control form-control-lg" placeholder="Adınızı giriniz" required data-cip-id="user-subject">
                     <div class="invalid-feedback">Bu alan doldurulması zorunludur.</div>
                   </div>
                 </div>
                 <div class="col-lg-6">
                   <div class="form-group">
-                    <label for="inputMailForm">Telefon <span class="text-danger font-weight-bold">*</span></label>
-                    <input id="inputMailForm" type="text" class="form-control form-control-lg" placeholder="Adınızı giriniz" required data-cip-id="inputMailForm">
+                    <label for="user-phone">Telefon <span class="text-danger font-weight-bold">*</span></label>
+                    <input id="user-phone" type="text" name="user-phone" class="form-control form-control-lg" placeholder="Adınızı giriniz" required data-cip-id="user-phone">
                     <div class="invalid-feedback">Bu alan doldurulması zorunludur.</div>
                   </div>
                 </div>
               </div>
-              <button class="btn btn-info btn-previous-form d-inline-block">Önceki</button>
-              <button class="btn btn-info btn-next-form d-inline-block">Sonraki</button>
+              <div class="container-fluid text-right mt-5">
+                <button class="btn btn-info btn-lg shadow btn-previous-form d-inline-block">Önceki</button>
+                <button class="btn btn-info btn-lg shadow btn-next-form d-inline-block">Sonraki</button>
+              </div>
             </div>
           </div>
           <div id="test-form-3" role="tabpanel" class="bs-stepper-pane fade text-center dstepper-none" aria-labelledby="stepperFormTrigger3">
-            <input type="hidden" name="pippin_register_nonce" value="<?php echo wp_create_nonce('pippin-register-nonce'); ?>" />
-            <button type="submit" class="btn btn-primary mt-5">Submit</button>
+            <input type="hidden" name="prv_user_register_nonce" value="<?php echo wp_create_nonce('prv-user-register-nonce'); ?>" id="prv-user-register-nonce" />
+            <div class="container-fluid text-right mt-5">
+              <button class="btn btn-info btn-lg shadow btn-previous-form d-inline-block">Önceki</button>
+              <button type="submit" class="btn btn-success btn-lg shadow d-inline-block" id="akilli-tahta-submit"><i class="fa fa-paper-plane pr-2" aria-hidden="true"></i>Gönder</button>
+            </div>
           </div>
         </form>
       </div>
     </div>
 
-
-  <?php
-    return ob_get_clean();
-  }
-
-  // user registration login form
-  function pippin_registration_form()
-  {
-
-    // only show the registration form to non-logged-in members
-    if (!is_user_logged_in()) {
-
-      global $pippin_load_css;
-
-      // set this to true so the CSS is loaded
-      $pippin_load_css = true;
-
-      // check to make sure user registration is enabled
-      $registration_enabled = get_option('users_can_register');
-
-      // only show the registration form if allowed
-      if ($registration_enabled) {
-        $output = $this->pippin_registration_form_fields();
-      } else {
-        $output = __('User registration is not enabled');
-      }
-      return $output;
-    }
-  }
+    <script type="text/javascript">
+      jQuery('#akilli-tahta-submit').on('click', function(e) {
+        e.preventDefault();
+        var user_email = jQuery('#user-email').val();
+        var user_display_name = jQuery('#user-display-name').val();
+        var user_first_name = jQuery('#user-first-name').val();
+        var user_last_name = jQuery('#user-last-name').val();
+        var user_password = jQuery('#user-password').val();
+        var user_password_repeat = jQuery('#user-password-repeat').val();
+        var user_image = jQuery('#user-image').css("background-image");
+        var user_city = jQuery('#user-city').val();
+        var user_district = jQuery('#user-district').val();
+        var user_school = jQuery('#user-school').val();
+        var user_subject = jQuery('#user-subject').val();
+        var user_phone = jQuery('#user-phone').val();
+        var prv_user_register_nonce = jQuery('#prv-user-register-nonce').val();
 
 
 
-  // login form fields
-  function pippin_login_form_fields()
-  {
+        var reg = /(?:\(['"]?)(.*?)(?:['"]?\))/;
+        var extracted_image = reg.exec(user_image)[1];
 
-    ob_start(); ?>
-    <h3 class="pippin_header"><?php _e('Login'); ?></h3>
+        jQuery.ajax({
+          type: "POST",
+          url: "<?php echo admin_url('admin-ajax.php'); ?>",
+          data: {
+            action: "register_user_front_end",
+            user_email: user_email,
+            user_display_name: user_display_name,
+            user_first_name: user_first_name,
+            user_last_name: user_last_name,
+            user_password: user_password,
+            user_password_repeat: user_password_repeat,
+            user_image: extracted_image,
+            user_city: user_city,
+            user_district: user_district,
+            user_school: user_school,
+            user_subject: user_subject,
+            user_phone: user_phone,
+            prv_user_register_nonce: prv_user_register_nonce,
+          },
+          success: function(results) {
+            //console.log(results);
+            const element = jQuery('.notice');
 
-    <?php
-    // show any error messages after form submission
-    $this->pippin_show_error_messages(); ?>
+            const {
+              data
+            } = results
+            if ("success" in data) {
+              data["success"].forEach((value, index) => {
+                element.append(`<div class="alert alert-success" role="alert">${value}</div>`);
+                if (data["success"].length - 1 == index) {
+                  element.show();
+                }
+              });
+            }
 
-    <form id="pippin_login_form" class="pippin_form" action="" method="post">
-      <fieldset>
-        <p>
-          <label for="pippin_user_Login">Username</label>
-          <input name="pippin_user_login" id="pippin_user_login" class="required" type="text" />
-        </p>
-        <p>
-          <label for="pippin_user_pass">Password</label>
-          <input name="pippin_user_pass" id="pippin_user_pass" class="required" type="password" />
-        </p>
-        <p>
-          <input type="hidden" name="pippin_login_nonce" value="<?php echo wp_create_nonce('pippin-login-nonce'); ?>" />
-          <input id="pippin_login_submit" type="submit" value="Login" />
-        </p>
-      </fieldset>
-    </form>
+            setTimeout(() => {
+              element.hide();
+              element.empty();
+              window.location.reload();
+            }, 3000)
+
+
+          },
+          error: function(results) {
+            //console.log("results", results)
+            const element = jQuery('.notice');
+            const {
+              data
+            } = JSON.parse(results.responseText);
+
+            if ("error" in data) {
+              data["error"].forEach((value, index) => {
+                element.append(`<div class="alert alert-warning" role="alert">${value}</div>`);
+                if (data["error"].length - 1 == index) {
+                  element.show();
+                }
+              });
+            }
+
+            setTimeout(() => {
+              element.hide();
+              element.empty();
+            }, 3000)
+
+          }
+        });
+      });
+    </script>
 <?php
     return ob_get_clean();
   }
 
-
-  // user login form
-  function pippin_login_form()
+  function register_process()
   {
 
-    if (!is_user_logged_in()) {
+    if (isset($_POST["user_display_name"]) && wp_verify_nonce($_POST['prv_user_register_nonce'], 'prv-user-register-nonce')) {
 
-      global $pippin_load_css;
+      $user_login    = $_POST["user_display_name"];
+      $user_email    = $_POST["user_email"];
+      $user_first   = $_POST["user_first_name"];
+      $user_last     = $_POST["user_last_name"];
+      $user_pass    = $_POST["user_password"];
+      $pass_confirm   = $_POST["user_password_repeat"];
+      $user_image = $_POST["user_image"];
 
-      // set this to true so the CSS is loaded
-      $pippin_load_css = true;
-
-      $output = $this->pippin_login_form_fields();
-    } else {
-      // could show some logged in user info here
-      // $output = 'user info here';
-    }
-    return $output;
-  }
-
-
-
-  // logs a member in after submitting a form
-  function pippin_login_member()
-  {
-
-    if (isset($_POST['pippin_user_login']) && wp_verify_nonce($_POST['pippin_login_nonce'], 'pippin-login-nonce')) {
-
-      // this returns the user ID and other info from the user name
-      $user = get_userdatabylogin($_POST['pippin_user_login']);
-
-      if (!$user) {
-        // if the user name doesn't exist
-        $this->pippin_errors()->add('empty_username', __('Invalid username'));
-      }
-
-      if (!isset($_POST['pippin_user_pass']) || $_POST['pippin_user_pass'] == '') {
-        // if no password was entered
-        $this->pippin_errors()->add('empty_password', __('Please enter a password'));
-      }
-
-      // check the user's login with their password
-      if (!wp_check_password($_POST['pippin_user_pass'], $user->user_pass, $user->ID)) {
-        // if the password is incorrect for the specified user
-        $this->pippin_errors()->add('empty_password', __('Incorrect password'));
-      }
-
-      // retrieve all error messages
-      $errors = $this->pippin_errors()->get_error_messages();
-
-      // only log the user in if there are no errors
-      if (empty($errors)) {
-
-        wp_setcookie($_POST['pippin_user_login'], $_POST['pippin_user_pass'], true);
-        wp_set_current_user($user->ID, $_POST['pippin_user_login']);
-        do_action('wp_login', $_POST['pippin_user_login']);
-
-        wp_redirect(home_url());
-        exit;
-      }
-    }
-  }
-
-
-
-  // register a new user
-  function pippin_add_new_member()
-  {
-    if (isset($_POST["pippin_user_login"]) && wp_verify_nonce($_POST['pippin_register_nonce'], 'pippin-register-nonce')) {
-      $user_login    = $_POST["pippin_user_login"];
-      $user_email    = $_POST["pippin_user_email"];
-      $user_first   = $_POST["pippin_user_first"];
-      $user_last     = $_POST["pippin_user_last"];
-      $user_pass    = $_POST["pippin_user_pass"];
-      $pass_confirm   = $_POST["pippin_user_pass_confirm"];
+      $error = [];
 
       // this is required for username checks
       require_once(ABSPATH . WPINC . '/registration.php');
 
+      if (preg_match('/^data:image\/(\w+);base64,/', $user_image, $type)) {
+        $user_image = substr($user_image, strpos($user_image, ',') + 1);
+        $type = strtolower($type[1]); // jpg, png, gif
+
+        if (!in_array($type, ['jpg', 'jpeg', 'gif', 'png'])) {
+          $error["error"][] = 'Jpeg, gif  veya png formatlarından birini yükleyiniz. ';
+        }
+
+        $user_image = base64_decode($user_image);
+
+        if ($user_image === false) {
+          $error["error"][] = 'Resim işlenirken hata verdi.';
+        }
+      } else {
+        $error["error"][] = 'Başka bir resim deneyerek tekrar yüklemeyi deneyiniz.';
+      }
+
+      $upload = wp_upload_dir();
+      $upload_dir = $upload['basedir'];
+      $year = date("Y");
+      $month = date('m');
+      $date = new DateTime();
+      $time_stamp =  $date->getTimestamp();
+      $full_path =  "{$upload_dir}/{$year}/{$month}/";
+      $file_name = strtolower($user_first) . "-" . strtolower($user_last) . "-" . $time_stamp . "." . $type;
+
+      file_put_contents($full_path . $file_name, $user_image);
+
       if (username_exists($user_login)) {
         // Username already registered
-        $this->pippin_errors()->add('username_unavailable', __('Username already taken'));
+        $error["error"][] = "Bu kullanıcı adı sistemde kayıtlı.";
       }
       if (!validate_username($user_login)) {
         // invalid username
-        $this->pippin_errors()->add('username_invalid', __('Invalid username'));
+        $error["error"][] = "Geçersiz kullanıcı adı giriniz.";
       }
       if ($user_login == '') {
         // empty username
-        $this->pippin_errors()->add('username_empty', __('Please enter a username'));
+        $error["error"][] = "Lütfen bir kullanıcı adı giriniz.";
       }
       if (!is_email($user_email)) {
         //invalid email
-        $this->pippin_errors()->add('email_invalid', __('Invalid email'));
+        $error["error"][] = "Geçerli bir e-posta adresi giriniz.";
       }
       if (email_exists($user_email)) {
         //Email address already registered
-        $this->pippin_errors()->add('email_used', __('Email already registered'));
+        $error["error"][] = "Bu e-posta adresi sistemde kayıtlı.";
       }
       if ($user_pass == '') {
-        // passwords do not match
-        $this->pippin_errors()->add('password_empty', __('Please enter a password'));
+        // passwords empty
+        $error["error"][] = "Lütfen bir şifre giriniz.";
       }
       if ($user_pass != $pass_confirm) {
         // passwords do not match
-        $this->pippin_errors()->add('password_mismatch', __('Passwords do not match'));
+        $error["error"][] = "Girdiğiniz şifre eşleşmiyor.";
       }
 
-      $errors = $this->pippin_errors()->get_error_messages();
-
-      // only create the user in if there are no errors
-      if (empty($errors)) {
-
+      if ($error) {
+        wp_send_json_error($error, 500);
+      } else {
+        $json = [];
         $new_user_id = wp_insert_user(
           array(
             'user_login'    => $user_login,
@@ -392,23 +410,32 @@ class StepLogin
             'first_name'    => $user_first,
             'last_name'      => $user_last,
             'user_registered'  => date('Y-m-d H:i:s'),
-            'role'        => 'subscriber'
+            'role'        => 'customer'
           )
         );
         if ($new_user_id) {
+          // Update Metadata
+          update_user_meta($new_user_id, "prv_user_type", "Öğretmen");
+          update_user_meta($new_user_id, "prv_user_validate", "Onaylanmadı");
+
+
           // send an email to the admin alerting them of the registration
           wp_new_user_notification($new_user_id);
 
-          // log the new user in
-          wp_setcookie($user_login, $user_pass, true);
-          wp_set_current_user($new_user_id, $user_login);
-          do_action('wp_login', $user_login);
+          // send an email to the admin alerting them of the registration
+          send_welcome_email_to_new_user($new_user_id);
 
-          // send the newly created user to the home page after logging them in
-          wp_redirect(home_url());
-          exit;
+          // log the new user in
+          wp_set_auth_cookie($new_user_id);
+          wp_set_current_user($new_user_id, $user_login);
+          //do_action('wp_login', $user_login);
+
+          $data["success"][] = "Talebiniz başarıyla tarafımıza ulaşmıştır.";
+          wp_send_json_success($data, 200);
         }
       }
+    } else {
+      wp_die();
     }
   }
 }
