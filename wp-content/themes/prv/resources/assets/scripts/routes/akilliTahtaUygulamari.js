@@ -1,17 +1,12 @@
 
 import Stepper from  'bs-stepper'
+import {isEmail} from '../util/helpers';
 
 export default {
   init() {
 
-
-    function isEmail(email) {
-      var expr = /^[\w]{1,}[\w.+-]{0,}@[\w-]{2,}([.][a-zA-Z]{2,}|[.][\w-]{2,}[.][a-zA-Z]{2,})$/;
-      return expr.test(email);
-    }
-
     var stepperForm;
-    var stepperFormEl = document.querySelector('#stepperForm')
+    var stepperFormEl = document.querySelector('#stepperFormAkilli')
     stepperForm = new Stepper(stepperFormEl);
     var btnNextList = [].slice.call(document.querySelectorAll('.btn-next-form'))
     var btnPreviousList = [].slice.call(document.querySelectorAll('.btn-previous-form'))

@@ -13,16 +13,17 @@ import singleProduct from './routes/singleProduct';
 import iletisim from './routes/iletisim';
 import search from './routes/search';
 import akilliTahtaUygulamalari from './routes/akilliTahtaUygulamari';
+import bayiBasvuru from './routes/bayiBasvuru';
 
 /** Populate Router instance with DOM routes */
 const routes = new Router({
   // All pages
   common,
-  // Home page
+
   home,
-  // About Us page, note the change from about-us to aboutUs.
+
   hakkimizda,
-   // Single Product page
+
   singleProduct,
 
   iletisim,
@@ -30,6 +31,9 @@ const routes = new Router({
   search,
 
   akilliTahtaUygulamalari,
+
+  bayiBasvuru,
+
 });
 
 // Load Events

@@ -81,7 +81,7 @@ class StepLogin
 
     <div class="notice" style="display:none"></div>
 
-    <div id="stepperForm" class="bs-stepper linear">
+    <div id="stepperFormAkilli" class="bs-stepper linear">
       <div class="bs-stepper-header" role="tablist">
         <div class="step active" data-target="#test-form-1">
           <button type="button" class="step-trigger" role="tab" id="stepperFormTrigger1" aria-controls="test-form-1" aria-selected="true">

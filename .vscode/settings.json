@@ -1,70 +1,10 @@
 {
-    // EDITOR-START
-    "editor.fontSize": 14,
-    //"editor.fontFamily": "Inconsolata-g",
-    //"editor.fontFamily": "Fira Code",
-    //"editor.fontFamily": "Fira Code Medium",
-    "editor.fontFamily": "Fira Code Light",
-    //"editor.fontFamily": "Fira Code Retina",
-    "editor.tabSize": 2,
-    "editor.wordWrapColumn": 80,
-    "editor.fontLigatures": true,
-    "editor.snippetSuggestions": "bottom",
-    "editor.minimap.enabled": false,
-    "editor.formatOnSave": false,
-    "editor.renderIndentGuides": true,
-    "editor.quickSuggestions.other": true,
-    "editor.quickSuggestions.comments": true,
-    "editor.quickSuggestions.strings": false,
-    "editor.acceptSuggestionOnEnter": "on",
-    "editor.quickSuggestionsDelay": 10,
-    "editor.suggestOnTriggerCharacters": true,
-    "editor.tabCompletion": "on",
-    "editor.suggest.localityBonus": true,
-    "editor.suggestSelection": "recentlyUsed",
-    "editor.wordBasedSuggestions": true,
-    "editor.parameterHints.enabled": true,
-    "editor.trimAutoWhitespace": true,
-    "workbench.colorCustomizations": {
-        "editor.lineHighlightBorder": "#ffffff00"
-    },
-    // EDITOR-END
-    // WORKBENCH-START
-    "workbench.colorTheme": "HelloSpaceboy",
-    "workbench.iconTheme": "vs-seti",
-    "workbench.statusBar.visible": true,
-    // WORKBENCH-END
-    // TEMINAL-START
-    "terminal.integrated.fontSize": 14,
-    "terminal.integrated.fontFamily": "Consolas",
-    "terminal.integrated.cursorStyle": "underline",
-    "terminal.integrated.rendererType": "dom",
-    // TEMINAL-END
-    //WINDOW-START
-    "window.zoomLevel": 1,
-    //WINDOW-END
     //PLUGİNS-START
     "fontAwesomeAutocomplete.version": "4",
     "html-css-class-completion.includeGlobPattern": "wp-content/themes/prv/resources/assets/styles/**/*.{scss}",
     "html-css-class-completion.remoteStyleSheets": [
         "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     ],
-    "npm.enableScriptExplorer": true,
-    "npm-intellisense.scanDevDependencies": true,
-    "sync.gist": "f8ccf1f28206867b010dff2bbb2c3b15",
-    "sync.lastUpload": "",
-    "sync.autoDownload": false,
-    "sync.autoUpload": false,
-    "sync.lastDownload": "",
-    "sync.forceDownload": false,
-    "sync.anonymousGist": false,
-    "sync.host": "",
-    "sync.pathPrefix": "",
-    "sync.quietSync": false,
-    "sync.askGistName": false,
-    "sync.removeExtensions": true,
-    "sync.syncExtensions": true,
-    "emmet.triggerExpansionOnTab": true,
     "emmet.syntaxProfiles": {
         "javascript": "jsx"
     },
