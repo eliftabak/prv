@@ -354,7 +354,6 @@ add_filter('woocommerce_add_to_cart_fragments', __NAMESPACE__ . '\cart_fragment_
  *
  */
 add_filter('manage_users_columns', function ($column) {
-    print_r($column);
     $column['user_type'] = 'Kullanıcı Tipi';
     return $column;
 });
@@ -400,7 +399,6 @@ add_action('pre_get_users', function ($query) {
  *
  */
 add_filter('manage_users_columns', function ($column) {
-    print_r($column);
     $column['user_validate'] = 'Kullanıcı Onayı';
     return $column;
 });

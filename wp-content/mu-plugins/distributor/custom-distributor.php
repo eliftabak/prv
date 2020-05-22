@@ -15,8 +15,30 @@ class Distributer
   }
 
   function html_logic()
+
   {
-    return $this->registration_form();
+
+    if (isset($_COOKIE["prv_dealer_registered"]) && $_COOKIE["prv_dealer_registered"] == true) {
+      return $this->success_html();
+    } else {
+      return $this->registration_form();
+    }
+  }
+
+  function success_html()
+  {
+    ob_start(); ?>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h1 class="mb-5">Talebiniz değerlendiriliyor.</h1>
+          <i class="fa fa-hourglass-end double-flash" style="font-size: 10rem;" aria-hidden="true"></i>
+          <h3 class="text-info mt-5">En kısa zamanda dönüş yapılacaktır.</h3>
+        </div>
+      </div>
+    </div>
+  <?php
+    return ob_get_clean();
   }
 
 
@@ -474,6 +496,12 @@ class Distributer
 
         // send an email to the admin alerting them of the registration
         send_welcome_email_to_distributer($args);
+
+        $cookie_path = str_replace("/wp-admin/admin-ajax.php", "/", $_SERVER['REQUEST_URI']);
+
+        if (!isset($_COOKIE["prv_dealer_registered"])) {
+          setcookie("prv_dealer_registered", true, time() + 2629746,  $cookie_path, $_SERVER['HTTP_HOST']);
+        };
 
 
         $data["success"][] = "Talebiniz başarıyla tarafımıza ulaşmıştır.";

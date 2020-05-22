@@ -39,6 +39,20 @@
   .woocommerce-products-header {
     display: none;
   }
+
+  ul.products li.product .price {
+    font-size: 1.457em;
+    text-align: center;
+    font-weight: 600;
+  }
+
+  ul.products li.product .woocommerce-loop-product__title {
+    font-size: 1.2em;
+  }
+
+  ul.products li.product a.added_to_cart.wc-forward {
+    display: none;
+  }
 }
 
 // Fix Woocommerce CheckOut Styling

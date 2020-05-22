@@ -2,17 +2,15 @@
 
 namespace App;
 
-/**
- * @snippet       Add Content to Empty Cart Page - WooCommerce
- * @how-to        Get CustomizeWoo.com FREE
- * @sourcecode    https://businessbloomer.com/?p=21585
- * @author        Rodolfo Melogli
- * @compatible    WC 2.6.14, WP 4.7.2, PHP 5.5.9
- */
-
 add_action('woocommerce_cart_is_empty', function () {
     echo 'woocommerce_cart_is_empty_hooks';
 });
+
+add_action('after_setup_theme', function () {
+    show_admin_bar(false);
+});
+
+
 
 add_action('woocommerce_shop_slider', function () {
 
