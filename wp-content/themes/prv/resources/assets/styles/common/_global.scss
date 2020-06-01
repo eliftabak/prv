@@ -108,6 +108,12 @@ i[class$="-prv-icon"] {
   }
 }
 
+.blog {
+  .container__page-content {
+    padding-top: 26px !important;
+  }
+}
+
 .container {
   &__page-content {
     color: $general-text-color;
