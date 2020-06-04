@@ -1,4 +1,6 @@
 <?php
+
+define('WP_DEBUG', true);
 /**
  * WordPress için taban ayar dosyası.
  *

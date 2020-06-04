@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 
 import Stepper from  'bs-stepper'
 import {isEmail} from '../util/helpers';
@@ -42,18 +43,18 @@ export default {
 
       var stepperPan = stepperPanList[currentStep]
 
-      if (
-         (stepperPan.getAttribute('id') === 'test-form-1' && (!inputMailForm.value.length || !isEmail(inputMailForm.value)))
-      || (stepperPan.getAttribute('id') === 'test-form-1' && !inputUserDisplayName.value.length)
-      || (stepperPan.getAttribute('id') === 'test-form-1' && !inputUserFirstName.value.length)
-      || (stepperPan.getAttribute('id') === 'test-form-1' && !inputUserLastName.value.length)
-      || (stepperPan.getAttribute('id') === 'test-form-1' && !inputPasswordForm.value.length)
-      || (stepperPan.getAttribute('id') === 'test-form-1' && !inputPasswordRepeat.value.length)
-      )
-      {
-        event.preventDefault()
-        form.classList.add('was-validated')
-      }
+      // if (
+      //    (stepperPan.getAttribute('id') === 'test-form-1' && (!inputMailForm.value.length || !isEmail(inputMailForm.value)))
+      // || (stepperPan.getAttribute('id') === 'test-form-1' && !inputUserDisplayName.value.length)
+      // || (stepperPan.getAttribute('id') === 'test-form-1' && !inputUserFirstName.value.length)
+      // || (stepperPan.getAttribute('id') === 'test-form-1' && !inputUserLastName.value.length)
+      // || (stepperPan.getAttribute('id') === 'test-form-1' && !inputPasswordForm.value.length)
+      // || (stepperPan.getAttribute('id') === 'test-form-1' && !inputPasswordRepeat.value.length)
+      // )
+      // {
+      //   event.preventDefault()
+      //   form.classList.add('was-validated')
+      // }
     })
 
     //imagePreview handler

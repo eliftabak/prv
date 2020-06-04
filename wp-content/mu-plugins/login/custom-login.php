@@ -1,20 +1,52 @@
 <?php
 
+use Automattic\WooCommerce\Admin\API\Init;
 
 require(dirname(__FILE__) . "/helpers/login-utility.php");
+
+require(dirname(__FILE__) . "/helpers/db-utility.php");
 
 class StepLogin
 {
 
+  private $login_db;
+
   public function __construct()
   {
-
+    $this->login_db = new DatabaseHandling();
+    $this->init();
     add_action('wp_ajax_register_user_front_end', array($this, 'register_process'), 0);
     add_action('wp_ajax_nopriv_register_user_front_end', array($this, 'register_process'));
     add_shortcode('register_form', array($this, 'html_logic'));
   }
 
-  function html_logic()
+  private function init()
+  {
+
+    if (!$this->login_db->check_db_exist()) {
+      $this->create_dbs();
+      $this->insert_datas();
+    } else {
+      return;
+    }
+  }
+
+  private function create_dbs()
+  {
+
+    return  $this->login_db->cretate_dbs();
+  }
+
+
+  private function insert_datas()
+  {
+
+    return  $this->login_db->instert_datas();
+  }
+
+
+
+  public function html_logic()
   {
 
     if (!is_user_logged_in()) {
@@ -36,7 +68,7 @@ class StepLogin
     }
   }
 
-  function validation_waiting_html()
+  public function validation_waiting_html()
   {
     ob_start(); ?>
 
@@ -47,7 +79,7 @@ class StepLogin
   }
 
 
-  function change_user_type_to_ogretmen_html()
+  public function change_user_type_to_ogretmen_html()
   {
     ob_start(); ?>
 
@@ -60,7 +92,7 @@ class StepLogin
   }
 
 
-  function akilli_defter_html()
+  public function akilli_defter_html()
   {
     ob_start(); ?>
 
@@ -72,7 +104,7 @@ class StepLogin
     return ob_get_clean();
   }
 
-  function registration_form_html()
+  public function registration_form_html()
 
   {
 
@@ -179,14 +211,31 @@ class StepLogin
                 <div class="col-lg-6">
                   <div class="form-group">
                     <label for="user-city">İl <span class="text-danger font-weight-bold">*</span></label>
-                    <input id="user-city" type="text" name="user-city" class="form-control form-control-lg" placeholder="Adınızı giriniz" required data-cip-id="user-city">
+                    <?php
+                    woocommerce_form_field('user-city', array(
+                      'type'        => 'state',
+                      'required'    => true,
+                      'class' => ["akilli-tahta-uygulamalari__woocommerce-forms"],
+                      'input_class' => ["form-control form-control-lg"],
+                    ));
+                    ?>
+                    </script>
                     <div class="invalid-feedback">Bu alan doldurulması zorunludur.</div>
                   </div>
                 </div>
                 <div class="col-lg-6">
                   <div class="form-group">
                     <label for="user-district">İlçe <span class="text-danger font-weight-bold">*</span></label>
-                    <input id="user-district" type="text" name="user-district" class="form-control form-control-lg" placeholder="Adınızı giriniz" required data-cip-id="user-district">
+                    <?php
+                    woocommerce_form_field('user-district', array(
+                      'type'        => 'select',
+                      'required'    => true,
+                      'class' => ["akilli-tahta-uygulamalari__woocommerce-forms"],
+                      'select_class' => ["form-control form-control-lg"],
+                      'placeholder' => 'Bir seçenek belirleyin..',
+                      'options' => array('' => 'Bir seçenek belirleyin..', 'val1' => 'Title 1')
+                    ));
+                    ?>
                     <div class="invalid-feedback">Bu alan doldurulması zorunludur.</div>
                   </div>
                 </div>
@@ -230,100 +279,111 @@ class StepLogin
     </div>
 
     <script type="text/javascript">
-      jQuery('#akilli-tahta-submit').on('click', function(e) {
-        e.preventDefault();
-        var user_email = jQuery('#user-email').val();
-        var user_display_name = jQuery('#user-display-name').val();
-        var user_first_name = jQuery('#user-first-name').val();
-        var user_last_name = jQuery('#user-last-name').val();
-        var user_password = jQuery('#user-password').val();
-        var user_password_repeat = jQuery('#user-password-repeat').val();
-        var user_image = jQuery('#user-image').css("background-image");
-        var user_city = jQuery('#user-city').val();
-        var user_district = jQuery('#user-district').val();
-        var user_school = jQuery('#user-school').val();
-        var user_subject = jQuery('#user-subject').val();
-        var user_phone = jQuery('#user-phone').val();
-        var prv_user_register_nonce = jQuery('#prv-user-register-nonce').val();
+      (function($) {
+
+
+        $('#user-city').on('change', function() {
+
+          // alert('hello');
+
+        })
+
+        $('#akilli-tahta-submit').on('click', function(e) {
+          e.preventDefault();
+          var user_email = $('#user-email').val();
+          var user_display_name = $('#user-display-name').val();
+          var user_first_name = $('#user-first-name').val();
+          var user_last_name = $('#user-last-name').val();
+          var user_password = $('#user-password').val();
+          var user_password_repeat = $('#user-password-repeat').val();
+          var user_image = $('#user-image').css("background-image");
+          var user_city = $('#user-city').val();
+          var user_district = $('#user-district').val();
+          var user_school = $('#user-school').val();
+          var user_subject = $('#user-subject').val();
+          var user_phone = $('#user-phone').val();
+          var prv_user_register_nonce = $('#prv-user-register-nonce').val();
 
 
 
-        var reg = /(?:\(['"]?)(.*?)(?:['"]?\))/;
-        var extracted_image = reg.exec(user_image)[1];
+          var reg = /(?:\(['"]?)(.*?)(?:['"]?\))/;
+          var extracted_image = reg.exec(user_image)[1];
 
-        jQuery.ajax({
-          type: "POST",
-          url: "<?php echo admin_url('admin-ajax.php'); ?>",
-          data: {
-            action: "register_user_front_end",
-            user_email: user_email,
-            user_display_name: user_display_name,
-            user_first_name: user_first_name,
-            user_last_name: user_last_name,
-            user_password: user_password,
-            user_password_repeat: user_password_repeat,
-            user_image: extracted_image,
-            user_city: user_city,
-            user_district: user_district,
-            user_school: user_school,
-            user_subject: user_subject,
-            user_phone: user_phone,
-            prv_user_register_nonce: prv_user_register_nonce,
-          },
-          success: function(results) {
-            //console.log(results);
-            const element = jQuery('.notice');
+          $.ajax({
+            type: "POST",
+            url: "<?php echo admin_url('admin-ajax.php'); ?>",
+            data: {
+              action: "register_user_front_end",
+              user_email: user_email,
+              user_display_name: user_display_name,
+              user_first_name: user_first_name,
+              user_last_name: user_last_name,
+              user_password: user_password,
+              user_password_repeat: user_password_repeat,
+              user_image: extracted_image,
+              user_city: user_city,
+              user_district: user_district,
+              user_school: user_school,
+              user_subject: user_subject,
+              user_phone: user_phone,
+              prv_user_register_nonce: prv_user_register_nonce,
+            },
+            success: function(results) {
+              //console.log(results);
+              const element = $('.notice');
 
-            const {
-              data
-            } = results
-            if ("success" in data) {
-              data["success"].forEach((value, index) => {
-                element.append(`<div class="alert alert-success" role="alert">${value}</div>`);
-                if (data["success"].length - 1 == index) {
-                  element.show();
-                }
-              });
+              const {
+                data
+              } = results
+              if ("success" in data) {
+                data["success"].forEach((value, index) => {
+                  element.append(`<div class="alert alert-success" role="alert">${value}</div>`);
+                  if (data["success"].length - 1 == index) {
+                    element.show();
+                  }
+                });
+              }
+
+              setTimeout(() => {
+                element.hide();
+                element.empty();
+                window.location.reload();
+              }, 3000)
+
+
+            },
+            error: function(results) {
+              //console.log("results", results)
+              const element = $('.notice');
+              const {
+                data
+              } = JSON.parse(results.responseText);
+
+              if ("error" in data) {
+                data["error"].forEach((value, index) => {
+                  element.append(`<div class="alert alert-warning" role="alert">${value}</div>`);
+                  if (data["error"].length - 1 == index) {
+                    element.show();
+                  }
+                });
+              }
+
+              setTimeout(() => {
+                element.hide();
+                element.empty();
+              }, 3000)
+
             }
-
-            setTimeout(() => {
-              element.hide();
-              element.empty();
-              window.location.reload();
-            }, 3000)
-
-
-          },
-          error: function(results) {
-            //console.log("results", results)
-            const element = jQuery('.notice');
-            const {
-              data
-            } = JSON.parse(results.responseText);
-
-            if ("error" in data) {
-              data["error"].forEach((value, index) => {
-                element.append(`<div class="alert alert-warning" role="alert">${value}</div>`);
-                if (data["error"].length - 1 == index) {
-                  element.show();
-                }
-              });
-            }
-
-            setTimeout(() => {
-              element.hide();
-              element.empty();
-            }, 3000)
-
-          }
+          });
         });
-      });
+
+      })(jQuery)
     </script>
 <?php
     return ob_get_clean();
   }
 
-  function register_process()
+  public function register_process()
   {
 
     if (isset($_POST["user_display_name"]) && wp_verify_nonce($_POST['prv_user_register_nonce'], 'prv-user-register-nonce')) {
