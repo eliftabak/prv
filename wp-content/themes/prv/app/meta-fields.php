@@ -330,7 +330,7 @@ add_action('cmb2_admin_init', function () {
 
 /**
  *
- * Akıllı Tahta Meta Boxes
+ * User Meta Boxes
  *
  */
 
@@ -371,5 +371,28 @@ add_action('cmb2_admin_init', function () {
             'Onaylandı'   => __('Onaylandı', 'sage'),
             'Onaylanmadı' => __('Onaylanmadı', 'sage')
         ),
+    ));
+
+    $cmb->add_field(array(
+        'name' => __('Öğretmen kimliği', 'sage'),
+        'desc' => __('Öğretmen kimliği yükleyin', 'sage'),
+        'id' => 'prv_user_identity_pic',
+        'type' => 'file',
+        // Optional:
+        'options' => array(
+            'url' => false, // Hide the text input for the url
+        ),
+        'text' => array(
+            'add_upload_file_text' => __('Resim ekle', 'sage'), // Change upload button text. Default: "Add or Upload File"
+        ),
+        // query_args are passed to wp.media's library query.
+        'query_args' => array(
+            'type' => array(
+                'image/gif',
+                'image/jpeg',
+                'image/png',
+            ),
+        ),
+        'preview_size' => 'medium', // Image size to use when previewing in the admin.
     ));
 });

@@ -10,11 +10,11 @@ class DatabaseHandling
 {
 
   protected $wpdb;
-  protected $db_name;
-  protected $city_table_name;
-  protected $district_table_name;
-  protected $school_table_name;
   protected $data;
+  public $db_name;
+  public $city_table_name;
+  public $district_table_name;
+  public $school_table_name;
   public $option_name;
 
   public function __construct()

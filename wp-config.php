@@ -1,6 +1,8 @@
 <?php
 
 define('WP_DEBUG', true);
+define('WP_TEMP_NAME', "temp");
+define('WP_TEMP_DIR', dirname(__FILE__) . '/wp-content/' . WP_TEMP_NAME . '/');
 /**
  * WordPress için taban ayar dosyası.
  *
@@ -74,7 +76,7 @@ define('WP_DEBUG', false);
 /* Hepsi bu kadar. Mutlu bloglamalar! */
 
 /** WordPress dizini için mutlak yol. */
-if ( !defined('ABSPATH') )
+if (!defined('ABSPATH'))
 	define('ABSPATH', dirname(__FILE__) . '/');
 
 /** WordPress değişkenlerini ve yollarını kurar. */

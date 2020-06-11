@@ -6,21 +6,36 @@ require(dirname(__FILE__) . "/helpers/login-utility.php");
 
 require(dirname(__FILE__) . "/helpers/db-utility.php");
 
+require(dirname(__FILE__) . "/helpers/rest-utility.php");
+
+require(dirname(__FILE__) . "/helpers/file-utility.php");
 class StepLogin
 {
 
   private $login_db;
+  private $rest_routes;
+  private $site_url;
+  private $city_path = "/wp-json/prv_login/v1/cities";
+  private $district_path = "/wp-json/prv_login/v1/districts";
+  private $school_path = "/wp-json/prv_login/v1/schools";
+
 
   public function __construct()
   {
     $this->login_db = new DatabaseHandling();
-    $this->init();
-    add_action('wp_ajax_register_user_front_end', array($this, 'register_process'), 0);
-    add_action('wp_ajax_nopriv_register_user_front_end', array($this, 'register_process'));
-    add_shortcode('register_form', array($this, 'html_logic'));
+    $this->rest_routes = new RestRoutes($this->login_db);
+    $this->database();
+    $this->load_routes();
+    $this->register_actions();
+    $this->site_url = site_url();
   }
 
-  private function init()
+  private function load_routes()
+  {
+    return $this->rest_routes->load_all_routes();
+  }
+
+  private function database()
   {
 
     if (!$this->login_db->check_db_exist()) {
@@ -29,6 +44,13 @@ class StepLogin
     } else {
       return;
     }
+  }
+
+  private function register_actions()
+  {
+    add_action('wp_ajax_register_user_front_end', array($this, 'register_process'), 0);
+    add_action('wp_ajax_nopriv_register_user_front_end', array($this, 'register_process'));
+    add_shortcode('register_form', array($this, 'html_logic'));
   }
 
   private function create_dbs()
@@ -71,9 +93,16 @@ class StepLogin
   public function validation_waiting_html()
   {
     ob_start(); ?>
-
-    <h3 class="text-center">Onay süreciniz devam ediyor.</h3>
-
+    <div class="w-100 text-center">
+      <div id="hourglass" class="fa-stack fa-4x">
+        <i class="fa fa-stack-1x fa-hourglass-start"></i>
+        <i class="fa fa-stack-1x fa-hourglass-half"></i>
+        <i class="fa fa-stack-1x fa-hourglass-end"></i>
+        <i class="fa fa-stack-1x fa-hourglass-end"></i>
+        <i class="fa fa-stack-1x fa-hourglass-o"></i>
+      </div>
+    </div>
+    <h3 class="text-center">Onay süreciniz devam ediyor. Beklediğiniz için teşşekkür ederiz.</h3>
   <?php
     return ob_get_clean();
   }
@@ -94,9 +123,48 @@ class StepLogin
 
   public function akilli_defter_html()
   {
-    ob_start(); ?>
 
-    <h3 class="text-center">Akıllı defterleriniz.</h3>
+    $posts = get_posts([
+      'post_type' => 'akilli_tahta',
+      'post_status' => 'publish',
+      'numberposts' => -1,
+      'order' => 'ASC'
+    ]);
+
+
+    //TODO: akıllı tahta zip dosyasında hata var. Kontrol et
+    ob_start(); ?>
+    <div class="container-fluid">
+      <div class="row">
+        <?php
+        foreach ($posts as $post) {
+          $title = get_the_title($post);
+          $file = get_post_meta($post->ID, "prv_akilli_tahta")[0];
+          $thumbnail = get_the_post_thumbnail($post, "medium")
+          //print_r($post);
+        ?>
+          <div class="col-lg-4">
+
+            <div class="card text-left">
+              <div class="w-100 text-center">
+                <?php echo $thumbnail ?>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title"><?php echo $title ?></h5>
+                <a name="" id="" class="btn btn-primary btn-block pt-2 pm-2" href="<?php echo $file  ?>" role="button">
+                  <i class="fa fa-download pr-2" aria-hidden="true"></i>
+                  İNDİR</a>
+              </div>
+            </div>
+          </div>
+        <?php
+        }
+        ?>
+      </div>
+    </div>
+
+
+
 
 
     </script>
@@ -148,13 +216,6 @@ class StepLogin
                         <label for="user-email">E-Posta adresiniz <span class="text-danger font-weight-bold">*</span></label>
                         <input pattern="^[\w]{1,}[\w.+-]{0,}@[\w-]{2,}([.][a-zA-Z]{2,}|[.][\w-]{2,}[.][a-zA-Z]{2,})$" id="user-email" type="mail" name="user-email" class="form-control" placeholder="Mail adresi giriniz" required data-cip-id="user-email">
                         <div class="invalid-feedback">Geçerli bir mail adresi giriniz.</div>
-                      </div>
-                    </div>
-                    <div class="col-lg-12">
-                      <div class="form-group">
-                        <label for="user-display-name">Kullaıcı Adınız<span class="text-danger font-weight-bold">*</span></label>
-                        <input id="user-display-name" type="text" name="user-display-name" class="form-control" placeholder="Kullanıcı adınızı giriniz" required data-cip-id="user-display-name">
-                        <div class="invalid-feedback">Bu alan doldurulması zorunludur.</div>
                       </div>
                     </div>
                     <div class="col-lg-6">
@@ -212,11 +273,23 @@ class StepLogin
                   <div class="form-group">
                     <label for="user-city">İl <span class="text-danger font-weight-bold">*</span></label>
                     <?php
+                    $city_url = "{$this->site_url}{$this->city_path}";
+                    $request_response = file_get_contents($city_url);
+                    $data = $request_response;
+                    $cities = json_decode($request_response, true);
+                    $cities = [["city_id" => "", "name" => "İl seçiniz..."], ...$cities];
+                    $data = [];
+                    foreach ($cities as $value) {
+                      $id = $value["city_id"];
+                      $city = $value["name"];
+                      $data[$id] = $city;
+                    };
                     woocommerce_form_field('user-city', array(
-                      'type'        => 'state',
+                      'type'        => 'select',
                       'required'    => true,
                       'class' => ["akilli-tahta-uygulamalari__woocommerce-forms"],
                       'input_class' => ["form-control form-control-lg"],
+                      'options' => $data
                     ));
                     ?>
                     </script>
@@ -233,7 +306,7 @@ class StepLogin
                       'class' => ["akilli-tahta-uygulamalari__woocommerce-forms"],
                       'select_class' => ["form-control form-control-lg"],
                       'placeholder' => 'Bir seçenek belirleyin..',
-                      'options' => array('' => 'Bir seçenek belirleyin..', 'val1' => 'Title 1')
+                      'options' => array('' => 'İlçe seçiniz...')
                     ));
                     ?>
                     <div class="invalid-feedback">Bu alan doldurulması zorunludur.</div>
@@ -242,21 +315,47 @@ class StepLogin
                 <div class="col-lg-12">
                   <div class="form-group">
                     <label for="user-school">Okul <span class="text-danger font-weight-bold">*</span></label>
-                    <input id="user-school" type="text" name="user-school" class="form-control form-control-lg" placeholder="Adınızı giriniz" required data-cip-id="user-school">
+                    <?php
+                    woocommerce_form_field('user-school', array(
+                      'type'        => 'select',
+                      'required'    => true,
+                      'class' => ["akilli-tahta-uygulamalari__woocommerce-forms"],
+                      'select_class' => ["form-control form-control-lg"],
+                      'placeholder' => 'Bir seçenek belirleyin..',
+                      'options' => array('' => 'Okul seçiniz...')
+                    ));
+                    ?>
                     <div class="invalid-feedback">Bu alan doldurulması zorunludur.</div>
                   </div>
                 </div>
                 <div class="col-lg-6">
                   <div class="form-group">
                     <label for="user-subject">Branş <span class="text-danger font-weight-bold">*</span></label>
-                    <input id="user-subject" type="text" name="user-subject" class="form-control form-control-lg" placeholder="Adınızı giriniz" required data-cip-id="user-subject">
+                    <?php
+                    $brans = array(
+                      '' => 'Branş seçiniz...',
+                      "TÜRKÇE" => "TÜRKÇE",
+                      "MATEMATİK" => "MATEMATİK",
+                      "FEN BİLİMLERİ" => "FEN BİLİMLERİ",
+                      "SOSYAL BİLGİLER" => "SOSYAL BİLGİLER",
+                      "İNGİLİZCE" => "İNGİLİZCE",
+                      "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ" => "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+                    );
+                    woocommerce_form_field('user-subject', array(
+                      'type'        => 'select',
+                      'required'    => true,
+                      'class' => ["akilli-tahta-uygulamalari__woocommerce-forms"],
+                      'select_class' => ["form-control form-control-lg"],
+                      'options' => $brans
+                    ));
+                    ?>
                     <div class="invalid-feedback">Bu alan doldurulması zorunludur.</div>
                   </div>
                 </div>
                 <div class="col-lg-6">
                   <div class="form-group">
                     <label for="user-phone">Telefon <span class="text-danger font-weight-bold">*</span></label>
-                    <input id="user-phone" type="text" name="user-phone" class="form-control form-control-lg" placeholder="Adınızı giriniz" required data-cip-id="user-phone">
+                    <input attern="^(05(\d{9}))$" id="user-phone" type="text" name="user-phone" class="form-control form-control-lg" placeholder="Numaranızı giriniz..." required data-cip-id="user-phone">
                     <div class="invalid-feedback">Bu alan doldurulması zorunludur.</div>
                   </div>
                 </div>
@@ -268,6 +367,20 @@ class StepLogin
             </div>
           </div>
           <div id="test-form-3" role="tabpanel" class="bs-stepper-pane fade text-center dstepper-none" aria-labelledby="stepperFormTrigger3">
+            <div class="col-lg-12 text-left">
+              <div class="form-check mt-5">
+                <input type="checkbox" class="form-check-input" id="user-check-1">
+                <label class="form-check-label" for="user-check-1">FORM ÜZERİNDE BİLGİLERİ EKSİKSİZ BİR ŞEKİLDE DOLDURDUM.</label>
+              </div>
+              <div class="form-check mt-5">
+                <input type="checkbox" class="form-check-input" id="user-check-2">
+                <label class="form-check-label" for="user-check-2">İLETİŞİM BİLGİLERİM BENİMLE İLETİŞİME GEÇMEK İÇİN KULLANILABİLİR.</label>
+              </div>
+              <div class="form-group mt-5">
+                <label for="user-message">Mesajınız</label>
+                <textarea class="form-control" rows="3" id="user-message"></textarea>
+              </div>
+            </div>
             <input type="hidden" name="prv_user_register_nonce" value="<?php echo wp_create_nonce('prv-user-register-nonce'); ?>" id="prv-user-register-nonce" />
             <div class="container-fluid text-right mt-5">
               <button class="btn btn-info btn-lg shadow btn-previous-form d-inline-block">Önceki</button>
@@ -281,17 +394,97 @@ class StepLogin
     <script type="text/javascript">
       (function($) {
 
+        const $city = $('#user-city');
+        const $district = $('#user-district');
+        const $school = $('#user-school');
 
-        $('#user-city').on('change', function() {
+        const state = {}
 
-          // alert('hello');
+        function resetCity() {
+
+          $city.find("option").remove();
+
+        }
+
+        function resetDistrict() {
+
+          $district.find("option").remove();
+
+        }
+
+        function resetSchool() {
+
+          $school.find("option").remove();
+
+        }
+
+        function getSchoolById() {
+          const url = '<? echo "{$this->site_url}{$this->school_path}"  ?>' + `?city=${state.cityId}&district=${state.districtId}`;
+          $.getJSON(url, function(data) {
+            let index = 0;
+            let schools = data.map(function(el) {
+              if (index === 0) {
+                index += 1;
+                return `<option value="" selected="selected">Okul seçiniz...</option>
+                        <option value="${el.school_id}" selected="selected">${el.name.toLocaleUpperCase("tr")}</option>`
+              } else {
+                return `<option value="${el.school_id}">${el.name.toLocaleUpperCase("tr")}</option>`
+              }
+            })
+            schools = schools.join('');
+            resetSchool();
+            $school.append(schools);
+
+          });
+        }
+
+        function getDistrictById() {
+          const url = '<? echo "{$this->site_url}{$this->district_path}"  ?>' + `?city=${state.cityId}`;
+          $.getJSON(url, function(data) {
+            let index = 0;
+            let districts = data.map(function(el) {
+              if (index === 0) {
+                index += 1;
+                return `<option value="" selected="selected">İlçe seçiniz...</option>
+                        <option value="${el.district_id}" selected="selected">${el.name}</option>`
+                state.districtId = el.district_id;
+              } else {
+                return `<option value="${el.district_id}">${el.name}</option>`
+              }
+            })
+            districts = districts.join('');
+            resetDistrict();
+            $district.append(districts);
+            getSchoolById();
+          });
+        }
+
+        $city.on('change', function() {
+
+          const id = $(this).find("option").filter(':selected').val();
+
+          state.cityId = id;
+
+          getDistrictById();
+
+        })
+
+
+
+        $district.on('change', function() {
+
+          const id = $(this).find("option").filter(':selected').val();
+
+          state.districtId = id;
+
+          getSchoolById();
 
         })
 
         $('#akilli-tahta-submit').on('click', function(e) {
           e.preventDefault();
           var user_email = $('#user-email').val();
-          var user_display_name = $('#user-display-name').val();
+          var user_display_name = user_email;
           var user_first_name = $('#user-first-name').val();
           var user_last_name = $('#user-last-name').val();
           var user_password = $('#user-password').val();
@@ -302,9 +495,12 @@ class StepLogin
           var user_school = $('#user-school').val();
           var user_subject = $('#user-subject').val();
           var user_phone = $('#user-phone').val();
+          var user_check_1 = $('#user-check-1').is(':checked');
+          var user_check_2 = $('#user-check-2').is(':checked');
+          var user_message = $('#user-message').val();
           var prv_user_register_nonce = $('#prv-user-register-nonce').val();
 
-
+          console.log(user_check_1);
 
           var reg = /(?:\(['"]?)(.*?)(?:['"]?\))/;
           var extracted_image = reg.exec(user_image)[1];
@@ -326,6 +522,9 @@ class StepLogin
               user_school: user_school,
               user_subject: user_subject,
               user_phone: user_phone,
+              user_check_1: user_check_1,
+              user_check_2: user_check_2,
+              user_message: user_message,
               prv_user_register_nonce: prv_user_register_nonce,
             },
             success: function(results) {
@@ -395,39 +594,31 @@ class StepLogin
       $user_pass    = $_POST["user_password"];
       $pass_confirm   = $_POST["user_password_repeat"];
       $user_image = $_POST["user_image"];
+      $user_city = $_POST["user_city"];
+      $user_district  = $_POST["user_district"];
+      $user_school = $_POST["user_school"];
+      $user_subject = $_POST["user_subject"];
+      $user_phone = $_POST["user_phone"];
+      $user_check_1 = $_POST["user_check_1"];
+      $user_check_2 = $_POST["user_check_2"];
+      $user_message = $_POST["user_message"];
+
+
 
       $error = [];
+
 
       // this is required for username checks
       require_once(ABSPATH . WPINC . '/registration.php');
 
-      if (preg_match('/^data:image\/(\w+);base64,/', $user_image, $type)) {
-        $user_image = substr($user_image, strpos($user_image, ',') + 1);
-        $type = strtolower($type[1]); // jpg, png, gif
+      $user_image_handler = new PictureUpload($user_first, $user_last);
 
-        if (!in_array($type, ['jpg', 'jpeg', 'gif', 'png'])) {
-          $error["error"][] = 'Jpeg, gif  veya png formatlarından birini yükleyiniz. ';
-        }
+      $user_image_handler_result = $user_image_handler->check_valid_image($user_image);
 
-        $user_image = base64_decode($user_image);
 
-        if ($user_image === false) {
-          $error["error"][] = 'Resim işlenirken hata verdi.';
-        }
-      } else {
-        $error["error"][] = 'Başka bir resim deneyerek tekrar yüklemeyi deneyiniz.';
+      if (!empty($user_image_handler_result["error"])) {
+        $error["error"][] = $user_image_handler_result["error"];
       }
-
-      $upload = wp_upload_dir();
-      $upload_dir = $upload['basedir'];
-      $year = date("Y");
-      $month = date('m');
-      $date = new DateTime();
-      $time_stamp =  $date->getTimestamp();
-      $full_path =  "{$upload_dir}/{$year}/{$month}/";
-      $file_name = strtolower($user_first) . "-" . strtolower($user_last) . "-" . $time_stamp . "." . $type;
-
-      file_put_contents($full_path . $file_name, $user_image);
 
       if (username_exists($user_login)) {
         // Username already registered
@@ -450,12 +641,49 @@ class StepLogin
         $error["error"][] = "Bu e-posta adresi sistemde kayıtlı.";
       }
       if ($user_pass == '') {
-        // passwords empty
+
         $error["error"][] = "Lütfen bir şifre giriniz.";
       }
       if ($user_pass != $pass_confirm) {
         // passwords do not match
         $error["error"][] = "Girdiğiniz şifre eşleşmiyor.";
+      }
+
+      if ($user_city == '' || $user_city == 'İl seçiniz...') {
+        $error["error"][] = "Lütfen bir şehir seçiniz.";
+      }
+
+      if ($user_district == '' || $user_district == 'İlçe seçiniz...') {
+
+        $error["error"][] = "Lütfen bir ilçe seçiniz.";
+      }
+
+      if ($user_school == '' || $user_school == 'Okul seçiniz...') {
+
+        $error["error"][] = "Lütfen bir okul seçiniz.";
+      }
+
+
+      if ($user_subject == '' || $user_school == 'Branş seçiniz...') {
+
+        $error["error"][] = "Lütfen bir branş seçiniz.";
+      }
+
+      $phone_pattern = '/^(05(\d{9}))$/';
+
+      if ($user_phone == '' || !preg_match($phone_pattern, $user_phone)) {
+
+        $error["error"][] = "Lütfen geçerli bir cep numarası giriniz. Örnek : 05xxxxxxxxx ";
+      }
+
+      if ($user_check_1 === "false") {
+
+        $error["error"][] = "\"FORM ÜZERİNDE BİLGİLERİ EKSİKSİZ BİR ŞEKİLDE DOLDURDUM.\" butonlarını işaretlediğinizden emin olun.";
+      }
+
+      if ($user_check_2 === "false") {
+
+        $error["error"][] = "\"İLETİŞİM BİLGİLERİM BENİMLE İLETİŞİME GEÇMEK İÇİN KULLANILABİLİR.\" butonlarını işaretlediğinizden emin olun.";
       }
 
       if ($error) {
@@ -474,10 +702,11 @@ class StepLogin
           )
         );
         if ($new_user_id) {
+
+          $user_image_handler->save_image($new_user_id);
           // Update Metadata
           update_user_meta($new_user_id, "prv_user_type", "Öğretmen");
           update_user_meta($new_user_id, "prv_user_validate", "Onaylanmadı");
-
 
           // send an email to the admin alerting them of the registration
           wp_new_user_notification($new_user_id);
