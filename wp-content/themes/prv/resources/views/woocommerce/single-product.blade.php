@@ -32,6 +32,8 @@ wc_get_template_part('content', 'single-product');
 @endphp
 @endwhile
 @include('sections.section-beceri-temelli')
+@include('sections.section-emoji-cards')
+@include('sections.section-emoji-icons')
 @php
 do_action('woocommerce_after_main_content');
 do_action('get_sidebar', 'shop');

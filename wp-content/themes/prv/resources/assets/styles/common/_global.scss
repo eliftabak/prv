@@ -58,6 +58,18 @@ i[class$="-prv-icon"] {
   content: "\e900";
 }
 
+.background-color-none {
+  background-color: unset !important;
+}
+
+.box-shadow-none {
+  box-shadow: unset !important;
+}
+
+.visibility-hidden {
+  visibility: hidden;
+}
+
 .vmx-auto {
   margin-top: auto;
   margin-bottom: auto;

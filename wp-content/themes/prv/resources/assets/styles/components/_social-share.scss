@@ -1,0 +1,32 @@
+.prv-social-share {
+  display: block;
+  position: fixed;
+  background-color: white;
+  width: auto;
+  border-radius: 36px;
+  height: auto;
+  top: 400px;
+  right: 20px;
+  z-index: 999;
+  box-shadow: 0 12px 47px rgba(0, 0, 0, 0.157616);
+
+  &__title {
+    margin-top: 20px;
+    font-size: 14px;
+    padding: 10px;
+    color: $primary;
+    transform: rotate(-90deg);
+    font-weight: 800;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 10px 10px 10px 10px;
+    margin-bottom: unset;
+    text-align: center;
+  }
+
+  &__item {
+    font-size: 24px;
+  }
+}

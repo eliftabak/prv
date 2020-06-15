@@ -14,3 +14,5 @@ require_once WPMU_PLUGIN_DIR . '/cmb2/init.php';
 require_once WPMU_PLUGIN_DIR . '/login/custom-login.php';
 
 require_once WPMU_PLUGIN_DIR . '/distributor/custom-distributor.php';
+
+require_once WPMU_PLUGIN_DIR . '/social-share/share.php';

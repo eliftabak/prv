@@ -2,6 +2,7 @@ module.exports = {
   'extends': 'stylelint-config-standard',
   'ignoreFiles': ["**/*.js"],
   'rules': {
+  'indentation' : null,
     'no-empty-source': null,
     'string-quotes': 'double',
     'declaration-colon-newline-after':null,

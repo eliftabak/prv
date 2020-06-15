@@ -11,6 +11,10 @@ add_action('after_setup_theme', function () {
 });
 
 
+add_action("woocommerce_share", function () {
+    echo do_shortcode(' [social_share] ');
+});
+
 
 add_action('woocommerce_shop_slider', function () {
 
@@ -67,7 +71,6 @@ add_action('woocommerce_shop_slider', function () {
             "manifesto" => $manifesto,
             "desc" => $desc,
             "button_link" => $button_link,
-            "left_img" => $left_img[0],
             "background_img" => $background_img[0],
         );
 
@@ -336,6 +339,7 @@ add_action('sorular_konusuyor_slider', function () {
             $index = 0;
             foreach ($products as $data) {
                 $active = ($index == 0) ? 'active' : '';
+                $html = "";
                 $html .= '<div class="carousel-item ' . $active . '">';
                 $html .= '<div class="row">';
                 foreach ($data["products_inner"] as $product_id) {
@@ -429,6 +433,7 @@ add_action("section_brans_denemeleri", function () {
                 //$title = get_the_title($product_id);
                 $image = wp_get_attachment_image(get_post_thumbnail_id($product_id), "large");
                 $url = esc_url(get_permalink($product_id));
+                $html = "";
                 $html .= '<div class="col-sm-6 col-lg-3 text-center">';
                 $html .= '<div class="brans-denemeleri__book-picture">';
                 $html .= $image;
@@ -514,6 +519,7 @@ add_action("section_teke_tek", function () {
                 $margin = ($index % 2) === 0 ? "pt-lg-5" : "";
                 $image = wp_get_attachment_image(get_post_thumbnail_id($product_id), 'large');
                 $url = esc_url(get_permalink($product_id));
+                $html = "";
                 $html .= '<div class="col-sm-6 col-lg-6 ' . $margin . '">';
                 $html .= '<a class="teke-tek__book-picture" href="' . $url . '">';
                 $html .= $image;
@@ -596,6 +602,7 @@ add_action("section_muhendis_kafasi", function () {
                 //$title = get_the_title($product_id);
                 $image = wp_get_attachment_image(get_post_thumbnail_id($product_id), 'large');
                 $url = esc_url(get_permalink($product_id));
+                $html = "";
                 $html .= '<a class="muhendis-kafasi__book-picture" href="' . $url . '">';
                 $html .= $image;
                 $html .= '</a>';

@@ -17,6 +17,8 @@ wc_get_template_part('content', 'single-product');
 ?>
 <?php endwhile; ?>
 <?php echo $__env->make('sections.section-beceri-temelli', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php echo $__env->make('sections.section-emoji-cards', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php echo $__env->make('sections.section-emoji-icons', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 <?php
 do_action('woocommerce_after_main_content');
 do_action('get_sidebar', 'shop');

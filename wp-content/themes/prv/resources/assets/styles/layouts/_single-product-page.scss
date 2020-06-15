@@ -1,0 +1,160 @@
+$li_height: 55px;
+$front_top: -$li_height;
+
+.emoji-cards-section {
+  color: #675953;
+
+  .emoji-card {
+    background-color: #fff;
+    box-shadow: 0 72px 114px rgba(179, 183, 188, 0.182474);
+    border-radius: 14px;
+    padding: 50px 36px;
+
+    &__title {
+      color: #9dc7ef;
+    }
+
+    &__desc {
+      font-weight: 300;
+    }
+
+    &__list {
+      &-text {
+        padding: 15px;
+      }
+
+      margin-top: 30px;
+      list-style-type: none;
+      padding: unset;
+
+      > li {
+        width: 100%;
+        height: $li_height;
+        font-size: 20px;
+        font-weight: 800;
+        color: white;
+        margin-top: 5px;
+        padding: 15px;
+        border-radius: 35px;
+      }
+    }
+
+    &__span-back {
+      top: 0;
+      left: 0;
+      width: inherit;
+      height: inherit;
+      border-radius: inherit;
+      mix-blend-mode: normal;
+      opacity: 0.2;
+      position: relative;
+      display: block;
+    }
+
+    &__span-front {
+      top: $front_top;
+      left: -15px;
+      width: inherit;
+      height: inherit;
+      border-radius: inherit;
+      position: relative;
+      display: block;
+    }
+
+    &__kolay {
+      &-back {
+        background: linear-gradient(
+          175.26deg,
+          rgba(86, 119, 38, 0.0001) -241.12%,
+          #8ab55c 206.58%
+        );
+      }
+
+      &-front {
+        background: linear-gradient(
+          174.75deg,
+          rgba(86, 119, 38, 0.0001) -241.12%,
+          #8ab55c 206.58%
+        );
+      }
+    }
+
+    &__orta {
+      &-back {
+        background: linear-gradient(
+          175.26deg,
+          rgba(86, 119, 38, 0.0001) -241.12%,
+          #7cdbf0 206.58%
+        );
+      }
+
+      &-front {
+        background: linear-gradient(
+          174.75deg,
+          rgba(125, 170, 57, 0) -241.12%,
+          #7cdbf0 206.58%
+        );
+      }
+    }
+
+    &__zor {
+      &-back {
+        background: linear-gradient(
+          175.26deg,
+          rgba(212, 47, 47, 0.0001) -241.12%,
+          #c62441 206.58%
+        );
+      }
+
+      &-front {
+        background: linear-gradient(
+          174.75deg,
+          rgba(212, 47, 47, 0.0001) -241.12%,
+          #c62441 206.58%
+        );
+      }
+    }
+  }
+}
+
+.emoji-icons-section {
+  color: #675953;
+
+  &__row {
+    height: 300px;
+
+    > div:nth-child(1) img {
+      margin-top: -6rem;
+    }
+
+    > div:nth-child(3) img {
+      margin-top: -6rem;
+    }
+  }
+
+  &__icon {
+    background: #fff;
+    box-shadow: 0 12px 54px #e7ded0;
+    border-radius: 17px;
+    padding: 25px;
+    height: auto;
+    width: 120px;
+    z-index: 1;
+  }
+
+  &__icon-name {
+    display: inline;
+    padding-left: 1rem;
+    color: #9dc7ef;
+  }
+
+  &__line {
+    display: block;
+    position: relative;
+    height: 100%;
+    left: 33%;
+    z-index: 0;
+    width: 1px;
+    background-color: #9bb1c4;
+  }
+}
