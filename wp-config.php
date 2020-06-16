@@ -1,6 +1,5 @@
 <?php
 
-define('WP_DEBUG', true);
 define('WP_TEMP_NAME', "temp");
 define('WP_TEMP_DIR', dirname(__FILE__) . '/wp-content/' . WP_TEMP_NAME . '/');
 /**
@@ -71,7 +70,7 @@ $table_prefix = 'wp_';
  * Tema ve eklenti geliştiricilerinin geliştirme aşamasında WP_DEBUG
  * kullanmalarını önemle tavsiye ederiz.
  */
-define('WP_DEBUG', false);
+define('WP_DEBUG', true);
 
 /* Hepsi bu kadar. Mutlu bloglamalar! */
 

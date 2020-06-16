@@ -1,6 +1,6 @@
 <!-- beceri-temelli section start -->
 <section class="beceri-temelli pt-5">
-  <div class="container-fluid">
+  <div class="container-fluid pt-5">
     <div class="row pt-5">
       <div class="col-lg-12">
         <div class="d-flex justify-content-center">

@@ -4,14 +4,20 @@
 require(dirname(__FILE__) . "/helpers/distributer-utility.php");
 
 
+//TODO:Continue from here
+
 class Distributer
 {
+  private $site_url;
+  private $city_path = "/wp-json/prv_login/v1/cities";
+  private $district_path = "/wp-json/prv_login/v1/districts";
 
   public function __construct()
   {
     add_action('wp_ajax_register_dealer', array($this, 'register_process'), 0);
     add_action('wp_ajax_nopriv_register_dealer', array($this, 'register_process'));
     add_shortcode('register_dealer_form', array($this, 'html_logic'));
+    $this->site_url = site_url();
   }
 
   function html_logic()
@@ -41,14 +47,11 @@ class Distributer
     return ob_get_clean();
   }
 
-
   function registration_form()
   {
     ob_start(); ?>
     <h3 class="text-center">Bayilik Başvuru Formu</h3>
-
     <div class="notice" style="display:none"></div>
-
     <div id="stepperFormBayi" class="bs-stepper linear">
       <div class="bs-stepper-header" role="tablist">
         <div class="step active" data-target="#test-form-1">
@@ -153,14 +156,42 @@ class Distributer
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label for="company-city">İl <span class="text-danger font-weight-bold">*</span></label>
-                        <input id="company-city" type="text" name="company-city" class="form-control" placeholder="Firmanızın bulunduğu şehir ismini giriniz" required data-cip-id="company-city">
+                        <?php
+                        $city_url = "{$this->site_url}{$this->city_path}";
+                        $request_response = file_get_contents($city_url);
+                        $data = $request_response;
+                        $cities = json_decode($request_response, true);
+                        $cities = [["city_id" => "", "name" => "İl seçiniz..."], ...$cities];
+                        $data = [];
+                        foreach ($cities as $value) {
+                          $id = $value["city_id"];
+                          $city = $value["name"];
+                          $data[$id] = $city;
+                        };
+                        woocommerce_form_field('company-city', array(
+                          'type'        => 'select',
+                          'required'    => true,
+                          'class' => ["akilli-tahta-uygulamalari__woocommerce-forms"],
+                          'input_class' => ["form-control form-control-lg"],
+                          'options' => $data
+                        ));
+                        ?>
                         <div class="invalid-feedback">Bu alan doldurulması zorunludur.</div>
                       </div>
                     </div>
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label for="company-district">İlçe <span class="text-danger font-weight-bold">*</span></label>
-                        <input id="company-district" type="text" name="company-district" class="form-control" placeholder="Firmanızınız bulunduğu ilçe ismini giriniz" required data-cip-id="company-district">
+                        <?php
+                        woocommerce_form_field('company-district', array(
+                          'type'        => 'select',
+                          'required'    => true,
+                          'class' => ["akilli-tahta-uygulamalari__woocommerce-forms"],
+                          'select_class' => ["form-control form-control-lg"],
+                          'placeholder' => 'Bir seçenek belirleyin..',
+                          'options' => array('' => 'İlçe seçiniz...')
+                        ));
+                        ?>
                         <div class="invalid-feedback">Bu alan doldurulması zorunludur.</div>
                       </div>
                     </div>
@@ -189,14 +220,42 @@ class Distributer
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label for="dealer-city">İl <span class="text-danger font-weight-bold">*</span></label>
-                        <input id="dealer-city" name="dealer-city" type="text" class="form-control" placeholder="Bayilik talep edilen il isimini giriniz" required data-cip-id="dealer-city">
+                        <?php
+                        $city_url = "{$this->site_url}{$this->city_path}";
+                        $request_response = file_get_contents($city_url);
+                        $data = $request_response;
+                        $cities = json_decode($request_response, true);
+                        $cities = [["city_id" => "", "name" => "İl seçiniz..."], ...$cities];
+                        $data = [];
+                        foreach ($cities as $value) {
+                          $id = $value["city_id"];
+                          $city = $value["name"];
+                          $data[$id] = $city;
+                        };
+                        woocommerce_form_field('dealer-city', array(
+                          'type'        => 'select',
+                          'required'    => true,
+                          'class' => ["akilli-tahta-uygulamalari__woocommerce-forms"],
+                          'input_class' => ["form-control form-control-lg"],
+                          'options' => $data
+                        ));
+                        ?>
                         <div class="invalid-feedback">Bu alan doldurulması zorunludur.</div>
                       </div>
                     </div>
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label for="dealer-district">İlçe <span class="text-danger font-weight-bold">*</span></label>
-                        <input id="dealer-district" name="dealer-district" type="text" class="form-control" placeholder="Bayilik talep edilen ilçe veya ilçeler'i giriniz" required data-cip-id="dealer-district">
+                        <?php
+                        woocommerce_form_field('dealer-district', array(
+                          'type'        => 'select',
+                          'required'    => true,
+                          'class' => ["akilli-tahta-uygulamalari__woocommerce-forms"],
+                          'select_class' => ["form-control form-control-lg"],
+                          'placeholder' => 'Bir seçenek belirleyin..',
+                          'options' => array('' => 'İlçe seçiniz...')
+                        ));
+                        ?>
                         <div class="invalid-feedback">Bu alan doldurulması zorunludur.</div>
                       </div>
                     </div>
@@ -250,102 +309,181 @@ class Distributer
     </div>
 
     <script type="text/javascript">
-      jQuery('#bayilik-basvuru-submit').on('click', function(e) {
-        e.preventDefault();
-        var personel_email = jQuery('#personel-email').val();
-        var personel_first_name = jQuery('#personel-first-name').val();
-        var personel_last_name = jQuery('#personel-last-name').val();
-        var personel_phone = jQuery('#personel-phone').val();
-        var company_name = jQuery('#company-name').val();
-        var company_phone = jQuery('#company-phone').val();
-        var company_tax_office = jQuery('#company-tax-office').val();
-        var company_tax_number = jQuery('#company-tax-number').val();
-        var company_city = jQuery('#company-city').val();
-        var company_district = jQuery('#company-district').val();
-        var company_adress = jQuery('#company-adress').val();
-        var dealer_city = jQuery('#dealer-city').val();
-        var dealer_district = jQuery('#dealer-district').val();
-        var dealer_work_style = jQuery('#dealer-work-style').val();
-        var dealer_product_category = jQuery('#dealer-product-category').val();
-        var dealer_publishing = jQuery('#dealer-publishing').val();
-        var dealer_field_personel = jQuery('#dealer-field-personel').val();
-        var dealer_history = jQuery('#dealer-history').val();
-        var prv_distributer_register_nonce = jQuery('#prv-distributer-register-nonce').val();
+      (function($) {
 
 
-        jQuery.ajax({
-          type: "POST",
-          url: "<?php echo admin_url('admin-ajax.php'); ?>",
-          data: {
-            action: "register_dealer",
-            personel_email: personel_email,
-            personel_first_name: personel_first_name,
-            personel_last_name: personel_last_name,
-            personel_phone: personel_phone,
-            company_name: company_name,
-            company_phone: company_phone,
-            company_tax_office: company_tax_office,
-            company_tax_number: company_tax_number,
-            company_city: company_city,
-            company_district: company_district,
-            company_adress: company_adress,
-            dealer_city: dealer_city,
-            dealer_district: dealer_district,
-            dealer_work_style: dealer_work_style,
-            dealer_product_category: dealer_product_category,
-            dealer_publishing: dealer_publishing,
-            dealer_field_personel: dealer_field_personel,
-            dealer_history: dealer_history,
-            prv_distributer_register_nonce: prv_distributer_register_nonce,
-          },
-          success: function(results) {
-            //console.log(results);
-            const element = jQuery('.notice');
+        const $companyCity = $('#company-city');
+        const $dealerCity = $('#dealer-city');
+        const $companyDistrict = $('#company-district');
+        const $dealerDistrict = $('#dealer-district');
 
-            const {
-              data
-            } = results
-            if ("success" in data) {
-              data["success"].forEach((value, index) => {
-                element.append(`<div class="alert alert-success" role="alert">${value}</div>`);
-                if (data["success"].length - 1 == index) {
-                  element.show();
-                }
-              });
-            }
+        function resetCompanyCity() {
 
-            setTimeout(() => {
-              element.hide();
-              element.empty();
-              window.location.reload();
-            }, 3000)
+          $companyCity.find("option").remove();
+
+        }
+
+        function resetCompanyDistrict() {
+
+          $companyDistrict.find("option").remove();
+
+        }
 
 
-          },
-          error: function(results) {
-            //console.log("results", results)
-            const element = jQuery('.notice');
-            const {
-              data
-            } = JSON.parse(results.responseText);
+        function resetDelaerCity() {
 
-            if ("error" in data) {
-              data["error"].forEach((value, index) => {
-                element.append(`<div class="alert alert-warning" role="alert">${value}</div>`);
-                if (data["error"].length - 1 == index) {
-                  element.show();
-                }
-              });
-            }
+          $dealerCity.find("option").remove();
 
-            setTimeout(() => {
-              element.hide();
-              element.empty();
-            }, 3000)
+        }
 
-          }
+        function resetDelaerDistrict() {
+
+          $dealerDistrict.find("option").remove();
+
+        }
+
+        function resetDistrict(district) {
+
+          district.find("option").remove();
+
+        }
+
+
+        function getDistrictById(id, district) {
+          const url = '<? echo "{$this->site_url}{$this->district_path}"  ?>' + `?city=${id}`;
+          $.getJSON(url, function(data) {
+            let index = 0;
+            let districts = data.map(function(el) {
+              if (index === 0) {
+                index += 1;
+                return `<option value="" selected="selected">İlçe seçiniz...</option>
+                        <option value="${el.district_id}" selected="selected">${el.name}</option>`
+                state.districtId = el.district_id;
+              } else {
+                return `<option value="${el.district_id}">${el.name}</option>`
+              }
+            })
+            districts = districts.join('');
+            resetDistrict(district);
+            district.append(districts);
+          });
+        }
+
+        $companyCity.on('change', function() {
+
+          const id = $(this).find("option").filter(':selected').val();
+
+          getDistrictById(id, $companyDistrict);
+
         });
-      });
+
+        $dealerCity.on('change', function() {
+
+          const id = $(this).find("option").filter(':selected').val();
+
+          getDistrictById(id, $dealerDistrict);
+
+        });
+
+
+        $('#bayilik-basvuru-submit').on('click', function(e) {
+
+          e.preventDefault();
+          var personel_email = $('#personel-email').val();
+          var personel_first_name = $('#personel-first-name').val();
+          var personel_last_name = $('#personel-last-name').val();
+          var personel_phone = $('#personel-phone').val();
+          var company_name = $('#company-name').val();
+          var company_phone = $('#company-phone').val();
+          var company_tax_office = $('#company-tax-office').val();
+          var company_tax_number = $('#company-tax-number').val();
+          var company_city = $('#company-city').val();
+          var company_district = $('#company-district').val();
+          var company_adress = $('#company-adress').val();
+          var dealer_city = $('#dealer-city').val();
+          var dealer_district = $('#dealer-district').val();
+          var dealer_work_style = $('#dealer-work-style').val();
+          var dealer_product_category = $('#dealer-product-category').val();
+          var dealer_publishing = $('#dealer-publishing').val();
+          var dealer_field_personel = $('#dealer-field-personel').val();
+          var dealer_history = $('#dealer-history').val();
+          var prv_distributer_register_nonce = $('#prv-distributer-register-nonce').val();
+
+          $.ajax({
+            type: "POST",
+            url: "<?php echo admin_url('admin-ajax.php'); ?>",
+            data: {
+              action: "register_dealer",
+              personel_email: personel_email,
+              personel_first_name: personel_first_name,
+              personel_last_name: personel_last_name,
+              personel_phone: personel_phone,
+              company_name: company_name,
+              company_phone: company_phone,
+              company_tax_office: company_tax_office,
+              company_tax_number: company_tax_number,
+              company_city: company_city,
+              company_district: company_district,
+              company_adress: company_adress,
+              dealer_city: dealer_city,
+              dealer_district: dealer_district,
+              dealer_work_style: dealer_work_style,
+              dealer_product_category: dealer_product_category,
+              dealer_publishing: dealer_publishing,
+              dealer_field_personel: dealer_field_personel,
+              dealer_history: dealer_history,
+              prv_distributer_register_nonce: prv_distributer_register_nonce,
+            },
+            success: function(results) {
+              //console.log(results);
+              const element = $('.notice');
+
+              const {
+                data
+              } = results
+              if ("success" in data) {
+                data["success"].forEach((value, index) => {
+                  element.append(`<div class="alert alert-success" role="alert">${value}</div>`);
+                  if (data["success"].length - 1 == index) {
+                    element.show();
+                  }
+                });
+              }
+
+              setTimeout(() => {
+                element.hide();
+                element.empty();
+                window.location.reload();
+              }, 3000)
+
+
+            },
+            error: function(results) {
+              //console.log("results", results)
+              const element = $('.notice');
+              const {
+                data
+              } = JSON.parse(results.responseText);
+
+              if ("error" in data) {
+                data["error"].forEach((value, index) => {
+                  element.append(`<div class="alert alert-warning" role="alert">${value}</div>`);
+                  if (data["error"].length - 1 == index) {
+                    element.show();
+                  }
+                });
+              }
+
+              setTimeout(() => {
+                element.hide();
+                element.empty();
+              }, 3000)
+
+            }
+          });
+        });
+
+      })(jQuery);
     </script>
 <?php
     return ob_get_clean();
@@ -378,96 +516,72 @@ class Distributer
 
       $error = [];
 
-      //Check Empty or Not
-
       if ($personel_email == '') {
-        // empty username
         $error["error"][] = "Lütfen bir mail adresi giriniz.";
       }
+      if (!is_email($personel_email)) {
+        $error["error"][] = "Geçerli bir e-posta adresi giriniz.";
+      }
       if ($personel_first_name == '') {
-        // empty username
         $error["error"][] = "Lütfen bir isim adı giriniz.";
       }
+      if (!validate_username($personel_first_name)) {
+        $error["error"][] = "Geçersiz kullanıcı adı giriniz.";
+      }
       if ($personel_last_name == '') {
-        // passwords empty
         $error["error"][] = "Lütfen bir soyisim giriniz.";
       }
       if ($personel_phone == '') {
-        // passwords empty
         $error["error"][] = "Lütfen bir telefon numarası giriniz.";
       }
       if ($company_name == '') {
-        // passwords empty
         $error["error"][] = "Lütfen şirket ismini giriniz.";
       }
       if ($company_phone == '') {
-        // passwords empty
         $error["error"][] = "Lütfen bir şirket telefonu giriniz.";
       }
       if ($company_tax_office == '') {
-        // passwords empty
         $error["error"][] = "Lütfen şirketiniz bağlı olduğunu vergi dairesi ismini giriniz.";
       }
       if ($company_tax_number == '') {
-        // passwords empty
         $error["error"][] = "Lütfen şirketinizin vegi numarasını giriniz.";
       }
       if ($company_city == '') {
-        // passwords empty
         $error["error"][] = "Lütfen şirketinizin bulduğu il ismini giriniz.";
       }
       if ($company_district == '') {
-        // passwords empty
         $error["error"][] = "Lütfen şirketinizin bulduğu ilçe ismini giriniz.";
       }
       if ($company_adress == '') {
-        // passwords empty
         $error["error"][] = "Lütfen şirketinizin adresini giriniz.";
       }
       if ($dealer_city == '') {
-        // passwords empty
         $error["error"][] = "Lütfen bayilik talep ettiğiniz il ismini giriniz.";
       }
       if ($dealer_district  == '') {
-        // passwords empty
         $error["error"][] = "Lütfen bayilik talep ettiğiniz ilçe veya ilçeler'i giriniz.";
       }
       if ($dealer_work_style == '') {
-        // passwords empty
         $error["error"][] = "Lütfen çalışma şeklinizi girinizs.";
       }
       if ($dealer_product_category == '') {
-        // passwords empty
         $error["error"][] = "Lütfen ürün grublarını giriniz.";
       }
       if ($dealer_publishing == '') {
-        // passwords empty
         $error["error"][] = "Lütfen hali hazırda bayiliğini yapmakta olduğunuz yayınları girinizs.";
       }
       if ($dealer_field_personel == '') {
-        // passwords empty
         $error["error"][] = "Lütfen sahada çalışan personel sayısını giriniz.";
       }
       if ($dealer_history == '') {
-        // passwords empty
         $error["error"][] = "Lütfen firmanız hakkında kısa tanıtım bilgisi giriniz.";
       }
 
-      // Validation checks
-      if (!is_email($personel_email)) {
-        //invalid email
-        $error["error"][] = "Geçerli bir e-posta adresi giriniz.";
-      }
-      if (!validate_username($personel_first_name)) {
-        // invalid username
-        $error["error"][] = "Geçersiz kullanıcı adı giriniz.";
-      }
-
-
-
       if ($error) {
+
         wp_send_json_error($error, 500);
       } else {
+
         $json = [];
 
         $args = array(
@@ -502,7 +616,6 @@ class Distributer
         if (!isset($_COOKIE["prv_dealer_registered"])) {
           setcookie("prv_dealer_registered", true, time() + 2629746,  $cookie_path, $_SERVER['HTTP_HOST']);
         };
-
 
         $data["success"][] = "Talebiniz başarıyla tarafımıza ulaşmıştır.";
         wp_send_json_success($data, 200);

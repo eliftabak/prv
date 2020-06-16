@@ -121,7 +121,7 @@
   //realted products styling
   .products ul,
   ul.products {
-    margin: 17px 68px 1em;
+    margin: 0;
   }
 
   .pdf-viewer {
@@ -129,6 +129,13 @@
       height: 97vh;
       width: 100%;
     }
+  }
+
+  .related.products {
+    background-color: white;
+    padding: 5rem 10rem;
+    text-align: center;
+    color: #675953;
   }
 
   .woocommerce-product-details {

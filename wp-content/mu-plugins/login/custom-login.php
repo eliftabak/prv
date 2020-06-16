@@ -292,7 +292,6 @@ class StepLogin
                       'options' => $data
                     ));
                     ?>
-                    </script>
                     <div class="invalid-feedback">Bu alan doldurulması zorunludur.</div>
                   </div>
                 </div>
@@ -576,7 +575,7 @@ class StepLogin
           });
         });
 
-      })(jQuery)
+      })(jQuery);
     </script>
 <?php
     return ob_get_clean();

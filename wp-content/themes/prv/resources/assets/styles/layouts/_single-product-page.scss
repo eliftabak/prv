@@ -6,7 +6,7 @@ $front_top: -$li_height;
 
   .emoji-card {
     background-color: #fff;
-    box-shadow: 0 72px 114px rgba(179, 183, 188, 0.182474);
+    box-shadow: 2px 2px 7px rgba(179, 183, 188, 0.182474);
     border-radius: 14px;
     padding: 50px 36px;
 
@@ -119,15 +119,22 @@ $front_top: -$li_height;
 
 .emoji-icons-section {
   color: #675953;
+  padding: 5rem 0 15rem;
+
+  img {
+    position: relative;
+  }
 
   &__row {
     height: 300px;
 
-    > div:nth-child(1) img {
+    > div:nth-child(1) img,
+    > div:nth-child(1) .emoji-icons-section__line {
       margin-top: -6rem;
     }
 
-    > div:nth-child(3) img {
+    > div:nth-child(3) img,
+    > div:nth-child(3) .emoji-icons-section__line {
       margin-top: -6rem;
     }
   }
@@ -143,18 +150,17 @@ $front_top: -$li_height;
   }
 
   &__icon-name {
-    display: inline;
-    padding-left: 1rem;
     color: #9dc7ef;
+    margin-top: 16px;
   }
 
   &__line {
     display: block;
     position: relative;
     height: 100%;
-    left: 33%;
+    left: 50%;
     z-index: 0;
     width: 1px;
-    background-color: #9bb1c4;
+    background-color: #9bb1c46b;
   }
 }
