@@ -71,7 +71,14 @@ class Distributer
         <div class="step" data-target="#test-form-3">
           <button type="button" class="step-trigger" role="tab" id="stepperFormTrigger3" aria-controls="test-form-3" aria-selected="false" disabled="disabled">
             <span class="bs-stepper-circle">3</span>
-            <span class="bs-stepper-label">Başvuru Tamamla</span>
+            <span class="bs-stepper-label">Bayilik Bilgileri</span>
+          </button>
+        </div>
+        <div class="bs-stepper-line"></div>
+        <div class="step" data-target="#test-form-4">
+          <button type="button" class="step-trigger" role="tab" id="stepperFormTrigger4" aria-controls="test-form-4" aria-selected="false" disabled="disabled">
+            <span class="bs-stepper-circle">4</span>
+            <span class="bs-stepper-label">Başvuruyu Tamamla</span>
           </button>
         </div>
       </div>
@@ -93,22 +100,22 @@ class Distributer
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label for="personel-first-name">Ad <span class="text-danger font-weight-bold">*</span></label>
-                        <input id="personel-first-name" name="personel-first-name" type="text" class="form-control" placeholder="Adınızı giriniz" required data-cip-id="personel-first-name">
-                        <div class="invalid-feedback">Bu alan doldurulması zorunludur.</div>
+                        <input pattern="^[A-Za-zğüşıöçĞÜŞİÖÇ]{2,}$" id="personel-first-name" name="personel-first-name" type="text" class="form-control" placeholder="Adınızı giriniz" required data-cip-id="personel-first-name">
+                        <div class="invalid-feedback">Geçerli bir isim giriniz.</div>
                       </div>
                     </div>
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label for="personel-last-name">Soyad <span class="text-danger font-weight-bold">*</span></label>
-                        <input id="personel-last-name" name="personel-last-name" type="text" class="form-control" placeholder="Soyadınızı giriniz" required data-cip-id="personel-last-name">
-                        <div class="invalid-feedback">Bu alan doldurulması zorunludur.</div>
+                        <input pattern="^[A-Za-zğüşıöçĞÜŞİÖÇ]{2,}$" id="personel-last-name" name="personel-last-name" type="text" class="form-control" placeholder="Soyadınızı giriniz" required data-cip-id="personel-last-name">
+                        <div class="invalid-feedback">Geçerli bir soy isim giriniz.</div>
                       </div>
                     </div>
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label for="personel-phone">Telefon <span class="text-danger font-weight-bold">*</span></label>
-                        <input id="personel-phone" name="personel-phone" type="text" class="form-control" placeholder="Kişisel telefon numaranızı giriniz" required data-cip-id="personel-phone">
-                        <div class="invalid-feedback">Bu alan doldurulması zorunludur.</div>
+                        <input pattern="^(0([0-9])(\d{9}))$" id="personel-phone" name="personel-phone" type="text" class="form-control" placeholder="Kişisel telefon numaranızı giriniz" required data-cip-id="personel-phone">
+                        <div class="invalid-feedback">Telefon numarası 0 ile başlamalı ve bitişik yazılmalıdır. <br> Toplam 11 hane olmalıdır.<br> Örneğin : 0**********</div>
                       </div>
                     </div>
                   </div>
@@ -128,29 +135,29 @@ class Distributer
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label for="company-name">Firma Ünvanı <span class="text-danger font-weight-bold">*</span></label>
-                        <input id="company-name" name="company-name" type="text" class="form-control" placeholder="Firma ismini giriniz" required data-cip-id="company-name">
-                        <div class="invalid-feedback">Bu alan doldurulması zorunludur.</div>
+                        <input pattern="(.{10,})" id="company-name" name="company-name" type="text" class="form-control" placeholder="Firma ismini giriniz" required data-cip-id="company-name">
+                        <div class="invalid-feedback">Minimum 10 karakter olmalıdır.</div>
                       </div>
                     </div>
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label for="company-phone">Telefon( Ofis ) <span class="text-danger font-weight-bold">*</span></label>
-                        <input id="company-phone" name="company-phone" type="text" class="form-control" placeholder="Ofis telefon numarasını giriniz" required data-cip-id="company-phone">
-                        <div class="invalid-feedback">Bu alan doldurulması zorunludur.</div>
+                        <input pattern="^(0([0-9])(\d{9}))$" id="company-phone" name="company-phone" type="text" class="form-control" placeholder="Ofis telefon numarasını giriniz" required data-cip-id="company-phone">
+                        <div class="invalid-feedback">Telefon numarası 0 ile başlamalı ve bitişik yazılmalıdır. <br> Toplam 11 hane olmalıdır.<br> Örneğin : 0**********</div>
                       </div>
                     </div>
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label for="company-tax-office">Vergi Dairesi <span class="text-danger font-weight-bold">*</span></label>
-                        <input id="company-tax-office" name="company-tax-office" type="text" class="form-control" placeholder="Bağlı olduğunuz vergi dairesini giriniz" required data-cip-id="company-tax-office">
-                        <div class="invalid-feedback">Bu alan doldurulması zorunludur.</div>
+                        <input pattern="(^[A-Za-zğüşıöçĞÜŞİÖÇ]{2,})(.{0,}?)([A-Za-zğüşıöçĞÜŞİÖÇ]{2,})(.{0,}?)([A-Za-zğüşıöçĞÜŞİÖÇ]{2,}$)" id="company-tax-office" name="company-tax-office" type="text" class="form-control" placeholder="Bağlı olduğunuz vergi dairesini giriniz" required data-cip-id="company-tax-office">
+                        <div class="invalid-feedback">Geçerli bir vergi dairesi ismi giriniz. Örneğin : Bolu Vergi Dairesi</div>
                       </div>
                     </div>
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label for="company-tax-number">Vergi Numarası <span class="text-danger font-weight-bold">*</span></label>
-                        <input id="company-tax-number" name="company-tax-number" type="text" class="form-control" placeholder="Vergi numaranızı giriniz" required data-cip-id="company-tax-number">
-                        <div class="invalid-feedback">Bu alan doldurulması zorunludur.</div>
+                        <input pattern="^([0-9])(\d{9})$" id="company-tax-number" name="company-tax-number" type="text" class="form-control" placeholder="Vergi numaranızı giriniz" required data-cip-id="company-tax-number">
+                        <div class="invalid-feedback">Geçerli bir vergi numarası giriniz. <br> Toplam 10 hane olmalıdır.</div>
                       </div>
                     </div>
                     <div class="col-lg-6">
@@ -170,13 +177,13 @@ class Distributer
                         };
                         woocommerce_form_field('company-city', array(
                           'type'        => 'select',
-                          'required'    => true,
                           'class' => ["akilli-tahta-uygulamalari__woocommerce-forms"],
                           'input_class' => ["form-control form-control-lg"],
+                          'custom_attributes' => array("pattern" => "^((?!İl\sseçiniz\.\.\.).)*$"),
                           'options' => $data
                         ));
                         ?>
-                        <div class="invalid-feedback">Bu alan doldurulması zorunludur.</div>
+                        <div class="invalid-feedback">Lütfen il seçiniz.</div>
                       </div>
                     </div>
                     <div class="col-lg-6">
@@ -185,21 +192,21 @@ class Distributer
                         <?php
                         woocommerce_form_field('company-district', array(
                           'type'        => 'select',
-                          'required'    => true,
                           'class' => ["akilli-tahta-uygulamalari__woocommerce-forms"],
                           'select_class' => ["form-control form-control-lg"],
                           'placeholder' => 'Bir seçenek belirleyin..',
+                          'custom_attributes' => array("pattern" => "^((?!İlçe\sseçiniz\.\.\.).)*$"),
                           'options' => array('' => 'İlçe seçiniz...')
                         ));
                         ?>
-                        <div class="invalid-feedback">Bu alan doldurulması zorunludur.</div>
+                        <div class="invalid-feedback">Lütfen ilçe seçiniz.</div>
                       </div>
                     </div>
                     <div class="col-lg-12">
                       <div class="form-group">
                         <label for="company-adress">Adres <span class="text-danger font-weight-bold">*</span></label>
-                        <input id="company-adress" type="text" name="company-adress" class="form-control" placeholder="Şirketinizin açık adresini giriniz" required data-cip-id="company-adress">
-                        <div class="invalid-feedback">Bu alan doldurulması zorunludur.</div>
+                        <input pattern="(.{15,})" id="company-adress" type="text" name="company-adress" class="form-control" placeholder="Şirketinizin açık adresini giriniz" required data-cip-id="company-adress">
+                        <div class="invalid-feedback">Minimum 15 karakter olmalıdır.</div>
                       </div>
                     </div>
                   </div>
@@ -234,7 +241,6 @@ class Distributer
                         };
                         woocommerce_form_field('dealer-city', array(
                           'type'        => 'select',
-                          'required'    => true,
                           'class' => ["akilli-tahta-uygulamalari__woocommerce-forms"],
                           'input_class' => ["form-control form-control-lg"],
                           'options' => $data
@@ -249,7 +255,6 @@ class Distributer
                         <?php
                         woocommerce_form_field('dealer-district', array(
                           'type'        => 'select',
-                          'required'    => true,
                           'class' => ["akilli-tahta-uygulamalari__woocommerce-forms"],
                           'select_class' => ["form-control form-control-lg"],
                           'placeholder' => 'Bir seçenek belirleyin..',
@@ -262,39 +267,52 @@ class Distributer
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label for="dealer-work-style">Çalışma şekli <span class="text-danger font-weight-bold">*</span></label>
-                        <input id="dealer-work-style" name="dealer-work-style" type="text" class="form-control" placeholder="Çalışma şeklinizi giriniz" required data-cip-id="dealer-work-style">
+                        <input pattern="(.{15,})" id="dealer-work-style" name="dealer-work-style" type="text" class="form-control" placeholder="Çalışma şeklinizi giriniz" required data-cip-id="dealer-work-style">
                         <div class="invalid-feedback">Bu alan doldurulması zorunludur.</div>
                       </div>
                     </div>
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label for="dealer-product-category">Ürün grupları <span class="text-danger font-weight-bold">*</span></label>
-                        <input id="dealer-product-category" name="dealer-product-category" type="text" class="form-control" placeholder="Ağırlıklı çalıştığınız ürün grupları isimlerini giriniz" required data-cip-id="dealer-product-category">
-                        <div class="invalid-feedback">Bu alan doldurulması zorunludur.</div>
+                        <input pattern="(.{15,})" id="dealer-product-category" name="dealer-product-category" type="text" class="form-control" placeholder="Ağırlıklı çalıştığınız ürün grupları isimlerini giriniz" required data-cip-id="dealer-product-category">
+                        <div class="invalid-feedback">Minumum 15 karakter giriniz.</div>
                       </div>
                     </div>
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label for="dealer-publishing">Yayınlar <span class="text-danger font-weight-bold">*</span></label>
-                        <input id="dealer-publishing" type="text" name="dealer-publishing" class="form-control" placeholder="Bayiliğini halen yaptığınız yayınların isimlerini giriniz" required data-cip-id="dealer-publishing">
-                        <div class="invalid-feedback">Bu alan doldurulması zorunludur.</div>
+                        <input pattern="(.{15,})" id="dealer-publishing" type="text" name="dealer-publishing" class="form-control" placeholder="Bayiliğini halen yaptığınız yayınların isimlerini giriniz" required data-cip-id="dealer-publishing">
+                        <div class="invalid-feedback">Minumum 15 karakter giriniz.</div>
                       </div>
                     </div>
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label for="dealer-field-personel">Personel sayısı<span class="text-danger font-weight-bold">*</span></label>
-                        <input id="dealer-field-personel" type="text" name="dealer-field-personel" class="form-control" placeholder="Okul tanıtımı yapan aktif personel sayısını giriniz" required data-cip-id="dealer-field-personel">
-                        <div class="invalid-feedback">Bu alan doldurulması zorunludur.</div>
+                        <input pattern="/\d{1,}" id="dealer-field-personel" type="number" name="dealer-field-personel" class="form-control" placeholder="Okul tanıtımı yapan aktif personel sayısını giriniz" required data-cip-id="dealer-field-personel">
+                        <div class="invalid-feedback">Sadece sayı giriniz.</div>
                       </div>
                     </div>
                     <div class="col-lg-12">
                       <div class="form-group">
                         <label for="dealer-history">Firma bilgisi <span class="text-danger font-weight-bold">*</span></label>
-                        <textarea id="dealer-history" rows="2" name="dealer-history" class="form-control" placeholder="Firmanız kaç yıldır faaliyet gösteriyor? Firmanızdan kısaca bahsediniz. Varsa referanslarını yazınız." required data-cip-id="dealer-history"></textarea>
-                        <div class="invalid-feedback">Bu alan doldurulması zorunludur.</div>
+                        <textarea minlength="15" id="dealer-history" rows="2" name="dealer-history" class="form-control" placeholder="Firmanız kaç yıldır faaliyet gösteriyor? Firmanızdan kısaca bahsediniz. Varsa referanslarını yazınız." required data-cip-id="dealer-history"></textarea>
+                        <div class="invalid-feedback">Minumum 15 karakter giriniz.</div>
                       </div>
                     </div>
                   </div>
+                </div>
+              </div>
+              <div class="container-fluid text-right mt-5 d-flex justify-content-between">
+                <button class="btn btn-info btn-lg shadow btn-previous-form d-inline-block">Önceki</button>
+                <button class="btn btn-info btn-lg shadow btn-next-form d-inline-block">Sonraki</button>
+              </div>
+            </div>
+          </div>
+          <div id="test-form-4" role="tabpanel" class="bs-stepper-pane fade dstepper-none" aria-labelledby="stepperFormTrigger4">
+            <div class="container-fluid mt-5">
+              <div class="row">
+                <div class="col-lg-12 text-center">
+                  <h3 class="d-inline">Teşekkürler</h3>
                 </div>
               </div>
               <input type="hidden" name="prv_distributer_register_nonce" value="<?php echo wp_create_nonce('prv-distributer-register-nonce'); ?>" id="prv-distributer-register-nonce" />
@@ -397,11 +415,11 @@ class Distributer
           var company_phone = $('#company-phone').val();
           var company_tax_office = $('#company-tax-office').val();
           var company_tax_number = $('#company-tax-number').val();
-          var company_city = $('#company-city').val();
-          var company_district = $('#company-district').val();
+          var company_city = $('#company-city option:selected').text();
+          var company_district = $('#company-district option:selected').text();
           var company_adress = $('#company-adress').val();
-          var dealer_city = $('#dealer-city').val();
-          var dealer_district = $('#dealer-district').val();
+          var dealer_city = $('#dealer-city option:selected').text();
+          var dealer_district = $('#dealer-district option:selected').text();
           var dealer_work_style = $('#dealer-work-style').val();
           var dealer_product_category = $('#dealer-product-category').val();
           var dealer_publishing = $('#dealer-publishing').val();
