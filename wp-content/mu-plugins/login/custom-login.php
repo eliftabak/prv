@@ -1,5 +1,6 @@
 <?php
 
+//TODO:Continue from here
 use Automattic\WooCommerce\Admin\API\Init;
 
 require(dirname(__FILE__) . "/helpers/login-utility.php");
@@ -221,14 +222,14 @@ class StepLogin
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label for="user-first-name">Adınız <span class="text-danger font-weight-bold">*</span></label>
-                        <input id="user-first-name" name="user-first-name" type="text" class="form-control" placeholder="Adınızı giriniz" required data-cip-id="user-first-name">
+                        <input pattern="^[A-Za-zğüşıöçĞÜŞİÖÇ]{2,}$" id="user-first-name" name="user-first-name" type="text" class="form-control" placeholder="Adınızı giriniz" required data-cip-id="user-first-name">
                         <div class="invalid-feedback">Bu alan doldurulması zorunludur.</div>
                       </div>
                     </div>
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label for="user-last-name">Soyadınız <span class="text-danger font-weight-bold">*</span></label>
-                        <input id="user-last-name" name="user-last-name" type="text" class="form-control" placeholder="Soyadınızı giriniz" required data-cip-id="user-last-name">
+                        <input pattern="^[A-Za-zğüşıöçĞÜŞİÖÇ]{2,}$" id="user-last-name" name="user-last-name" type="text" class="form-control" placeholder="Soyadınızı giriniz" required data-cip-id="user-last-name">
                         <div class="invalid-feedback">Bu alan doldurulması zorunludur.</div>
                       </div>
                     </div>
@@ -255,7 +256,7 @@ class StepLogin
                       <label class="btn btn-primary btn-img-upload">
                         Öğretmen Kimliğinizi Yükleyin
                         <input required type="file" class="uploadFile img" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;">
-                        <div class="invalid-feedback">Lütfen bir fotoğraf yükleyiniz.</div>
+                        <div class="invalid-feedback">Lütfen bir fotoğraf yükleyiniz. <br> Fotoğraf boyutunuz 3mb'den az olmalıdır.</div>
                       </label>
                     </div>
                   </div>
@@ -301,7 +302,6 @@ class StepLogin
                     <?php
                     woocommerce_form_field('user-district', array(
                       'type'        => 'select',
-                      'required'    => true,
                       'class' => ["akilli-tahta-uygulamalari__woocommerce-forms"],
                       'select_class' => ["form-control form-control-lg"],
                       'placeholder' => 'Bir seçenek belirleyin..',
@@ -317,7 +317,6 @@ class StepLogin
                     <?php
                     woocommerce_form_field('user-school', array(
                       'type'        => 'select',
-                      'required'    => true,
                       'class' => ["akilli-tahta-uygulamalari__woocommerce-forms"],
                       'select_class' => ["form-control form-control-lg"],
                       'placeholder' => 'Bir seçenek belirleyin..',
@@ -342,7 +341,6 @@ class StepLogin
                     );
                     woocommerce_form_field('user-subject', array(
                       'type'        => 'select',
-                      'required'    => true,
                       'class' => ["akilli-tahta-uygulamalari__woocommerce-forms"],
                       'select_class' => ["form-control form-control-lg"],
                       'options' => $brans
@@ -354,8 +352,8 @@ class StepLogin
                 <div class="col-lg-6">
                   <div class="form-group">
                     <label for="user-phone">Telefon <span class="text-danger font-weight-bold">*</span></label>
-                    <input attern="^(05(\d{9}))$" id="user-phone" type="text" name="user-phone" class="form-control form-control-lg" placeholder="Numaranızı giriniz..." required data-cip-id="user-phone">
-                    <div class="invalid-feedback">Bu alan doldurulması zorunludur.</div>
+                    <input pattern="^(05(\d{9}))$" id="user-phone" type="text" name="user-phone" class="form-control form-control-lg" placeholder="Numaranızı giriniz..." required data-cip-id="user-phone">
+                    <div class="invalid-feedback">Telefon numarası 05 ile başlamalı ve bitişik yazılmalıdır. <br> Toplam 11 hane olmalıdır.<br> Örneğin : 05*********</div>
                   </div>
                 </div>
               </div>
@@ -619,9 +617,8 @@ class StepLogin
         $error["error"][] = $user_image_handler_result["error"];
       }
 
-      if (username_exists($user_login)) {
-        // Username already registered
-        $error["error"][] = "Bu kullanıcı adı sistemde kayıtlı.";
+      if (username_exists($user_login) && email_exists($user_email)) {
+        $error["error"][] = "Bu mail adresi sistemde kayıtlı. Giriş yapıp işleminize devam edebilrisiniz.";
       }
       if (!validate_username($user_login)) {
         // invalid username
@@ -634,10 +631,6 @@ class StepLogin
       if (!is_email($user_email)) {
         //invalid email
         $error["error"][] = "Geçerli bir e-posta adresi giriniz.";
-      }
-      if (email_exists($user_email)) {
-        //Email address already registered
-        $error["error"][] = "Bu e-posta adresi sistemde kayıtlı.";
       }
       if ($user_pass == '') {
 
@@ -661,7 +654,6 @@ class StepLogin
 
         $error["error"][] = "Lütfen bir okul seçiniz.";
       }
-
 
       if ($user_subject == '' || $user_school == 'Branş seçiniz...') {
 

@@ -268,7 +268,7 @@ class Distributer
                       <div class="form-group">
                         <label for="dealer-work-style">Çalışma şekli <span class="text-danger font-weight-bold">*</span></label>
                         <input pattern="(.{15,})" id="dealer-work-style" name="dealer-work-style" type="text" class="form-control" placeholder="Çalışma şeklinizi giriniz" required data-cip-id="dealer-work-style">
-                        <div class="invalid-feedback">Bu alan doldurulması zorunludur.</div>
+                        <div class="invalid-feedback">Minumum 15 karakter giriniz.</div>
                       </div>
                     </div>
                     <div class="col-lg-6">
