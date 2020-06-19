@@ -51,6 +51,8 @@ class StepLogin
   {
     add_action('wp_ajax_register_user_front_end', array($this, 'register_process'), 0);
     add_action('wp_ajax_nopriv_register_user_front_end', array($this, 'register_process'));
+    add_action('wp_ajax_become_ogretmen_user_front_end', array($this, 'become_ogretmen_register_process'), 0);
+    add_action('wp_ajax_nopriv_become_ogretmen_user_front_end', array($this, 'become_ogretmen_register_process'));
     add_shortcode('register_form', array($this, 'html_logic'));
   }
 
@@ -109,19 +111,6 @@ class StepLogin
   }
 
 
-  public function change_user_type_to_ogretmen_html()
-  {
-    ob_start(); ?>
-
-    <h3 class="text-center">Ogretmen Olmak istiyorum</h3>
-
-
-    </script>
-  <?php
-    return ob_get_clean();
-  }
-
-
   public function akilli_defter_html()
   {
 
@@ -133,7 +122,6 @@ class StepLogin
     ]);
 
 
-    //TODO: akıllı tahta zip dosyasında hata var. Kontrol et
     ob_start(); ?>
     <div class="container-fluid">
       <div class="row">
@@ -141,8 +129,8 @@ class StepLogin
         foreach ($posts as $post) {
           $title = get_the_title($post);
           $file = get_post_meta($post->ID, "prv_akilli_tahta")[0];
-          $thumbnail = get_the_post_thumbnail($post, "medium")
-          //print_r($post);
+          $thumbnail = get_the_post_thumbnail($post, "medium");
+          //print_r($file);
         ?>
           <div class="col-lg-4">
 
@@ -165,9 +153,358 @@ class StepLogin
     </div>
 
 
+    </script>
+  <?php
+    return ob_get_clean();
+  }
+
+  public function change_user_type_to_ogretmen_html()
+
+  {
+    ob_start(); ?>
+    <h3 class="text-center">Talep Formu</h3>
+    <div class="notice" style="display:none"></div>
+    <div id="stepperFormAkilliBecomeTeacher" class="bs-stepper linear">
+      <div class="bs-stepper-header" role="tablist">
+        <div class="step active" data-target="#test-form-1">
+          <button type="button" class="step-trigger" role="tab" id="stepperFormTrigger1" aria-controls="test-form-1" aria-selected="true">
+            <span class="bs-stepper-circle">1</span>
+            <span class="bs-stepper-label">Kayıt</span>
+          </button>
+        </div>
+        <div class="bs-stepper-line"></div>
+        <div class="step" data-target="#test-form-2">
+          <button type="button" class="step-trigger" role="tab" id="stepperFormTrigger2" aria-controls="test-form-2" aria-selected="false" disabled="disabled">
+            <span class="bs-stepper-circle">2</span>
+            <span class="bs-stepper-label">Genel bilgiler</span>
+          </button>
+        </div>
+        <div class="bs-stepper-line"></div>
+        <div class="step" data-target="#test-form-3">
+          <button type="button" class="step-trigger" role="tab" id="stepperFormTrigger3" aria-controls="test-form-3" aria-selected="false" disabled="disabled">
+            <span class="bs-stepper-circle">3</span>
+            <span class="bs-stepper-label">Sonuç</span>
+          </button>
+        </div>
+      </div>
+      <div class="bs-stepper-content">
+        <form class="needs-validation akilli-tahta-talep-form" onsubmit="return false" novalidate="" action="#" method="POST" name="akilli-tahta-talep-form">
+          <div id="test-form-1" role="tabpanel" class="bs-stepper-pane fade active dstepper-block" aria-labelledby="stepperFormTrigger1">
+            <div class="container-fluid mt-5">
+              <div class="row justify-content-center">
+                <div class="col-lg-6 vmx-auto">
+                  <div class="row justify-content-center">
+                    <div class="col-sm-8 imgUp">
+                      <div class="imagePreview" id="user-image"></div>
+                      <label class="btn btn-primary btn-img-upload">
+                        Öğretmen Kimliğinizi Yükleyin
+                        <input required type="file" class="uploadFile img" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;">
+                        <div class="invalid-feedback">Lütfen bir fotoğraf yükleyiniz. <br> Fotoğraf boyutunuz 3mb'den az olmalıdır.</div>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="container-fluid text-right mt-5">
+                <button class="btn btn-info btn-lg shadow btn-next-form d-inline-block">Sonraki</button>
+              </div>
+            </div>
+          </div>
+          <div id="test-form-2" role="tabpanel" class="bs-stepper-pane fade dstepper-none" aria-labelledby="stepperFormTrigger2">
+            <div class="container-fluid mt-5">
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label for="user-city">İl <span class="text-danger font-weight-bold">*</span></label>
+                    <?php
+                    $city_url = "{$this->site_url}{$this->city_path}";
+                    $request_response = file_get_contents($city_url);
+                    $data = $request_response;
+                    $cities = json_decode($request_response, true);
+                    $cities = [["city_id" => "", "name" => "İl seçiniz..."], ...$cities];
+                    $data = [];
+                    foreach ($cities as $value) {
+                      $id = $value["city_id"];
+                      $city = $value["name"];
+                      $data[$id] = $city;
+                    };
+                    woocommerce_form_field('user-city', array(
+                      'type'        => 'select',
+                      'required'    => true,
+                      'class' => ["akilli-tahta-uygulamalari__woocommerce-forms"],
+                      'input_class' => ["form-control form-control-lg"],
+                      'options' => $data
+                    ));
+                    ?>
+                    <div class="invalid-feedback">Bu alan doldurulması zorunludur.</div>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label for="user-district">İlçe <span class="text-danger font-weight-bold">*</span></label>
+                    <?php
+                    woocommerce_form_field('user-district', array(
+                      'type'        => 'select',
+                      'class' => ["akilli-tahta-uygulamalari__woocommerce-forms"],
+                      'select_class' => ["form-control form-control-lg"],
+                      'placeholder' => 'Bir seçenek belirleyin..',
+                      'options' => array('' => 'İlçe seçiniz...')
+                    ));
+                    ?>
+                    <div class="invalid-feedback">Bu alan doldurulması zorunludur.</div>
+                  </div>
+                </div>
+                <div class="col-lg-12">
+                  <div class="form-group">
+                    <label for="user-school">Okul <span class="text-danger font-weight-bold">*</span></label>
+                    <?php
+                    woocommerce_form_field('user-school', array(
+                      'type'        => 'select',
+                      'class' => ["akilli-tahta-uygulamalari__woocommerce-forms"],
+                      'select_class' => ["form-control form-control-lg"],
+                      'placeholder' => 'Bir seçenek belirleyin..',
+                      'options' => array('' => 'Okul seçiniz...')
+                    ));
+                    ?>
+                    <div class="invalid-feedback">Bu alan doldurulması zorunludur.</div>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label for="user-subject">Branş <span class="text-danger font-weight-bold">*</span></label>
+                    <?php
+                    $brans = array(
+                      '' => 'Branş seçiniz...',
+                      "TÜRKÇE" => "TÜRKÇE",
+                      "MATEMATİK" => "MATEMATİK",
+                      "FEN BİLİMLERİ" => "FEN BİLİMLERİ",
+                      "SOSYAL BİLGİLER" => "SOSYAL BİLGİLER",
+                      "İNGİLİZCE" => "İNGİLİZCE",
+                      "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ" => "DİN KÜLTÜRÜ VE AHLAK BİLGİSİ",
+                    );
+                    woocommerce_form_field('user-subject', array(
+                      'type'        => 'select',
+                      'class' => ["akilli-tahta-uygulamalari__woocommerce-forms"],
+                      'select_class' => ["form-control form-control-lg"],
+                      'options' => $brans
+                    ));
+                    ?>
+                    <div class="invalid-feedback">Bu alan doldurulması zorunludur.</div>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label for="user-phone">Telefon <span class="text-danger font-weight-bold">*</span></label>
+                    <input pattern="^(05(\d{9}))$" id="user-phone" type="text" name="user-phone" class="form-control form-control-lg" placeholder="Numaranızı giriniz..." required data-cip-id="user-phone">
+                    <div class="invalid-feedback">Telefon numarası 05 ile başlamalı ve bitişik yazılmalıdır. <br> Toplam 11 hane olmalıdır.<br> Örneğin : 05*********</div>
+                  </div>
+                </div>
+              </div>
+              <div class="container-fluid text-right mt-5">
+                <button class="btn btn-info btn-lg shadow btn-previous-form d-inline-block">Önceki</button>
+                <button class="btn btn-info btn-lg shadow btn-next-form d-inline-block">Sonraki</button>
+              </div>
+            </div>
+          </div>
+          <div id="test-form-3" role="tabpanel" class="bs-stepper-pane fade text-center dstepper-none" aria-labelledby="stepperFormTrigger3">
+            <div class="col-lg-12 text-left">
+              <div class="form-check mt-5">
+                <input type="checkbox" class="form-check-input" id="user-check-1">
+                <label class="form-check-label" for="user-check-1">FORM ÜZERİNDE BİLGİLERİ EKSİKSİZ BİR ŞEKİLDE DOLDURDUM.</label>
+              </div>
+              <div class="form-check mt-5">
+                <input type="checkbox" class="form-check-input" id="user-check-2">
+                <label class="form-check-label" for="user-check-2">İLETİŞİM BİLGİLERİM BENİMLE İLETİŞİME GEÇMEK İÇİN KULLANILABİLİR.</label>
+              </div>
+              <div class="form-group mt-5">
+                <label for="user-message">Mesajınız</label>
+                <textarea class="form-control" rows="3" id="user-message"></textarea>
+              </div>
+            </div>
+            <input type="hidden" name="prv_user_register_nonce" value="<?php echo wp_create_nonce('prv-user-register-nonce'); ?>" id="prv-user-register-nonce" />
+            <div class="container-fluid text-right mt-5">
+              <button class="btn btn-info btn-lg shadow btn-previous-form d-inline-block">Önceki</button>
+              <button type="submit" class="btn btn-success btn-lg shadow d-inline-block" id="akilli-tahta-submit"><i class="fa fa-paper-plane pr-2" aria-hidden="true"></i>Gönder</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      (function($) {
+
+        const $city = $('#user-city');
+        const $district = $('#user-district');
+        const $school = $('#user-school');
+
+        const state = {}
+
+        function resetCity() {
+
+          $city.find("option").remove();
+
+        }
+
+        function resetDistrict() {
+
+          $district.find("option").remove();
+
+        }
+
+        function resetSchool() {
+
+          $school.find("option").remove();
+
+        }
+
+        function getSchoolById() {
+          const url = '<? echo "{$this->site_url}{$this->school_path}"  ?>' + `?city=${state.cityId}&district=${state.districtId}`;
+          $.getJSON(url, function(data) {
+            let index = 0;
+            let schools = data.map(function(el) {
+              if (index === 0) {
+                index += 1;
+                return `<option value="" selected="selected">Okul seçiniz...</option>
+                        <option value="${el.school_id}" selected="selected">${el.name.toLocaleUpperCase("tr")}</option>`
+              } else {
+                return `<option value="${el.school_id}">${el.name.toLocaleUpperCase("tr")}</option>`
+              }
+            })
+            schools = schools.join('');
+            resetSchool();
+            $school.append(schools);
+
+          });
+        }
+
+        function getDistrictById() {
+          const url = '<? echo "{$this->site_url}{$this->district_path}"  ?>' + `?city=${state.cityId}`;
+          $.getJSON(url, function(data) {
+            let index = 0;
+            let districts = data.map(function(el) {
+              if (index === 0) {
+                index += 1;
+                return `<option value="" selected="selected">İlçe seçiniz...</option>
+                        <option value="${el.district_id}" selected="selected">${el.name}</option>`
+                state.districtId = el.district_id;
+              } else {
+                return `<option value="${el.district_id}">${el.name}</option>`
+              }
+            })
+            districts = districts.join('');
+            resetDistrict();
+            $district.append(districts);
+            getSchoolById();
+          });
+        }
+
+        $city.on('change', function() {
+
+          const id = $(this).find("option").filter(':selected').val();
+
+          state.cityId = id;
+
+          getDistrictById();
+
+        })
 
 
 
+        $district.on('change', function() {
+
+          const id = $(this).find("option").filter(':selected').val();
+
+          state.districtId = id;
+
+          getSchoolById();
+
+        })
+
+        $('#akilli-tahta-submit').on('click', function(e) {
+          e.preventDefault();
+          var user_image = $('#user-image').css("background-image");
+          var user_city = $('#user-city').val();
+          var user_district = $('#user-district').val();
+          var user_school = $('#user-school').val();
+          var user_subject = $('#user-subject').val();
+          var user_phone = $('#user-phone').val();
+          var user_check_1 = $('#user-check-1').is(':checked');
+          var user_check_2 = $('#user-check-2').is(':checked');
+          var user_message = $('#user-message').val();
+          var prv_user_register_nonce = $('#prv-user-register-nonce').val();
+
+          console.log(user_check_1);
+
+          var reg = /(?:\(['"]?)(.*?)(?:['"]?\))/;
+          var extracted_image = reg.exec(user_image)[1];
+
+          $.ajax({
+            type: "POST",
+            url: "<?php echo admin_url('admin-ajax.php'); ?>",
+            data: {
+              action: "become_ogretmen_user_front_end",
+              user_image: extracted_image,
+              user_city: user_city,
+              user_district: user_district,
+              user_school: user_school,
+              user_subject: user_subject,
+              user_phone: user_phone,
+              user_check_1: user_check_1,
+              user_check_2: user_check_2,
+              user_message: user_message,
+              prv_user_register_nonce: prv_user_register_nonce,
+            },
+            success: function(results) {
+              //console.log(results);
+              const element = $('.notice');
+
+              const {
+                data
+              } = results
+              if ("success" in data) {
+                data["success"].forEach((value, index) => {
+                  element.append(`<div class="alert alert-success" role="alert">${value}</div>`);
+                  if (data["success"].length - 1 == index) {
+                    element.show();
+                  }
+                });
+              }
+
+              setTimeout(() => {
+                element.hide();
+                element.empty();
+                window.location.reload();
+              }, 3000)
+
+
+            },
+            error: function(results) {
+              console.log("results", results)
+              const element = $('.notice');
+              const {
+                data
+              } = JSON.parse(results.responseText);
+
+              if ("error" in data) {
+                data["error"].forEach((value, index) => {
+                  element.append(`<div class="alert alert-warning" role="alert">${value}</div>`);
+                  if (data["error"].length - 1 == index) {
+                    element.show();
+                  }
+                });
+              }
+
+              setTimeout(() => {
+                element.hide();
+                element.empty();
+              }, 3000)
+
+            }
+          });
+        });
+
+      })(jQuery);
     </script>
   <?php
     return ob_get_clean();
@@ -179,10 +516,8 @@ class StepLogin
 
     ob_start(); ?>
     <h3 class="text-center">Talep Formu</h3>
-
     <div class="notice" style="display:none"></div>
-
-    <div id="stepperFormAkilli" class="bs-stepper linear">
+    <div id="stepperFormAkilliRegister" class="bs-stepper linear">
       <div class="bs-stepper-header" role="tablist">
         <div class="step active" data-target="#test-form-1">
           <button type="button" class="step-trigger" role="tab" id="stepperFormTrigger1" aria-controls="test-form-1" aria-selected="true">
@@ -579,6 +914,98 @@ class StepLogin
     return ob_get_clean();
   }
 
+  public function become_ogretmen_register_process()
+  {
+
+    if (isset($_POST["user_image"]) && wp_verify_nonce($_POST['prv_user_register_nonce'], 'prv-user-register-nonce')) {
+
+      $user_image = $_POST["user_image"];
+      $user_city = $_POST["user_city"];
+      $user_district  = $_POST["user_district"];
+      $user_school = $_POST["user_school"];
+      $user_subject = $_POST["user_subject"];
+      $user_phone = $_POST["user_phone"];
+      $user_check_1 = $_POST["user_check_1"];
+      $user_check_2 = $_POST["user_check_2"];
+      $user_message = $_POST["user_message"];
+
+
+
+      $error = [];
+
+
+      // this is required for username checks
+      require_once(ABSPATH . WPINC . '/registration.php');
+
+      $user_image_handler = new PictureUpload($user_first, $user_last);
+
+      $user_image_handler_result = $user_image_handler->check_valid_image($user_image);
+
+
+      if (!empty($user_image_handler_result["error"])) {
+        $error["error"][] = $user_image_handler_result["error"];
+      }
+
+      if ($user_city == '' || $user_city == 'İl seçiniz...') {
+        $error["error"][] = "Lütfen bir şehir seçiniz.";
+      }
+
+      if ($user_district == '' || $user_district == 'İlçe seçiniz...') {
+
+        $error["error"][] = "Lütfen bir ilçe seçiniz.";
+      }
+
+      if ($user_school == '' || $user_school == 'Okul seçiniz...') {
+
+        $error["error"][] = "Lütfen bir okul seçiniz.";
+      }
+
+      if ($user_subject == '' || $user_school == 'Branş seçiniz...') {
+
+        $error["error"][] = "Lütfen bir branş seçiniz.";
+      }
+
+      $phone_pattern = '/^(05(\d{9}))$/';
+
+      if ($user_phone == '' || !preg_match($phone_pattern, $user_phone)) {
+
+        $error["error"][] = "Lütfen geçerli bir cep numarası giriniz. Örnek : 05xxxxxxxxx ";
+      }
+
+      if ($user_check_1 === "false") {
+
+        $error["error"][] = "\"FORM ÜZERİNDE BİLGİLERİ EKSİKSİZ BİR ŞEKİLDE DOLDURDUM.\" butonlarını işaretlediğinizden emin olun.";
+      }
+
+      if ($user_check_2 === "false") {
+
+        $error["error"][] = "\"İLETİŞİM BİLGİLERİM BENİMLE İLETİŞİME GEÇMEK İÇİN KULLANILABİLİR.\" butonlarını işaretlediğinizden emin olun.";
+      }
+
+      if ($error) {
+        wp_send_json_error($error, 500);
+      } else {
+
+        $user_id = get_current_user_id();
+        $user_image_handler->save_image($user_id);
+
+        // Update Metadata
+        update_user_meta($user_id, "prv_user_type", "Öğretmen");
+        update_user_meta($user_id, "prv_user_validate", "Onaylanmadı");
+
+        send_admin_mail_about_request_form($user_id, $user_message);
+
+        // send an email to the admin alerting them of the registration
+        send_email_to_user_notify_process($user_id);
+
+        $data["success"][] = "Talebiniz başarıyla tarafımıza ulaşmıştır.";
+        wp_send_json_success($data, 200);
+      }
+    } else {
+      wp_die();
+    }
+  }
+
   public function register_process()
   {
 
@@ -700,10 +1127,10 @@ class StepLogin
           update_user_meta($new_user_id, "prv_user_validate", "Onaylanmadı");
 
           // send an email to the admin alerting them of the registration
-          wp_new_user_notification($new_user_id);
+          send_admin_mail_about_request_form($new_user_id, $user_message);
 
           // send an email to the admin alerting them of the registration
-          send_welcome_email_to_new_user($new_user_id);
+          send_email_to_user_notify_process($new_user_id);
 
           // log the new user in
           wp_set_auth_cookie($new_user_id);
