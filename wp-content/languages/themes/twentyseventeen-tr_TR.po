@@ -6,8 +6,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: GlotPress/2.4.0-alpha\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: GlotPress/3.0.0-alpha\n"
 "Language: tr\n"
 "Project-Id-Version: Themes - Twenty Seventeen\n"
 
@@ -169,10 +169,6 @@ msgstr "Üst menü"
 msgid "Reply"
 msgstr "Yanıtla"
 
-#: template-parts/post/content-none.php:33
-msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
-msgstr "Görünen o ki bakındığınız her ne ise bulamıyoruz. Belki arama özelliği yardımcı olabilir."
-
 #: search.php:59
 msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
 msgstr "Üzgünüz, arama terimlerinizle hiçbir şey eşleşmedi. Lütfen farklı anahtar kelimelerle tekrar deneyin."
@@ -180,10 +176,6 @@ msgstr "Üzgünüz, arama terimlerinizle hiçbir şey eşleşmedi. Lütfen farkl
 #: template-parts/post/content-none.php:17 search.php:26
 msgid "Nothing Found"
 msgstr "Hiçbir şey bulunamadı"
-
-#: single.php:33
-msgid "Previous Post"
-msgstr "Önceki Yazı"
 
 #: single.php:33 comments.php:71
 msgid "Previous"
@@ -193,49 +185,23 @@ msgstr "Önceki"
 msgid "Next"
 msgstr "Sonraki"
 
-#: searchform.php:20
-msgctxt "submit button"
-msgid "Search"
-msgstr "Ara"
+#: template-parts/post/content-none.php:33
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+msgstr "Görünen o ki bakındığınız her ne ise bulamıyoruz. Belki arama özelliği yardımcı olabilir."
 
 #: searchform.php:19
 msgctxt "placeholder"
 msgid "Search &hellip;"
 msgstr "Ara &hellip;"
 
-#: searchform.php:17
-msgctxt "label"
-msgid "Search for:"
-msgstr "Ara:"
+#: searchform.php:20
+msgctxt "submit button"
+msgid "Search"
+msgstr "Ara"
 
-#. translators: Search query.
-#: search.php:22
-msgid "Search Results for: %s"
-msgstr "%s için arama sonuçları"
-
-#. translators: %s: Post title.
-#: template-parts/post/content.php:57 template-parts/post/content-audio.php:84
-#: template-parts/post/content-image.php:61
-#: template-parts/post/content-video.php:83
-#: template-parts/post/content-gallery.php:71
-#: template-parts/page/content-front-page.php:42
-#: template-parts/page/content-front-page-panels.php:45 functions.php:392
-msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
-msgstr "Okumaya devam et<span class=\"screen-reader-text\"> \"%s\"</span>"
-
-#: inc/customizer.php:63
-msgid "Dark"
-msgstr "Koyu"
-
-#. translators: %s: The current WordPress version.
-#: inc/back-compat.php:40 inc/back-compat.php:54 inc/back-compat.php:73
-msgid "Twenty Seventeen requires at least WordPress version 4.7. You are running version %s. Please upgrade and try again."
-msgstr "Yirmi Onyedi en az WordPress 4.7 sürümünü gerektirir. Siz %s sürümünü kullanıyorsunuz. Lütfen yükseltip tekrar deneyin."
-
-#. translators: %s: Post title.
-#: inc/template-tags.php:117
-msgid "Edit<span class=\"screen-reader-text\"> \"%s\"</span>"
-msgstr "Düzenle<span class=\"screen-reader-text\"> \"%s\"</span>"
+#: single.php:33
+msgid "Previous Post"
+msgstr "Önceki Yazı"
 
 #: template-parts/post/content.php:64 template-parts/post/content-audio.php:91
 #: template-parts/post/content-image.php:68
@@ -253,17 +219,37 @@ msgstr "Menü"
 msgid "Skip to content"
 msgstr "İçeriğe geç"
 
-#: functions.php:484
-msgid "Collapse child menu"
-msgstr "Alt menüyü toparla"
-
-#: functions.php:483
-msgid "Expand child menu"
-msgstr "Alt menüyü genişlet"
-
 #: functions.php:65 functions.php:216
 msgid "Social Links Menu"
 msgstr "Sosyal bağlantılar menüsü"
+
+#: comments.php:82
+msgid "Comments are closed."
+msgstr "Yorumlar kapatıldı."
+
+#: index.php:55 archive.php:51 search.php:52
+msgid "Page"
+msgstr "Sayfa"
+
+#: index.php:54 archive.php:50 search.php:51
+msgid "Next page"
+msgstr "Sonraki sayfa"
+
+#: 404.php:21
+msgid "Oops! That page can&rsquo;t be found."
+msgstr "Amanın! O sayfa bulunamadı."
+
+#: 404.php:24
+msgid "It looks like nothing was found at this location. Maybe try a search?"
+msgstr "Burada bir şey bulamadık. Bir de aramayı denemek ister misiniz?"
+
+#: index.php:53 archive.php:49 search.php:50
+msgid "Previous page"
+msgstr "Önceki sayfa"
+
+#: inc/customizer.php:63
+msgid "Dark"
+msgstr "Koyu"
 
 #. translators: %s: WordPress
 #: template-parts/footer/site-info.php:21
@@ -274,9 +260,43 @@ msgstr "%s gururla sunar"
 msgid "Footer Social Links Menu"
 msgstr "Alt kısım sosyal bağlantılar menüsü"
 
-#: comments.php:82
-msgid "Comments are closed."
-msgstr "Yorumlar kapatıldı."
+#: searchform.php:17
+msgctxt "label"
+msgid "Search for:"
+msgstr "Ara:"
+
+#. translators: %s: Post title.
+#: template-parts/post/content.php:57 template-parts/post/content-audio.php:84
+#: template-parts/post/content-image.php:61
+#: template-parts/post/content-video.php:83
+#: template-parts/post/content-gallery.php:71
+#: template-parts/page/content-front-page.php:42
+#: template-parts/page/content-front-page-panels.php:45 functions.php:392
+msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
+msgstr "Okumaya devam et<span class=\"screen-reader-text\"> \"%s\"</span>"
+
+#. translators: %s: The current WordPress version.
+#: inc/back-compat.php:40 inc/back-compat.php:54 inc/back-compat.php:73
+msgid "Twenty Seventeen requires at least WordPress version 4.7. You are running version %s. Please upgrade and try again."
+msgstr "Yirmi Onyedi en az WordPress 4.7 sürümünü gerektirir. Siz %s sürümünü kullanıyorsunuz. Lütfen yükseltip tekrar deneyin."
+
+#: functions.php:484
+msgid "Collapse child menu"
+msgstr "Alt menüyü toparla"
+
+#: functions.php:483
+msgid "Expand child menu"
+msgstr "Alt menüyü genişlet"
+
+#. translators: Search query.
+#: search.php:22
+msgid "Search Results for: %s"
+msgstr "%s için arama sonuçları"
+
+#. translators: %s: Post title.
+#: inc/template-tags.php:117
+msgid "Edit<span class=\"screen-reader-text\"> \"%s\"</span>"
+msgstr "Düzenle<span class=\"screen-reader-text\"> \"%s\"</span>"
 
 #. translators: 1: Number of comments, 2: Post title.
 #: comments.php:41
@@ -291,26 +311,6 @@ msgstr[1] "&ldquo;%2$s&rdquo; için %1$s yanıt"
 msgctxt "comments title"
 msgid "One Reply to &ldquo;%s&rdquo;"
 msgstr "&ldquo;%s&rdquo; için bir yanıt"
-
-#: index.php:55 archive.php:51 search.php:52
-msgid "Page"
-msgstr "Sayfa"
-
-#: 404.php:21
-msgid "Oops! That page can&rsquo;t be found."
-msgstr "Amanın! O sayfa bulunamadı."
-
-#: 404.php:24
-msgid "It looks like nothing was found at this location. Maybe try a search?"
-msgstr "Burada bir şey bulamadık. Bir de aramayı denemek ister misiniz?"
-
-#: index.php:53 archive.php:49 search.php:50
-msgid "Previous page"
-msgstr "Önceki sayfa"
-
-#: index.php:54 archive.php:50 search.php:51
-msgid "Next page"
-msgstr "Sonraki sayfa"
 
 #. Author of the theme
 msgid "the WordPress team"

@@ -6,8 +6,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: GlotPress/2.4.0-alpha\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: GlotPress/3.0.0-alpha\n"
 "Language: tr\n"
 "Project-Id-Version: Themes - Twenty Nineteen\n"
 
@@ -29,8 +29,8 @@ msgctxt "Parent post link"
 msgid "<span class=\"meta-nav\">Published in</span><br><span class=\"post-title\">%title</span>"
 msgstr "<span class=\"meta-nav\">içinde yayınlandı</span><br><span class=\"post-title\">%title</span>"
 
-#: template-parts/content/content-excerpt.php:18
 #: template-parts/content/content.php:18
+#: template-parts/content/content-excerpt.php:18
 msgctxt "post"
 msgid "Featured"
 msgstr "Öne çıkan"
@@ -110,7 +110,7 @@ msgstr "Küçük"
 msgid "S"
 msgstr "C"
 
-#: footer.php:37 functions.php:60
+#: functions.php:60 footer.php:37
 msgid "Footer Menu"
 msgstr "Site altı menüsü"
 
@@ -127,7 +127,7 @@ msgstr "Sayfa"
 msgid "Add widgets here to appear in your footer."
 msgstr "Alt alanda gözükmek üzere buraya bileşenler ekleyin."
 
-#: template-parts/footer/footer-widgets.php:12 functions.php:190
+#: functions.php:190 template-parts/footer/footer-widgets.php:12
 msgid "Footer"
 msgstr "Dip"
 
@@ -160,14 +160,14 @@ msgid "Top Menu"
 msgstr "Üst menü"
 
 #. translators: %s: Post title. Only visible to screen readers.
-#: template-parts/content/content-single.php:27
 #: template-parts/content/content.php:36
+#: template-parts/content/content-single.php:27
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr "Okumaya devam et<span class=\"screen-reader-text\"> \"%s\"</span>"
 
-#: template-parts/content/content-single.php:40
+#: image.php:52 template-parts/content/content-page.php:27
 #: template-parts/content/content.php:49
-#: template-parts/content/content-page.php:27 image.php:52
+#: template-parts/content/content-single.php:40
 msgid "Pages:"
 msgstr "Sayfalar:"
 
@@ -282,8 +282,8 @@ msgid "Category Archives: "
 msgstr "Kategori arşivleri"
 
 #. translators: %s: Post title. Only visible to screen readers.
-#: template-parts/header/entry-header.php:32
-#: template-parts/content/content-page.php:41 inc/template-tags.php:120
+#: template-parts/content/content-page.php:41
+#: template-parts/header/entry-header.php:32 inc/template-tags.php:120
 msgid "Edit <span class=\"screen-reader-text\">%s</span>"
 msgstr "Düzenle <span class=\"screen-reader-text\">%s</span>"
 
@@ -291,7 +291,7 @@ msgstr "Düzenle <span class=\"screen-reader-text\">%s</span>"
 msgid "Skip to content"
 msgstr "İçeriğe geç"
 
-#: template-parts/header/site-branding.php:46 functions.php:61
+#: functions.php:61 template-parts/header/site-branding.php:46
 msgid "Social Links Menu"
 msgstr "Sosyal bağlantılar menüsü"
 

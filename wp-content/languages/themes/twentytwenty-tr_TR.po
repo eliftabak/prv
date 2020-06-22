@@ -6,8 +6,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: GlotPress/2.4.0-alpha\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: GlotPress/3.0.0-alpha\n"
 "Language: tr\n"
 "Project-Id-Version: Themes - Twenty Twenty\n"
 
@@ -208,7 +208,7 @@ msgstr "Yorumlar"
 msgid "Comments are closed."
 msgstr "Yorumlar kapatıldı."
 
-#: inc/starter-content.php:176 inc/starter-content.php:186 functions.php:494
+#: inc/starter-content.php:176 inc/starter-content.php:186 functions.php:492
 msgid "Primary"
 msgstr "Birincil"
 
@@ -237,7 +237,7 @@ msgstr "Dip"
 msgid "Page"
 msgstr "Sayfa"
 
-#: functions.php:499
+#: functions.php:497
 msgid "Secondary"
 msgstr "İkincil"
 
@@ -284,47 +284,47 @@ msgstr "Site araması"
 msgid "Continue reading"
 msgstr "Okumaya devam et"
 
-#: functions.php:551
+#: functions.php:549
 msgctxt "Short name of the larger font size in the block editor."
 msgid "XL"
 msgstr "XL"
 
-#: functions.php:550
+#: functions.php:548
 msgctxt "Name of the larger font size in the block editor"
 msgid "Larger"
 msgstr "Daha büyük"
 
-#: functions.php:545
+#: functions.php:543
 msgctxt "Short name of the large font size in the block editor."
 msgid "L"
 msgstr "L"
 
-#: functions.php:544
+#: functions.php:542
 msgctxt "Name of the large font size in the block editor"
 msgid "Large"
 msgstr "Büyük"
 
-#: functions.php:539
+#: functions.php:537
 msgctxt "Short name of the regular font size in the block editor."
 msgid "M"
 msgstr "P"
 
-#: functions.php:538
+#: functions.php:536
 msgctxt "Name of the regular font size in the block editor"
 msgid "Regular"
 msgstr "Normal"
 
-#: functions.php:533
+#: functions.php:531
 msgctxt "Short name of the small font size in the block editor."
 msgid "S"
 msgstr "P"
 
-#: functions.php:532
+#: functions.php:530
 msgctxt "Name of the small font size in the block editor"
 msgid "Small"
 msgstr "Küçük"
 
-#: functions.php:517
+#: functions.php:515
 msgid "Background Color"
 msgstr "Arka Plan Rengi"
 
@@ -434,11 +434,11 @@ msgstr "Yazı tarihi"
 msgid "Post author"
 msgstr "Yazının yazarı"
 
-#: functions.php:504
+#: functions.php:502
 msgid "Subtle Background"
 msgstr "Hafif arka plan"
 
-#: functions.php:489
+#: functions.php:487
 msgid "Accent Color"
 msgstr "Vurgu rengi"
 
