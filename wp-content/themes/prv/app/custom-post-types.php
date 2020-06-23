@@ -162,6 +162,62 @@ function cpt_akilli_tahta()
 }
 
 
+
+
+// Register Custom Post Type for Bayiler
+function cpt_bayi_listesi()
+{
+
+    $labels = array(
+        'name'                  => _x('Bayiler', 'Post Type General Name', 'sage'),
+        'singular_name'         => _x('Bayi', 'Post Type Singular Name', 'sage'),
+        'menu_name'             => __('Bayi', 'sage'),
+        'name_admin_bar'        => __('Bayi', 'sage'),
+        'archives'              => __('Bayiler Arşiv', 'sage'),
+        'parent_item_colon'     => __('Ana Bayiler:', 'sage'),
+        'all_items'             => __('Tüm Bayiler', 'sage'),
+        'add_new_item'          => __('Yeni Bayi Ekle', 'sage'),
+        'add_new'               => __('Yeni Ekle', 'sage'),
+        'new_item'              => __('Yeni Bayi ', 'sage'),
+        'edit_item'             => __('Bayi Düzenle', 'sage'),
+        'update_item'           => __('Bayi Güncelle', 'sage'),
+        'view_item'             => __('Bayi Görüntüle', 'sage'),
+        'search_items'          => __('Bayi Ara', 'sage'),
+        'not_found'             => __('Bayi Bulunamadı', 'sage'),
+        'not_found_in_trash'    => __('Çöp Kutusunda Bulunamadı', 'sage'),
+        'featured_image'        => __('Öneçıkan Resim', 'sage'),
+        'set_featured_image'    => __('Öneçıkan Resim Seç', 'sage'),
+        'remove_featured_image' => __('Öneçıkan Resim Sil', 'sage'),
+        'use_featured_image'    => __('Öneçıkan Resim olarak kullan', 'sage'),
+        'insert_into_item'      => __('Bayinin içine ekle', 'sage'),
+        'uploaded_to_this_item' => __('Yüklenmiş Bayi', 'sage'),
+        'items_list'            => __('Bayi Listesi', 'sage'),
+        'items_list_navigation' => __('Bayi Navigasyonu', 'sage'),
+        'filter_items_list'     => __('Bayi Filtrele', 'sage'),
+    );
+    $args = array(
+        'label'                 => __('Bayi', 'sage'),
+        'description'           => __('Açıklama', 'sage'),
+        'labels'                => $labels,
+        'supports'              => array('title', 'thumbnail'),
+        'hierarchical'          => false,
+        'public'                => false,
+        'show_ui'               => true,
+        'show_in_menu'          => true,
+        'menu_position'         => 5,
+        'show_in_admin_bar'     => false,
+        'show_in_nav_menus'     => false,
+        'can_export'            => true,
+        'has_archive'           => false,
+        'exclude_from_search'   => true,
+        'publicly_queryable'    => true,
+        'capability_type'       => 'post',
+    );
+    register_post_type('bayi_listesi', $args);
+}
+
+
 add_action('init',    __NAMESPACE__ . '\cpt_slider', 0);
 add_action('init',    __NAMESPACE__ . '\cpt_testimonals', 0);
 add_action('init',    __NAMESPACE__ . '\cpt_akilli_tahta', 0);
+add_action('init',    __NAMESPACE__ . '\cpt_bayi_listesi', 0);

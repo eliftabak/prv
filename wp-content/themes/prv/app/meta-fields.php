@@ -434,3 +434,104 @@ add_action('cmb2_admin_init', function () {
         'preview_size' => 'medium', // Image size to use when previewing in the admin.
     ));
 });
+
+
+
+/**
+ *
+ * Bayi Meta Boxes
+ *
+ */
+
+add_action('cmb2_admin_init', function () {
+
+    $cmb = new_cmb2_box(array(
+        'title' => __('Bayi ekstra alanları', 'sage'),
+        'id' => 'bayi_metabox',
+        'object_types' => array('bayi_listesi'), // Post type
+        'context' => 'normal',
+        'priority' => 'high',
+        'show_names' => true, // Show field names on the left
+        // 'cmb_styles' => false, // false to disable the CMB stylesheet
+        // 'closed'     => true, // Keep the metabox closed by default
+    ));
+
+
+
+
+
+    $cmb->add_field(array(
+        'name'             => 'Mağaza tel',
+        'desc'             => 'Mağaza telefon numarası giriniz.',
+        'id'               => 'prv_delar_shop_phone',
+        'type'             => 'text',
+    ));
+
+
+    $cmb->add_field(array(
+        'name'             => 'Cep tel',
+        'desc'             => 'Cep telefonu numarası giriniz..',
+        'id'               => 'prv_delar_shop_cell_phone',
+        'type'             => 'text',
+    ));
+
+    global $dealer_list;
+
+    $cmb->add_field(array(
+        'name'             => 'İl',
+        'desc'             => 'Şehir seçiniz.',
+        'id'               => 'prv_dealer_shop_city',
+        'type'             => 'select',
+        'show_option_none' => false,
+        'options' => $dealer_list->city_data()
+    ));
+
+    $cmb->add_field(array(
+        'name'             => 'İlçe',
+        'desc'             => 'İlçe seçiniz.',
+        'id'               => 'prv_dealer_shop_district',
+        'type'             => 'select',
+        'show_option_none' => false,
+        'options' => $dealer_list->district_data()
+    ));
+
+
+    $cmb->add_field(array(
+        'name'             => 'Enlem',
+        'desc'             => 'Mağaza enlemi\'ni giriniz...',
+        'id'               => 'prv_delar_shop_latitude',
+        'type'             => 'text',
+    ));
+
+    $cmb->add_field(array(
+        'name'             => 'Boylam',
+        'desc'             => 'Mağaza boylamı\'nı giriniz...',
+        'id'               => 'prv_delar_shop_longitude',
+        'type'             => 'text',
+    ));
+
+    $cmb->add_field(array(
+        'name'             => 'Adres',
+        'desc'             => 'Mağaza tam adresi giriniz...',
+        'id'               => 'prv_delar_shop_full_adress',
+        'type'             => 'textarea_small',
+    ));
+
+
+    $cmb->add_field(array(
+        'name' => 'Mağaza resimleri',
+        'desc' => '',
+        'id'   => 'prv_delar_shop_pictures',
+        'type' => 'file_list',
+        'preview_size' => 'medium',
+        'query_args' => array('type' => 'image'), // Only images attachment
+        // Optional, override default text strings
+        'text' => array(
+            'add_upload_files_text' => 'Mağaza resmi/leri yükle', // default: "Add or Upload Files"
+            'remove_image_text' => 'Resim sil', // default: "Remove Image"
+            'file_text' => 'Dosya', // default: "File:"
+            'file_download_text' => 'İndir', // default: "Download"
+            'remove_text' => 'Sil', // default: "Remove"
+        ),
+    ));
+});

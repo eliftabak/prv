@@ -126,6 +126,12 @@ i[class$="-prv-icon"] {
   }
 }
 
+.satis-noktalari {
+  .container__page-content {
+    padding: 0 !important;
+  }
+}
+
 .container {
   &__page-content {
     color: $general-text-color;
