@@ -311,8 +311,24 @@ class Distributer
           <div id="test-form-4" role="tabpanel" class="bs-stepper-pane fade dstepper-none" aria-labelledby="stepperFormTrigger4">
             <div class="container-fluid mt-5">
               <div class="row">
-                <div class="col-lg-12 text-center">
-                  <h3 class="d-inline">Teşekkürler</h3>
+                <div class="col-lg-12">
+                  <div class="row no-gutters">
+                    <h5 class="bayilik-talep-form__subtitle">Başvuruyu tamamla.</h5>
+                    <div class="col-lg-12 text-left">
+                      <div class="form-check mt-5">
+                        <input type="checkbox" class="form-check-input" id="user-check-1">
+                        <label class="form-check-label" for="user-check-1">FORM ÜZERİNDE BİLGİLERİ EKSİKSİZ BİR ŞEKİLDE DOLDURDUM.</label>
+                      </div>
+                      <div class="form-check mt-5">
+                        <input type="checkbox" class="form-check-input" id="user-check-2">
+                        <label class="form-check-label" for="user-check-2">İLETİŞİM BİLGİLERİM BENİMLE İLETİŞİME GEÇMEK İÇİN KULLANILABİLİR.</label>
+                      </div>
+                      <div class="form-group mt-5">
+                        <label for="user-message">Mesajınız</label>
+                        <textarea class="form-control" rows="3" id="user-message"></textarea>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
               <input type="hidden" name="prv_distributer_register_nonce" value="<?php echo wp_create_nonce('prv-distributer-register-nonce'); ?>" id="prv-distributer-register-nonce" />
@@ -320,8 +336,8 @@ class Distributer
                 <button class="btn btn-info btn-lg shadow btn-previous-form d-inline-block">Önceki</button>
                 <button type="submit" class="btn btn-success btn-lg shadow d-inline-block" id="bayilik-basvuru-submit"><i class="fa fa-paper-plane pr-2" aria-hidden="true"></i>Başvurumu Tamamla</button>
               </div>
+              </>
             </div>
-          </div>
         </form>
       </div>
     </div>
@@ -425,6 +441,9 @@ class Distributer
           var dealer_publishing = $('#dealer-publishing').val();
           var dealer_field_personel = $('#dealer-field-personel').val();
           var dealer_history = $('#dealer-history').val();
+          var user_check_1 = $('#user-check-1').is(':checked');
+          var user_check_2 = $('#user-check-2').is(':checked');
+          var user_message = $('#user-message').val();
           var prv_distributer_register_nonce = $('#prv-distributer-register-nonce').val();
 
           $.ajax({
@@ -450,6 +469,9 @@ class Distributer
               dealer_publishing: dealer_publishing,
               dealer_field_personel: dealer_field_personel,
               dealer_history: dealer_history,
+              user_check_1: user_check_1,
+              user_check_2: user_check_2,
+              user_message: user_message,
               prv_distributer_register_nonce: prv_distributer_register_nonce,
             },
             success: function(results) {
@@ -529,6 +551,9 @@ class Distributer
       $dealer_publishing  = $_POST["dealer_publishing"];
       $dealer_field_personel  = $_POST["dealer_field_personel"];
       $dealer_history  = $_POST["dealer_history"];
+      $user_check_1 = $_POST["user_check_1"];
+      $user_check_2 = $_POST["user_check_2"];
+      $user_message = $_POST["user_message"];
 
 
 
@@ -595,12 +620,20 @@ class Distributer
         $error["error"][] = "Lütfen firmanız hakkında kısa tanıtım bilgisi giriniz.";
       }
 
+      if ($user_check_1 === "false") {
+
+        $error["error"][] = "\"FORM ÜZERİNDE BİLGİLERİ EKSİKSİZ BİR ŞEKİLDE DOLDURDUM.\" butonlarını işaretlediğinizden emin olun.";
+      }
+
+      if ($user_check_2 === "false") {
+
+        $error["error"][] = "\"İLETİŞİM BİLGİLERİM BENİMLE İLETİŞİME GEÇMEK İÇİN KULLANILABİLİR.\" butonlarını işaretlediğinizden emin olun.";
+      }
+
       if ($error) {
 
         wp_send_json_error($error, 500);
       } else {
-
-        $json = [];
 
         $args = array(
           "personel_email" => $personel_email,
@@ -624,7 +657,7 @@ class Distributer
         );
 
         // send an email to the admin alerting them of the registration
-        notify_admin_for_new_dealer_register($args);
+        notify_admin_for_new_dealer_register($args, $user_message);
 
         // send an email to the admin alerting them of the registration
         send_welcome_email_to_distributer($args);

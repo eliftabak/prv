@@ -31,16 +31,23 @@ function send_admin_mail_about_request_form($user_id, $user_message)
   $admin_email = get_option('admin_email');
   $user = get_userdata($user_id);
   $user_email = $user->user_email;
+  $user_nick_name = $user->nickname;
   $user_full_name = $user->user_firstname . " " . $user->user_lastname;
+
+
+  $message_html = "";
+  if (!empty($user_message)) {
+    $message_html =  '<h2>Kullacının size özel bir mesajı var. Mesaj aşağıda verilmiştir;</h2>
+    <p>' . $user_message . '</p>';
+  }
 
   $to = $admin_email;
   $subject = $user_full_name . ", tarafından akıllı tahta talebi yapmılmıştır.";
   $body = '
             <h1>Sayın Yönetici</h1></br>
-            <p>Sisteminize bir kullanıcı akıllı tahta talebi yapmıştır</p>
-            <p>En kısa zamanda kullanıcının gönderdiği belgeleri onaylayıp kullacıyı tipini öğretmene çevirmelisiniz.</p>
-            <h2>Kullacının size özel bir mesajı var. Mesaj aşağıda verilmiştir;</h2>
-            <p>' . $user_message . '</p>';
+            <p>Sisteminize ' . $user_nick_name . ' takma isimli kullanıcı tarafından akıllı tahta talebi yapmıştır</p>
+            <p>En kısa zamanda kullanıcının gönderdiği belgeleri onaylayıp kullacıyı tipini öğretmene çevirmelisiniz.</p>' . $message_html;
+
   $headers = array('Content-Type: text/html; charset=UTF-8');
   if (wp_mail($to, $subject, $body, $headers)) {
     error_log("email has been successfully sent to user whose email is " . $user_email);

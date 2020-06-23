@@ -1,6 +1,5 @@
 <?php
 
-//TODO:Continue from here
 use Automattic\WooCommerce\Admin\API\Init;
 
 require(dirname(__FILE__) . "/helpers/login-utility.php");
@@ -10,6 +9,7 @@ require(dirname(__FILE__) . "/helpers/db-utility.php");
 require(dirname(__FILE__) . "/helpers/rest-utility.php");
 
 require(dirname(__FILE__) . "/helpers/file-utility.php");
+
 class StepLogin
 {
 
@@ -53,6 +53,8 @@ class StepLogin
     add_action('wp_ajax_nopriv_register_user_front_end', array($this, 'register_process'));
     add_action('wp_ajax_become_ogretmen_user_front_end', array($this, 'become_ogretmen_register_process'), 0);
     add_action('wp_ajax_nopriv_become_ogretmen_user_front_end', array($this, 'become_ogretmen_register_process'));
+    add_action('edit_user_profile_update', array($this, 'edit_user_profile_update_handler'));
+    add_action('template_redirect', array($this, 'template_redirect_handler'));
     add_shortcode('register_form', array($this, 'html_logic'));
   }
 
@@ -424,17 +426,15 @@ class StepLogin
         $('#akilli-tahta-submit').on('click', function(e) {
           e.preventDefault();
           var user_image = $('#user-image').css("background-image");
-          var user_city = $('#user-city').val();
-          var user_district = $('#user-district').val();
-          var user_school = $('#user-school').val();
-          var user_subject = $('#user-subject').val();
+          var user_city = $('#user-city option:selected').text();
+          var user_district = $('#user-district option:selected').text();
+          var user_school = $('#user-school option:selected').text();
+          var user_subject = $('#user-subject option:selected').text();
           var user_phone = $('#user-phone').val();
           var user_check_1 = $('#user-check-1').is(':checked');
           var user_check_2 = $('#user-check-2').is(':checked');
           var user_message = $('#user-message').val();
           var prv_user_register_nonce = $('#prv-user-register-nonce').val();
-
-          console.log(user_check_1);
 
           var reg = /(?:\(['"]?)(.*?)(?:['"]?\))/;
           var extracted_image = reg.exec(user_image)[1];
@@ -480,7 +480,7 @@ class StepLogin
 
             },
             error: function(results) {
-              console.log("results", results)
+              //console.log("results", results)
               const element = $('.notice');
               const {
                 data
@@ -822,17 +822,15 @@ class StepLogin
           var user_password = $('#user-password').val();
           var user_password_repeat = $('#user-password-repeat').val();
           var user_image = $('#user-image').css("background-image");
-          var user_city = $('#user-city').val();
-          var user_district = $('#user-district').val();
-          var user_school = $('#user-school').val();
-          var user_subject = $('#user-subject').val();
+          var user_city = $('#user-city option:selected').text();
+          var user_district = $('#user-district option:selected').text();
+          var user_school = $('#user-school option:selected').text();
+          var user_subject = $('#user-subject option:selected').text();
           var user_phone = $('#user-phone').val();
           var user_check_1 = $('#user-check-1').is(':checked');
           var user_check_2 = $('#user-check-2').is(':checked');
           var user_message = $('#user-message').val();
           var prv_user_register_nonce = $('#prv-user-register-nonce').val();
-
-          console.log(user_check_1);
 
           var reg = /(?:\(['"]?)(.*?)(?:['"]?\))/;
           var extracted_image = reg.exec(user_image)[1];
@@ -989,9 +987,18 @@ class StepLogin
         $user_id = get_current_user_id();
         $user_image_handler->save_image($user_id);
 
+        $metas = array(
+          "prv_user_type" => "Öğretmen",
+          "prv_user_validate" => "Onaylanmadı",
+          "prv_user_city" => $user_city,
+          "prv_user_district" => $user_district,
+          "prv_user_school" => $user_school,
+          "prv_user_subject" => $user_subject,
+          "prv_user_phone" => $user_phone,
+        );
+
         // Update Metadata
-        update_user_meta($user_id, "prv_user_type", "Öğretmen");
-        update_user_meta($user_id, "prv_user_validate", "Onaylanmadı");
+        $this->save_meta_box($user_id, $metas);
 
         send_admin_mail_about_request_form($user_id, $user_message);
 
@@ -1004,6 +1011,26 @@ class StepLogin
     } else {
       wp_die();
     }
+  }
+
+  public function save_meta_box($user_id, $metas)
+  {
+
+    $prv_user_type = $metas["prv_user_type"];
+    $prv_user_validate = $metas["prv_user_validate"];
+    $prv_user_city = $metas["prv_user_city"];
+    $prv_user_district = $metas["prv_user_district"];
+    $prv_user_school = $metas["prv_user_school"];
+    $prv_user_subject = $metas["prv_user_subject"];
+    $prv_user_phone = $metas["prv_user_phone"];
+
+    update_user_meta($user_id, "prv_user_type", $prv_user_type);
+    update_user_meta($user_id, "prv_user_validate", $prv_user_validate);
+    update_user_meta($user_id, "prv_user_city", $prv_user_city);
+    update_user_meta($user_id, "prv_user_district", $prv_user_district);
+    update_user_meta($user_id, "prv_user_school",  $prv_user_school);
+    update_user_meta($user_id, "prv_user_subject", $prv_user_subject);
+    update_user_meta($user_id, "prv_user_phone", $prv_user_phone);
   }
 
   public function register_process()
@@ -1122,9 +1149,19 @@ class StepLogin
         if ($new_user_id) {
 
           $user_image_handler->save_image($new_user_id);
+
+          $metas = array(
+            "prv_user_type" => "Öğretmen",
+            "prv_user_validate" => "Onaylanmadı",
+            "prv_user_city" => $user_city,
+            "prv_user_district" => $user_district,
+            "prv_user_school" => $user_school,
+            "prv_user_subject" => $user_subject,
+            "prv_user_phone" => $user_phone,
+          );
+
           // Update Metadata
-          update_user_meta($new_user_id, "prv_user_type", "Öğretmen");
-          update_user_meta($new_user_id, "prv_user_validate", "Onaylanmadı");
+          $this->save_meta_box($new_user_id, $metas);
 
           // send an email to the admin alerting them of the registration
           send_admin_mail_about_request_form($new_user_id, $user_message);
@@ -1143,6 +1180,40 @@ class StepLogin
       }
     } else {
       wp_die();
+    }
+  }
+
+  public function edit_user_profile_update_handler($user_id)
+  {
+
+    $user_validate = $_POST["prv_user_validate"];
+    $user_type = $_POST["prv_user_type"];
+    $akilli_tahta_page_url = get_permalink(wc_get_page_id('myaccount')) . '?redirect=akilli-tahta-uygulamalari';
+    $user = get_userdata($user_id);
+    $user_full_name = $user->first_name . " " . $user->last_name;
+    $to = $user->user_email;
+    $subject = 'Merhabalar, Sayın ' . $user_full_name . '. Profiliniz onaylanmıştır.';
+    $content = '<h1>Akıllı tahta talebiniz onaylandı</h1>
+                <p>Akıllı tahtalarınıza aşağıdaki linkten ulaşabilrisiniz.</p>
+                <a href="' . $akilli_tahta_page_url . '">Akıllı Tahta İndirme Linki</a>';
+
+    $headers = array('Content-Type: text/html; charset=UTF-8');
+    if (isset($user_validate) && ($user_validate === "Onaylandı") && ($user_type === "Öğretmen")) {
+
+      return wp_mail($to, $subject,  $content, $headers);
+    }
+  }
+
+  function template_redirect_handler()
+  {
+
+    global $woocommerce_redirect;
+
+    if (is_account_page() && isset($_GET['redirect'])) {
+
+      $path = '/' . $_GET['redirect'] . '/';
+
+      $woocommerce_redirect =  home_url($path);
     }
   }
 }

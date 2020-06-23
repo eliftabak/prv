@@ -24,7 +24,7 @@ function send_welcome_email_to_distributer($args)
   }
 }
 
-function notify_admin_for_new_dealer_register($args)
+function notify_admin_for_new_dealer_register($args, $user_message)
 {
 
   $admin_email = get_option('admin_email');
@@ -34,6 +34,13 @@ function notify_admin_for_new_dealer_register($args)
   $user_full_name = $user_firstname . " " . $user_lastname;
   $to = $admin_email;
   $subject = $user_full_name . ", tarafından bayilik talebi yapmılmıştır.";
+
+  $message_html = "";
+  if (!empty($user_message)) {
+    $message_html =  '<h2>Kullacının size özel bir mesajı var. Mesaj aşağıda verilmiştir;</h2>
+    <p>' . $user_message . '</p>';
+  }
+
   $body = '
           <h1>Kişisel Bilgiler</h1></br>
             <ul>
@@ -62,7 +69,7 @@ function notify_admin_for_new_dealer_register($args)
               <li>Personel sayısı: ' . $args["dealer_field_personel"] . '</li>
               <li>Firma bilgisi : ' . $args["dealer_history"] . '</li>
             </ul>
-          ';
+          ' . $message_html;
   $headers = array('Content-Type: text/html; charset=UTF-8');
   if (wp_mail($to, $subject, $body, $headers)) {
     error_log("email has been successfully sent to user whose email is " . $user_email);

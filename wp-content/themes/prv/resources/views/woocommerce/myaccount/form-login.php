@@ -21,6 +21,8 @@ defined('ABSPATH') || exit;
 
 do_action('woocommerce_before_customer_login_form'); ?>
 
+<?php global $woocommerce_redirect; ?>
+
 <?php if ('yes' === get_option('woocommerce_enable_myaccount_registration')) : ?>
 
   <div class="u-columns col2-set row" id="customer_login">
@@ -52,6 +54,7 @@ do_action('woocommerce_before_customer_login_form'); ?>
           <input class="woocommerce-form__input woocommerce-form__input-checkbox" name="rememberme" type="checkbox" id="rememberme" value="forever" /> <span><?php esc_html_e('Remember me', 'woocommerce'); ?></span>
         </label>
         <?php wp_nonce_field('woocommerce-login', 'woocommerce-login-nonce'); ?>
+        <input type="hidden" name="redirect" value="<?php echo esc_url($woocommerce_redirect); ?>" />
         <button type="submit" class="btn btn-outline-primary" name="login" value="<?php esc_attr_e('Log in', 'woocommerce'); ?>"><?php esc_html_e('Log in', 'woocommerce'); ?></button>
 
       </p>

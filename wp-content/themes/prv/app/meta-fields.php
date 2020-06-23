@@ -348,7 +348,7 @@ add_action('cmb2_admin_init', function () {
     ));
 
     $cmb->add_field(array(
-        'name'             => 'Kullanıcı Tipi',
+        'name'             => 'Kullanıcı tipi',
         'desc'             => 'Kullanıcı tipi belirleyin',
         'id'               => 'prv_user_type',
         'type'             => 'select',
@@ -361,7 +361,7 @@ add_action('cmb2_admin_init', function () {
     ));
 
     $cmb->add_field(array(
-        'name'             => 'Kullanıcı Onay',
+        'name'             => 'Kullanıcı onay',
         'desc'             => 'Kullanıcıyı onaylayın',
         'id'               => 'prv_user_validate',
         'type'             => 'select',
@@ -372,6 +372,44 @@ add_action('cmb2_admin_init', function () {
             'Onaylanmadı' => __('Onaylanmadı', 'sage')
         ),
     ));
+
+
+    $cmb->add_field(array(
+        'name'             => 'Kullanıcı şehir',
+        'desc'             => 'Şehir ismi giriniz.',
+        'id'               => 'prv_user_city',
+        'type'             => 'text',
+    ));
+
+
+    $cmb->add_field(array(
+        'name'             => 'Kullanıcı ilçe',
+        'desc'             => 'İlçe ismi giriniz.',
+        'id'               => 'prv_user_district',
+        'type'             => 'text',
+    ));
+
+    $cmb->add_field(array(
+        'name'             => 'Kullanıcı okul',
+        'desc'             => 'Okul ismi giriniz.',
+        'id'               => 'prv_user_school',
+        'type'             => 'text',
+    ));
+
+    $cmb->add_field(array(
+        'name'             => 'Kullanıcı branş',
+        'desc'             => 'Branş ismi giriniz.',
+        'id'               => 'prv_user_subject',
+        'type'             => 'text',
+    ));
+
+    $cmb->add_field(array(
+        'name'             => 'Kullanıcı telefon',
+        'desc'             => 'Branş ismi giriniz.',
+        'id'               => 'prv_user_phone',
+        'type'             => 'text',
+    ));
+
 
     $cmb->add_field(array(
         'name' => __('Öğretmen kimliği', 'sage'),
