@@ -1,3 +1,6 @@
+<?php
+$home = App::home_url_with_slash();
+?>
 <!-- section8__wrapper end -->
 <section class="neden-sorular-konusuyor">
   <div class="container-fluid h-100">
@@ -59,49 +62,49 @@
           <h5>Klasik Kolay</h5>
           <p>Klasik soru kalıpları içinde temelleri sağlam atmak için hızlı çözülebilen kolay bir soruyum. Konuya
             devam etmeden önce benden birkaç tane çözmen lazım.</p></div>"
-              src="wp-content/themes/prv/resources/assets/images/emoji-icon-1.svg" alt="">
+              src="<?php echo e($home); ?>wp-content/themes/prv/resources/assets/images/emoji-icon-1.svg" alt="">
             <img class="emoji__item emoji__item-2" data-toggle="tooltip" data-html="true" data-placement="top" title="<div>
             <h5>Klasik Orta</h5>
             <p>Eğer klasik kalıplarda temel sorulardan çözdüysen seni bir tık öteye taşıyacak orta şiddette bir soru-
               yum. Kendini zor sorulara hazırlamak için bu aşama önemli!</p></div>"
-              src="wp-content/themes/prv/resources/assets/images/emoji-icon-2.svg" alt="">
+              src="<?php echo e($home); ?>wp-content/themes/prv/resources/assets/images/emoji-icon-2.svg" alt="">
             <img class="emoji__item emoji__item-3" data-toggle="tooltip" data-html="true" data-placement="top" title="<div>
             <h5>Klasik Zor</h5>
             <p>Evet, artık kendini zorlama zamanı. Ben, klasik soru tarzlarında o sevilmeyen zor soruyum. İyi kon-
               santre ol, dikkatini topla ve bitir işimi!</p></div>"
-              src="wp-content/themes/prv/resources/assets/images/emoji-icon-3.svg" alt="">
+              src="<?php echo e($home); ?>wp-content/themes/prv/resources/assets/images/emoji-icon-3.svg" alt="">
             <img class="emoji__item emoji__item-4" data-toggle="tooltip" data-html="true" data-placement="top" title="<div>
             <h5>Yeni Nesil Çeyrek Kolay</h5>
             <p>Bu konuda Yeni Nesil Sorulara giriş yapmak için kurgu çözümleme yeteneğini geliştirebileceğin kısa
-              ve kolay bir soruyum.</p></div>" src="wp-content/themes/prv/resources/assets/images/emoji-icon-4.svg"
-              alt="">
+              ve kolay bir soruyum.</p></div>"
+              src="<?php echo e($home); ?>wp-content/themes/prv/resources/assets/images/emoji-icon-4.svg" alt="">
             <img class="emoji__item emoji__item-5" data-toggle="tooltip" data-html="true" data-placement="top" title="<div>
             <h5>Yeni Nesil Çeyrek Orta</h5>
             <p>Yeni Nesil Sorularda bir tık öteye geçme zamanı! Merak etme, çok yormam seni. Yine kısa fakat orta
               şiddette bir soru olduğumu bilmeni isterim.</p></div>"
-              src="wp-content/themes/prv/resources/assets/images/emoji-icon-5.svg" alt="">
+              src="<?php echo e($home); ?>wp-content/themes/prv/resources/assets/images/emoji-icon-5.svg" alt="">
             <img class="emoji__item emoji__item-6" data-toggle="tooltip" data-html="true" data-placement="top" title="<div>
             <h5>Yeni Nesil Çeyrek Zor</h5>
             <p>Uzun uzun Yeni Nesil Sorulara geçmeden önce kendini alıştırman için seni biraz yormak istiyorum.
               Kısa fakat zor bir soruyum. Sana güveniyorum!</p></div>"
-              src="wp-content/themes/prv/resources/assets/images/emoji-icon-6.svg" alt="">
+              src="<?php echo e($home); ?>wp-content/themes/prv/resources/assets/images/emoji-icon-6.svg" alt="">
             <img class="emoji__item emoji__item-7" data-toggle="tooltip" data-html="true" data-placement="top" title="<div>
             <h5>Yeni Nesil Yarım Orta</h5>
             <p>Yeni Nesil Soruyum. Kısa bir soru değilim, kabul ediyorum. Fakat çok uzun bir soru da değilim. Çok
               basit değilim, bunu da kabul ediyorum. Ama çok zor bir soru da değilim, seni zorlamam. Kısaca orta
               uzunlukta ve orta şiddette bir soruyum.</p></div>"
-              src="wp-content/themes/prv/resources/assets/images/emoji-icon-7.svg" alt="">
+              src="<?php echo e($home); ?>wp-content/themes/prv/resources/assets/images/emoji-icon-7.svg" alt="">
             <img class="emoji__item emoji__item-8" data-toggle="tooltip" data-html="true" data-placement="top" title="<div>
             <h5>Yeni Nesil Yarım Zor</h5>
             <p>Yeni Nesil Soruyum. Açık konuşmak gerekirse kolaylık adına bende hiçbir şey yok. Sakın beni hafife
               alma! Evet, orta uzunlukta fakat zorum.</p></div>"
-              src="wp-content/themes/prv/resources/assets/images/emoji-icon-8.svg" alt="">
+              src="<?php echo e($home); ?>wp-content/themes/prv/resources/assets/images/emoji-icon-8.svg" alt="">
             <img class="emoji__item emoji__item-9" data-toggle="tooltip" data-html="true" data-placement="top" title="<div>
             <h5>Yeni Nesil Tam Zor</h5>
             <p>Yeni Nesil Soruların en kralıyım. Bütün sorular seni bana ulaştırmak için çırpındı. Beni çözersen olayın
               çoğu bitmiş demektir. Baştan söyleyim seni bunaltmak için elimden geleni yapacağım. Çünkü uzun ve
               zor bir soruyum. Fakat beni çözmeye başladıysan yine de senden korkarım.</p></div>"
-              src="wp-content/themes/prv/resources/assets/images/emoji-icon-9.svg" alt="">
+              src="<?php echo e($home); ?>wp-content/themes/prv/resources/assets/images/emoji-icon-9.svg" alt="">
           </div>
         </div>
       </div>

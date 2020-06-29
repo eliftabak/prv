@@ -31,7 +31,7 @@ export const dataGenerator = (dataList) => {
 
 }
 
-export const generateMap = (listData, districtPath, lat = 39.0156232, long = 35.3641027) => {
+export const generateMap = (listData, districtPath,siteName,lat = 39.0156232, long = 35.3641027) => {
 
   var geocoder = new google.maps.Geocoder();
 
@@ -53,7 +53,7 @@ export const generateMap = (listData, districtPath, lat = 39.0156232, long = 35.
       position: new google.maps.LatLng(data[i][1], data[i][2]),
       map: map,
       title: 'Bayi',
-      icon: 'http://cdn.com/my-custom-icon.png',
+      icon: `${siteName}/wp-content/themes/prv/resources/assets/images/marker.png` ,
     });
 
     google.maps.event.addListener(marker, 'click', (function (marker, i) {

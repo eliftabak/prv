@@ -676,3 +676,7 @@ add_action("section_yorumlar", function () {
     $buffer  = ob_get_clean();
     echo  $buffer;
 });
+
+// Replace Woocommerce Pagination with bootstrap 4;
+remove_action('woocommerce_after_shop_loop', 'woocommerce_pagination', 10);
+add_action('woocommerce_after_shop_loop',  __NAMESPACE__ . '\\Core\\Bootstrap_Pagnition::bootstrap_pagination', 10, null);

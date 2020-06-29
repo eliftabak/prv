@@ -25,6 +25,8 @@ export default {
 
     let data = php_vars.data;
     const districtPath = php_vars.district_path;
+    const siteName = php_vars.site_name;
+
 
     data = data.map((obj) => {
       return ({
@@ -38,7 +40,7 @@ export default {
       })
     });
 
-    generateMap(data, districtPath);
+    generateMap(data, districtPath,siteName);
 
   },
   finalize() {

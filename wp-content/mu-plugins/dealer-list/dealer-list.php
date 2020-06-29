@@ -50,6 +50,7 @@ class DealerList
       'bayi_script',
       'php_vars',
       array(
+        'site_name' => home_url(),
         'data' => $this->bayi_data(),
         'district_path' => home_url() .  $this->district_path,
       ),
@@ -68,7 +69,6 @@ class DealerList
     if ($screen->base !== "post"  && $screen->post_type !== "bayi_listesi") {
       return;
     }
-
     wp_register_script($this->js_name, WPMU_PLUGIN_URL . '/dealer-list/admin/script.js', array('jquery'), '1.0', true);
     wp_enqueue_script($this->js_name);
     wp_localize_script(
@@ -77,7 +77,7 @@ class DealerList
       array(
         'site_name' => home_url(),
         'city_path' => $this->city_path,
-        'district_path' => $this->district_path
+        'district_path' => $this->district_path,
       )
     );
   }

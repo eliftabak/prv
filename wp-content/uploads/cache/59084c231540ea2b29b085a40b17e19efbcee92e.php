@@ -4,7 +4,6 @@
     <div class="row p-5">
       <div class="col-lg-5 vmx-auto">
         <div class="">
-
           <h1 class="sorular-konusuyor__title">Ortaokula Yardımcı Kitaplar</h1>
           <p class="sorular-konusuyor__desc">When it comes to software design, animation is alimitless way to make
             digital</p>

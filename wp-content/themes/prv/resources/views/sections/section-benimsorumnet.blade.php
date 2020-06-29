@@ -1,3 +1,6 @@
+@php
+$home = App::home_url_with_slash();
+@endphp
 <!-- benimsorumnet section start -->
 <section class="benimsorumnet p-0">
   <div class="container-fluid">
@@ -12,21 +15,21 @@
           <div class="slider__wrapper carousel-inner">
             <div class="slider__item carousel-item active">
               <img class="d-block w-100"
-                src="{{home_url('/')}}wp-content/themes/prv/resources/assets/images/benimsorum.net-slayt-1.jpg">
+                src="{{$home}}wp-content/themes/prv/resources/assets/images/benimsorum.net-slayt-1.jpg">
               <div class="carousel-caption d-none d-md-block">
                 <h2 class="pb-5">Bizim Sorularımız .Net</h2>
               </div>
             </div>
             <div class="slider__item carousel-item">
               <img class="d-block w-100"
-                src="{{home_url('/')}}wp-content/themes/prv/resources/assets/images/benimsorum.net-slayt-2.jpg">
+                src="{{$home}}wp-content/themes/prv/resources/assets/images/benimsorum.net-slayt-2.jpg">
               <div class="carousel-caption d-none d-md-block">
                 <h2 class="pb-5">Benim sorumda .Net Diyorsanız</h2>
               </div>
             </div>
             <div class="slider__item carousel-item">
               <img class="d-block w-100"
-                src="{{home_url('/')}}wp-content/themes/prv/resources/assets/images/benimsorum.net-slayt-3.jpg">
+                src="{{$home}}wp-content/themes/prv/resources/assets/images/benimsorum.net-slayt-3.jpg">
               <div class="carousel-caption d-none d-md-block">
                 <h2 class="pb-5">Örnek Sorularınızı Bekliyoruz</h2>
               </div>

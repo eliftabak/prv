@@ -48,11 +48,18 @@
 }
 
 .btn-subscriber-submit {
-  background: linear-gradient(172.25deg, #9b66ff -39.89%, #6236ff 99.96%);
-  left: -45px;
-  position: relative;
-  font-size: xx-large;
+  background: linear-gradient(
+    172.25deg,
+    #9b66ff -39.89%,
+    #6236ff 99.96%
+  ) !important;
+  left: -45px !important;
+  position: relative !important;
+  font-size: 23px !important;
   padding: 0.31em 1em !important;
+  color: white !important;
+  line-height: unset !important;
+  font-weight: 400 !important;
 }
 
 .btn-single-product-add-to-cart {

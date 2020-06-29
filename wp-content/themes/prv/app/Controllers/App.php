@@ -6,14 +6,13 @@ use Sober\Controller\Controller;
 
 class App extends Controller
 {
-    public function siteName()
+    public static function site_name()
     {
         return get_bloginfo('name');
     }
 
     public static function title()
     {
-
         if (is_home()) {
             if ($home = get_option('page_for_posts', true)) {
                 return get_the_title($home);
@@ -22,7 +21,6 @@ class App extends Controller
         }
         if (is_archive() && !is_shop()) {
             return get_the_archive_title();
-
         }
         if (is_shop() && is_archive()) {
             return __('Mağaza', 'sage');
@@ -39,7 +37,6 @@ class App extends Controller
 
     public static function home_url_with_slash()
     {
-
         return home_url('/');
     }
 }

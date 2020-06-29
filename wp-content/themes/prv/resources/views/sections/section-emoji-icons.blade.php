@@ -1,5 +1,5 @@
 @php
-$home = home_url("/");
+$home = App::home_url_with_slash();
 @endphp
 <section class="emoji-icons-section">
   <div class="container-fluid">
