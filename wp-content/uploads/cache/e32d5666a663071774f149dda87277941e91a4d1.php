@@ -1,7 +1,7 @@
 <!-- teke-tek start -->
 <section class="teke-tek pt-5">
   <div class="container-fluid">
-    <div class="row p-5">
+    <div class="row p-lg-5">
       <div class="col-lg-6">
         <div class="row">
           <?php
@@ -13,7 +13,8 @@
         <div class="teke-tek__book text-right">
           <div class="teke-tek__book-brand">Pruva</div>
           <div class="teke-tek__book-name">Teke Tek</div>
-          <div class="teke-tek__book-catchword pt-5"><span class="bold">Tek</span> Sayfa <span class="bold">Tek</span>
+          <div class="teke-tek__book-catchword pt-lg-5"><span class="bold">Tek</span> Sayfa <span
+              class="bold">Tek</span>
             Soru
           </div>
           <div class="teke-tek__book-desc">When it comes to software design, animation is alimitless way to make digital

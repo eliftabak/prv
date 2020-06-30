@@ -4,7 +4,7 @@
     <div class="row pt-lg-5">
       <div class="col-lg-12">
         <div class="text-center">
-          <h1 class="brans-denemeleri__title p-5">8. Sınıf Branş Denemeleri</h1>
+          <h1 class="brans-denemeleri__title p-lg-5 p-3">8. Sınıf Branş Denemeleri</h1>
           <p class="brans-denemeleri__desc">When it comes to software design, animation is alimitless way to make
             digital</p>
         </div>

@@ -1,7 +1,7 @@
 <!-- benimsorumnet section start -->
-<section class="sorular-konusuyor p-0">
+<section class="sorular-konusuyor p-1">
   <div class="container-fluid">
-    <div class="row p-5">
+    <div class="row p-lg-5">
       <div class="col-lg-5 vmx-auto">
         <div class="">
           <h1 class="sorular-konusuyor__title">Ortaokula Yardımcı Kitaplar</h1>
@@ -13,7 +13,7 @@
             href="magaza/?filter_urun-cesitleri=sorular-konusuyor" role="button">SATIN AL</a>
         </div>
       </div>
-      <div class="col-lg-7 pl-5">
+      <div class="col-xs-7 col-sm-7 col-lg-7 pl-5">
         @php do_action("sorular_konusuyor_slider"); @endphp
       </div>
     </div>

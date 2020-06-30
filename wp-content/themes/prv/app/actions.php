@@ -223,15 +223,15 @@ add_action('home_page_slider', function () {
                 $html .= '<img loading="lazy" class="p-0 position-absolute ' . $magaza_slider_css_class . '__left-image ' . $show . '" style="z-index:2" src="' . $value["background_img"] . '">';
                 $html .= '<img loading="lazy" class="p-0 position-absolute ' . $magaza_slider_css_class . '__child-draw ' . $show . '" style="z-index:3" src="' . $value["left_img"] . '">';
                 $html .= '<div class="position-relative ' . $magaza_slider_css_class . '__right-text-block ' . $show . '" style="z-index:3">';
-                $html .= '<div class="pt-5 text-white text-right pr-5">';
-                $html .= '<div class="pt-5 mt-5">';
-                $html .= '<h1 class="' . $magaza_slider_css_class . '__text-1 pt-5">' . $value["title"] . '</h1>';
+                $html .= '<div class="pt-5 text-white text-right pr-lg-5">';
+                $html .= '<div class="pt-lg-5 mt-5">';
+                $html .= '<h1 class="' . $magaza_slider_css_class . '__text-1 pt-lg-5">' . $value["title"] . '</h1>';
                 $html .= '<p class="' . $magaza_slider_css_class . '__text-2">' . $value["sub_title"] . '</p>';
                 $html .= '<p class="' . $magaza_slider_css_class . '__text-3">' . $value["manifesto"] . '</p>';
                 $html .= '</div><div class="' . $magaza_slider_css_class . '__desc text-right w-50 ml-auto ml"><div class="py-3">';
                 $html .= '<p class="lead">' . $value["desc"] . '</p>';
                 $html .= '</div></div>';
-                $html .= empty($value["button_link"]) ? "" : '<a name="" id="" style="" class="btn btn-outline-light btn-lg pl-5 pr-5 ' . $magaza_slider_css_class . '__button" href="' . $value["button_link"] . '" role="button">' . $value["button_text"] . '</a>';
+                $html .= empty($value["button_link"]) ? "" : '<a name="" id="" style="" class="btn btn-outline-light btn-lg pl-lg-5 ' . $magaza_slider_css_class . '__button" href="' . $value["button_link"] . '" role="button">' . $value["button_text"] . '</a>';
                 $html .= '</div></div></div></div>';
                 echo $html;
                 $index = +1;
@@ -325,7 +325,7 @@ add_action('sorular_konusuyor_slider', function () {
     //print_r($products);
     ob_start();
 ?>
-    <div id="<?php echo $sorular_konusuyor_slider_css_id ?>" class="carousel slide sorular-konusuyor__slider pl-5" data-ride="carousel">
+    <div id="<?php echo $sorular_konusuyor_slider_css_id ?>" class="carousel slide sorular-konusuyor__slider pl-lg-5" data-ride="carousel">
         <ol class="carousel-indicators">
             <?php
             foreach ($carausel_li_element as $value) {
@@ -346,7 +346,7 @@ add_action('sorular_konusuyor_slider', function () {
                     $title = get_the_title($product_id);
                     $image = wp_get_attachment_image(get_post_thumbnail_id($product_id), 'medium');
                     $url = esc_url(get_permalink($product_id));
-                    $html .= '<div class="col-sm-6 col-lg-6">';
+                    $html .= '<div class="col-6 col-sm-6 col-lg-6">';
                     $html .= '<div class="sorular-konusuyor__book-picture mx-auto text-center">';
                     $html .= '<a href="' . $url . '">' .  $image . '</a>';
                     $html .= '<h3 class="sorular-konusuyor__book-category">' . $data["category_name"] . '</h3>';
@@ -436,7 +436,7 @@ add_action("section_brans_denemeleri", function () {
                 //$title = get_the_title($product_id);
                 $image = wp_get_attachment_image(get_post_thumbnail_id($product_id), "large");
                 $url = esc_url(get_permalink($product_id));
-                $html .= '<div class="col-sm-6 col-lg-3 text-center">';
+                $html .= '<div class="col-6 col-sm-6 col-lg-3 text-center">';
                 $html .= '<div class="brans-denemeleri__book-picture">';
                 $html .= $image;
                 $html .= '<a name="" id="" class="btn btn-primary btn-lg rounded-pill pl-lg-5 pr-lg-5 shadow-lg" href="' . $url . '" role="button">İncele<i class="fa fa-external-link pl-2" aria-hidden="true"></i></a>';
@@ -524,7 +524,7 @@ add_action("section_teke_tek", function () {
                 $margin = ($index % 2) === 0 ? "pt-lg-5" : "";
                 $image = wp_get_attachment_image(get_post_thumbnail_id($product_id), 'large');
                 $url = esc_url(get_permalink($product_id));
-                $html .= '<div class="col-sm-6 col-lg-6 ' . $margin . '">';
+                $html .= '<div class="col-6 col-sm-6 col-lg-6 ' . $margin . '">';
                 $html .= '<a class="teke-tek__book-picture" href="' . $url . '">';
                 $html .= $image;
                 $html .= '</a></div>';

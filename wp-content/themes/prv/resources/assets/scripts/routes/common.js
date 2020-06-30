@@ -91,7 +91,11 @@ export default {
 
         });
 
-
+          const $cart = $('#Cart');
+          if (window.matchMedia('(max-width: 576px)').matches) {
+           $cart.clone().appendTo('body').addClass('cart-mobile');
+           $cart.remove();
+          }
 
   },
   finalize() {

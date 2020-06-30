@@ -1,13 +1,13 @@
 <footer class="content-info footer">
   <div class="p-0 h-100">
     <div class="container-fluid subscriber">
-      <div class="row p-5">
-        <div class="col">
+      <div class="row p-lg-5 pt-3">
+        <div class="col-12 col-lg-6">
           <h1 class="font-weight-bold">E-Bülten</h1>
           <p class="font-weight-lighter">Kampanyalarımızdan haberdar olmak için e-posta adresinizle kayıt olabilirsiniz.
           </p>
         </div>
-        <div class="col">
+        <div class="col-12 col-lg-6">
           <!-- Begin Mailchimp Signup Form -->
           <div id="mc_embed_signup">
             <form
@@ -26,31 +26,33 @@
       </div>
     </div>
   </div>
-  <section class="footer__wrapper p-5">
-    <a class="navbar-brand text-uppercase font-weight-bold mb-3" href="<?php echo e(home_url('/')); ?>">
-      <img src="<?php echo e(home_url('/')); ?>wp-content/themes/prv/resources/assets/images/pruva-akademi-logo.svg"
-        alt="<?php echo e(get_bloginfo('name', 'display')); ?>" width="276" height="auto">
-    </a>
+  <section class="footer__wrapper p-lg-5">
     <div class="container-fluid">
+      <a class="navbar-brand text-uppercase font-weight-bold mb-3 pt-5" href="<?php echo e(home_url('/')); ?>">
+        <img src="<?php echo e(home_url('/')); ?>wp-content/themes/prv/resources/assets/images/pruva-akademi-logo.svg"
+          alt="<?php echo e(get_bloginfo('name', 'display')); ?>" width="276" height="auto">
+      </a>
       <div class="row">
         <div class="col-6">
-          <div class="row pt-5">
+          <div class="row pt-5 no-gutters">
             <?php dynamic_sidebar('sidebar-footer-1') ?>
             <?php dynamic_sidebar('sidebar-footer-2') ?>
             <?php dynamic_sidebar('sidebar-footer-3') ?>
           </div>
         </div>
         <div class="col-6 pt-5">
-          <div class="row pt-5">
+          <div class="row pt-lg-5 no-gutters">
             <?php dynamic_sidebar('sidebar-footer-4') ?>
           </div>
         </div>
       </div>
     </div>
     <section>
-      <div class="row">
-        <div class="col-12">
-          <p>Copyright 2019 Pruva Akademi | All Rights Reserved | Web Tasarım Hexagon Design</p>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <p>Copyright 2019 Pruva Akademi | All Rights Reserved | Web Tasarım Hexagon Design</p>
+          </div>
         </div>
       </div>
     </section>

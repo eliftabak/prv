@@ -17,6 +17,12 @@
 .nav.navbar-nav > li {
   color: #ffffffb5;
   margin-right: 2rem;
+
+  @include media-breakpoint-between(xs, sm) {
+    margin-right: 0;
+    text-align: center;
+  }
+
   font-size: 1.1rem;
   font-weight: 500;
   letter-spacing: -0.2px;
@@ -45,6 +51,10 @@
     }
 
     &::after {
+      @include media-breakpoint-between(xs, sm) {
+        display: none !important;
+      }
+
       color: #fff;
       border-bottom: 0.6rem solid;
       -webkit-box-sizing: content-box;
@@ -73,6 +83,10 @@
     z-index: 998;
     top: 3rem;
     box-shadow: 0 0 40px 8px rgba(0, 0, 0, 0.32);
+
+    @include media-breakpoint-between(xs, sm) {
+      box-shadow: unset;
+    }
 
     > li {
       padding: 8px;
@@ -106,20 +120,39 @@
 .mega-menu {
   position: static;
 
+  @include media-breakpoint-between(xs, sm) {
+    padding: 0 0 0 8px;
+  }
+
   .dropdown-header {
     font-weight: bold;
     font-size: 23px;
     line-height: 23px;
     letter-spacing: -1.35016px;
+
+    @include media-breakpoint-between(xs, sm) {
+      font-size: 20px;
+    }
   }
 
   ul {
     padding-left: 23.4px !important;
     padding-bottom: 24px;
 
+    @include media-breakpoint-between(xs, sm) {
+      padding-left: unset;
+      padding-bottom: unset;
+    }
+
     li {
       font-size: 18px;
       line-height: 50px;
+
+      @include media-breakpoint-between(xs, sm) {
+        font-size: 16px;
+        line-height: 26px;
+      }
+
       letter-spacing: -1.00174px;
       color: lighten($color: black, $amount: 30);
       font-weight: 300;
@@ -136,6 +169,12 @@
     padding: 2.1rem 0.1rem 0 !important;
     background-color: #fff;
     transform: translateX(-100%);
+
+    @include media-breakpoint-between(xs, sm) {
+      transform: translateX(0%);
+      padding: unset !important;
+    }
+
     max-width: 93%;
     width: fit-content;
     left: 98%;
@@ -157,6 +196,10 @@
   img {
     height: 33.88px;
     width: auto;
+
+    @include media-breakpoint-between(xs, sm) {
+      height: 20.88px;
+    }
   }
 }
 
@@ -205,6 +248,10 @@
   font-size: 1.2rem;
   margin-right: 20px;
 
+  @include media-breakpoint-between(xs, sm) {
+    margin-right: 2px;
+  }
+
   li {
     list-style: none;
     color: #ffffffb5;
@@ -227,10 +274,18 @@
 
   &__icon {
     display: visible;
+
+    @include media-breakpoint-between(xs, sm) {
+      padding-right: 0.65rem !important;
+    }
   }
 
   &__text {
     display: visible;
+
+    @include media-breakpoint-between(xs, sm) {
+      display: none;
+    }
   }
 
   &__user {
@@ -238,6 +293,10 @@
     margin-right: -2px;
     padding: 0.6rem 16px;
     border-radius: inherit;
+
+    @include media-breakpoint-between(xs, sm) {
+      display: none;
+    }
 
     .fa {
       font-size: 21px;
@@ -344,6 +403,26 @@
 
     a {
       border-radius: 15px;
+    }
+  }
+
+  &-mobile {
+    position: fixed;
+    bottom: 25px;
+    left: 11px;
+    z-index: 999;
+
+    .dropdown-menu {
+      left: -27px !important;
+      top: -16px !important;
+
+      &::before {
+        transform: rotate(180deg);
+        bottom: -20px;
+        left: 21px;
+        right: unset;
+        top: unset;
+      }
     }
   }
 }

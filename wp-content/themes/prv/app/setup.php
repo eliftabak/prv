@@ -22,8 +22,7 @@ add_action('wp_enqueue_scripts', function () {
         wp_dequeue_script('selectWoo');
         wp_deregister_script('selectWoo');
         //dequeue password stremgth meter
-        wp_dequeue_script( 'wc-password-strength-meter' );
-
+        wp_dequeue_script('wc-password-strength-meter');
     }
 
     wp_enqueue_style('sage/main.css', asset_path('styles/main.css'), false, null);
@@ -96,7 +95,6 @@ add_action('after_setup_theme', function () {
      */
 
     add_theme_support('custom-logo');
-
 }, 20);
 
 /**
@@ -114,7 +112,7 @@ add_action('widgets_init', function () {
     $footer_config_1 = [
         'name' => __('Footer-1', 'sage'),
         'id' => 'sidebar-footer-1',
-        'before_widget' => '<div class="footer-widget__content %1$s %2$s col-3">',
+        'before_widget' => '<div class="footer-widget__content %1$s %2$s col-12 col-lg-3">',
         'after_widget' => '</div>',
         'before_title' => '<h5 class="footer-widget__title">',
         'after_title' => '</h5>',
@@ -122,7 +120,7 @@ add_action('widgets_init', function () {
     $footer_config_2 = [
         'name' => __('Footer-2', 'sage'),
         'id' => 'sidebar-footer-2',
-        'before_widget' => '<div class="footer-widget__content %1$s %2$s col-3">',
+        'before_widget' => '<div class="footer-widget__content %1$s %2$s col-12 col-lg-3">',
         'after_widget' => '</div>',
         'before_title' => '<h5 class="footer-widget__title">',
         'after_title' => '</h5>',
@@ -130,7 +128,7 @@ add_action('widgets_init', function () {
     $footer_config_3 = [
         'name' => __('Footer-3', 'sage'),
         'id' => 'sidebar-footer-3',
-        'before_widget' => '<div class="footer-widget__content %1$s %2$s col-3">',
+        'before_widget' => '<div class="footer-widget__content %1$s %2$s col-12 col-lg-3">',
         'after_widget' => '</div>',
         'before_title' => '<h5 class="footer-widget__title">',
         'after_title' => '</h5>',

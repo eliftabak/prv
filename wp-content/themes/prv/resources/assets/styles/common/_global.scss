@@ -143,6 +143,10 @@ i[class$="-prv-icon"] {
     margin-bottom: 150px;
     padding: 80px 28px 32px 26px;
 
+    @include media-breakpoint-between(xs, sm) {
+      width: 98% !important;
+    }
+
     h1,
     h2,
     h3,
