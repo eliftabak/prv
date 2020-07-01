@@ -48,7 +48,7 @@ $home = App::home_url_with_slash();
       <div class="col-lg-6 vmx-auto p-5">
         <div class="content text-dark">
           <h1 class="text-primary">Değerli Öğretmenlerimiz,</h1>
-          <p class="pt-5">BenimSorum.Net'e Hoşgeldiniz!</p>
+          <p class="pt-3 pt-lg-5">BenimSorum.Net'e Hoşgeldiniz!</p>
           <p class="w-75">Pruva Akademi’nin ciddi gayretlerle ve özenle hazırlanmış sorularını örnek üniteler linkimize
             tıklayıp
             inceleyebilirsiniz.</p>

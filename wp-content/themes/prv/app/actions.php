@@ -84,7 +84,7 @@ add_action('woocommerce_shop_slider', function () {
     ob_start();
 ?>
 
-    <div id="<?php echo $magaza_slider_id . "__ID";  ?>" class="carousel slide mb-5" data-ride="carousel" data-interval="4000">
+    <div id="<?php echo $magaza_slider_id . "__ID";  ?>" class="carousel slide mb-3 mb-lg-5" data-ride="carousel" data-interval="4000">
 
         <ol class="carousel-indicators">
             <?php

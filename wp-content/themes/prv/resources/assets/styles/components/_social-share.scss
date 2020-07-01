@@ -5,10 +5,14 @@
   width: auto;
   border-radius: 36px;
   height: auto;
-  top: 400px;
+  top: 50vh;
   right: 20px;
   z-index: 999;
   box-shadow: 0 12px 47px rgba(0, 0, 0, 0.157616);
+
+  @include media-breakpoint-between(xs, sm) {
+    right: 10px;
+  }
 
   &__title {
     margin-top: 20px;
@@ -17,6 +21,10 @@
     color: $primary;
     transform: rotate(-90deg);
     font-weight: 800;
+
+    @include media-breakpoint-between(xs, sm) {
+      padding: 3px;
+    }
   }
 
   ul {

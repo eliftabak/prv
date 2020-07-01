@@ -201,27 +201,37 @@ i[class$="-prv-icon"] {
   }
 }
 
-.modal-dialog {
-  max-width: 50rem;
-  margin: auto;
-  top: 50%;
-  transform: translateY(-50%) !important;
-}
+.modal {
+  @include media-breakpoint-between(xs, sm) {
+    width: 95%;
+  }
 
-.modal-body {
-  position: relative;
-  padding: 0;
-}
+  &-dialog {
+    max-width: 50rem;
+    margin: auto;
+    top: 50%;
+    transform: translateY(-50%) !important;
+  }
 
-.model-close {
-  transition: all 0.4s;
-  padding: 0.1875rem 0.625rem 0 0.625rem;
-  position: absolute;
-  right: -2.8125rem;
-  top: 0;
-  z-index: 999;
-  font-size: 1rem;
-  opacity: 1;
+  &-body {
+    position: relative;
+    padding: 0;
+  }
+
+  &-close {
+    transition: all 0.4s;
+    padding: 0.1875rem 0.625rem 0 0.625rem;
+    position: absolute;
+    right: -2.8125rem;
+    top: 0;
+    z-index: 999;
+    font-size: 1rem;
+    opacity: 1;
+
+    @include media-breakpoint-between(xs, sm) {
+      right: 0.1875rem;
+    }
+  }
 }
 
 .double-flash {

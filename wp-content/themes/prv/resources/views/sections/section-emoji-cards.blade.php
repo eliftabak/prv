@@ -4,7 +4,7 @@
       <div class="col-lg-2"></div>
       <div class="col-lg-8 col-md-12">
         <div class="row">
-          <div class="col-lg-3">
+          <div class="col-lg-3 mt-5">
             <div class="emoji-card background-color-none box-shadow-none">
               <h5 class="emoji-card__title">Klasikler</h5>
               <ul class="emoji-card__list">
@@ -33,7 +33,7 @@
               </ul>
             </div>
           </div>
-          <div class="col-lg-3">
+          <div class="col-lg-3 mt-5">
             <div class="emoji-card">
               <h5 class="emoji-card__title">Yeni Nesil Çeyrek Sayfa</h5>
               <ul class="emoji-card__list">
@@ -62,7 +62,7 @@
               </ul>
             </div>
           </div>
-          <div class="col-lg-3">
+          <div class="col-lg-3 mt-5">
             <div class="emoji-card">
               <h5 class="emoji-card__title">Yeni Nesil Yarım Sayfa</h5>
               <ul class="emoji-card__list">
@@ -91,7 +91,7 @@
               </ul>
             </div>
           </div>
-          <div class="col-lg-3">
+          <div class="col-lg-3 mt-5">
             <div class="emoji-card">
               <h5 class="emoji-card__title">Yeni Nesil Tam Sayfa</h5>
               <ul class="emoji-card__list ">
@@ -120,7 +120,7 @@
               </ul>
             </div>
           </div>
-          <div class="col-lg-12 mt-5 text-center">
+          <div class="col-lg-12 mt-5 text-justify text-lg-center">
             <p class="d-inline emoji-card__desc">Yeni Eğitim Sisteminde öğrencilerimiz <strong>%20</strong> oranında
               Klasik,
               <strong>%80</strong> oranında

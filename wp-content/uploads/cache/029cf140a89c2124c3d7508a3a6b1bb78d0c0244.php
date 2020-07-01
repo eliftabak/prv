@@ -3,7 +3,7 @@
     <div class="container-fluid subscriber">
       <div class="row p-lg-5 pt-3">
         <div class="col-12 col-lg-6">
-          <h1 class="font-weight-bold">E-Bülten</h1>
+          <h1 class="font-weight-bold text-center text-lg-left">E-Bülten</h1>
           <p class="font-weight-lighter">Kampanyalarımızdan haberdar olmak için e-posta adresinizle kayıt olabilirsiniz.
           </p>
         </div>
@@ -15,7 +15,7 @@
               method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate"
               target="_blank" novalidate>
               <div class="form-group text-right pt-1">
-                <input type="email" value="" name="EMAIL" class="email form-control w-50 d-inline rounded-pill p-4"
+                <input type="email" value="" name="EMAIL" class="email form-control d-inline rounded-pill p-4"
                   id="mce-EMAIL" placeholder="E-posta adresi giriniz..." required>
                 <input type="submit" value="Abone Ol" name="subscribe" id="mc-embedded-subscribe"
                   class="button btn btn-subscriber-submit d-inline rounded-pill p-2">

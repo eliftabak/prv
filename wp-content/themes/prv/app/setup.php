@@ -144,7 +144,7 @@ add_action('widgets_init', function () {
     $shop = [
         'name' => __('Woocommerce Filtreleri', 'sage'),
         'id' => 'sidebar-shop',
-        'before_widget' => '<div class="woocommerce-filters %1$s %2$s col-12 text-right pt-5">',
+        'before_widget' => '<div class="woocommerce-filters %1$s %2$s col-6 col-lg-12 text-right pt-3 pt-lg-5">',
         'after_widget' => '</div>',
         'before_title' => '<h5 class="woocommerce-filters__title">',
         'after_title' => '</h5>',

@@ -11,6 +11,13 @@
     border-radius: 21px;
     margin-bottom: 50px;
 
+    @include media-breakpoint-between(xs, sm) {
+      width: 80%;
+      margin-bottom: unset;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
     a:nth-child(1)::before {
       color: #ffffff9c;
       padding-right: 5px;
@@ -100,6 +107,10 @@
     );
     box-shadow: 0 32px 144px rgba(0, 0, 0, 0.127049);
 
+    @include media-breakpoint-between(xs, sm) {
+      padding: 6rem 0 0 0;
+    }
+
     &::after {
       clear: both;
       content: " ";
@@ -110,6 +121,11 @@
   .summary.entry-summary {
     width: 44%;
     position: relative;
+
+    @include media-breakpoint-between(xs, sm) {
+      width: 100%;
+      padding: 10px 59px 10px 31px;
+    }
   }
 
   .woocommerce-product-gallery {
@@ -117,6 +133,13 @@
     margin-left: -78px;
     bottom: -230px;
     margin-top: -340px;
+
+    @include media-breakpoint-between(xs, sm) {
+      width: 90%;
+      margin-left: unset;
+      bottom: unset;
+      margin-top: unset;
+    }
   }
   //realted products styling
   .products ul,
@@ -136,6 +159,10 @@
     padding: 5rem 10rem;
     text-align: center;
     color: #675953;
+
+    @include media-breakpoint-between(xs, sm) {
+      padding: 5rem 1rem;
+    }
   }
 
   .woocommerce-product-details {
@@ -169,6 +196,10 @@
       mix-blend-mode: difference;
       font-size: 30px;
 
+      @include media-breakpoint-between(xs, sm) {
+        right: 3px;
+      }
+
       &:hover {
         cursor: pointer;
       }
@@ -182,6 +213,12 @@
       letter-spacing: -2.33185px;
       color: #fff;
       padding-bottom: 18px !important;
+
+      @include media-breakpoint-between(xs, sm) {
+        font-size: 34px;
+        line-height: 35px;
+        letter-spacing: -1.33185px;
+      }
     }
   }
 
@@ -215,6 +252,10 @@
     font: 600 1.3rem $font-family-sans-serif !important;
     padding-right: 5px;
     width: 50px;
+
+    @include media-breakpoint-between(xs, sm) {
+      width: 31px;
+    }
   }
 
   form.cart {
@@ -229,6 +270,12 @@
     align-items: center;
     padding-left: 11px;
     box-shadow: 0 12px 47px rgba(0, 0, 0, 0.157616);
+
+    @include media-breakpoint-between(xs, sm) {
+      padding: unset;
+      right: unset;
+      left: 12px;
+    }
   }
 
   .quantity {
@@ -260,6 +307,10 @@
     padding-left: 10px;
     float: unset;
     margin: unset;
+
+    @include media-breakpoint-between(xs, sm) {
+      padding-left: 0;
+    }
   }
 
   .view-container {
@@ -269,6 +320,14 @@
     position: relative;
     left: -5.56%;
     margin-top: 23%;
+
+    @include media-breakpoint-between(xs, sm) {
+      width: 50%;
+      position: relative;
+      left: unset;
+      float: none;
+      margin: -49px auto 30px auto;
+    }
 
     i {
       font-size: 2rem;
@@ -288,6 +347,11 @@
       border-radius: 0 100px 100px 0;
       box-shadow: 8px 0 0 rgba(0, 0, 0, 0.07),
         0 12px 47px rgba(0, 0, 0, 0.157616);
+
+      @include media-breakpoint-between(xs, sm) {
+        border-radius: 100px;
+        height: 53px;
+      }
 
       &:hover {
         background: linear-gradient(140.65deg, #9b66ff -39.89%, #4925cc 99.96%);

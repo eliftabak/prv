@@ -29,12 +29,16 @@ the readme will list any important changes.
 
     </div>
     <div class="col-lg-2">
-      @php
-      do_action('get_sidebar', 'shop');
-      woocommerce_get_sidebar();
-      @endphp
+      <div class="container-fluid filters-wrapper">
+        <div class="row">
+          @php
+          do_action('get_sidebar', 'shop');
+          woocommerce_get_sidebar();
+          @endphp
+        </div>
+      </div>
     </div>
-    <div class="col-lg-10">
+    <div class="col-lg-10 mt-5">
       @php
       do_action('get_header', 'shop');
       do_action('woocommerce_before_main_content');
