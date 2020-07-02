@@ -1,3 +1,6 @@
+<?php
+$home = App::home_url_with_slash();
+?>
 <footer class="content-info footer">
   <div class="p-0 h-100">
     <div class="container-fluid subscriber">
@@ -25,11 +28,14 @@
         </div>
       </div>
     </div>
+    <div class="footer-head-background lazy"
+      data-src="<?php echo e($home); ?>wp-content/themes/prv/resources/assets/images/footer-background-head.png"></div>
   </div>
   <section class="footer__wrapper p-lg-5">
     <div class="container-fluid">
       <a class="navbar-brand text-uppercase font-weight-bold mb-3 pt-5" href="<?php echo e(home_url('/')); ?>">
-        <img src="<?php echo e(home_url('/')); ?>wp-content/themes/prv/resources/assets/images/pruva-akademi-logo.svg"
+        <img class="lazy"
+          data-src="<?php echo e(home_url('/')); ?>wp-content/themes/prv/resources/assets/images/pruva-akademi-logo.svg"
           alt="<?php echo e(get_bloginfo('name', 'display')); ?>" width="276" height="auto">
       </a>
       <div class="row">
@@ -62,7 +68,8 @@
     <div class="container-fluid">
       <div class="row mx-auto">
         <div class="col-lg-12 text-center">
-          <img src="<?php echo e(home_url('/')); ?>wp-content/themes/prv/resources/assets/images/credit-cards.png" alt="">
+          <img class="lazy" data-src="<?php echo e(home_url('/')); ?>wp-content/themes/prv/resources/assets/images/credit-cards.png"
+            alt="">
         </div>
       </div>
     </div>

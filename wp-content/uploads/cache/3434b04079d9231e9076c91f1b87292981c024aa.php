@@ -11,19 +11,10 @@
     </button>
     <!-- Navbar links -->
 
-    <?php if(has_nav_menu('primary_navigation')): ?>
-    <?php echo wp_nav_menu( [
-    'theme_location' => 'primary_navigation',
-    'depth' => 4,
-    'container' => 'div',
-    'container_class' => 'collapse navbar-collapse',
-    'container_id' => 'collapsibleNavbar',
-    'menu_class' => 'nav navbar-nav ml-auto mt-2 mt-lg-0 align-items-center',
-    'fallback_cb' => 'WP_Bootstrap_Navwalker::fallback',
-    'walker' => new App\Core\Custom_Nav_Menu()
-    ] ); ?>
-
-    <?php endif; ?>
+    <?php
+    if (has_nav_menu('primary_navigation')) {
+    do_action('primary_nav_menu');
+    }?>
 
     <!-- End Navbar links -->
 

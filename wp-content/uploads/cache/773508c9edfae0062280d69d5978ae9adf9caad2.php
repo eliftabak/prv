@@ -6,7 +6,7 @@ $home = App::home_url_with_slash();
   <div class="container-fluid">
     <div class="row bg-white">
       <div class="col-lg-6 p-0">
-        <div id="benimsorumnet-slider" class="slider carousel slide carousel-fade" data-ride="carousel">
+        <div id="benimsorumnet-slider" class="slider carousel  carousel-lazy slide carousel-fade" data-ride="carousel">
           <ol class="carousel-indicators">
             <li data-target="#benimsorumnet-slider" data-slide-to="0" class="active"></li>
             <li data-target="#benimsorumnet-slider" data-slide-to="1"></li>
@@ -14,22 +14,22 @@ $home = App::home_url_with_slash();
           </ol>
           <div class="slider__wrapper carousel-inner">
             <div class="slider__item carousel-item active">
-              <img class="d-block w-100"
-                src="<?php echo e($home); ?>wp-content/themes/prv/resources/assets/images/benimsorum.net-slayt-1.jpg">
+              <img class="d-block w-100 "
+                data-src="<?php echo e($home); ?>wp-content/themes/prv/resources/assets/images/benimsorum.net-slayt-1.jpg">
               <div class="carousel-caption d-none d-md-block">
                 <h2 class="pb-5">Bizim Sorularımız .Net</h2>
               </div>
             </div>
             <div class="slider__item carousel-item">
-              <img class="d-block w-100"
-                src="<?php echo e($home); ?>wp-content/themes/prv/resources/assets/images/benimsorum.net-slayt-2.jpg">
+              <img class="d-block w-100 "
+                data-src="<?php echo e($home); ?>wp-content/themes/prv/resources/assets/images/benimsorum.net-slayt-2.jpg">
               <div class="carousel-caption d-none d-md-block">
                 <h2 class="pb-5">Benim sorumda .Net Diyorsanız</h2>
               </div>
             </div>
             <div class="slider__item carousel-item">
-              <img class="d-block w-100"
-                src="<?php echo e($home); ?>wp-content/themes/prv/resources/assets/images/benimsorum.net-slayt-3.jpg">
+              <img class="d-block w-100 "
+                data-src="<?php echo e($home); ?>wp-content/themes/prv/resources/assets/images/benimsorum.net-slayt-3.jpg">
               <div class="carousel-caption d-none d-md-block">
                 <h2 class="pb-5">Örnek Sorularınızı Bekliyoruz</h2>
               </div>

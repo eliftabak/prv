@@ -1,5 +1,10 @@
+@php
+$home = App::home_url_with_slash();
+@endphp
 <!-- muhendis-kafasi section start -->
 <section class="muhendis-kafasi">
+  <div class="muhendis-kafasi__background lazy w-100 h-100"
+    data-src="{{$home}}wp-content/themes/prv/resources/assets/images/muhendis-kafasi-background.svg"></div>
   <div class="container-fluid">
     <div class="row">
       <div class="col-lg-6">

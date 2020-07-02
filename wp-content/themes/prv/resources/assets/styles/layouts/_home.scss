@@ -348,7 +348,6 @@ section.sorular-konusuyor {
 section.brans-denemeleri {
   background-color: #3ed19cba;
   position: relative;
-  background-image: url("../images/section-3-background.svg");
 
   .brans-denemeleri {
     color: #fff;
@@ -512,14 +511,20 @@ section.teke-tek {
 
 section.muhendis-kafasi {
   clip-path: polygon(0 0, 100% 7%, 100% 100%, 0% 100%);
-  background: url("../images/muhendis-kafasi-background.svg"),
-    linear-gradient(190.02deg, #a250a0 -41.64%, #682867 93.77%);
-  background-position: left bottom, center;
-  background-size: 89vh, cover;
-  background-repeat: no-repeat, repeat;
+  background: linear-gradient(190.02deg, #a250a0 -41.64%, #682867 93.77%);
+  background-position: center;
+  background-size: cover;
+  background-repeat: repeat;
 
   .muhendis-kafasi {
     color: #fff;
+
+    &__background {
+      position: absolute;
+      background-position: left bottom;
+      background-size: 89vh;
+      background-repeat: no-repeat;
+    }
 
     &__book-picture {
       display: block;

@@ -2,6 +2,8 @@
 
 define('WP_TEMP_NAME', "temp");
 define('WP_TEMP_DIR', dirname(__FILE__) . '/wp-content/' . WP_TEMP_NAME . '/');
+define('WP_PRV_THEME_DEBUG', false);
+
 /**
  * WordPress için taban ayar dosyası.
  *

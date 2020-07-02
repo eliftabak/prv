@@ -1,5 +1,6 @@
 <!-- brans-denemeleri section start -->
-<section class="brans-denemeleri p-0">
+<section class="brans-denemeleri p-0 lazy"
+  data-src="http://localhost/websiteler/pruvaakademi.com/wp-content/themes/prv/dist/images/section-3-background.svg">
   <div class="container-fluid">
     <div class="row pt-lg-5">
       <div class="col-lg-12">

@@ -16,8 +16,8 @@ $exist = false;
 
 <div class='@php echo "{$maincol} mb-4" @endphp'>
   <div class="row no-gutters h-100">
-    <div class="col-lg-12 h-100 blog-card-radius" style="background:url( {!! wp_get_attachment_image_src( get_post_thumbnail_id(),$picturesize)[0] !!});
-      background-size: cover;">
+    <div class="col-lg-12 h-100 blog-card-radius lazy"
+      data-src="{!! wp_get_attachment_image_src( get_post_thumbnail_id(),$picturesize)[0] !!}" background-size: cover;">
       @php echo ($exist === false ) ? '<div class="blog-card__overlay blog-card-radius"></div>' : "" @endphp
       <div class='@php echo "{$subcol} p-5" @endphp'>
         <h2 class="blog-card__title"><a href="{{ get_permalink() }}">{!! get_the_title() !!}</a></h2>

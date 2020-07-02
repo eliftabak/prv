@@ -23,7 +23,8 @@
       <div class="col-lg-12 pt-5">
         <div class="row">
           <div class="col-lg-3"></div>
-          <div class="col-lg-6"><img src="wp-content/themes/prv/resources/assets/images/yourmlar-picture.svg" alt=""
+          <div class="col-lg-6"><img class="lazy w-100"
+              data-src=" wp-content/themes/prv/resources/assets/images/yourmlar-picture.svg" alt=""
               class="yorumlar__picture w-100"></div>
           <div class="col-lg-3"></div>
         </div>
