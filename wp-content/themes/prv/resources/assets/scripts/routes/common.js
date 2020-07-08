@@ -5,8 +5,9 @@ export default {
 
     $(function () {
       $('.lazy').lazy({
-        enableThrottle: true,
-        throttle: 250,
+        effect: 'fadeIn',
+          effectTime: 1500,
+          threshold: 0,
       });
 
     });

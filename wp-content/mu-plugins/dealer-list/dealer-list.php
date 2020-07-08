@@ -83,6 +83,13 @@ class DealerList
   }
   public function city_data()
   {
+
+    $page = is_page("satis-noktalari");
+
+    if (!$page) {
+      return;
+    }
+
     $city_url = home_url() . $this->city_path;
     $request_response = file_get_contents($city_url);
     $cities = json_decode($request_response, true);
@@ -180,6 +187,7 @@ class DealerList
 
   public function html()
   {
+
     ob_start()
 ?>
     <div class="row no-gutters">

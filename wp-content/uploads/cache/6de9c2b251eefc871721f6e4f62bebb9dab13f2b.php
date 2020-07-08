@@ -1,6 +1,10 @@
+<?php
+$home = App::home_url_with_slash();
+?>
+
 <!-- brans-denemeleri section start -->
 <section class="brans-denemeleri p-0 lazy"
-  data-src="http://localhost/websiteler/pruvaakademi.com/wp-content/themes/prv/dist/images/section-3-background.svg">
+  data-src="<?php echo e($home); ?>wp-content/themes/prv/resources/assets/images/section-3-background.svg">
   <div class="container-fluid">
     <div class="row pt-lg-5">
       <div class="col-lg-12">
