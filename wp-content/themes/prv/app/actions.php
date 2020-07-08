@@ -420,7 +420,7 @@ add_action('sorular_konusuyor_slider', function () {
                 ?>
             </div>
         </div>
-<?php
+    <?php
         $html  = ob_get_clean();
 
         set_transient('sorular_konusuyor_slider_html', $html, 86400);
@@ -771,3 +771,100 @@ add_action("section_yorumlar", function () {
 // Replace Woocommerce Pagination with bootstrap 4;
 remove_action('woocommerce_after_shop_loop', 'woocommerce_pagination', 10);
 add_action('woocommerce_after_shop_loop',  __NAMESPACE__ . '\\Core\\Bootstrap_Pagnition::bootstrap_pagination', 10, null);
+
+
+
+// Flush Transients from Admin bar
+function flush_transients_button()
+{
+    global $wp_admin_bar;
+
+    // If User isnt even logged in or if admin bar is disabled
+    if (!is_user_logged_in() || !is_admin_bar_showing())
+        return false;
+
+    // If user doesnt have the perms
+    if (function_exists('current_user_can') && false == current_user_can('activate_plugins'))
+        return false;
+
+    // Button args
+    $wp_admin_bar->add_menu(array(
+        'parent' => '',
+        'id' => 'flush_transients_button',
+        'title' => __('Önbellek sil'),
+        'meta' => array('title' => __('Bütün önbellekleri siler.')),
+        'href' => wp_nonce_url(admin_url('index.php?action=deltransientpage'), 'flush_transients_button')
+    ));
+}
+add_action('admin_bar_menu', __NAMESPACE__ . '\\flush_transients_button', 35);
+
+
+
+
+// Flush Transients
+function flush_transients()
+{
+    global $_wp_using_ext_object_cache;
+
+    // Check Perms
+    if (function_exists('current_user_can') && false == current_user_can('activate_plugins'))
+        return false;
+
+    // Flush Cache
+    if (isset($_GET['action']) && $_GET['action'] == 'deltransientpage' && (isset($_GET['_wpnonce']) ? wp_verify_nonce($_REQUEST['_wpnonce'], 'flush_transients_button') : false)) {
+
+        // Get all Transients
+        global $wpdb;
+        $sql = "SELECT `option_name` AS `name`, `option_value` AS `value`
+    			FROM  $wpdb->options
+            	WHERE `option_name` LIKE '%transient_%'
+            	ORDER BY `option_name`";
+        $get_all_site_transients = $wpdb->get_results($sql);
+
+        // Delete all Transients
+        foreach ($get_all_site_transients as $transient) {
+            $transient_name = str_replace(array('_transient_timeout_', '_transient_', '_site_transient_', '_site_transient_timeout_'), '', $transient->name);
+            delete_transient($transient_name);
+        }
+
+        // If using object cache
+        if ($_wp_using_ext_object_cache) {
+            // DELETE SPECIFIC CUSTOM TRANSIENTS - using a custom array
+            /*foreach ($transients_custom_array as $transients_custom) {
+	    		wp_cache_delete($transients_custom);
+	    	}*/
+            wp_cache_flush();
+        }
+
+        wp_redirect(admin_url() . '?cache_type=transients&cache_status=flushed');
+        die();
+    } else {
+        wp_redirect(admin_url() . '?cache_type=transients&cache_status=not_flushed');
+        die();
+    }
+}
+if (isset($_GET['action']) && $_GET['action'] == 'deltransientpage') {
+    add_action('admin_init', __NAMESPACE__ . '\\flush_transients');
+}
+
+function flush_display_admin_msg()
+{
+    if (isset($_GET['cache_status']) == '')
+        return;
+
+    // Display Msg
+    if ($_GET['cache_status'] == 'flushed') { ?>
+        <div class="updated">
+            <p><?php echo ucwords($_GET['cache_type']); ?> önbellek silme işlemi başarıyla tamamlandı.</p>
+        </div>
+    <?php
+    } elseif ($_GET['cache_status'] == 'not_flushed') { ?>
+        <div class="error">
+            <p><?php echo ucwords($_GET['cache_type']); ?> önbellek silme işlemi başarısız oldu.</p>
+        </div>
+<?php
+    }
+}
+add_action('admin_notices', __NAMESPACE__ . '\\flush_display_admin_msg');
+
+?>
