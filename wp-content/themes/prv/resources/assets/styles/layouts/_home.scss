@@ -117,10 +117,10 @@ section.home-slider {
   #home-page-slider {
     .carousel-inner {
       overflow: hidden;
-    }
 
-    @include media-breakpoint-between(lg, xlg) {
-      overflow: visible;
+      @include media-breakpoint-between(lg, xlg) {
+        overflow: visible;
+      }
     }
 
     .carousel-indicators {
@@ -883,7 +883,7 @@ section.yorumlar {
 }
 
 section.neden-sorular-konusuyor {
-  min-height: 68.75rem;
+  height: 68.75rem;
   background-color: #fff9ef;
   background-image: url("../images/sorular-konusuyor-background-1.svg"),
     url("../images/sorular-konusuyor-background-2.svg"),
@@ -894,6 +894,11 @@ section.neden-sorular-konusuyor {
     );
   background-position: right top, left bottom;
   background-repeat: no-repeat, no-repeat;
+
+  @include media-breakpoint-between(xs, sm) {
+    height: unset;
+    min-height: 68.75rem;
+  }
 
   .neden-sorular-konusuyor {
     &__title {

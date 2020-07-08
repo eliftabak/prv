@@ -118,6 +118,12 @@ class DealerList
   public function bayi_data()
   {
 
+    $page = is_page("satis-noktalari");
+
+    if (!$page) {
+      return;
+    }
+
     $query_args = array(
       'post_type'  => 'bayi_listesi',
       'meta_query' => array(
