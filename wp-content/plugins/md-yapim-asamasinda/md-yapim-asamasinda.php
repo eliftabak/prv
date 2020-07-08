@@ -17,7 +17,7 @@ function maintenance_mode()
 {
 
 	global $pagenow;
-	$is_allowed_ip = ('78.189.114.197' === $_SERVER['REMOTE_ADDR']) ? true : false;
+	$is_allowed_ip = ( ('78.189.114.197' === $_SERVER['REMOTE_ADDR']) || ('127.0.0.1' === $_SERVER['REMOTE_ADDR']) ) ? true : false;
 
 	if ($pagenow !== 'wp-login.php' && !current_user_can('manage_options') && !is_admin() && !$is_allowed_ip) {
 		header('HTTP/1.1 Service Unavailable', true, 503);
