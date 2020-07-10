@@ -15,6 +15,35 @@ add_action("woocommerce_share", function () {
     echo do_shortcode(' [social_share] ');
 });
 
+add_action("related_posts", function ($post) {
+
+
+
+    $related = new \WP_Query(
+        array(
+            'category_in'   => wp_get_post_categories($post->ID),
+            'posts_per_page' => 3,
+            'post_not_in'   => array($post->ID),
+            'orderby'        => 'rand',
+        )
+    );
+
+    if ($related->have_posts()) {
+        while ($related->have_posts()) {
+            $related->the_post();
+            $related_post = $related->post;
+            $html = '<div class="related-posts__item col-lg-4"><a href="' . get_permalink($related->post) . '">';
+            $html .= '<h5 class="related-posts__title mt-0">' .  $related_post->post_title . '</h5>';
+            $html .= wp_get_attachment_image(get_post_thumbnail_id($related_post->ID), 'medium', null, array(
+                'class' => 'related-posts__image',
+            ));
+            $html .= '</a></div>';
+            echo $html;
+        }
+        wp_reset_postdata();
+    }
+}, 10, 1);
+
 
 add_action('primary_nav_menu', function () {
 
@@ -866,5 +895,3 @@ function flush_display_admin_msg()
     }
 }
 add_action('admin_notices', __NAMESPACE__ . '\\flush_display_admin_msg');
-
-?>
