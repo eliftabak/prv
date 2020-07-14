@@ -221,7 +221,7 @@ add_filter('upload_mimes', function ($mimes) {
 
 add_filter('woocommerce_get_image_size_thumbnail', function ($size) {
     return array(
-        'width' => 300,
+        'width' => 280,
         'height' => 0,
         'crop' => 0,
     );
@@ -229,7 +229,7 @@ add_filter('woocommerce_get_image_size_thumbnail', function ($size) {
 
 add_filter('woocommerce_get_image_size_single', function ($size) {
     return array(
-        'width' => 569,
+        'width' => 836,
         'height' => 0,
         'crop' => 0,
     );

@@ -533,7 +533,7 @@ add_action("section_brans_denemeleri", function () {
             if (isset($data)) {
                 foreach ($data["products_inner"] as $product_id) {
                     //$title = get_the_title($product_id);
-                    $image = wp_get_attachment_image(get_post_thumbnail_id($product_id), "large");
+                    $image = wp_get_attachment_image(get_post_thumbnail_id($product_id), "woocommerce_medium");
                     $url = esc_url(get_permalink($product_id));
                     $html .= '<div class="col-6 col-sm-6 col-lg-3 text-center">';
                     $html .= '<div class="brans-denemeleri__book-picture">';
@@ -627,7 +627,7 @@ add_action("section_teke_tek", function () {
                 foreach ($data["products_inner"] as $product_id) {
                     //$title = get_the_title($product_id);
                     $margin = ($index % 2) === 0 ? "pt-lg-5" : "";
-                    $image = wp_get_attachment_image(get_post_thumbnail_id($product_id), 'large');
+                    $image = wp_get_attachment_image(get_post_thumbnail_id($product_id), 'woocommerce_medium');
                     $url = esc_url(get_permalink($product_id));
                     $html .= '<div class="col-6 col-sm-6 col-lg-6 ' . $margin . '">';
                     $html .= '<a class="teke-tek__book-picture" href="' . $url . '">';

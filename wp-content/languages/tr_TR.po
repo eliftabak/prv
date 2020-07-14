@@ -2,12 +2,12 @@
 # This file is distributed under the same license as the WordPress - 5.4.x - Development package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-06-21 01:12:44+0000\n"
+"PO-Revision-Date: 2020-07-09 14:00:02+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: GlotPress/3.0.0-alpha\n"
+"X-Generator: GlotPress/3.0.0-alpha.2\n"
 "Language: tr\n"
 "Project-Id-Version: WordPress - 5.4.x - Development\n"
 
@@ -16,7 +16,7 @@ msgctxt "Google Font Name and Variants"
 msgid "Noto Serif:400,400i,700,700i"
 msgstr "Noto Serif:400,400i,700,700i"
 
-#: wp-includes/comment-template.php:909
+#: wp-includes/comment-template.php:914
 msgctxt "Comment number declension: on or off"
 msgid "off"
 msgstr "off"
@@ -29,6 +29,16 @@ msgstr "tr"
 msgctxt "decline months names: on or off"
 msgid "off"
 msgstr "off"
+
+#. translators: If your word count is based on single characters (e.g. East
+#. Asian characters), enter 'characters_excluding_spaces' or
+#. 'characters_including_spaces'. Otherwise, enter 'words'. Do not translate
+#. into your own language.
+#: wp-includes/script-loader.php:1915 wp-includes/formatting.php:3888
+#: wp-includes/js/dist/editor.js:12766
+msgctxt "Word count type. Do not translate!"
+msgid "words"
+msgstr "words"
 
 #: wp-includes/script-loader.php:1645
 msgctxt "Open Sans font: on or off"
@@ -76,6 +86,10 @@ msgstr "."
 #: wp-includes/class-wp-locale.php:208
 msgid "number_format_decimal_point"
 msgstr ","
+
+#: wp-includes/comment-template.php:602
+msgid "Password protected"
+msgstr "Parola korumalı"
 
 #: wp-includes/rest-api.php:50
 msgid "Namespace must not start or end with a slash."
@@ -743,7 +757,7 @@ msgid "The post status %1$s is not registered, so it may not be reliable to chec
 msgstr "%1$s yazı durumu kayıtlı değil, yani bu durum için \"%2$s\" yeteneğinin sorgulanması pek güvenilir değil."
 
 #. translators: %s: Comment link.
-#: wp-includes/comment-template.php:975
+#: wp-includes/comment-template.php:980
 msgid "In reply to %s."
 msgstr "%s yorumuna yanıt olarak."
 
@@ -1832,7 +1846,7 @@ msgid "Original"
 msgstr "Orijinal"
 
 #. translators: Maximum number of words used in a comment excerpt.
-#: wp-includes/comment-template.php:601
+#: wp-includes/comment-template.php:606
 msgctxt "comment_excerpt_length"
 msgid "20"
 msgstr "20"
@@ -5438,7 +5452,7 @@ msgstr "[%1$s] Eylemi onayla: %2$s"
 msgid "Erase Personal Data"
 msgstr "Kişisel verileri sil"
 
-#: wp-includes/comment-template.php:2356
+#: wp-includes/comment-template.php:2361
 msgid "Save my name, email, and website in this browser for the next time I comment."
 msgstr "Bir dahaki sefere yorum yaptığımda kullanılmak üzere adımı, e-posta adresimi ve web site adresimi bu tarayıcıya kaydet."
 
@@ -9639,13 +9653,13 @@ msgid "1 result found. Use up and down arrow keys to navigate."
 msgstr "1 sonuç bulundu. Dolaşmak için yukarı ve aşağı okları kullanın."
 
 #. translators: %s: User name.
-#: wp-includes/comment-template.php:2407
+#: wp-includes/comment-template.php:2412
 msgid "Logged in as %s. Edit your profile."
 msgstr "%s olarak giriş yapıldı. Profilinizi düzenleyin."
 
 #. translators: 1: Edit user link, 2: Accessibility text, 3: User name, 4:
 #. Logout URL.
-#: wp-includes/comment-template.php:2404
+#: wp-includes/comment-template.php:2409
 msgid "<a href=\"%1$s\" aria-label=\"%2$s\">Logged in as %3$s</a>. <a href=\"%4$s\">Log out?</a>"
 msgstr "<a href=\"%1$s\" aria-label=\"%2$s\">%3$s olarak giriş yapıldı</a>. <a href=\"%4$s\">Çıkış yap?</a>"
 
@@ -9913,7 +9927,7 @@ msgstr "Daha fazla yardım mı lazım? <a href='%s'>Bizde mevcut</a>."
 
 #. translators: %s: get_trackback_url()
 #. translators: %s: get_the_author()
-#: wp-includes/comment-template.php:1176 wp-includes/author-template.php:70
+#: wp-includes/comment-template.php:1181 wp-includes/author-template.php:70
 msgid "Use %s instead if you do not want the value echoed."
 msgstr "Eğer değerin ekrana basılmasını istemiyorsanız %s kullanın."
 
@@ -10539,16 +10553,6 @@ msgstr "Enter tuşuna basılırken aşağıdaki biçimlendirme kısayolları de�
 #: wp-includes/class-wp-customize-nav-menus.php:1151
 msgid "Toggle section: %s"
 msgstr "Bölümü dönüştür: %s"
-
-#. translators: If your word count is based on single characters (e.g. East
-#. Asian characters), enter 'characters_excluding_spaces' or
-#. 'characters_including_spaces'. Otherwise, enter 'words'. Do not translate
-#. into your own language.
-#: wp-includes/script-loader.php:1915 wp-includes/formatting.php:3888
-#: wp-includes/js/dist/editor.js:12766
-msgctxt "Word count type. Do not translate!"
-msgid "words"
-msgstr "words"
 
 #. translators: 1: Title of a menu item, 2: Type of a menu item.
 #: wp-includes/customize/class-wp-customize-nav-menu-item-control.php:83
@@ -11368,7 +11372,7 @@ msgid "F j, Y @ H:i:s"
 msgstr "j F Y @ H:i:s"
 
 #. translators: %s: Post title.
-#: wp-includes/comment-template.php:1558
+#: wp-includes/comment-template.php:1563
 msgid "1 Comment<span class=\"screen-reader-text\"> on %s</span>"
 msgstr "<span class=\"screen-reader-text\">%s için</span> bir yorum"
 
@@ -11378,7 +11382,7 @@ msgid "Link Text"
 msgstr "Bağlantı metni"
 
 #. translators: 1: Number of comments, 2: Post title.
-#: wp-includes/comment-template.php:1563
+#: wp-includes/comment-template.php:1568
 msgid "%1$s Comment<span class=\"screen-reader-text\"> on %2$s</span>"
 msgid_plural "%1$s Comments<span class=\"screen-reader-text\"> on %2$s</span>"
 msgstr[0] "<span class=\"screen-reader-text\">%2$s için</span> %1$s yorum"
@@ -11395,12 +11399,12 @@ msgid "Select Year"
 msgstr "Yıl seçin"
 
 #. translators: %s: Post title.
-#: wp-includes/comment-template.php:1569
+#: wp-includes/comment-template.php:1574
 msgid "Comments Off<span class=\"screen-reader-text\"> on %s</span>"
 msgstr "<span class=\"screen-reader-text\">%s için</span> yorumlar kapalı"
 
 #. translators: %s: Post title.
-#: wp-includes/comment-template.php:1553
+#: wp-includes/comment-template.php:1558
 msgid "No Comments<span class=\"screen-reader-text\"> on %s</span>"
 msgstr "Yorum yok<span class=\"screen-reader-text\"> %s</span>"
 
@@ -11687,7 +11691,7 @@ msgid "Add to Dictionary"
 msgstr "Sözlüğe ekle"
 
 #. translators: Comment reply button text. %s: Comment author name.
-#: wp-includes/comment-template.php:1652
+#: wp-includes/comment-template.php:1657
 msgid "Reply to %s"
 msgstr "Cevap %s"
 
@@ -14173,7 +14177,7 @@ msgid "Error establishing a database connection"
 msgstr "Veritabanı bağlantısı kurulurken hata oluştu"
 
 #. translators: %s: Number of comments.
-#: wp-includes/comment-template.php:902 wp-includes/comment-template.php:917
+#: wp-includes/comment-template.php:907 wp-includes/comment-template.php:922
 msgid "%s Comment"
 msgid_plural "%s Comments"
 msgstr[0] "%s yorum"
@@ -14778,7 +14782,7 @@ msgid "<strong>Error</strong>: This username is invalid because it uses illegal 
 msgstr "<strong>Hata</strong>: Bu kullanıcı adı kabul edilmeyen karakterler içerdiği için geçerli değil.  Lütfen geçerli bir kullanıcı adı girin."
 
 #. translators: %s: Asterisk symbol (*).
-#: wp-includes/comment-template.php:2368
+#: wp-includes/comment-template.php:2373
 msgid "Required fields are marked %s"
 msgstr "Gerekli alanlar %s ile işaretlenmişlerdir"
 
@@ -14937,7 +14941,7 @@ msgstr "Belirtilen terim için isim kökte zaten var."
 msgid "An error occurred adding you to this site. Back to the <a href=\"%s\">homepage</a>."
 msgstr "Sizi bu siteye eklerken bir hata oluştu. <a href=\"%s\">Ana sayfaya</a> geri dönüş."
 
-#: wp-includes/comment-template.php:2417
+#: wp-includes/comment-template.php:2422
 msgid "Your email address will not be published."
 msgstr "E-posta hesabınız yayımlanmayacak."
 
@@ -16280,7 +16284,7 @@ msgstr "Yeni e-posta gözükmüyor."
 msgid "Oops: %s"
 msgstr "Eyvah: %s"
 
-#: wp-includes/comment-template.php:2435
+#: wp-includes/comment-template.php:2440
 msgid "Cancel reply"
 msgstr "Cevabı iptal et"
 
@@ -16288,7 +16292,7 @@ msgstr "Cevabı iptal et"
 msgid "Automatically add paragraphs"
 msgstr "Otomatik paragraf ekle"
 
-#: wp-includes/comment-template.php:2436
+#: wp-includes/comment-template.php:2441
 msgid "Post Comment"
 msgstr "Yorum gönder"
 
@@ -17132,7 +17136,7 @@ msgstr "HTML"
 msgid "Separate tags with commas"
 msgstr "Etiketleri virgül ile ayırın"
 
-#: wp-includes/comment-template.php:2335
+#: wp-includes/comment-template.php:2340
 msgid "Website"
 msgstr "İnternet sitesi"
 
@@ -17167,11 +17171,11 @@ msgstr "Başlık:"
 msgid "Comments on %s"
 msgstr "%s üzerine yapılmış yorumlar"
 
-#: wp-includes/comment-template.php:1578
+#: wp-includes/comment-template.php:1583
 msgid "Enter your password to view comments."
 msgstr "Yorumları görmek için parolanızı girin."
 
-#: wp-includes/comment-template.php:932
+#: wp-includes/comment-template.php:937
 msgid "1 Comment"
 msgstr "1 Yorum"
 
@@ -17181,7 +17185,7 @@ msgid "Edit This"
 msgstr "Düzenle"
 
 #. translators: %s: Login URL.
-#: wp-includes/comment-template.php:2395
+#: wp-includes/comment-template.php:2400
 msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
 msgstr "Yorum yapabilmek için <a href=\"%s\">giriş yapmalısınız</a>."
 
@@ -17217,20 +17221,20 @@ msgstr "Kategori yok"
 msgid "Feed for all posts filed under %s"
 msgstr "%s kategorisi altındaki tüm yazılar için besleme"
 
-#: wp-includes/comment-template.php:1653
+#: wp-includes/comment-template.php:1658
 msgid "Log in to Reply"
 msgstr "Cevaplamak için giriş yapın"
 
-#: wp-includes/comment-template.php:1791
+#: wp-includes/comment-template.php:1796
 msgid "Log in to leave a Comment"
 msgstr "Yorum yapmak için giriş yapın"
 
-#: wp-includes/comment-template.php:1863
+#: wp-includes/comment-template.php:1868
 msgid "Click here to cancel reply."
 msgstr "Cevabı iptal etmek için tıklayın."
 
 #. translators: %s: Author of the comment being replied to.
-#: wp-includes/comment-template.php:1962 wp-includes/comment-template.php:2430
+#: wp-includes/comment-template.php:1967 wp-includes/comment-template.php:2435
 msgid "Leave a Reply to %s"
 msgstr "%s için bir cevap yazın"
 
@@ -17272,7 +17276,7 @@ msgstr "Site başlığı"
 msgid "My Sites"
 msgstr "Sitelerim"
 
-#: wp-login.php:1088 wp-includes/comment-template.php:2321
+#: wp-login.php:1088 wp-includes/comment-template.php:2326
 msgid "Email"
 msgstr "E-posta"
 
@@ -17311,7 +17315,7 @@ msgstr "Eklenti:"
 msgid "Edit Category"
 msgstr "Kategoriyi düzenle"
 
-#: wp-includes/comment-template.php:930
+#: wp-includes/comment-template.php:935
 msgid "No Comments"
 msgstr "Yorum yapılmamış"
 
@@ -17335,11 +17339,11 @@ msgstr "Tarih biçimi"
 msgid "Time Format"
 msgstr "Zaman biçimi"
 
-#: wp-includes/comment-template.php:1790
+#: wp-includes/comment-template.php:1795
 msgid "Leave a Comment"
 msgstr "Yorum yapın"
 
-#: wp-includes/comment-template.php:1958 wp-includes/comment-template.php:2428
+#: wp-includes/comment-template.php:1963 wp-includes/comment-template.php:2433
 msgid "Leave a Reply"
 msgstr "Bir cevap yazın"
 
@@ -17423,7 +17427,7 @@ msgstr "Yazar"
 msgid "URL"
 msgstr "URL"
 
-#: wp-includes/comment-template.php:1111 wp-includes/comment-template.php:2387
+#: wp-includes/comment-template.php:1116 wp-includes/comment-template.php:2392
 msgctxt "noun"
 msgid "Comment"
 msgstr "Yorum"
@@ -17477,7 +17481,7 @@ msgstr "Hedef"
 msgid "Advanced"
 msgstr "Gelişmiş"
 
-#: wp-includes/comment-template.php:2308
+#: wp-includes/comment-template.php:2313
 msgid "Name"
 msgstr "İsim"
 
@@ -17536,7 +17540,7 @@ msgstr "Vazgeç"
 msgid "Content"
 msgstr "İçerik"
 
-#: wp-includes/script-loader.php:1271 wp-includes/comment-template.php:1650
+#: wp-includes/script-loader.php:1271 wp-includes/comment-template.php:1655
 msgid "Reply"
 msgstr "Cevapla"
 
@@ -17807,7 +17811,7 @@ msgstr "Kategoriyi güncelle"
 msgid "Add Link"
 msgstr "Bağlantı ekle"
 
-#: wp-includes/comment-template.php:1114
+#: wp-includes/comment-template.php:1119
 msgid "Trackback"
 msgstr "Geri izleme"
 
@@ -17857,7 +17861,7 @@ msgstr "Bilinmeyen besleme"
 msgid "Header"
 msgstr "Üst kısım"
 
-#: wp-includes/comment-template.php:1117
+#: wp-includes/comment-template.php:1122
 msgid "Pingback"
 msgstr "Geri bildirim"
 
