@@ -475,7 +475,7 @@ add_action('cmb2_admin_init', function () {
         'type'             => 'text',
     ));
 
-    global $dealer_list;
+    global $sell_points;
 
     $cmb->add_field(array(
         'name'             => 'İl',
@@ -483,7 +483,7 @@ add_action('cmb2_admin_init', function () {
         'id'               => 'prv_dealer_shop_city',
         'type'             => 'select',
         'show_option_none' => false,
-        'options' => $dealer_list->city_data()
+        'options' => $sell_points->city_data()
     ));
 
     $cmb->add_field(array(
@@ -492,7 +492,7 @@ add_action('cmb2_admin_init', function () {
         'id'               => 'prv_dealer_shop_district',
         'type'             => 'select',
         'show_option_none' => false,
-        'options' => $dealer_list->district_data()
+        'options' => $sell_points->district_data()
     ));
 
 
@@ -509,6 +509,14 @@ add_action('cmb2_admin_init', function () {
         'id'               => 'prv_delar_shop_longitude',
         'type'             => 'text',
     ));
+
+    $cmb->add_field(array(
+        'name'             => 'Hakkında',
+        'desc'             => 'Mağaza bilgisini giriniz...',
+        'id'               => 'prv_delar_shop_about',
+        'type'             => 'textarea',
+    ));
+
 
     $cmb->add_field(array(
         'name'             => 'Adres',

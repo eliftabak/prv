@@ -1,9 +1,10 @@
 .bayi-map {
   height: 500px;
+  background: #efefef;
 }
 
 .bayi-pictures {
-  padding: 0.6rem;
+  padding: 1.5rem;
   background-color: #f5fbff;
   height: 100%;
 
@@ -21,9 +22,19 @@
 
     figure {
       margin: 0 5px 5px 0;
-      width: 175px;
-      height: 176px;
+      width: 169px;
+      height: 170px;
     }
+  }
+}
+
+.bayi-info {
+  padding: 1.5rem;
+  background-color: #f5fbff;
+  height: auto;
+
+  &__content ul {
+    list-style-type: none !important;
   }
 }
 

@@ -1,25 +1,22 @@
 <?php
 
-class DealerList
+class SellPoints
 {
-  public $js_name = "delar_list_admin_js";
+  private static $instance = null;
+  public $js_name = "sell_points_admin_js";
   private $city_path = "/wp-json/prv_login/v1/cities";
   private $district_path = "/wp-json/prv_login/v1/districts";
-  private $maps_api = "AIzaSyCczNQVFBJL6MH6mXVzPEAwY0_Vwbn5iMQ";
-  private static $instance = null;
-
-  public static function getInstance()
-  {
-    if (self::$instance == null) {
-      self::$instance = new DealerList();
-    }
-
-    return self::$instance;
-  }
-
   public function __construct()
   {
     $this->register_wordpress_actions();
+  }
+  public static function getInstance()
+  {
+    if (self::$instance == null) {
+      self::$instance = new SellPoints();
+    }
+
+    return self::$instance;
   }
 
   private function register_wordpress_actions()
@@ -41,24 +38,28 @@ class DealerList
     }
 
     //Scripts
-    wp_enqueue_script('pollyfill', '//polyfill.io/v3/polyfill.min.js?features=default', array(), false, false);
-    wp_enqueue_script('google_map', "//maps.googleapis.com/maps/api/js?key={$this->maps_api}&libraries=&v=weekly", array(), false, false);
+    wp_enqueue_script('photo-gallery-js', WPMU_PLUGIN_URL . '/selling-points/vendor/svg-map/js/photoGallery.js', array("jquery"), [], false);
+    wp_enqueue_script('svg-map-js', WPMU_PLUGIN_URL . '/selling-points/vendor/svg-map/js/mapLoader.js', array("jquery"), [], false);
     wp_enqueue_script('photoswipe-js', WP_PLUGIN_URL . '/woocommerce/assets/js/photoswipe/photoswipe.min.js', array(), false, false);
     wp_enqueue_script('photoswipe-ui-default-js', WP_PLUGIN_URL . '/woocommerce/assets/js/photoswipe/photoswipe-ui-default.min.js', array(), false, false);
-    wp_enqueue_script('bayi_script', WPMU_PLUGIN_URL . '/dealer-list/frontend/script.js', array(), false, false);
+    wp_enqueue_script('bayi_script', WPMU_PLUGIN_URL . '/selling-points/frontend/js/script.js', array('jquery'), '1.0', true);
     wp_localize_script(
       'bayi_script',
       'php_vars',
       array(
+        'WPMU_PLUGIN_URL' => WPMU_PLUGIN_URL,
         'site_name' => home_url(),
         'data' => $this->bayi_data(),
         'district_path' => home_url() .  $this->district_path,
       ),
     );
 
+
     //Styles
+    wp_enqueue_style('svg-map-css',  WPMU_PLUGIN_URL . '/selling-points/vendor/svg-map/css/map.css', array(), false, false);
     wp_enqueue_style('photoswipe-css',  WP_PLUGIN_URL . '/woocommerce/assets/css/photoswipe/photoswipe.min.css', array(), false, false);
     wp_enqueue_style('photoswipe-ui-default-css',  WP_PLUGIN_URL . '/woocommerce/assets/css/photoswipe/default-skin/default-skin.min.css', array(), false, false);
+    wp_enqueue_style('main-css',  WPMU_PLUGIN_URL . '/selling-points/frontend/css/main.css', array(), false, false);
   }
 
   public function admin_scripts()
@@ -69,7 +70,7 @@ class DealerList
     if ($screen->base !== "post"  && $screen->post_type !== "bayi_listesi") {
       return;
     }
-    wp_register_script($this->js_name, WPMU_PLUGIN_URL . '/dealer-list/admin/script.js', array('jquery'), '1.0', true);
+    wp_register_script($this->js_name, WPMU_PLUGIN_URL . '/selling-points/admin/js/scripts.js', array('jquery'), '1.0', true);
     wp_enqueue_script($this->js_name);
     wp_localize_script(
       $this->js_name,
@@ -147,6 +148,14 @@ class DealerList
           'compare' => 'EXIST'
         ),
         array(
+          'key'   => 'prv_dealer_shop_city',
+          'compare' => 'EXIST'
+        ),
+        array(
+          'key'   => 'prv_dealer_shop_district',
+          'compare' => 'EXIST'
+        ),
+        array(
           'key'   => 'prv_delar_shop_full_adress',
           'compare' => 'EXIST'
         ),
@@ -165,12 +174,15 @@ class DealerList
         $meta = get_post_meta($query->post->ID);
         $item = array(
           'title' => $query->post->post_title,
-          'lat' => $meta['prv_delar_shop_latitude'],
-          'long' => $meta['prv_delar_shop_longitude'],
-          'adress' => $meta['prv_delar_shop_full_adress'],
-          'shop_phone' => $meta['prv_delar_shop_phone'],
-          'cell_phone' => $meta['prv_delar_shop_cell_phone'],
-          'pictures' => unserialize($meta['prv_delar_shop_pictures'][0]),
+          'city' => !empty($meta['prv_dealer_shop_city']) ? $meta['prv_dealer_shop_city'] : "",
+          'district' => !empty($meta['prv_dealer_shop_district']) ? $meta['prv_dealer_shop_district'] : "",
+          'lat' => !empty($meta['prv_delar_shop_latitude']) ? $meta['prv_delar_shop_latitude'] : "",
+          'long' => !empty($meta['prv_delar_shop_longitude']) ? $meta['prv_delar_shop_longitude'] : "",
+          'adress' => !empty($meta['prv_delar_shop_full_adress']) ? $meta['prv_delar_shop_full_adress'] : "",
+          'about' => !empty($meta['prv_delar_shop_about']) ? $meta['prv_delar_shop_about'] : "",
+          'shop_phone' => !empty($meta['prv_delar_shop_phone']) ? $meta['prv_delar_shop_phone'] : "",
+          'cell_phone' => !empty($meta['prv_delar_shop_cell_phone']) ? $meta['prv_delar_shop_cell_phone'] : "",
+          'pictures' => !empty(unserialize($meta['prv_delar_shop_pictures'][0])) ? unserialize($meta['prv_delar_shop_pictures'][0]) : "",
         );
         array_push($data, $item);
         $index++;
@@ -186,42 +198,8 @@ class DealerList
     ob_start()
 ?>
     <div class="row no-gutters">
-      <div class="col-lg-8">
-        <div class="container-fluid pt-3">
-          <div class="row">
-            <div class="col-lg-6">
-              <div class="form-group">
-                <label for="dealer-city">İl</label>
-                <?php
-                woocommerce_form_field('dealer-city', array(
-                  'type'        => 'select',
-                  'required'    => true,
-                  'class' => ["akilli-tahta-uygulamalari__woocommerce-forms"],
-                  'input_class' => ["form-control form-control-lg"],
-                  'options' => $this->city_data(),
-                ));
-                ?>
-                <div class="invalid-feedback">Bu alan doldurulması zorunludur.</div>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="form-group">
-                <label for="dealer-district">İlçe</label>
-                <?php
-                woocommerce_form_field('dealer-district', array(
-                  'type'        => 'select',
-                  'class' => ["akilli-tahta-uygulamalari__woocommerce-forms"],
-                  'select_class' => ["form-control form-control-lg"],
-                  'placeholder' => 'Bir seçenek belirleyin..',
-                  'options' => array('' => 'İlçe seçiniz...')
-                ));
-                ?>
-                <div class="invalid-feedback">Bu alan doldurulması zorunludur.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div id="bayi-map" class="bayi-map"></div>
+      <div class="bayi-container col-lg-12">
+        <div id="bayi-map" class="bayi-map h-100 w-100 pt-lg-5 pb-lg-5 text-center"></div>
         <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
           <div class="pswp__bg"></div>
           <div class="pswp__scroll-wrap">
@@ -259,7 +237,8 @@ class DealerList
           </div>
         </div>
       </div>
-      <div class="col-lg-4">
+      <div class="col-lg-6 h-100">
+        <div class="bayi-info pt-3" style="display: none;"></div>
         <div class="bayi-pictures pt-3" style="display: none;"></div>
       </div>
     </div>
@@ -268,4 +247,4 @@ class DealerList
   }
 }
 
-//$dealer_list = DealerList::getInstance();
+$sell_points = SellPoints::getInstance();

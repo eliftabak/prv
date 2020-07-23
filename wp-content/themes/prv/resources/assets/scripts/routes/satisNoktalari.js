@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import { generateMap } from '../util/satisNoktalariMaps';
+//import { generateMap } from '../util/satisNoktalariMaps';
 
 export default {
   init() {
@@ -22,25 +22,25 @@ export default {
     //  ],
     //},
     //];
-
-    let data = php_vars.data;
-    const districtPath = php_vars.district_path;
-    const siteName = php_vars.site_name;
-
-
-    data = data.map((obj) => {
-      return ({
-        'dealerName': obj.title,
-        'dealerShopPhone': obj.shop_phone[0],
-        'dealerMobilePhone': obj.cell_phone[0],
-        'dealerAdress': obj.adress[0],
-        'dealerLat': Number(obj.lat[0]),
-        'dealerLong': Number(obj.long[0]),
-        'images': Object.values(obj.pictures),
-      })
-    });
-
-    generateMap(data, districtPath,siteName);
+    //
+    //let data = php_vars.data;
+    //const districtPath = php_vars.district_path;
+    //const siteName = php_vars.site_name;
+    //
+    //
+    //data = data.map((obj) => {
+    //  return ({
+    //    'dealerName': obj.title,
+    //    'dealerShopPhone': obj.shop_phone[0],
+    //    'dealerMobilePhone': obj.cell_phone[0],
+    //    'dealerAdress': obj.adress[0],
+    //    'dealerLat': Number(obj.lat[0]),
+    //    'dealerLong': Number(obj.long[0]),
+    //    'images': Object.values(obj.pictures),
+    //  })
+    //});
+    //
+    //generateMap(data, districtPath,siteName);
 
   },
   finalize() {

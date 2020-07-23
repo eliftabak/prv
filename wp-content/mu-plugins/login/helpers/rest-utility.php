@@ -71,8 +71,11 @@ class RestRoutes
   {
 
     $city_id = $request->get_param("city");
+    $district_name = $request->get_param("name");
 
-    if (!empty($city_id)) {
+    if (!empty($city_id) && !empty($district_name)) {
+      return $this->get_districts_by_name($district_name, $city_id);
+    } elseif (!empty($city_id)) {
       return $this->get_districts_by_city_id($city_id);
     } else {
       return $this->get_all_districts();
@@ -85,7 +88,7 @@ class RestRoutes
 
     $query = "SELECT * FROM {$this->db->city_table_name} ORDER BY name ASC";
 
-    $results  = $this->wpdb->get_results($query,ARRAY_A);
+    $results  = $this->wpdb->get_results($query, ARRAY_A);
 
     if (empty($results)) {
       return null;
@@ -120,10 +123,25 @@ class RestRoutes
     return $results;
   }
 
+
+  private function get_districts_by_name($district_name, $city_id)
+  {
+    $query = "SELECT * FROM {$this->db->district_table_name} WHERE name={$district_name} AND city_id={$city_id} ORDER BY name ASC";
+
+    $results  = $this->wpdb->get_results($query, ARRAY_A);
+
+    if (empty($results)) {
+      return null;
+    }
+    return $results;
+  }
+
+
+
   private function get_all_schools()
   {
 
-    $query ="SELECT * FROM {$this->db->school_table_name} ORDER BY name ASC";
+    $query = "SELECT * FROM {$this->db->school_table_name} ORDER BY name ASC";
 
     $results  = $this->wpdb->get_results($query, ARRAY_A);
 

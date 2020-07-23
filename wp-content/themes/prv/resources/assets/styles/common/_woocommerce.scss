@@ -10,6 +10,8 @@
     padding: 10px 25px 10px 25px;
     border-radius: 21px;
     margin-bottom: 50px;
+    position: relative;
+    z-index: 999;
 
     @include media-breakpoint-between(xs, sm) {
       width: 80%;
