@@ -47,14 +47,14 @@ define('DB_COLLATE', '');
  *
  * @since 2.6.0
  */
-define('AUTH_KEY',         'eşsiz karakter kümenizi buraya yerleştirin');
-define('SECURE_AUTH_KEY',  'eşsiz karakter kümenizi buraya yerleştirin');
-define('LOGGED_IN_KEY',    'eşsiz karakter kümenizi buraya yerleştirin');
-define('NONCE_KEY',        'eşsiz karakter kümenizi buraya yerleştirin');
-define('AUTH_SALT',        'eşsiz karakter kümenizi buraya yerleştirin');
-define('SECURE_AUTH_SALT', 'eşsiz karakter kümenizi buraya yerleştirin');
-define('LOGGED_IN_SALT',   'eşsiz karakter kümenizi buraya yerleştirin');
-define('NONCE_SALT',       'eşsiz karakter kümenizi buraya yerleştirin');
+define('AUTH_KEY',         '1d,wRC/njm+>SH@c+O760nT+EJwAK0&|$Kv?v%$WVy 2iMcP)QR?~yitSPtE41)=');
+define('SECURE_AUTH_KEY',  '}6Fv[{|wDu3&Ssja8dXw5=5q)K|yeo8]%{FM{ :&d+!K4O0eRb#Aotbw9sS,9pjZ');
+define('LOGGED_IN_KEY',    'Bzm#&q|w[Tikxfg&Ihs2J|4)%g,:fS-^BF3XIw`):rj|lc:ju#:?s,B:5V4S-dDe');
+define('NONCE_KEY',        'ks.qoOB7S{ !y%zdxZ&!Mc24p%NahaM&26>v[OY4dF/HRCzZx[JuE49{|^i/Y~Ux');
+define('AUTH_SALT',        't36nsE|#Ftg~N*^MwP0EOuxiZ,dEzm(cm7hys Jt#iKl2CU;s5pq4=-GH^& Hdl,');
+define('SECURE_AUTH_SALT', 'T0obZ{:Uj:-l|Q<sjF^%M+}&`EK,R,!9ZZobQJcYsv|^d4G}XL5ZfO[KWmX,9-Zr');
+define('LOGGED_IN_SALT',   '9q;?[|2Uo47|iQC#v[//ci9.=Y.*L=,H0+TQ4+<Fv44toW)Tyk:ze|G%D3sL(4~_');
+define('NONCE_SALT',       '7u:+n}!O+`Nkotx65BZ/?-_-J%ADfBhc ;ZFDPoxk6v3q9v}~1wdXx!8z2[wgE1c');
 /**#@-*/
 
 /**
