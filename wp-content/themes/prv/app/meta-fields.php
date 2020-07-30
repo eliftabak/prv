@@ -460,12 +460,12 @@ add_action('cmb2_admin_init', function () {
 
 
 
-    $cmb->add_field(array(
-        'name'             => 'Mağaza tel',
-        'desc'             => 'Mağaza telefon numarası giriniz.',
-        'id'               => 'prv_delar_shop_phone',
-        'type'             => 'text',
-    ));
+    //$cmb->add_field(array(
+    //    'name'             => 'Mağaza tel',
+    //    'desc'             => 'Mağaza telefon numarası giriniz.',
+    //    'id'               => 'prv_delar_shop_phone',
+    //    'type'             => 'text',
+    //));
 
 
     $cmb->add_field(array(

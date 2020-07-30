@@ -129,6 +129,7 @@ class SellPoints
 
     $query_args = array(
       'post_type'  => 'bayi_listesi',
+      'posts_per_page' => -1,
       'meta_query' => array(
         'relation' => 'OR',
         array(
@@ -180,9 +181,8 @@ class SellPoints
           'long' => !empty($meta['prv_delar_shop_longitude']) ? $meta['prv_delar_shop_longitude'] : "",
           'adress' => !empty($meta['prv_delar_shop_full_adress']) ? $meta['prv_delar_shop_full_adress'] : "",
           'about' => !empty($meta['prv_delar_shop_about']) ? $meta['prv_delar_shop_about'] : "",
-          'shop_phone' => !empty($meta['prv_delar_shop_phone']) ? $meta['prv_delar_shop_phone'] : "",
           'cell_phone' => !empty($meta['prv_delar_shop_cell_phone']) ? $meta['prv_delar_shop_cell_phone'] : "",
-          'pictures' => !empty(unserialize($meta['prv_delar_shop_pictures'][0])) ? unserialize($meta['prv_delar_shop_pictures'][0]) : "",
+          'pictures' => !empty(isset($meta['prv_delar_shop_pictures'][0])) ? unserialize($meta['prv_delar_shop_pictures'][0]) : "",
         );
         array_push($data, $item);
         $index++;

@@ -218,10 +218,6 @@ const infoGenerator = (data) => `
 <ul>
 <li><a href="tel:${data.cell_phone[0]}">${data.cell_phone[0]}</a></li>
 </ul>
-<h6><i class="fa fa-phone pr-2" aria-hidden="true"></i>Mağaza</h6>
-<ul>
-<li><a href="tel:${data.shop_phone[0]}">${data.shop_phone[0]}</a></li>
-</ul>
 <h6><i class="fa fa-location-arrow pr-2" aria-hidden="true"></i>Adres</h6>
 <ul>
 <li><p>${data.adress}</p></li>
