@@ -39,25 +39,33 @@ $home = App::home_url_with_slash();
           alt="{{ get_bloginfo('name', 'display') }}" width="276" height="auto">
       </a>
       <div class="row">
-        <div class="col-6">
+        <div class="col-8">
           <div class="row pt-5 no-gutters">
             @php dynamic_sidebar('sidebar-footer-1') @endphp
             @php dynamic_sidebar('sidebar-footer-2') @endphp
             @php dynamic_sidebar('sidebar-footer-3') @endphp
+            @php dynamic_sidebar('sidebar-footer-5') @endphp
+            @php dynamic_sidebar('sidebar-footer-6') @endphp
+            @php dynamic_sidebar('sidebar-footer-7') @endphp
           </div>
         </div>
-        <div class="col-6 pt-5">
-          <div class="row pt-lg-5 no-gutters">
+        <div class="col-4">
+          <div class="row no-gutters">
             @php dynamic_sidebar('sidebar-footer-4') @endphp
           </div>
         </div>
       </div>
     </div>
+
     <section>
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-12">
-            <p>Copyright 2019 Pruva Akademi | All Rights Reserved | Web Tasarım Hexagon Design</p>
+      <div class="container-fluid pt-lg-5">
+        <div class="row pt-lg-5 ">
+          <div class="col-12 pt-lg-5 text-center">
+            <p class="d-inline" style="
+            color: #929292;
+        ">Copyright 2020 Pruva Akademi | Tüm Hakları Saklıdır | <a style="
+    color: inherit;
+" href="http://hexagondijital.com" target="_blank" rel="follow">Hexagon Dijital Premium</a></p>
           </div>
         </div>
       </div>

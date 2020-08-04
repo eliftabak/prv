@@ -17,10 +17,10 @@
               class="bold">Tek</span>
             Soru
           </div>
-          <div class="teke-tek__book-desc">When it comes to software design, animation is alimitless way to make digital
+          <div class="teke-tek__book-desc">Türkiye'nin İlk Beceri Temelli Tam Sayfa Soru Bankası
           </div>
           <div class="pt-5">
-            <a name="" id="" class="teke-tek_book-button btn btn-primary btn-lg rounded-pill pr-5 pl-5" href="teke-tek/"
+            <a name="" id="" class="teke-tek_book-button btn btn-primary btn-lg rounded-pill pr-5 pl-5" href="#"
               role="button">DETAY</a>
           </div>
         </div>

@@ -10,15 +10,13 @@ $home = App::home_url_with_slash();
           <div class="col-lg-12">
             <div class="neden-sorular-konusuyor__left-conent">
               <h1 class="neden-sorular-konusuyor__title p-0">Neden</h1>
-              <h2 class="neden-sorular-konusuyor__subtitle p-0">Sorular konuşuyor?</h2>
-              <p class="neden-sorular-konusuyor__description">Soruların derecelendirme sistemi çoğunlukla kullanılan bir
-                metottur.
-                Yardımcı kaynaklarımızın
-                kullandıkları
-                yöntemleri dikkate aldığımızda ihtiyaca göre genel olarak 2 farklı metot görürüz</p>
+              <h2 class="neden-sorular-konusuyor__subtitle p-0">Sorular Konuşuyor?</h2>
+              <p class="neden-sorular-konusuyor__description">Sorular Konuşuyor Serisinin özenle hazırlanmış çok özel
+                sistemini incelemek ve tüm detayları öğrenmek için bu makaleyi okuyabilir veya aşağıdaki butona
+                tıklayarak izleyebilirsiniz.</p>
               <a name="" id=""
-                class="btn btn-primary btn-lg neden-sorular-konusuyor__button pl-5 pr-5 mt-5 rounded-pill"
-                href="sorular-konusuyor/" role="button">Detay</a>
+                class="btn btn-primary btn-lg neden-sorular-konusuyor__button pl-5 pr-5 mt-5 rounded-pill" href="#"
+                role="button">Detay</a>
             </div>
           </div>
           <div class="col-lg-12 pt-5">

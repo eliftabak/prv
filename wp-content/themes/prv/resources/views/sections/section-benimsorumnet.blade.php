@@ -24,7 +24,7 @@ $home = App::home_url_with_slash();
               <img class="d-block w-100 "
                 data-src="{{$home}}wp-content/themes/prv/resources/assets/images/benimsorum.net-slayt-2.jpg">
               <div class="carousel-caption d-none d-md-block">
-                <h2 class="pb-5">Benim sorumda .Net Diyorsanız</h2>
+                <h2 class="pb-5">Benim sorum da .Net Diyorsanız</h2>
               </div>
             </div>
             <div class="slider__item carousel-item">
@@ -48,12 +48,10 @@ $home = App::home_url_with_slash();
       <div class="col-lg-6 vmx-auto p-5">
         <div class="content text-dark">
           <h1 class="text-primary">Değerli Öğretmenlerimiz,</h1>
-          <p class="pt-3 pt-lg-5">BenimSorum.Net'e Hoşgeldiniz!</p>
-          <p class="w-75">Pruva Akademi’nin ciddi gayretlerle ve özenle hazırlanmış sorularını örnek üniteler linkimize
-            tıklayıp
-            inceleyebilirsiniz.</p>
+          <p class="w-75">Yeni Nesil soruları seviyor, yazıyor ve siz de BenimSorum.Net diyorsanız hemen tıklayın ve
+            örnek sorularınızı gönderin.</p>
           <a id="benimsorum" class="btn btn-primary p-3 pl-5 pr-5 mt-3 rounded-pill" href="http://www.benimsorum.net"
-            target="_blank" role="button">www.benimsorum.net</a>
+            target="_blank" role="button">BenimSorum.Net</a>
         </div>
       </div>
     </div>

@@ -76,7 +76,7 @@
                 <h2>Yeni Nesil Sorular</h2>
               </div>
               <div class="col-12 beceri-temelli__description">
-                <h3>MEB,PISA,TIMSS</h3>
+                <h3>MEB, PISA, TIMSS</h3>
               </div>
             </div>
           </div>

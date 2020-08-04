@@ -115,7 +115,7 @@ add_action('widgets_init', function () {
     $footer_config_1 = [
         'name' => __('Footer-1', 'sage'),
         'id' => 'sidebar-footer-1',
-        'before_widget' => '<div class="footer-widget__content %1$s %2$s col-12 col-lg-3">',
+        'before_widget' => '<div class="footer-widget__content %1$s %2$s col-12 col-lg-2">',
         'after_widget' => '</div>',
         'before_title' => '<h5 class="footer-widget__title">',
         'after_title' => '</h5>',
@@ -123,7 +123,7 @@ add_action('widgets_init', function () {
     $footer_config_2 = [
         'name' => __('Footer-2', 'sage'),
         'id' => 'sidebar-footer-2',
-        'before_widget' => '<div class="footer-widget__content %1$s %2$s col-12 col-lg-3">',
+        'before_widget' => '<div class="footer-widget__content %1$s %2$s col-12 col-lg-2">',
         'after_widget' => '</div>',
         'before_title' => '<h5 class="footer-widget__title">',
         'after_title' => '</h5>',
@@ -131,7 +131,31 @@ add_action('widgets_init', function () {
     $footer_config_3 = [
         'name' => __('Footer-3', 'sage'),
         'id' => 'sidebar-footer-3',
-        'before_widget' => '<div class="footer-widget__content %1$s %2$s col-12 col-lg-3">',
+        'before_widget' => '<div class="footer-widget__content %1$s %2$s col-12 col-lg-2">',
+        'after_widget' => '</div>',
+        'before_title' => '<h5 class="footer-widget__title">',
+        'after_title' => '</h5>',
+    ];
+    $footer_config_5 = [
+        'name' => __('Footer-5', 'sage'),
+        'id' => 'sidebar-footer-5',
+        'before_widget' => '<div class="footer-widget__content %1$s %2$s col-12 col-lg-2">',
+        'after_widget' => '</div>',
+        'before_title' => '<h5 class="footer-widget__title">',
+        'after_title' => '</h5>',
+    ];
+    $footer_config_6 = [
+        'name' => __('Footer-6', 'sage'),
+        'id' => 'sidebar-footer-6',
+        'before_widget' => '<div class="footer-widget__content %1$s %2$s col-12 col-lg-2">',
+        'after_widget' => '</div>',
+        'before_title' => '<h5 class="footer-widget__title">',
+        'after_title' => '</h5>',
+    ];
+    $footer_config_7 = [
+        'name' => __('Footer-7', 'sage'),
+        'id' => 'sidebar-footer-7',
+        'before_widget' => '<div class="footer-widget__content %1$s %2$s col-12 col-lg-2">',
         'after_widget' => '</div>',
         'before_title' => '<h5 class="footer-widget__title">',
         'after_title' => '</h5>',
@@ -156,6 +180,9 @@ add_action('widgets_init', function () {
     register_sidebar($footer_config_1);
     register_sidebar($footer_config_2);
     register_sidebar($footer_config_3);
+    register_sidebar($footer_config_5);
+    register_sidebar($footer_config_6);
+    register_sidebar($footer_config_7);
     register_sidebar($footer_config_4);
     register_sidebar($shop);
 });

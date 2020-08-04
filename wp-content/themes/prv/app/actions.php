@@ -307,7 +307,7 @@ add_action('home_page_slider', function () {
                     $html .= '</div><div class="' . $magaza_slider_css_class . '__desc text-right w-50 ml-auto ml"><div class="py-3">';
                     $html .= '<p class="lead">' . $value["desc"] . '</p>';
                     $html .= '</div></div>';
-                    $html .= empty($value["button_link"]) ? "" : '<a name="" id="" style="" class="btn btn-outline-light btn-lg pl-lg-5 ' . $magaza_slider_css_class . '__button" href="' . $value["button_link"] . '" role="button">' . $value["button_text"] . '</a>';
+                    $html .= empty($value["button_link"]) ? "" : '<a name="" id="" style="" class="btn btn-outline-light btn-lg pl-lg-5 pr-lg-5 ' . $magaza_slider_css_class . '__button" href="' . $value["button_link"] . '" role="button">' . $value["button_text"] . '</a>';
                     $html .= '</div></div></div></div>';
                     echo $html;
                     $index = +1;

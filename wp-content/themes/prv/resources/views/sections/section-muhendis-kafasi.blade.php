@@ -18,12 +18,11 @@ $home = App::home_url_with_slash();
               @endphp
               <div class="muhendis-kafasi__book-name">Mühendis Kafası</div>
               <div class="muhendis-kafasi__book-category">Matematik</div>
-              <div class="muhendis-kafasi__book-descp">When it comes to software design, animation is alimitless way
-                to
-                make digital</div>
+              <div class="muhendis-kafasi__book-descp">Bir adım ileriyi hedefleyenler için Mühendis Kafasıyla Yeni Nesil
+                Beceri Temelli Sorular</div>
               <div class="pt-5">
                 <a name="" id="" class="muhendis-kafasi_book-button btn btn-primary btn-lg rounded-pill pr-5 pl-5"
-                  href="muhendis-kafasi/" role="button">DETAY</a>
+                  href="#" role="button">DETAY</a>
               </div>
             </div>
           </div>

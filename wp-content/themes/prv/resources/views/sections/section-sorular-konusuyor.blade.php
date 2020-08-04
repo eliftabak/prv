@@ -5,8 +5,10 @@
       <div class="col-lg-5 vmx-auto">
         <div class="">
           <h1 class="sorular-konusuyor__title">Ortaokula Yardımcı Kitaplar</h1>
-          <p class="sorular-konusuyor__desc">When it comes to software design, animation is alimitless way to make
-            digital</p>
+          <p class="sorular-konusuyor__desc">Sorular Konuşuyor Serisi... Derslerinize en iyi yardımcı kaynaklar, sınava
+            en
+            yakın tarzda sorular...
+          </p>
           <a name="" id="" class="btn btn-primary btn-lg rounded-pill pl-lg-5 pr-lg-5 shadow-lg mr-3" href="magaza/"
             role="button">TÜM KİTAPLAR</a>
           <a name="" id="" class="btn btn-success btn-lg rounded-pill pl-lg-5 pr-lg-5 shadow-lg"

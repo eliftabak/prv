@@ -10,8 +10,9 @@ $home = App::home_url_with_slash();
       <div class="col-lg-12">
         <div class="text-center">
           <h1 class="brans-denemeleri__title p-lg-5 p-3">8. Sınıf Branş Denemeleri</h1>
-          <p class="brans-denemeleri__desc">When it comes to software design, animation is alimitless way to make
-            digital</p>
+          <p class="brans-denemeleri__desc">Gerçek bir sınav deneyimi yaşamak için LGS'ye Sınav Modu Serisi ile
+            hazırlan!
+          </p>
         </div>
       </div>
       <div class="col-lg-12">
