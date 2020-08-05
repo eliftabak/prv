@@ -2,9 +2,18 @@
 
 namespace App;
 
-add_action('woocommerce_cart_is_empty', function () {
-    echo 'woocommerce_cart_is_empty_hooks';
-});
+
+function product_coming_soon_badge($product_id, $class)
+{
+    $home = home_url();
+    $status = get_post_meta($product_id, 'product_coming_soon', true);
+    if ($status) {
+        return '<img class ="product-coming-soon lazy ' . $class . '" data-src="' . $home . '/wp-content/themes/prv/resources/assets/images/yakinda.png" alt="">';
+    } else {
+        return;
+    }
+}
+
 
 add_action('after_setup_theme', function () {
     show_admin_bar(false);
@@ -433,9 +442,11 @@ add_action('sorular_konusuyor_slider', function () {
                     foreach ($data["products_inner"] as $product_id) {
                         $title = get_the_title($product_id);
                         $image = wp_get_attachment_image(get_post_thumbnail_id($product_id), 'medium');
+                        $badge = product_coming_soon_badge($product_id, "sorular-konusuyor");
                         $url = esc_url(get_permalink($product_id));
                         $html .= '<div class="col-6 col-sm-6 col-lg-6">';
                         $html .= '<div class="sorular-konusuyor__book-picture mx-auto text-center">';
+                        $html .= $badge;
                         $html .= '<a href="' . $url . '">' .  $image . '</a>';
                         $html .= '<h3 class="sorular-konusuyor__book-category">' . $data["category_name"] . '</h3>';
                         $html .= '<h3 class="sorular-konusuyor__book-branch">' . $title . '</h3>';
@@ -534,9 +545,11 @@ add_action("section_brans_denemeleri", function () {
                 foreach ($data["products_inner"] as $product_id) {
                     //$title = get_the_title($product_id);
                     $image = wp_get_attachment_image(get_post_thumbnail_id($product_id), "woocommerce_medium");
+                    $badge = product_coming_soon_badge($product_id, "brans-denemeleri");
                     $url = esc_url(get_permalink($product_id));
                     $html .= '<div class="col-6 col-sm-6 col-lg-3 text-center">';
                     $html .= '<div class="brans-denemeleri__book-picture">';
+                    $html .= $badge;
                     $html .= $image;
                     $html .= '<a name="" id="" class="btn btn-primary btn-lg rounded-pill pl-lg-5 pr-lg-5 shadow-lg" href="' . $url . '" role="button">İncele<i class="fa fa-external-link pl-2" aria-hidden="true"></i></a>';
                     $html .= '</div></div>';
@@ -628,9 +641,11 @@ add_action("section_teke_tek", function () {
                     //$title = get_the_title($product_id);
                     $margin = ($index % 2) === 0 ? "pt-lg-5" : "";
                     $image = wp_get_attachment_image(get_post_thumbnail_id($product_id), 'woocommerce_medium');
+                    $badge = product_coming_soon_badge($product_id, "teke-tek");
                     $url = esc_url(get_permalink($product_id));
                     $html .= '<div class="col-6 col-sm-6 col-lg-6 ' . $margin . '">';
                     $html .= '<a class="teke-tek__book-picture" href="' . $url . '">';
+                    $html .= $badge;
                     $html .= $image;
                     $html .= '</a></div>';
                     $index += 1;
@@ -720,8 +735,10 @@ add_action("section_muhendis_kafasi", function () {
                 foreach ($data["products_inner"] as $product_id) {
                     //$title = get_the_title($product_id);
                     $image = wp_get_attachment_image(get_post_thumbnail_id($product_id), 'large');
+                    $badge = product_coming_soon_badge($product_id, "muhendis-kafasi");
                     $url = esc_url(get_permalink($product_id));
                     $html .= '<a class="muhendis-kafasi__book-picture" href="' . $url . '">';
+                    $html .= $badge;
                     $html .= $image;
                     $html .= '</a>';
                 }

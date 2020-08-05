@@ -436,3 +436,63 @@ add_action('pre_get_users', function ($query) {
         $query->set('meta_key', 'prv_user_validate');
     }
 });
+
+
+
+
+
+
+add_action('woocommerce_product_options_general_product_data', function () {
+    woocommerce_wp_checkbox(array(
+        'id' => 'product_coming_soon',
+        'class' => '',
+        'label' => 'Yakında'
+    ));
+});
+
+
+
+add_action('save_post', function ($product_id) {
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE)
+        return;
+    if (isset($_POST['product_coming_soon'])) {
+        update_post_meta($product_id, 'product_coming_soon', $_POST['product_coming_soon']);
+    } else delete_post_meta($product_id, 'product_coming_soon');
+});
+
+
+
+add_action('woocommerce_before_shop_loop_item_title', function () {
+    global $product;
+    $product_id = $product->get_id();
+    $home = home_url();
+    $product_coming_soon_status = get_post_meta($product_id, 'product_coming_soon', true);
+    if ($product_coming_soon_status) {
+        echo '<img class ="product-coming-soon product-coming-soon__archive-product lazy" data-src="' . $home . '/wp-content/themes/prv/resources/assets/images/yakinda.png" alt="">';
+    } else {
+        return;
+    }
+}, 25);
+
+
+
+
+add_action('woocommerce_product_thumbnails', function () {
+    global $product;
+    $product_id = $product->get_id();
+    $home = home_url();
+    $product_coming_soon_status = get_post_meta($product_id, 'product_coming_soon', true);
+    if ($product_coming_soon_status) {
+        echo '<img class ="product-coming-soon product-coming-soon__single-product lazy" data-src="' . $home . '/wp-content/themes/prv/resources/assets/images/yakinda.png" alt="">';
+    } else {
+        return;
+    }
+}, 10, 0);
+
+
+
+add_filter('woocommerce_product_add_to_cart_text', function () {
+    global  $product;
+    $text = $product->is_purchasable() && $product->is_in_stock() ? __('Add to cart', 'woocommerce') : __('İncele', 'woocommerce');
+    return $text;
+});

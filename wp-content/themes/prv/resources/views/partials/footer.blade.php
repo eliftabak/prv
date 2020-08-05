@@ -18,8 +18,9 @@ $home = App::home_url_with_slash();
               method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate"
               target="_blank" novalidate>
               <div class="form-group text-right pt-1">
-                <input type="email" value="" name="EMAIL" class="email form-control d-inline rounded-pill p-4"
-                  id="mce-EMAIL" placeholder="E-posta adresi giriniz..." required>
+                <input pattern="^[\w]{1,}[\w.+-]{0,}@[\w-]{2,}([.][a-zA-Z]{2,}|[.][\w-]{2,}[.][a-zA-Z]{2,})$"
+                  type="email" value="" name="EMAIL" class="email form-control d-inline rounded-pill p-4" id="mce-EMAIL"
+                  placeholder="E-posta adresi giriniz..." required>
                 <input type="submit" value="Abone Ol" name="subscribe" id="mc-embedded-subscribe"
                   class="button btn btn-subscriber-submit d-inline rounded-pill p-2">
               </div>
@@ -34,9 +35,7 @@ $home = App::home_url_with_slash();
   <section class="footer__wrapper p-lg-5">
     <div class="container-fluid">
       <a class="navbar-brand text-uppercase font-weight-bold mb-3 pt-5" href="{{ home_url('/') }}">
-        <img class="lazy"
-          data-src="{{ home_url('/') }}wp-content/themes/prv/resources/assets/images/pruva-akademi-logo.svg"
-          alt="{{ get_bloginfo('name', 'display') }}" width="276" height="auto">
+        {!! App::logo("footer") !!}
       </a>
       <div class="row">
         <div class="col-8">

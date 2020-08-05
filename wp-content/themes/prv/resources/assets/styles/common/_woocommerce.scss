@@ -445,3 +445,46 @@
 .woocommerce-page table.cart td.actions .input-text {
   width: 112px;
 }
+
+.product-coming-soon {
+  position: absolute;
+  width: auto !important;
+
+  &__archive-product {
+    height: 100px !important;
+    top: 0;
+    left: -9px;
+  }
+
+  &__single-product {
+    height: 200px !important;
+    top: 67px;
+    left: 7px;
+  }
+
+  &.sorular-konusuyor {
+    z-index: 5;
+    height: 100px !important;
+    top: -5px;
+    left: 65px;
+  }
+
+  &.brans-denemeleri {
+    height: 100px !important;
+    top: 13px;
+    left: -5px;
+    z-index: 5;
+  }
+
+  &.teke-tek {
+    height: 100px !important;
+    top: 31px;
+    left: 11px;
+  }
+
+  &.muhendis-kafasi {
+    height: 100px !important;
+    top: 75px;
+    left: 11px;
+  }
+}

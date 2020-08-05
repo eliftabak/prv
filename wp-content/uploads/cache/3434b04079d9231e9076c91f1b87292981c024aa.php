@@ -1,8 +1,8 @@
 <header>
   <nav class="navbar navbar-expand-lg fixed-top">
     <a class="navbar-brand text-uppercase font-weight-bold" href="<?php echo e(home_url('/')); ?>">
-      <img src="<?php echo e(home_url('/')); ?>wp-content/themes/prv/resources/assets/images/yeni-pruva-akademi-logo.svg"
-        alt="<?php echo e(get_bloginfo('name', 'display')); ?>" width="103" height="auto">
+      <?php echo App::logo("navbar"); ?>
+
     </a>
     <!-- Toggler/collapsibe Button -->
     <button class="navbar-toggler text-white border border-light" type="button" data-toggle="collapse"

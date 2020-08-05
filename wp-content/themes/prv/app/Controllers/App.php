@@ -39,4 +39,11 @@ class App extends Controller
     {
         return home_url('/');
     }
+
+
+    public static function logo($class = "")
+    {
+        $logo = wp_get_attachment_image(get_theme_mod('custom_logo'), 'full', false, ["class" => "main-logo {$class}", "alt" => "pruvakademi-logo"]);
+        return $logo;
+    }
 }

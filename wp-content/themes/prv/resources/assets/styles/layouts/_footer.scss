@@ -79,6 +79,9 @@
 
   .navbar-brand {
     img {
+      width: 238px;
+      height: auto;
+
       @include media-breakpoint-between(xs, sm) {
         max-width: 70%;
       }
