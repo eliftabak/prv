@@ -31,7 +31,7 @@ $home = App::home_url_with_slash();
                       <div class="modal-content shadow-lg">
                         <div class="modal-body neden-sorular-konusuyor__modal-body">
                           <button type="button"
-                            class="btn btn-light rounded-pill model-close neden-sorular-konusuyor__model-close"
+                            class="btn btn-light rounded-pill modal-close neden-sorular-konusuyor__model-close"
                             data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                           </button>

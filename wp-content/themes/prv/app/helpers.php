@@ -216,7 +216,7 @@ function pdf_modal_html()
        <div class="modal-dialog pdf-viewer__modal-dialog" role="document">
          <div class="modal-content shadow-lg">
            <div class="modal-body pdf-viewer__modal-body">
-             <button type="button" class="btn btn-light rounded-pill model-close pdf-viewer__model-close" data-dismiss="modal"
+             <button type="button" class="btn btn-light rounded-pill modal-close pdf-viewer__modal-close" data-dismiss="modal"
                aria-label="Close">
                <span aria-hidden="true">&times;</span>
              </button>
