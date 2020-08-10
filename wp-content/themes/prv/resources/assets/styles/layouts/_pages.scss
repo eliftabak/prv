@@ -24,6 +24,12 @@ body.single-post {
 
       &__title {
         letter-spacing: -1.87281px;
+
+        @include media-breakpoint-between(xs, sm) {
+          h1 {
+            font-size: 25px;
+          }
+        }
       }
 
       &__breadcumb {

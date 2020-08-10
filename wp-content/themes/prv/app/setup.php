@@ -163,7 +163,7 @@ add_action('widgets_init', function () {
     $footer_config_4 = [
         'name' => __('Footer-4', 'sage'),
         'id' => 'sidebar-footer-4',
-        'before_widget' => '<div class="footer-widget__content footer-widget__social  %1$s %2$s col-12 text-right pt-5">',
+        'before_widget' => '<div class="footer-widget__content footer-widget__social  %1$s %2$s text-right pt-5">',
         'after_widget' => '</div>',
         'before_title' => '<h5 class="footer-widget__title">',
         'after_title' => '</h5>',

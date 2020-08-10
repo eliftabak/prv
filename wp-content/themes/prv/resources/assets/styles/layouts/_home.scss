@@ -21,7 +21,7 @@ section.home-slider {
       height: auto;
 
       @include media-breakpoint-between(xs, sm) {
-        width: 100%;
+        width: 182%;
       }
     }
 
@@ -31,6 +31,10 @@ section.home-slider {
       left: 0;
       transition: 1s ease-in-out 0.5s;
       filter: drop-shadow(0 4px 40px rgba(0, 0, 0, 0.1));
+
+      @include media-breakpoint-between(xs, sm) {
+        left: -172px;
+      }
     }
 
     &__child-draw {
@@ -62,8 +66,8 @@ section.home-slider {
       letter-spacing: -2.33185px;
 
       @include media-breakpoint-between(xs, sm) {
-        font-size: 49px;
-        line-height: 59px;
+        font-size: 28px;
+        line-height: 36px;
         padding-right: 38px;
       }
     }
@@ -74,8 +78,8 @@ section.home-slider {
       letter-spacing: -2.33185px;
 
       @include media-breakpoint-between(xs, sm) {
-        font-size: 40px;
-        line-height: 49px;
+        font-size: 23px;
+        line-height: 31px;
         padding-right: 38px;
       }
     }
@@ -88,7 +92,8 @@ section.home-slider {
       //padding-right: 38px;
 
       @include media-breakpoint-between(xs, sm) {
-        font-size: 26px;
+        font-size: 21px;
+        padding-right: 29px;
         padding-right: 38px;
       }
     }
@@ -104,6 +109,10 @@ section.home-slider {
       @include media-breakpoint-between(xs, sm) {
         font-size: 16px;
         padding-right: 38px;
+
+        p {
+          text-align: justify;
+        }
       }
     }
 

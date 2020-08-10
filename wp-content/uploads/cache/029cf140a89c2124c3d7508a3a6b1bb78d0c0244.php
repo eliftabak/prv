@@ -30,17 +30,20 @@ $home = App::home_url_with_slash();
       </div>
     </div>
     <div class="footer-head-background lazy"
-      data-src="<?php echo e($home); ?>wp-content/themes/prv/resources/assets/images/footer-background-head.png"></div>
+      data-src="<?php echo e($home); ?>wp-content/themes/prv/resources/assets/images/footer-background-head.png">
+    </div>
   </div>
   <section class="footer__wrapper p-lg-5">
     <div class="container-fluid">
-      <a class="navbar-brand text-uppercase font-weight-bold mb-3 pt-5" href="<?php echo e(home_url('/')); ?>">
-        <?php echo App::logo("footer"); ?>
+      <div class="row no-gutters">
+        <div class="col-12">
+          <a class="navbar-brand text-uppercase font-weight-bold mb-3 pt-5" href="<?php echo e(home_url('/')); ?>">
+            <?php echo App::logo("footer"); ?>
 
-      </a>
-      <div class="row">
-        <div class="col-8">
-          <div class="row pt-5 no-gutters">
+          </a>
+        </div>
+        <div class="col-6 col-lg-8 pt-5">
+          <div class="row">
             <?php dynamic_sidebar('sidebar-footer-1') ?>
             <?php dynamic_sidebar('sidebar-footer-2') ?>
             <?php dynamic_sidebar('sidebar-footer-3') ?>
@@ -49,28 +52,20 @@ $home = App::home_url_with_slash();
             <?php dynamic_sidebar('sidebar-footer-7') ?>
           </div>
         </div>
-        <div class="col-4">
-          <div class="row no-gutters">
-            <?php dynamic_sidebar('sidebar-footer-4') ?>
-          </div>
+        <div class="col-6 col-lg-4">
+          <?php dynamic_sidebar('sidebar-footer-4') ?>
         </div>
       </div>
     </div>
-
-    <section>
-      <div class="container-fluid pt-lg-5">
-        <div class="row pt-lg-5 ">
-          <div class="col-12 pt-lg-5 text-center">
-            <p class="d-inline" style="
-            color: #929292;
-        ">Copyright 2020 Pruva Akademi | Tüm Hakları Saklıdır | <a style="
-    color: inherit;
-" href="http://hexagondijital.com" target="_blank" rel="follow">Hexagon Dijital Premium</a></p>
-          </div>
+    <div class="container-fluid pt-lg-5">
+      <div class="row pt-lg-5 ">
+        <div class="col-12 pt-lg-5 text-center">
+          <p class="d-inline" style="color: #929292;">Copyright 2020 Pruva Akademi | Tüm Hakları Saklıdır | <a
+              style="color: inherit;" href="http://hexagondijital.com" target="_blank" rel="follow">Hexagon Dijital
+              Premium</a></p>
         </div>
       </div>
-    </section>
-
+    </div>
   </section>
   <section class="credit-cards bg-white h-100 p-1">
     <div class="container-fluid">
@@ -82,7 +77,7 @@ $home = App::home_url_with_slash();
       </div>
     </div>
   </section>
-  </div>
   <a id="back-to-top" href="#" class="btn btn-primary back-to-top shadow font-weight-bold" role="button"><i
-      class="fa fa-chevron-up pr-2"></i>Başa dön</a>
+      class="fa fa-chevron-up pr-2"></i>Başa dön
+  </a>
 </footer>
