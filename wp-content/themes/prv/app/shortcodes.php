@@ -156,3 +156,78 @@ add_shortcode('contact-form', function () {
     // Output needs to be return
     return $buffer;
 });
+
+
+
+
+add_shortcode('digital-catalog', function () {
+
+    ob_start();
+
+?>
+    <div class="row">
+        <div class="col-12 text-center">
+            <div class="btn-group filters-button-group" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-outline-primary mx-1" is-checked" data-filter="*">Tümü</button>
+                <button type="button" class="btn btn-outline-primary mx-1" data-filter=".besinci">5. Sınıf</button>
+                <button type="button" class="btn btn-outline-primary mx-1" data-filter=".altinci">6. Sınıf</button>
+                <button type="button" class="btn btn-outline-primary mx-1" data-filter=".yedinci">7. Sınıf</button>
+                <button type="button" class="btn btn-outline-primary mx-1" data-filter=".sekizinci">8. Sınıf</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <div class="row mt-5 filterable-catalog">
+            <div class="item-sizer col-lg-4 element-item besinci">
+                <div class="card">
+                    <img class="card-img-top" src="https://dummyimage.com/200x280/d6d6d6/000000.png" alt="Card image cap">
+                    <div class="card-body">
+                        <p class="card-text">metal.</p>
+                        <button type="button" class="btn btn-primary btn-block">DEMO KİTAP</button>
+                        <button type="button" class="btn btn-primary btn-block">VİDEO TANITIM</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 element-item altinci shadow-sm">
+                <div class="card">
+                    <img class="card-img-top" src="https://dummyimage.com/200x280/d6d6d6/000000.png" alt="Card image cap">
+                    <div class="card-body">
+                        <p class="card-text">alkali metal.</p>
+                        <button type="button" class="btn btn-primary btn-block">DEMO KİTAP</button>
+                        <button type="button" class="btn btn-primary btn-block">VİDEO TANITIM</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 element-item yedinci">
+                <div class="card">
+                    <img class="card-img-top" src="https://dummyimage.com/200x280/d6d6d6/000000.png" alt="Card image cap">
+                    <div class="card-body">
+                        <p class="card-text">halogen nonmetal</p>
+                        <button type="button" class="btn btn-primary btn-block">DEMO KİTAP</button>
+                        <button type="button" class="btn btn-primary btn-block">VİDEO TANITIM</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 element-item sekizinci">
+                <div class="card">
+                    <img class=" card-img-top" src="https://dummyimage.com/200x280/d6d6d6/000000.png" alt="Card image cap">
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <button type="button" class="btn btn-primary btn-block">DEMO KİTAP</button>
+                        <button type="button" class="btn btn-primary btn-block">VİDEO TANITIM</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+<?php
+    $buffer  = ob_get_clean();
+    return $buffer;
+});

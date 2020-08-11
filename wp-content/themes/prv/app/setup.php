@@ -23,10 +23,14 @@ add_action('wp_enqueue_scripts', function () {
         wp_deregister_script('selectWoo');
         //dequeue password stremgth meter
         wp_dequeue_script('wc-password-strength-meter');
+
+        wp_enqueue_style('sage/main.css', asset_path('styles/main.css'), false, null);
+        wp_enqueue_style('fontawesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css', false, '4.7.0');
     }
 
-    wp_enqueue_style('sage/main.css', asset_path('styles/main.css'), false, null);
-    wp_enqueue_style('fontawesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css', false, '4.7.0');
+    if (is_page("dijital-katalog")) {
+        wp_enqueue_script('isotope.js', "https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js", null, null, true);
+    }
     wp_enqueue_script('sage/main.js', asset_path('scripts/main.js'), ['jquery'], null, true);
 
     if (is_single() && comments_open() && get_option('thread_comments')) {

@@ -32,6 +32,13 @@ add_action('cmb2_admin_init', function () {
     ));
 
     $cmb->add_field(array(
+        'name' => __('Video tanıtım linki', 'sage'),
+        'desc' => 'Youtube, twitter, or instagram gibi URL\'ler girebilirsiniz. Desteklenen servisleri için inceleyin <a href="http://codex.wordpress.org/Embeds">http://codex.wordpress.org/Embeds</a>.',
+        'id'   => 'prv_video-tanitim_url',
+        'type' => 'oembed',
+    ));
+
+    $cmb->add_field(array(
         'name' => __('Sayfa arkaplan rengi', 'sage'),
         'desc' => __('Kitabın arka planında gözüken renk seçme alanı', 'sage'),
         'id' => 'prv_kitap_arkaplan_renk',
