@@ -1,6 +1,6 @@
 {
   "publicPath": "/wp-content/themes/prv",
-  "devUrl": "http://localhost/websiteler/pruvaakademi.com",
+  "devUrl": "http://dev.pruvaakademi.com.tr",
   "proxyUrl": "http://localhost:3000",
   "cacheBusting": "[name]_[hash:8]",
   "watch": [

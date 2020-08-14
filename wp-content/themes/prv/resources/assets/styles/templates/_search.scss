@@ -1,0 +1,23 @@
+.slick-prev::before,
+.slick-next::before {
+  color: #7d7b7b !important;
+}
+
+.slick-track {
+  margin-left: unset !important;
+}
+
+.search-slider {
+  a {
+    display: inline-block;
+    width: 98%;
+    height: 100%;
+  }
+
+  &__page,
+  &__post {
+    .search-slider__inner a {
+      background-color: wheat;
+    }
+  }
+}

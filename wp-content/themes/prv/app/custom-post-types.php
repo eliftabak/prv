@@ -50,7 +50,7 @@ function cpt_slider()
         'can_export'            => true,
         'has_archive'           => false,
         'exclude_from_search'   => true,
-        'publicly_queryable'    => true,
+        'publicly_queryable'    => false,
         'capability_type'       => 'page',
     );
     register_post_type('slider', $args);
@@ -102,7 +102,7 @@ function cpt_testimonals()
         'can_export'            => true,
         'has_archive'           => false,
         'exclude_from_search'   => true,
-        'publicly_queryable'    => true,
+        'publicly_queryable'    => false,
         'capability_type'       => 'page',
     );
     register_post_type('testimonal', $args);
@@ -155,7 +155,7 @@ function cpt_akilli_tahta()
         'can_export'            => true,
         'has_archive'           => false,
         'exclude_from_search'   => true,
-        'publicly_queryable'    => true,
+        'publicly_queryable'    => false,
         'capability_type'       => 'post',
     );
     register_post_type('akilli_tahta', $args);
@@ -210,7 +210,7 @@ function cpt_bayi_listesi()
         'can_export'            => true,
         'has_archive'           => false,
         'exclude_from_search'   => true,
-        'publicly_queryable'    => true,
+        'publicly_queryable'    => false,
         'capability_type'       => 'post',
     );
     register_post_type('bayi_listesi', $args);

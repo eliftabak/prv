@@ -1,5 +1,6 @@
 
 import $ from 'jquery';
+import { viewPdf } from '../util/helpers';
 
 export default {
   init() {
@@ -24,6 +25,13 @@ export default {
     }
 
     toolTipInit();
+
+
+    viewPdf({
+      'modelID' : '#PDFModal',
+      'pdfButtonClass' : '.pdf__view-button',
+      'pdfiframe' : '.pdf-viewer__iframe',
+    });
 
   },
   finalize() {

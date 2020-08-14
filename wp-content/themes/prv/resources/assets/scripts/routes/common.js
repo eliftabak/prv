@@ -4,11 +4,7 @@ export default {
   init() {
 
     $(function () {
-      $('.lazy').lazy({
-        effect: 'fadeIn',
-          effectTime: 1500,
-          threshold: 0,
-      });
+      $('.lazy').lazy();
 
     });
 

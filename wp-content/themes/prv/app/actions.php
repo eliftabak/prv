@@ -15,6 +15,41 @@ function product_coming_soon_badge($product_id, $class)
 }
 
 
+/**
+ * Disable Emoji mess
+ */
+
+
+add_action('init', function () {
+    remove_action('admin_print_styles', 'print_emoji_styles');
+    remove_action('wp_head', 'print_emoji_detection_script', 7);
+    remove_action('admin_print_scripts', 'print_emoji_detection_script');
+    remove_action('wp_print_styles', 'print_emoji_styles');
+    remove_filter('wp_mail', 'wp_staticize_emoji_for_email');
+    remove_filter('the_content_feed', 'wp_staticize_emoji');
+    remove_filter('comment_text_rss', 'wp_staticize_emoji');
+    add_filter('tiny_mce_plugins', function ($plugins) {
+        return is_array($plugins) ? array_diff($plugins, array('wpemoji')) : array();
+    });
+    add_filter('emoji_svg_url', '__return_false');
+});
+
+
+/**
+ * Disable xmlrpc.php
+ */
+
+add_filter('xmlrpc_enabled', '__return_false');
+remove_action('wp_head', 'rsd_link');
+remove_action('wp_head', 'wlwmanifest_link');
+
+add_action('wp_default_scripts', function ($scripts) {
+    if (!empty($scripts->registered['jquery'])) {
+        $scripts->registered['jquery']->deps = array_diff($scripts->registered['jquery']->deps, ['jquery-migrate']);
+    }
+});
+
+
 add_action('after_setup_theme', function () {
     show_admin_bar(false);
 });

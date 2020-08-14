@@ -48,7 +48,7 @@ export const isDistrictSelected = (html) => {
   return expr.test(value);
 }
 
-export const isSchoolSelected=(html)=>{
+export const isSchoolSelected = (html) => {
   var expr = /^((?!Okul\sseçiniz\.\.\.).)*$/;
   const el = $(html);
   const value = el.find('option:selected').text();
@@ -56,7 +56,7 @@ export const isSchoolSelected=(html)=>{
 
 }
 
-export const isSubjectSelected=(html)=>{
+export const isSubjectSelected = (html) => {
   var expr = /^((?!Branş\sseçiniz\.\.\.).)*$/;
   const el = $(html);
   const value = el.find('option:selected').text();
@@ -93,12 +93,69 @@ export const getUserIdentySize = () => {
 
   const imageString = exctractBase64ImageFromBackground('#user-image');
   const match = /(resim-yok\.png)$/;
-  const empty  = match.test(imageString);
+  const empty = match.test(imageString);
   let size = 0;
   if (!empty) {
     size = base64ImageSize(imageString);
 
   }
   return size;
+
+}
+
+
+
+export const modalVideo = (param) => {
+
+  const { modelID, playButtonClass, videoID } = param;
+
+  let videoSource = '';
+
+  $(playButtonClass).each(function () {
+    $(this).click(function () {
+      videoSource = $(this).data('src');
+      if (videoSource === '') {
+        $(this).removeAttr('data-toggle');
+        $(this).removeAttr('data-target');
+        alert('Herhangi bir tanıtım videosu bulunamadı.');
+      }
+    });
+  })
+
+  $(modelID).on('shown.bs.modal', function () {
+    $(videoID).attr('src', videoSource + '?autoplay=1&amp;modestbranding=1&amp;showinfo=0');
+  })
+
+  $(modelID).on('hide.bs.modal', function () {
+    $(videoID).attr('src', videoSource);
+  })
+
+}
+
+export const viewPdf = (param) => {
+
+  const { modelID, pdfButtonClass, pdfiframe } = param;
+
+  let pdfSource = '';
+
+  $(pdfButtonClass).each(function () {
+    $(this).click(function () {
+      pdfSource = $(this).data('src');
+      if (pdfSource === '') {
+        $(this).removeAttr('data-toggle');
+        $(this).removeAttr('data-target');
+        alert('Herhangi bir demo kitap bulunamadı.');
+      }
+    });
+  })
+  // when the modal is opened autoplay it
+
+  $(modelID).on('shown.bs.modal', function () {
+    $(pdfiframe).attr('src', pdfSource);
+  })
+
+  // $(modelID).on('hide.bs.modal', function () {
+  //   $(pdfiframe).attr('src', pdfSource);
+  // })
 
 }

@@ -120,9 +120,15 @@ i[class$="-prv-icon"] {
   }
 }
 
-.blog {
+.blog,
+.archive.category,
+.archive.tag {
   .container__page-content {
-    padding-top: 26px !important;
+    padding-top: 28px !important;
+
+    p {
+      color: white;
+    }
   }
 }
 
@@ -263,4 +269,20 @@ i[class$="-prv-icon"] {
   100% {
     opacity: 1;
   }
+}
+
+.pdf-viewer {
+  &__iframe {
+    height: 97vh;
+    width: 100%;
+  }
+}
+
+.slick-prev::before,
+.slick-next::before {
+  color: #7d7b7b !important;
+}
+
+.slick-track {
+  margin-left: unset !important;
 }

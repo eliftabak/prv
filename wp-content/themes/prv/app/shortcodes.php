@@ -150,7 +150,7 @@ add_shortcode('contact-form', function () {
         </div>
     </div>
 
-<?php
+    <?php
 
     $buffer  = ob_get_clean();
     // Output needs to be return
@@ -162,72 +162,150 @@ add_shortcode('contact-form', function () {
 
 add_shortcode('digital-catalog', function () {
 
-    ob_start();
 
-?>
-    <div class="row">
-        <div class="col-12 text-center">
-            <div class="btn-group filters-button-group" role="group" aria-label="Basic example">
-                <button type="button" class="btn btn-outline-primary mx-1" is-checked" data-filter="*">Tümü</button>
-                <button type="button" class="btn btn-outline-primary mx-1" data-filter=".besinci">5. Sınıf</button>
-                <button type="button" class="btn btn-outline-primary mx-1" data-filter=".altinci">6. Sınıf</button>
-                <button type="button" class="btn btn-outline-primary mx-1" data-filter=".yedinci">7. Sınıf</button>
-                <button type="button" class="btn btn-outline-primary mx-1" data-filter=".sekizinci">8. Sınıf</button>
+    $digital_catalog_html = get_transient('digital_catalog_html');
+
+    if (false === $digital_catalog_html) {
+
+        $nf = new \NumberFormatter("en", \NumberFormatter::SPELLOUT);
+        $products = [];
+        $carousel_indicator = [];
+        $terms = get_terms("pa_sinif");
+        $product_ids = [];
+        $lessonsData = [];
+
+        foreach ($terms as $term) {
+            $lesson = str_replace("-sinif", "", $term->slug);
+            $lessonsData[] = array(
+                "lesson-in-number" => $lesson,
+                "lesson-in-name" => $term->name,
+            );
+            $term_data = array(
+                "name" => $term->name,
+                "slug" => $term->slug,
+                "lesson" => $lesson,
+            );
+
+            $products_query = new \WP_Query(array(
+                'post_type' => array('product'),
+                'post_status' => 'publish',
+                'posts_per_page' => -1,
+                'orderby'        => 'menu_order',
+                'order'          => 'DESC',
+                'tax_query' => array(
+                    array(
+                        'taxonomy' => 'pa_urun-cesitleri',
+                        'operator' => 'EXISTS',
+                    ),
+                    array(
+                        'taxonomy' => 'pa_sinif',
+                        'field' => 'slug',
+                        'terms' => array($term->slug),
+                        'operator' => 'IN',
+                    )
+                )
+            ));
+
+            // The Loop
+            if ($products_query->have_posts()) : while ($products_query->have_posts()) :
+                    $products_query->the_post();
+                    $product_id = $products_query->post->ID;
+                    $product_ids[] = $product_id;
+                    $product_data = array(
+                        "lesson" => $lesson,
+                        "category_name" => $term->name,
+                        "products_inner" => $product_ids,
+                    );
+                endwhile;
+                wp_reset_postdata();
+            endif;
+
+            array_push($carousel_indicator, $term_data);
+            array_push($products, $product_data);
+            $product_ids = [];
+        }
+        ob_start();
+        //print_r($products);
+    ?>
+        <div class="row">
+            <div class="col-12 text-center">
+                <div class="btn-group filters-button-group" role="group" aria-label="Basic example">
+                    <button type="button" class="btn btn-outline-primary btn-lg" is-checked" data-filter="*">Tümü</button>
+                    <?php
+                    $html = '';
+                    foreach ($lessonsData as $data) {
+                        $html .= '<button type="button" class="btn btn-outline-primary btn-lg" data-filter=".' . $nf->format($data["lesson-in-number"]) . '">' . $data["lesson-in-name"] . '</button>';
+                    }
+                    echo $html;
+                    ?>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="container">
+        <div class="container">
+            <div class="row mt-5 filterable-catalog">
 
-        <div class="row mt-5 filterable-catalog">
-            <div class="item-sizer col-lg-4 element-item besinci">
-                <div class="card">
-                    <img class="card-img-top" src="https://dummyimage.com/200x280/d6d6d6/000000.png" alt="Card image cap">
-                    <div class="card-body">
-                        <p class="card-text">metal.</p>
-                        <button type="button" class="btn btn-primary btn-block">DEMO KİTAP</button>
-                        <button type="button" class="btn btn-primary btn-block">VİDEO TANITIM</button>
+                <?php
+                $html = '';
+                foreach ($products as $data) {
+                    $lesson_in_number = $nf->format($data["lesson"]);
+                    foreach ($data["products_inner"] as $product_id) {
+                        $title = get_the_title($product_id);
+                        $image = wp_get_attachment_image(get_post_thumbnail_id($product_id), 'medium', false, ["class" => "card-img-top"]);
+                        $badge = product_coming_soon_badge($product_id, "sorular-konusuyor");
+                        $url = esc_url(get_permalink($product_id));
+                        $video_tanitim = esc_url(get_post_meta($product_id, 'prv_video-tanitim_url', 1));
+                        $demo_kitap = esc_url(get_post_meta($product_id, 'prv_kitap_inceleme_pdf', 1));
+                        $html .= '<div class="col col-md-6 col-lg-3 card-container ' . $lesson_in_number . '">';
+                        $html .= '<div class="card">';
+                        $html .= '<a href="' . $url . '">' .  $image . '</a>';
+                        $html .= '<div class="card-body">';
+                        $html .= '<h5 class="card-title text-center">' . $title . '</h5>';
+                        $html .= '<p class="card-text">Lorem Ipsum, dizgi ve baskı endüstrisinde kullanılan mıgır metinlerdir.</p>';
+                        $html .= \App\pdf_modal_html();
+                        $html .= '<button type="button" class="btn btn-outline-warning btn-block pdf__view-button" data-toggle="modal" data-target="#PDFModal" data-src="' . $demo_kitap . '"><i class="fa fa-file-text pr-3" aria-hidden="true"></i>DEMO KİTAP</button>';
+                        $html .= '<!-- modal start -->
+                    <div class="modal fade neden-sorular-konusuyor__modal" id="Book-Video-Promotion" tabindex="-1" role="dialog"
+                      aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog neden-sorular-konusuyor__modal-dialog" role="document">
+                        <div class="modal-content shadow-lg">
+                          <div class="modal-body neden-sorular-konusuyor__modal-body">
+                            <button type="button"
+                              class="btn btn-light rounded-pill modal-close neden-sorular-konusuyor__model-close"
+                              data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                            <!-- 16:9 aspect ratio -->
+                            <div class="embed-responsive embed-responsive-16by9">
+                              <iframe class="embed-responsive-item" src="" id="Book-Promotion-Video" allowscriptaccess="always"
+                                allow="autoplay"></iframe>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                </div>
+                    <!-- modal end -->
+                  <button type="button" class="btn btn-outline-info btn-block mt-1 pr-3 book-advertise__play-button" data-toggle="modal"
+                   data-src="' .  $video_tanitim . '" data-target="#Book-Video-Promotion"><i
+                   class="fa fa-play book-advertise__play pr-3" aria-hidden="true"></i>TANITIM VİDEOSU</button>';
+                        $html .= '</div></div></div>';
+                    }
+                }
+                echo $html;
+                ?>
             </div>
-            <div class="col-lg-4 element-item altinci shadow-sm">
-                <div class="card">
-                    <img class="card-img-top" src="https://dummyimage.com/200x280/d6d6d6/000000.png" alt="Card image cap">
-                    <div class="card-body">
-                        <p class="card-text">alkali metal.</p>
-                        <button type="button" class="btn btn-primary btn-block">DEMO KİTAP</button>
-                        <button type="button" class="btn btn-primary btn-block">VİDEO TANITIM</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 element-item yedinci">
-                <div class="card">
-                    <img class="card-img-top" src="https://dummyimage.com/200x280/d6d6d6/000000.png" alt="Card image cap">
-                    <div class="card-body">
-                        <p class="card-text">halogen nonmetal</p>
-                        <button type="button" class="btn btn-primary btn-block">DEMO KİTAP</button>
-                        <button type="button" class="btn btn-primary btn-block">VİDEO TANITIM</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 element-item sekizinci">
-                <div class="card">
-                    <img class=" card-img-top" src="https://dummyimage.com/200x280/d6d6d6/000000.png" alt="Card image cap">
-                    <div class="card-body">
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <button type="button" class="btn btn-primary btn-block">DEMO KİTAP</button>
-                        <button type="button" class="btn btn-primary btn-block">VİDEO TANITIM</button>
-                    </div>
-                </div>
-            </div>
-
         </div>
-
-    </div>
-
-
 
 <?php
-    $buffer  = ob_get_clean();
-    return $buffer;
+        $html  = ob_get_clean();
+
+        set_transient('digital_catalog_html', $html, 86400);
+
+        echo (WP_PRV_THEME_DEBUG === true) ? '<h5>Not Cached</h5>' : "";
+        $digital_catalog_html = $html;
+        echo $digital_catalog_html;
+        return;
+    }
+    echo (WP_PRV_THEME_DEBUG === true) ? '<h5>Cached</h5>' : "";
+    echo $digital_catalog_html;
 });

@@ -1,7 +1,7 @@
 export default {
   init() {
 
-    $('#form-submit-contact').click(function(e) {
+    $('#form-submit-contact').click(function (e) {
 
       // Fetch form to apply custom Bootstrap validation
       var form = $('#contactForm')
@@ -14,7 +14,7 @@ export default {
       form.addClass('was-validated');
       // Perform ajax submit here...
 
-  });
+    });
 
   },
 };

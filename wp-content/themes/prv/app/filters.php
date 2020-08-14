@@ -30,11 +30,20 @@ add_filter('body_class', function (array $classes) {
     return array_filter($classes);
 });
 
+// Filter except length to 35 words.
+// tn custom excerpt length
+
+add_filter('excerpt_length', function ($length) {
+    return 20;
+}, 999);
+
+
+
 /**
  * Add "… Continued" to the excerpt
  */
 add_filter('excerpt_more', function () {
-    return ' &hellip; <a href="' . get_permalink() . '">' . __('Continued', 'sage') . '</a>';
+    return ' &hellip;';
 });
 
 /**
@@ -282,7 +291,9 @@ add_action('template_redirect', function () {
 
         add_action('woocommerce_before_single_product_summary', 'woocommerce_breadcrumb', 15);
         add_action('woocommerce_before_single_product_summary', 'woocommerce_output_all_notices', 16);
-        add_action('woocommerce_before_single_product_summary', __NAMESPACE__ . '\pdf_modal_html', 24);
+        add_action('woocommerce_before_single_product_summary', function () {
+            echo \App\pdf_modal_html();
+        }, 24);
         add_action('woocommerce_before_single_product_summary', __NAMESPACE__ . '\view_container_html', 25);
         add_action('woocommerce_single_product_summary', __NAMESPACE__ . '\woocommerce_the_content_with_wrapper', 6);
         add_action('woocommerce_after_add_to_cart_quantity', 'woocommerce_template_single_price', 5);

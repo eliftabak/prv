@@ -1,13 +1,19 @@
-.filterable-catalog {
-  //display: flex;
-  //flex-wrap: wrap;
-}
+.dijital-katalog {
+  .card-container {
+    padding-bottom: 15px;
+  }
 
-.element-item {
-  padding-bottom: 15px;
-}
+  .card {
+    border: 1px solid beige;
+  }
 
-.card-img-top {
-  width: 100%;
-  height: auto;
+  .card-body {
+    padding: 0.65rem;
+    background: #ffffe321;
+  }
+
+  .card-img-top {
+    width: 100%;
+    height: auto;
+  }
 }

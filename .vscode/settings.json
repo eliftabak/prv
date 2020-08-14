@@ -52,13 +52,6 @@
     "[scss]": {
         "editor.formatOnSave": true
     },
-    "css.remoteStyleSheets": [
-        "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css"
-    ],
-    "css.fileExtensions": [
-        "css",
-        "scss"
-    ],
     "[njk]": {
         "editor.formatOnSave": true,
         "editor.defaultFormatter": "vscode.html-language-features",
@@ -74,7 +67,6 @@
         "editor.defaultFormatter": "onecentlin.laravel-blade",
     },
     "php.validate.executablePath": "/opt/lampp/bin/php",
-    "php.executablePath": "/opt/lampp/bin/php",
     "php.suggest.basic": false,
     "[php]": {
         "editor.formatOnSave": true,

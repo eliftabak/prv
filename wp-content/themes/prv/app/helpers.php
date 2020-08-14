@@ -166,10 +166,11 @@ function view_container_html()
 
     $post_id = get_the_ID();
     $video_cozum = esc_url(get_post_meta($post_id, "prv_video-cozum_url", 1));
+    $kitab_incele = esc_url(get_post_meta($post_id, 'prv_kitap_inceleme_pdf', 1));
 
     $html = '<div class="view-container">';
     $html .= '<div class="view-container__element view-container__sample">
-              <a href="" data-toggle="modal" data-target="#PDFModal">
+              <a data-src="' . $kitab_incele . '" class="pdf__view-button" href="#" data-toggle="modal" data-target="#PDFModal">
               <i class="fa fa-search" aria-hidden="true"></i><h6>Kitabı İncele</h5>
               </a>
               </div>';
@@ -208,8 +209,6 @@ function woocommerce_the_content_with_wrapper()
 
 function pdf_modal_html()
 {
-    $post_id = get_the_ID();
-    $kitab_incele = esc_url(get_post_meta($post_id, 'prv_kitap_inceleme_pdf', 1));
     $html = '<!-- pdf modal start -->
      <div class="modal fade pdf-viewer__modal" id="PDFModal" tabindex="-1" role="dialog"
        aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -223,7 +222,7 @@ function pdf_modal_html()
              <!-- 16:9 aspect ratio -->
              <div class="embed-responsive-">
                <iframe class="embed-responsive-item pdf-viewer__iframe"
-               src="' . $kitab_incele . '" id="pdf"  frameborder="0">
+               src="" id="pdf"  frameborder="0">
                 </iframe>
              </div>
            </div>
@@ -232,7 +231,7 @@ function pdf_modal_html()
      </div>
      <!-- pdf modal end -->';
 
-    echo $html;
+    return $html;
 }
 
 

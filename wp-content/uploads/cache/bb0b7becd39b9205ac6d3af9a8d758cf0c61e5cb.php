@@ -48,7 +48,8 @@ $home = App::home_url_with_slash();
                 </div>
                 <div class="neden-sorular-konusuyor__play-button"><i
                     class="fa fa-play-circle neden-sorular-konusuyor__play" aria-hidden="true" data-toggle="modal"
-                    data-src="https://www.youtube.com/embed/nnmhhZcH8Wc" data-target="#SKModal"></i></div>
+                    data-src="https://www.youtube.com/embed/nnmhhZcH8Wc" data-target="#SKModal"></i>
+                </div>
               </div>
             </div>
           </div>

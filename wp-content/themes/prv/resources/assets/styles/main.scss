@@ -23,7 +23,6 @@
 @import "components/wp-classes";
 @import "components/animated-hourglass";
 @import "components/bayimap";
-@import "common/carousel";
 @import "layouts/header";
 @import "components/navbar";
 @import "layouts/sidebar";
@@ -33,7 +32,10 @@
 @import "layouts/tinymce";
 @import "layouts/home";
 @import "layouts/single-product-page";
+@import "vendor/slick/slick";
+@import "vendor/slick/slick-theme";
 @import "templates/contact";
 @import "templates/akilli-tahta";
 @import "templates/bayilik-basvuru";
 @import "templates/dijital-katalog";
+@import "templates/search";
