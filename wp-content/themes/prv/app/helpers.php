@@ -244,10 +244,11 @@ function add_to_cart_html($args)
     $shop_page_url  = $args["shop_page_url"];
     $items = $args["items"];
     $checkout_url = $args["checkout_url"];
+    $on_mobile = wp_is_mobile() === true ?  "cart-mobile" : "";
 
 
 ?>
-    <div id="Cart" class="cart text-white d-inline">
+    <div id="Cart" class="cart text-white d-inline <?php echo $on_mobile ?>">
         <ul class="d-flex m-0 p-0 align-items-center">
             <li class="cart__count"><?php echo $total_count ?></li>
             <li>

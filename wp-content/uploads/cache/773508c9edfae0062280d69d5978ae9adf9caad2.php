@@ -5,7 +5,7 @@ $home = App::home_url_with_slash();
 <section class="benimsorumnet p-0">
   <div class="container-fluid">
     <div class="row bg-white">
-      <div class="col-lg-6 p-0">
+      <div class="col-sm-12 col-md-6 col-lg-6 p-0">
         <div id="benimsorumnet-slider" class="slider carousel  carousel-lazy slide carousel-fade" data-ride="carousel">
           <ol class="carousel-indicators">
             <li data-target="#benimsorumnet-slider" data-slide-to="0" class="active"></li>
@@ -45,13 +45,14 @@ $home = App::home_url_with_slash();
           </a>
         </div>
       </div>
-      <div class="col-lg-6 vmx-auto p-5">
+      <div class="col-sm-12 col-md-6 col-lg-6 vmx-auto p-5">
         <div class="content text-dark">
           <h1 class="text-primary">Değerli Öğretmenlerimiz,</h1>
-          <p class="w-75">Yeni Nesil soruları seviyor, yazıyor ve siz de BenimSorum.Net diyorsanız hemen tıklayın ve
+          <p class="w-75 text-secondary">Yeni Nesil soruları seviyor, yazıyor ve siz de BenimSorum.Net diyorsanız hemen
+            tıklayın ve
             örnek sorularınızı gönderin.</p>
-          <a id="benimsorum" class="btn btn-primary p-3 pl-5 pr-5 mt-3 rounded-pill" href="http://www.benimsorum.net"
-            target="_blank" role="button">BenimSorum.Net</a>
+          <a id="benimsorum" class="btn btn-primary p-3 pl-lg-5 pr-lg-5 mt-lg-3 rounded-pill"
+            href="http://www.benimsorum.net" target="_blank" role="button">BenimSorum.Net</a>
         </div>
       </div>
     </div>

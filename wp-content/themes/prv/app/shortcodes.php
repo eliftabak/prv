@@ -230,11 +230,11 @@ add_shortcode('digital-catalog', function () {
         <div class="row">
             <div class="col-12 text-center">
                 <div class="btn-group filters-button-group" role="group" aria-label="Basic example">
-                    <button type="button" class="btn btn-outline-primary btn-lg" is-checked" data-filter="*">Tümü</button>
+                    <button type="button" class="btn btn-outline-primary" is-checked" data-filter="*">Tümü</button>
                     <?php
                     $html = '';
                     foreach ($lessonsData as $data) {
-                        $html .= '<button type="button" class="btn btn-outline-primary btn-lg" data-filter=".' . $nf->format($data["lesson-in-number"]) . '">' . $data["lesson-in-name"] . '</button>';
+                        $html .= '<button type="button" class="btn btn-outline-primary" data-filter=".' . $nf->format($data["lesson-in-number"]) . '">' . $data["lesson-in-name"] . '</button>';
                     }
                     echo $html;
                     ?>

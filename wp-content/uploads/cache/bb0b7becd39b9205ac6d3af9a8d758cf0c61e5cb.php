@@ -5,11 +5,11 @@ $home = App::home_url_with_slash();
 <section class="neden-sorular-konusuyor">
   <div class="container-fluid h-100">
     <div class="row h-100">
-      <div class="col-lg-6 vmx-auto">
+      <div class="col-sm-8 col-lg-6 mx-auto vmx-auto">
         <div class="row pl-lg-5">
           <div class="col-lg-12">
             <div class="neden-sorular-konusuyor__left-conent">
-              <h1 class="neden-sorular-konusuyor__title p-0">Neden</h1>
+              <h1 class="neden-sorular-konusuyor__title p-0 pt-5">Neden</h1>
               <h2 class="neden-sorular-konusuyor__subtitle p-0">Sorular Konuşuyor?</h2>
               <p class="neden-sorular-konusuyor__description">Sorular Konuşuyor Serisinin özenle hazırlanmış çok özel
                 sistemini incelemek ve tüm detayları öğrenmek için bu makaleyi okuyabilir veya aşağıdaki butona
@@ -22,7 +22,7 @@ $home = App::home_url_with_slash();
           <div class="col-lg-12 pt-5">
             <div class="row">
               <div class="col-lg-4"></div>
-              <div class="col-lg-8">
+              <div class="col-lg-8 text-sm-left text-md-center">
                 <div class="neden-sorular-konusuyor__videobox">
                   <!-- modal start -->
                   <div class="modal fade neden-sorular-konusuyor__modal" id="SKModal" tabindex="-1" role="dialog"
@@ -55,8 +55,8 @@ $home = App::home_url_with_slash();
           </div>
         </div>
       </div>
-      <div class="col-lg-6 pt-5">
-        <div class="emoji pt-5 h-100">
+      <div class="col-sm-8 col-lg-6 mx-auto pt-lg-5">
+        <div class="emoji pt-lg-5 h-100">
           <img class="emoji__item emoji__item-1 lazy" data-toggle="tooltip" data-html="true" data-placement="left"
             title="<div>
           <h5>Klasik Kolay</h5>

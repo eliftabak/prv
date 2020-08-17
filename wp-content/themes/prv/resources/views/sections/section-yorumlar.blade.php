@@ -7,7 +7,7 @@
           <h1 class="yorumlar__title">Öğrenci Görüşleri</h1>
         </div>
       </div>
-      <div class="col-lg-12">
+      <div class="col-sm-8 col-lg-12 mx-auto">
         <div class="row">
           <div class="col-lg-2"></div>
           <div class="col-lg-8">
@@ -20,7 +20,7 @@
           <div class="col-lg-2"></div>
         </div>
       </div>
-      <div class="col-lg-12 pt-5">
+      <div class="col-sm-8 col-lg-12 mx-auto pt-5">
         <div class="row">
           <div class="col-lg-3"></div>
           <div class="col-lg-6"><img class="lazy w-100"

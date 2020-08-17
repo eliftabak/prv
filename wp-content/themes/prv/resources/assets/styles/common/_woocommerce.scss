@@ -110,7 +110,7 @@
     box-shadow: 0 32px 144px rgba(0, 0, 0, 0.127049);
 
     @include media-breakpoint-between(xs, sm) {
-      padding: 6rem 0 0 0;
+      padding: 2rem 0 0 0;
     }
 
     &::after {

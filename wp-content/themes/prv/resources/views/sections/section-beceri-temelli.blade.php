@@ -1,13 +1,13 @@
 <!-- beceri-temelli section start -->
-<section class="beceri-temelli pt-5">
-  <div class="container-fluid pt-lg-5">
+<section class="beceri-temelli pt-5 pb-5">
+  <div class="container-fluid pt-5 pt-lg-5">
     <div class="row pt-lg-5">
       <div class="col-lg-12">
         <div class="d-flex justify-content-center">
           <h1 class="beceri-temelli__title">Beceri Temelli Sorular</h1>
         </div>
       </div>
-      <div class="col-lg-12 p-lg-5">
+      <div class="col-sm-8 col-lg-12 mx-auto p-lg-5">
         <div class="grid grid__container">
           <div class="grid__item grid__item-a">
             <div class="row grid__inner grid__inner-a p-3">

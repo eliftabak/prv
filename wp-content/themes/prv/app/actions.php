@@ -343,9 +343,9 @@ add_action('home_page_slider', function () {
                     $html .= '<img  class="p-0 position-absolute ' . $magaza_slider_css_class . '__left-image ' . $show . '" style="z-index:2" data-src="' . $value["background_img"] . '">';
                     $html .= '<img  class="p-0 position-absolute ' . $magaza_slider_css_class . '__child-draw ' . $show . '" style="z-index:3" data-src="' . $value["left_img"] . '">';
                     $html .= '<div class="position-relative ' . $magaza_slider_css_class . '__right-text-block ' . $show . '" style="z-index:3">';
-                    $html .= '<div class="pt-5 text-white text-right pr-lg-5">';
-                    $html .= '<div class="pt-lg-5 mt-5">';
-                    $html .= '<h1 class="' . $magaza_slider_css_class . '__text-1 pt-lg-5">' . $value["title"] . '</h1>';
+                    $html .= '<div class="p-3 pt-lg-5 text-white text-right pr-lg-5">';
+                    $html .= '<div class="pt-lg-5 mt-lg-5">';
+                    $html .= '<h1 class="' . $magaza_slider_css_class . '__text-1 pt-lg-5 pt-sm-4">' . $value["title"] . '</h1>';
                     $html .= '<p class="' . $magaza_slider_css_class . '__text-2">' . $value["sub_title"] . '</p>';
                     $html .= '<p class="' . $magaza_slider_css_class . '__text-3">' . $value["manifesto"] . '</p>';
                     $html .= '</div><div class="' . $magaza_slider_css_class . '__desc text-right w-50 ml-auto ml"><div class="py-3">';
@@ -474,8 +474,9 @@ add_action('sorular_konusuyor_slider', function () {
                     $active = ($index == 0) ? 'active' : '';
                     $html .= '<div class="carousel-item ' . $active . '">';
                     $html .= '<div class="row">';
+                    $lesson = str_replace(".", ". ", $data["category_name"]);
                     foreach ($data["products_inner"] as $product_id) {
-                        $title = get_the_title($product_id);
+                        $title =  str_replace($lesson, '', get_the_title($product_id));
                         $image = wp_get_attachment_image(get_post_thumbnail_id($product_id), 'medium');
                         $badge = product_coming_soon_badge($product_id, "sorular-konusuyor");
                         $url = esc_url(get_permalink($product_id));

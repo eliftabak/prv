@@ -91,7 +91,7 @@
 
     @include media-breakpoint-between(xs, sm) {
       width: 64%;
-      height: calc(1.2em + 0.75rem + 2px) !important;
+      height: calc(2em + 0.75rem + 2px) !important;
       padding: 0 1rem !important;
     }
   }
@@ -99,8 +99,8 @@
   input.button {
     @include media-breakpoint-between(xs, sm) {
       font-size: 1rem !important;
-      padding: unset;
-      left: -30px !important;
+      padding: 0.7rem 0.5rem !important;
+      left: -35px !important;
     }
   }
 }

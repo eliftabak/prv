@@ -120,9 +120,14 @@ export default {
     });
 
     const $cart = $('#Cart');
-    if (window.matchMedia('(max-width: 768px)').matches) {
+    if (window.matchMedia('(max-width: 1199px)').matches) {
       $cart.clone().appendTo('body').addClass('cart-mobile');
       $cart.remove();
+    }
+
+    const $navbar = $('.navbar.navbar-expand-lg');
+    if (window.matchMedia('(min-width: 992px)').matches) {
+      $navbar.addClass('fixed-top');
     }
 
   },

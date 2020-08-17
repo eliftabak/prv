@@ -9,7 +9,7 @@ $home = App::home_url_with_slash();
     <div class="row">
       <div class="col-lg-6">
       </div>
-      <div class="col-lg-6">
+      <div class="col-sm-8 col-lg-6 mx-auto">
         <div class="row">
           <div class="col-lg-12 pt-5 pb-5">
             <div class="muhendis-kafasi__book">

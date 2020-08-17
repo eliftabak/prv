@@ -15,7 +15,7 @@ $home = App::home_url_with_slash();
           </p>
         </div>
       </div>
-      <div class="col-lg-12">
+      <div class="col-sm-8 col-lg-12 mx-auto">
         <div class="row p-lg-5">
           <?php
           do_action("section_brans_denemeleri");

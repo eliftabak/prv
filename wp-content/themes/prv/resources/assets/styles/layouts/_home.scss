@@ -10,6 +10,12 @@ section.home-slider {
     z-index: 1;
   }
 
+  .lead {
+    @include media-breakpoint-up(xs) {
+      font-size: 1.05rem;
+    }
+  }
+
   .home-slider {
     color: $white;
 
@@ -20,8 +26,15 @@ section.home-slider {
       width: 65%;
       height: auto;
 
-      @include media-breakpoint-between(xs, sm) {
+      @include media-breakpoint-down(xs) {
         width: 182%;
+      }
+      @include media-breakpoint-down(sm) {
+        width: 159%;
+      }
+
+      @include media-breakpoint-down(md) {
+        width: 119%;
       }
     }
 
@@ -32,12 +45,32 @@ section.home-slider {
       transition: 1s ease-in-out 0.5s;
       filter: drop-shadow(0 4px 40px rgba(0, 0, 0, 0.1));
 
-      @include media-breakpoint-between(xs, sm) {
+      @include media-breakpoint-down(xs) {
         left: -172px;
+      }
+      @include media-breakpoint-down(sm) {
+        left: -280px;
       }
     }
 
     &__child-draw {
+      @include media-breakpoint-down(xs) {
+        width: 56vw;
+        top: 34%;
+        left: 24%;
+      }
+
+      @include media-breakpoint-down(sm) {
+        width: 52vw;
+        top: 35%;
+      }
+
+      @include media-breakpoint-down(md) {
+        width: 44vw;
+        top: 42%;
+        left: 28%;
+      }
+
       height: auto;
       width: 36vw;
       transform: translate(-50%, -50%);
@@ -66,9 +99,13 @@ section.home-slider {
       letter-spacing: -2.33185px;
 
       @include media-breakpoint-between(xs, sm) {
-        font-size: 28px;
-        line-height: 36px;
+        font-size: 41px;
+        line-height: 42px;
         padding-right: 38px;
+      }
+      @include media-breakpoint-between(md, lg) {
+        font-size: 50px;
+        line-height: 58px;
       }
     }
 
@@ -78,9 +115,14 @@ section.home-slider {
       letter-spacing: -2.33185px;
 
       @include media-breakpoint-between(xs, sm) {
-        font-size: 23px;
-        line-height: 31px;
+        font-size: 28px;
+        line-height: 24px;
         padding-right: 38px;
+      }
+
+      @include media-breakpoint-between(md, lg) {
+        font-size: 45px;
+        line-height: 53px;
       }
     }
 
@@ -92,9 +134,14 @@ section.home-slider {
       //padding-right: 38px;
 
       @include media-breakpoint-between(xs, sm) {
-        font-size: 21px;
+        font-size: 24px;
         padding-right: 29px;
         padding-right: 38px;
+        line-height: 26px;
+      }
+      @include media-breakpoint-between(md, lg) {
+        font-size: 33px;
+        line-height: 39px;
       }
     }
 
@@ -127,7 +174,7 @@ section.home-slider {
     .carousel-inner {
       overflow: hidden;
 
-      @include media-breakpoint-between(lg, xlg) {
+      @include media-breakpoint-between(sm, xlg) {
         overflow: visible;
       }
     }
@@ -186,6 +233,19 @@ section.sorular-konusuyor {
     padding-top: 28rem !important;
   }
 
+  .carousel-item > .row {
+    @include media-breakpoint-between(xs, sm) {
+      margin-right: 0;
+      margin-left: 0;
+    }
+  }
+
+  .carousel-item > .row > [class*="col-"] {
+    @include media-breakpoint-between(xs, sm) {
+      padding-right: 0;
+    }
+  }
+
   .sorular-konusuyor {
     color: #fff;
 
@@ -199,6 +259,10 @@ section.sorular-konusuyor {
         font-size: 38px;
         line-height: 56px;
         letter-spacing: -0.54056px;
+      }
+      @include media-breakpoint-between(md, lg) {
+        font-size: 68px;
+        line-height: 95px;
       }
     }
 
@@ -372,6 +436,10 @@ section.brans-denemeleri {
         font-size: 38px;
         line-height: 56px;
         letter-spacing: -0.54056px;
+      }
+      @include media-breakpoint-between(md, lg) {
+        font-size: 68px;
+        line-height: 95px;
       }
     }
 
@@ -595,7 +663,7 @@ section.muhendis-kafasi {
 }
 
 section.beceri-temelli {
-  height: 1200px;
+  height: auto;
   background-color: #fff9ef;
   background-image: linear-gradient(
       200.25deg,
@@ -616,13 +684,13 @@ section.beceri-temelli {
         minmax(200px, 1fr) minmax(200px, 1fr) minmax(200px, 1fr)
         minmax(200px, 1fr) minmax(200px, 1fr);
 
-      @include media-breakpoint-between(xs, sm) {
+      @include media-breakpoint-between(xs, lg) {
         grid-template-columns: minmax(100px, 1fr) minmax(100px, 1fr);
       }
 
       grid-template-rows: minmax(200px, 1fr) minmax(200px, 1fr);
 
-      @include media-breakpoint-between(xs, sm) {
+      @include media-breakpoint-between(xs, lg) {
         grid-template-rows:
           minmax(50px, 1fr) minmax(50px, 1fr)
           minmax(50px, 1fr) minmax(50px, 1fr);
@@ -632,7 +700,7 @@ section.beceri-temelli {
         "a b c d e"
         ". . ı . k";
 
-      @include media-breakpoint-between(xs, sm) {
+      @include media-breakpoint-between(xs, lg) {
         grid-template-areas:
           "a b"
           "c d "
@@ -652,7 +720,7 @@ section.beceri-temelli {
         grid-row: 1/3;
         align-self: center;
 
-        @include media-breakpoint-between(xs, sm) {
+        @include media-breakpoint-between(xs, lg) {
           align-self: auto;
         }
       }
@@ -666,7 +734,7 @@ section.beceri-temelli {
         grid-row: 1/3;
         align-self: center;
 
-        @include media-breakpoint-between(xs, sm) {
+        @include media-breakpoint-between(xs, lg) {
           align-self: end;
         }
       }
@@ -690,7 +758,7 @@ section.beceri-temelli {
       margin-left: unset;
       height: 23rem;
 
-      @include media-breakpoint-between(xs, sm) {
+      @include media-breakpoint-between(xs, lg) {
         height: 13rem;
         padding: 2.1rem 0 2.3rem 0.6rem !important;
       }
@@ -758,6 +826,10 @@ section.beceri-temelli {
         line-height: 56px;
         letter-spacing: -0.54056px;
       }
+      @include media-breakpoint-between(md, lg) {
+        font-size: 68px;
+        line-height: 95px;
+      }
     }
 
     &__icon {
@@ -765,7 +837,7 @@ section.beceri-temelli {
       color: inherit;
       font-size: 7.5rem;
 
-      @include media-breakpoint-between(xs, sm) {
+      @include media-breakpoint-between(xs, lg) {
         font-size: 2.6rem;
       }
     }
@@ -777,7 +849,7 @@ section.beceri-temelli {
       letter-spacing: -1.81622px;
       color: inherit;
 
-      @include media-breakpoint-between(xs, sm) {
+      @include media-breakpoint-between(xs, lg) {
         font-size: 1.4rem;
         line-height: 1.5rem;
       }
@@ -851,6 +923,11 @@ section.yorumlar {
         line-height: 56px;
         letter-spacing: -0.54056px;
       }
+
+      @include media-breakpoint-between(md, lg) {
+        font-size: 68px;
+        line-height: 95px;
+      }
     }
 
     &__content {
@@ -893,7 +970,14 @@ section.yorumlar {
 }
 
 section.neden-sorular-konusuyor {
-  height: 68.75rem;
+  height: auto;
+  @include media-breakpoint-between(md, lg) {
+    padding: 8rem 0;
+  }
+  @include media-breakpoint-between(lg, xl) {
+    padding: 13rem 0;
+  }
+
   background-color: #fff9ef;
   background-image: url("../images/sorular-konusuyor-background-1.svg"),
     url("../images/sorular-konusuyor-background-2.svg"),
@@ -918,7 +1002,7 @@ section.neden-sorular-konusuyor {
       letter-spacing: -0.3119rem;
 
       @include media-breakpoint-between(xs, sm) {
-        font-size: 38px;
+        font-size: 55px;
         line-height: 56px;
         letter-spacing: -0.54056px;
       }
@@ -971,7 +1055,7 @@ section.neden-sorular-konusuyor {
   }
 
   .emoji {
-    @include media-breakpoint-between(xs, sm) {
+    @include media-breakpoint-between(xs, lg) {
       height: 600px !important;
       margin-bottom: 112px;
     }
@@ -1016,7 +1100,7 @@ section.neden-sorular-konusuyor {
       left: 50%;
 
       @include media-breakpoint-between(xs, sm) {
-        left: 64%;
+        left: 68%;
       }
     }
 
@@ -1046,7 +1130,7 @@ section.neden-sorular-konusuyor {
       left: 55%;
 
       @include media-breakpoint-between(xs, sm) {
-        left: 74%;
+        left: 69%;
       }
     }
 
@@ -1056,6 +1140,7 @@ section.neden-sorular-konusuyor {
       left: 11%;
 
       @include media-breakpoint-between(xs, sm) {
+        top: 79%;
         left: 9%;
       }
     }
@@ -1076,7 +1161,8 @@ section.neden-sorular-konusuyor {
       left: 56%;
 
       @include media-breakpoint-between(xs, sm) {
-        left: 67%;
+        left: 70%;
+        top: 79%;
       }
     }
   }
@@ -1123,9 +1209,21 @@ section.benimsorumnet {
     }
   }
 
-  .content h1 {
+  .content .text-primary {
     @include media-breakpoint-between(xs, sm) {
       font-size: 1.6rem;
+    }
+    @include media-breakpoint-between(md, lg) {
+      font-size: 1.1rem;
+    }
+  }
+
+  .content .text-secondary {
+    @include media-breakpoint-between(xs, sm) {
+      font-size: 1.1rem;
+    }
+    @include media-breakpoint-between(md, lg) {
+      font-size: 0.8rem;
     }
   }
 }

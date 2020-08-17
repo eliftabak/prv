@@ -2,14 +2,14 @@
 <section class="teke-tek pt-5">
   <div class="container-fluid">
     <div class="row p-lg-5">
-      <div class="col-lg-6">
+      <div class="col-lg-6 col-sm-8 m-auto">
         <div class="row">
           @php
           do_action("section_teke_tek");
           @endphp
         </div>
       </div>
-      <div class="col-lg-6 vmx-auto">
+      <div class="col-lg-6 col-sm-8 m-auto vmx-auto">
         <div class="teke-tek__book text-right">
           <div class="teke-tek__book-brand">Pruva</div>
           <div class="teke-tek__book-name">Teke Tek</div>

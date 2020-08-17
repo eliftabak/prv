@@ -134,12 +134,20 @@ i[class$="-prv-icon"] {
 
 .satis-noktalari {
   .container__page-content {
+    @include media-breakpoint-between(xs, sm) {
+      min-height: unset;
+    }
+
     padding: 0 !important;
   }
 }
 
 .container {
   &__page-content {
+    @include media-breakpoint-between(xs, sm) {
+      margin-top: -198px;
+    }
+
     color: $general-text-color;
     background: #fff;
     box-shadow: 0 72px 124px rgba(0, 0, 0, 0.111396);
@@ -173,6 +181,10 @@ i[class$="-prv-icon"] {
 }
 // Yoast Styling
 #breadcrumbs {
+  @include media-breakpoint-between(xs, sm) {
+    font-size: 11px;
+  }
+
   color: lighten($color: $primary, $amount: 60);
   letter-spacing: -0.2px;
   font-weight: 400;
@@ -209,7 +221,13 @@ i[class$="-prv-icon"] {
 
 .modal {
   @include media-breakpoint-between(xs, sm) {
-    width: 95%;
+    width: 100%;
+  }
+
+  &.show .modal-dialog {
+    @include media-breakpoint-between(xs, sm) {
+      width: 95%;
+    }
   }
 
   &-dialog {
@@ -235,7 +253,7 @@ i[class$="-prv-icon"] {
     opacity: 1;
 
     @include media-breakpoint-between(xs, sm) {
-      right: 0.1875rem;
+      right: -0.5125rem;
     }
   }
 }
@@ -285,4 +303,24 @@ i[class$="-prv-icon"] {
 
 .slick-track {
   margin-left: unset !important;
+}
+
+.footer_all_rights {
+  @include media-breakpoint-between(xs, sm) {
+    font-size: 11px;
+  }
+}
+
+.bs-stepper-header {
+  @include media-breakpoint-between(xs, sm) {
+    overflow-x: scroll;
+  }
+}
+
+.filters-button-group {
+  .btn {
+    @include media-breakpoint-between(xs, sm) {
+      font-size: 0.8rem;
+    }
+  }
 }

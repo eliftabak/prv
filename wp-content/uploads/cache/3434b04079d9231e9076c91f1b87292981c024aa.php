@@ -1,5 +1,5 @@
 <header>
-  <nav class="navbar navbar-expand-lg fixed-top">
+  <nav class="navbar navbar-expand-lg">
     <a class="navbar-brand text-uppercase font-weight-bold" href="<?php echo e(home_url('/')); ?>">
       <?php echo App::logo("navbar"); ?>
 
