@@ -13,6 +13,11 @@
     position: relative;
     z-index: 999;
 
+    @include media-breakpoint-between(md, lg) {
+      margin-bottom: 3rem;
+      margin-top: 3rem;
+    }
+
     @include media-breakpoint-between(xs, sm) {
       width: 80%;
       margin-bottom: unset;
@@ -124,9 +129,19 @@
     width: 44%;
     position: relative;
 
+    @include media-breakpoint-between(md, lg) {
+      width: 39%;
+    }
+
     @include media-breakpoint-between(xs, sm) {
       width: 100%;
       padding: 10px 59px 10px 31px;
+    }
+
+    p {
+      @include media-breakpoint-between(xs, lg) {
+        margin-bottom: 0.6rem;
+      }
     }
   }
 
@@ -134,7 +149,11 @@
     width: 46%;
     margin-left: -78px;
     bottom: -230px;
-    margin-top: -340px;
+    margin-top: -308px;
+
+    @include media-breakpoint-between(md, lg) {
+      margin-top: -302px;
+    }
 
     @include media-breakpoint-between(xs, sm) {
       width: 90%;
@@ -155,8 +174,34 @@
     text-align: center;
     color: #675953;
 
+    .woocommerce-Price-amount.amount {
+      font-size: 1.5rem;
+    }
+
+    @include media-breakpoint-up(xl) {
+      padding: 5rem 0;
+
+      ul li {
+        width: 22%;
+      }
+    }
+
+    @include media-breakpoint-between(md, lg) {
+      ul li {
+        width: 40%;
+      }
+    }
+
     @include media-breakpoint-between(xs, sm) {
       padding: 5rem 1rem;
+
+      .woocommerce-loop-product__title {
+        font-size: 1 rem;
+      }
+
+      .woocommerce-Price-amount.amount {
+        font-size: 1.3rem;
+      }
     }
   }
 
@@ -191,7 +236,7 @@
       mix-blend-mode: difference;
       font-size: 30px;
 
-      @include media-breakpoint-between(xs, sm) {
+      @include media-breakpoint-between(xs, lg) {
         right: 3px;
       }
 
@@ -208,6 +253,11 @@
       letter-spacing: -2.33185px;
       color: #fff;
       padding-bottom: 18px !important;
+
+      @include media-breakpoint-between(md, lg) {
+        font-size: 45px;
+        line-height: 50px;
+      }
 
       @include media-breakpoint-between(xs, sm) {
         font-size: 34px;
@@ -256,6 +306,7 @@
   form.cart {
     position: absolute;
     right: 43px;
+    width: fit-content;
     bottom: -31px;
     background: $white;
     border-radius: 53px;
@@ -266,10 +317,11 @@
     padding-left: 11px;
     box-shadow: 0 12px 47px rgba(0, 0, 0, 0.157616);
 
-    @include media-breakpoint-between(xs, sm) {
+    @include media-breakpoint-between(xs, lg) {
       padding: unset;
       right: unset;
-      left: 12px;
+      left: 50%;
+      transform: translateX(-50%);
     }
   }
 
@@ -315,6 +367,12 @@
     position: relative;
     left: -5.56%;
     margin-top: 23%;
+
+    @include media-breakpoint-between(md, lg) {
+      width: 20%;
+      margin-top: 30%;
+      transform: translateY(-100%);
+    }
 
     @include media-breakpoint-between(xs, sm) {
       width: 50%;
@@ -440,19 +498,32 @@
 }
 
 .product-coming-soon {
+  transform: translate(-50%, -50%);
   position: absolute;
   width: auto !important;
 
   &__archive-product {
     height: 100px !important;
-    top: 0;
-    left: -9px;
+    top: 41px;
+    left: 33px;
+
+    @include media-breakpoint-between(xs, sm) {
+      height: 60px !important;
+      top: 27px;
+      left: 17px;
+    }
   }
 
   &__single-product {
-    height: 200px !important;
-    top: 67px;
-    left: 7px;
+    height: 9vw !important;
+    top: 6.5vw;
+    left: 5vw;
+
+    @include media-breakpoint-between(xs, sm) {
+      height: 16vw !important;
+      top: 15vw;
+      left: 11vw;
+    }
   }
 
   &.sorular-konusuyor {
@@ -461,45 +532,71 @@
     top: -5px;
     left: 65px;
 
+    @include media-breakpoint-between(md, lg) {
+      height: 46px !important;
+      top: -5px;
+      left: 40px;
+    }
+
     @include media-breakpoint-between(xs, sm) {
       height: 50px !important;
-      top: -16px;
-      left: 3px;
+      top: -5px;
+      left: -3px;
     }
   }
 
   &.brans-denemeleri {
     height: 100px !important;
-    top: 13px;
-    left: -5px;
+    top: 53px;
+    left: 42px;
     z-index: 5;
+
+    @include media-breakpoint-between(md, lg) {
+      top: 34px;
+      left: 27px;
+      height: 66px !important;
+    }
 
     @include media-breakpoint-between(xs, sm) {
       height: 50px !important;
+      top: 32px;
+      left: 20px;
     }
   }
 
   &.teke-tek {
     height: 100px !important;
-    top: 31px;
-    left: 11px;
+    top: 57px;
+    left: 38px;
+
+    @include media-breakpoint-between(md, lg) {
+      top: 34px;
+      left: 27px;
+      height: 66px !important;
+    }
 
     @include media-breakpoint-between(xs, sm) {
       height: 50px !important;
-      top: -4px;
-      left: -5px;
+      top: 24px;
+      left: 17px;
     }
   }
 
   &.muhendis-kafasi {
     height: 100px !important;
-    top: 75px;
-    left: 11px;
+    top: 114px;
+    left: 58px;
+
+    @include media-breakpoint-between(md, lg) {
+      top: 84px;
+      left: 36px;
+      height: 66px !important;
+    }
 
     @include media-breakpoint-between(xs, sm) {
       height: 50px !important;
-      top: 42px;
-      left: 11px;
+      top: 69px;
+      left: 38px;
     }
   }
 }

@@ -126,6 +126,10 @@ i[class$="-prv-icon"] {
   .container__page-content {
     padding-top: 28px !important;
 
+    @include media-breakpoint-between(xs, sm) {
+      padding: 8px !important;
+    }
+
     p {
       color: white;
     }
@@ -173,7 +177,7 @@ i[class$="-prv-icon"] {
     p {
       color: lighten($color: $general-text-color, $amount: 10);
       text-align: justify;
-      letter-spacing: -0.5;
+      letter-spacing: -0.5px;
       font-weight: 300;
       line-height: 1.5rem;
     }

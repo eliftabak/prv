@@ -26,15 +26,20 @@ section.home-slider {
       width: 65%;
       height: auto;
 
-      @include media-breakpoint-down(xs) {
-        width: 182%;
+      @include media-breakpoint-down(lg) {
+        width: 82%;
       }
+
+      @include media-breakpoint-down(md) {
+        width: 109%;
+      }
+
       @include media-breakpoint-down(sm) {
         width: 159%;
       }
 
-      @include media-breakpoint-down(md) {
-        width: 119%;
+      @include media-breakpoint-down(xs) {
+        width: 182%;
       }
     }
 
@@ -45,19 +50,20 @@ section.home-slider {
       transition: 1s ease-in-out 0.5s;
       filter: drop-shadow(0 4px 40px rgba(0, 0, 0, 0.1));
 
-      @include media-breakpoint-down(xs) {
-        left: -172px;
-      }
       @include media-breakpoint-down(sm) {
         left: -280px;
+      }
+
+      @include media-breakpoint-down(xs) {
+        left: -172px;
       }
     }
 
     &__child-draw {
-      @include media-breakpoint-down(xs) {
-        width: 56vw;
-        top: 34%;
-        left: 24%;
+      @include media-breakpoint-down(md) {
+        width: 44vw;
+        top: 42%;
+        left: 28%;
       }
 
       @include media-breakpoint-down(sm) {
@@ -65,10 +71,10 @@ section.home-slider {
         top: 35%;
       }
 
-      @include media-breakpoint-down(md) {
-        width: 44vw;
-        top: 42%;
-        left: 28%;
+      @include media-breakpoint-down(xs) {
+        width: 56vw;
+        top: 34%;
+        left: 24%;
       }
 
       height: auto;
@@ -174,7 +180,7 @@ section.home-slider {
     .carousel-inner {
       overflow: hidden;
 
-      @include media-breakpoint-between(sm, xlg) {
+      @include media-breakpoint-up(xl) {
         overflow: visible;
       }
     }
@@ -753,12 +759,17 @@ section.beceri-temelli {
     }
 
     &__inner {
-      padding: 1.5rem !important;
+      padding: 1rem 0.8rem 1.5rem !important;
       margin-right: unset;
       margin-left: unset;
       height: 23rem;
 
-      @include media-breakpoint-between(xs, lg) {
+      @include media-breakpoint-between(md, lg) {
+        height: 18rem;
+        padding: 2.1rem 0 3.2rem 1.6rem !important;
+      }
+
+      @include media-breakpoint-between(xs, sm) {
         height: 13rem;
         padding: 2.1rem 0 2.3rem 0.6rem !important;
       }
@@ -836,20 +847,27 @@ section.beceri-temelli {
       font-weight: bold;
       color: inherit;
       font-size: 7.5rem;
+      @include media-breakpoint-between(md, lg) {
+        font-size: 3.6rem;
+      }
 
-      @include media-breakpoint-between(xs, lg) {
+      @include media-breakpoint-between(xs, sm) {
         font-size: 2.6rem;
       }
     }
 
     &__header h2 {
       font-weight: bold;
-      font-size: 2.5rem;
+      font-size: 2.2rem;
       line-height: 3.125rem;
       letter-spacing: -1.81622px;
       color: inherit;
 
-      @include media-breakpoint-between(xs, lg) {
+      @include media-breakpoint-between(md, lg) {
+        font-size: 2.3rem;
+        line-height: 1.8rem;
+      }
+      @include media-breakpoint-between(xs, sm) {
         font-size: 1.4rem;
         line-height: 1.5rem;
       }
@@ -859,6 +877,11 @@ section.beceri-temelli {
       font-weight: 400;
       font-size: 1.25rem;
       line-height: 1.5rem;
+
+      @include media-breakpoint-between(md, lg) {
+        font-size: 1.35rem;
+        line-height: 1.5rem;
+      }
 
       @include media-breakpoint-between(xs, sm) {
         font-size: 1rem;

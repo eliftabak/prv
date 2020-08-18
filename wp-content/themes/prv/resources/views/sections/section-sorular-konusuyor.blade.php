@@ -9,9 +9,9 @@
             en
             yakın tarzda sorular...
           </p>
-          <a name="" id="" class="btn btn-primary btn-lg rounded-pill pl-lg-5 pr-lg-5 shadow-lg mr-3" href="magaza/"
-            role="button">TÜM KİTAPLAR</a>
-          <a name="" id="" class="btn btn-success btn-lg rounded-pill pl-lg-5 pr-lg-5 shadow-lg"
+          <a name="" id="" class="btn btn-primary btn-lg rounded-pill pl-lg-5 pr-lg-5 shadow-lg mr-3 mt-lg-4"
+            href="magaza/" role="button">TÜM KİTAPLAR</a>
+          <a name="" id="" class="btn btn-success btn-lg rounded-pill pl-lg-5 pr-lg-5 shadow-lg mt-lg-4"
             href="magaza/?filter_urun-cesitleri=sorular-konusuyor" role="button">SATIN AL</a>
         </div>
       </div>

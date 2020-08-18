@@ -248,7 +248,7 @@ function add_to_cart_html($args)
 
 
 ?>
-    <div id="Cart" class="cart text-white d-inline <?php echo $on_mobile ?>">
+    <div id="Cart" class="cart cart-menu text-white d-inline <?php echo $on_mobile ?>">
         <ul class="d-flex m-0 p-0 align-items-center">
             <li class="cart__count"><?php echo $total_count ?></li>
             <li>

@@ -60,7 +60,7 @@ add_shortcode('contact-form', function () {
 ?>
     <div id="contact" class="container-fluid contact">
         <div class="row">
-            <div class="col-lg-4 contact__info vmx-auto p-5">
+            <div class="col-md-5 col-lg-4 contact__info vmx-auto p-5">
                 <div>
                     <h2><i class="fa fa-phone pr-2" aria-hidden="true"></i>Telefon</h2>
                     <ul>
@@ -79,7 +79,7 @@ add_shortcode('contact-form', function () {
                     </ul>
                 </div>
             </div>
-            <div class="col-lg-8 contact__form p-5">
+            <div class="col-md-7 col-lg-8 contact__form p-5">
 
                 <?php if (isset($emailSent) && $emailSent == true) { ?>
 

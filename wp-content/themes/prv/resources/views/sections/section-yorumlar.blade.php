@@ -9,18 +9,18 @@
       </div>
       <div class="col-sm-8 col-lg-12 mx-auto">
         <div class="row">
-          <div class="col-lg-2"></div>
-          <div class="col-lg-8">
+          <div class="col-lg-1 col-xl-2"></div>
+          <div class="col-lg-10 col-xl-8">
             <div class="d-flex justify-content-center align-items-center flex-column">
               @php
               do_action("section_yorumlar");
               @endphp
             </div>
           </div>
-          <div class="col-lg-2"></div>
+          <div class="col-lg-1 col-xl-2"></div>
         </div>
       </div>
-      <div class="col-sm-8 col-lg-12 mx-auto pt-5">
+      <div class=" col-sm-8 col-lg-12 mx-auto pt-5">
         <div class="row">
           <div class="col-lg-3"></div>
           <div class="col-lg-6"><img class="lazy w-100"

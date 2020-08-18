@@ -7,7 +7,7 @@
           <h1 class="beceri-temelli__title">Beceri Temelli Sorular</h1>
         </div>
       </div>
-      <div class="col-sm-8 col-lg-12 mx-auto p-lg-5">
+      <div class="col-sm-8 col-md-8 col-lg-8 col-xl-12 mx-auto p-lg-5">
         <div class="grid grid__container">
           <div class="grid__item grid__item-a">
             <div class="row grid__inner grid__inner-a p-3">

@@ -5,14 +5,23 @@
 }
 
 .contact {
-  background-color: #ffc57f;
+  background-color: #e6932d;
+  background-image: linear-gradient(
+    to right,
+    #e6932d,
+    #ea883a,
+    #ec7d46,
+    #eb7352,
+    #e76b5d
+  );
+  color: #6b4a12;
 
   &__form {
-    background-color: white;
+    background-color: #fbfbfb;
   }
 
   i {
-    color: gray;
+    color: aliceblue;
   }
 
   ul {
