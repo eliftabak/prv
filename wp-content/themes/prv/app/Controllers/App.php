@@ -26,7 +26,7 @@ class App extends Controller
             return __('Mağaza', 'sage');
         }
         if (is_search()) {
-            return sprintf(__('Search Results for %s', 'sage'), get_search_query());
+            return sprintf(__('"%s" için bulunan sonuçlar ', 'sage'), get_search_query());
         }
         if (is_404()) {
             return __('404 Hata', 'sage');
