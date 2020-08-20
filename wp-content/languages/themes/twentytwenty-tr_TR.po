@@ -7,7 +7,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: GlotPress/3.0.0-alpha\n"
+"X-Generator: GlotPress/3.0.0-alpha.2\n"
 "Language: tr\n"
 "Project-Id-Version: Themes - Twenty Twenty\n"
 
@@ -23,7 +23,7 @@ msgstr "Yirmi Yirmi"
 msgid "Show author bio"
 msgstr "Yazar biyografisini göster"
 
-#: inc/starter-content.php:38
+#: inc/starter-content.php:39
 msgctxt "Theme starter content"
 msgid "The New UMoMA Opens its Doors"
 msgstr "Yeni UMoMA kapılarını açıyor"
@@ -32,24 +32,24 @@ msgstr "Yeni UMoMA kapılarını açıyor"
 msgid "View Archive <span aria-hidden=\"true\">&rarr;</span>"
 msgstr "Arşivi görüntüle <span aria-hidden=\"true\">&rarr;</span>"
 
-#: inc/starter-content.php:84 inc/starter-content.php:116
+#: inc/starter-content.php:85 inc/starter-content.php:117
 msgid "October 1 -- December 1"
 msgstr "Ekim 1 -- Aralık 1"
 
-#: inc/starter-content.php:81
+#: inc/starter-content.php:82
 msgid "Theatre of Operations"
 msgstr "Harekat Tiyatrosu"
 
-#: inc/starter-content.php:72 inc/starter-content.php:87
-#: inc/starter-content.php:104 inc/starter-content.php:119
+#: inc/starter-content.php:73 inc/starter-content.php:88
+#: inc/starter-content.php:105 inc/starter-content.php:120
 msgid "Read More"
 msgstr "Devamı"
 
-#: inc/starter-content.php:69 inc/starter-content.php:101
+#: inc/starter-content.php:70 inc/starter-content.php:102
 msgid "August 1 -- December 1"
 msgstr "Ağustos 1 -- Aralık 1"
 
-#: inc/starter-content.php:66
+#: inc/starter-content.php:67
 msgid "Works and Days"
 msgstr "Çalışmalar ve Günler"
 
@@ -65,16 +65,16 @@ msgstr "Varsayılan"
 msgid "Primary Color"
 msgstr "Birincil renk"
 
-#: inc/template-tags.php:393
+#: inc/template-tags.php:396
 msgctxt "A string that is output before one or more categories"
 msgid "In"
 msgstr "Kategori"
 
-#: inc/starter-content.php:150
+#: inc/starter-content.php:151
 msgid "Join the Club"
 msgstr "Kulübe katılın"
 
-#: inc/starter-content.php:47
+#: inc/starter-content.php:48
 msgid "The New UMoMA Opens its Doors"
 msgstr "Yeni UMoMA kapılarını açıyor"
 
@@ -82,19 +82,19 @@ msgstr "Yeni UMoMA kapılarını açıyor"
 msgid "Overlay Opacity"
 msgstr "Kaplama şeffaflığı"
 
-#: inc/starter-content.php:113
+#: inc/starter-content.php:114
 msgid "From Signac to Matisse"
 msgstr "Signac'tan Matisse'e"
 
-#: inc/starter-content.php:98
+#: inc/starter-content.php:99
 msgid "The Life I Deserve"
 msgstr "Hak Ettiğim Yaşam"
 
-#: inc/starter-content.php:147
+#: inc/starter-content.php:148
 msgid "Members get access to exclusive exhibits and sales. Our memberships cost $99.99 and are billed annually."
 msgstr "Üyeler özel sergilere ve satışlara ulaşabiliyor. Üyelik ücretimiz 99,99$ ve yıllık ücretlendirilir."
 
-#: inc/starter-content.php:144
+#: inc/starter-content.php:145
 msgid "Become a Member and Get Exclusive Offers!"
 msgstr "Üye olun ve özel teklifler alın!"
 
@@ -122,15 +122,15 @@ msgstr "\"Kapak şablonu\" sayfa şablonu için ayarlar. Arka plan olarak kullan
 msgid "Apply a custom color for links, buttons, featured images."
 msgstr "Bağlantılar, düğmeler ve öne çıkan görseller için özel bir renk uygulayın."
 
-#: inc/starter-content.php:136
+#: inc/starter-content.php:137
 msgid "The exhibitions are produced by UMoMA in collaboration with artists and museums around the world and they often attract international attention. UMoMA has received a Special Commendation from the European Museum of the Year, and was among the top candidates for the Swedish Museum of the Year Award as well as for the Council of Europe Museum Prize."
 msgstr "Sergiler UMoMA tarafından yapılmaktadır ve dünyanın her yerinden sanatçılar ve müzeler tarafından desteklenmektedir, çoğunlukla da uluslararası bir ilgi görmektedir. UMoMA Avrupa Yılın müzesi özel ödülünü almıştır ve İsveç Yılın Müzesi, Avrupa Konseyi Müze ödülü gibi bir çok ödül için de üst sıralarda aday gösterilmektedir."
 
-#: inc/starter-content.php:55
+#: inc/starter-content.php:56
 msgid "The premier destination for modern art in Northern Sweden. Open from 10 AM to 6 PM every day during the summer months."
 msgstr "Kuzey İsveç'te çağdaş sanat için birincil varış noktanız. Yaz aylarında her gün 10 ile 18 arası açık."
 
-#: inc/starter-content.php:133
+#: inc/starter-content.php:134
 msgid "With seven floors of striking architecture, UMoMA shows exhibitions of international contemporary art, sometimes along with art historical retrospectives. Existential, political and philosophical issues are intrinsic to our programme. As visitor you are invited to guided tours artist talks, lectures, film screenings and other events with free admission"
 msgstr "Yedi katlı çarpıcı mimarisi ile UMoMA uluslararası modern sanat sergileri ve kimi zaman da retrospektif tarihi sanat sergileri sergiler. Varoluçu, politik ve felsefi konular programımızın vazgeçilmez parçalarıdır. Ziyaretçilerimiz olarak rehberleri sanatçı konuşmaları, dersler, film gösterimleri ve bir çok etkinliğe ücretsiz katılabilirsiniz"
 
@@ -165,7 +165,7 @@ msgstr "Tepeye %s"
 msgid "404 not found"
 msgstr "404 bulunamadı"
 
-#: index.php:99
+#: index.php:101
 msgid "search again"
 msgstr "tekrar arayın"
 
@@ -208,16 +208,16 @@ msgstr "Yorumlar"
 msgid "Comments are closed."
 msgstr "Yorumlar kapatıldı."
 
-#: inc/starter-content.php:176 inc/starter-content.php:186 functions.php:492
+#: inc/starter-content.php:177 inc/starter-content.php:187 functions.php:489
 msgid "Primary"
 msgstr "Birincil"
 
-#: inc/starter-content.php:196
+#: inc/starter-content.php:197
 msgid "Social Links Menu"
 msgstr "Sosyal bağlantılar menüsü"
 
 #. translators: %s: Post title. Only visible to screen readers.
-#: inc/template-tags.php:206
+#: inc/template-tags.php:207
 msgid "Edit <span class=\"screen-reader-text\">%s</span>"
 msgstr "Düzenle <span class=\"screen-reader-text\">%s</span>"
 
@@ -237,7 +237,7 @@ msgstr "Dip"
 msgid "Page"
 msgstr "Sayfa"
 
-#: functions.php:497
+#: functions.php:494
 msgid "Secondary"
 msgstr "İkincil"
 
@@ -259,11 +259,11 @@ msgctxt "placeholder"
 msgid "Search &hellip;"
 msgstr "Ara &hellip;"
 
-#: inc/template-tags.php:407
+#: inc/template-tags.php:410
 msgid "Tags"
 msgstr "Etiketler"
 
-#: inc/template-tags.php:389 template-parts/entry-header.php:36
+#: inc/template-tags.php:392 template-parts/entry-header.php:36
 #: template-parts/content-cover.php:70
 msgid "Categories"
 msgstr "Kategoriler"
@@ -284,47 +284,47 @@ msgstr "Site araması"
 msgid "Continue reading"
 msgstr "Okumaya devam et"
 
-#: functions.php:549
+#: functions.php:546
 msgctxt "Short name of the larger font size in the block editor."
 msgid "XL"
 msgstr "XL"
 
-#: functions.php:548
+#: functions.php:545
 msgctxt "Name of the larger font size in the block editor"
 msgid "Larger"
 msgstr "Daha büyük"
 
-#: functions.php:543
+#: functions.php:540
 msgctxt "Short name of the large font size in the block editor."
 msgid "L"
 msgstr "L"
 
-#: functions.php:542
+#: functions.php:539
 msgctxt "Name of the large font size in the block editor"
 msgid "Large"
 msgstr "Büyük"
 
-#: functions.php:537
+#: functions.php:534
 msgctxt "Short name of the regular font size in the block editor."
 msgid "M"
 msgstr "P"
 
-#: functions.php:536
+#: functions.php:533
 msgctxt "Name of the regular font size in the block editor"
 msgid "Regular"
 msgstr "Normal"
 
-#: functions.php:531
+#: functions.php:528
 msgctxt "Short name of the small font size in the block editor."
 msgid "S"
 msgstr "P"
 
-#: functions.php:530
+#: functions.php:527
 msgctxt "Name of the small font size in the block editor"
 msgid "Small"
 msgstr "Küçük"
 
-#: functions.php:515
+#: functions.php:512
 msgid "Background Color"
 msgstr "Arka Plan Rengi"
 
@@ -406,7 +406,7 @@ msgid "Newer <span class=\"nav-short\">Posts</span>"
 msgstr "Daha yeni <span class=\"nav-short\">yazılar</span>"
 
 #. translators: %s: Author name.
-#: inc/template-tags.php:354 template-parts/entry-author-bio.php:20
+#: inc/template-tags.php:357 template-parts/entry-author-bio.php:20
 msgid "By %s"
 msgstr "Yazar %s"
 
@@ -422,43 +422,43 @@ msgstr "Aramanızla örtüşen sonuç bulamadık. Aşağıdaki form ile tekrar a
 msgid "Search:"
 msgstr "Arama:"
 
-#: inc/template-tags.php:445
+#: inc/template-tags.php:448
 msgid "Sticky post"
 msgstr "Sabit yazı"
 
-#: inc/template-tags.php:371
+#: inc/template-tags.php:374
 msgid "Post date"
 msgstr "Yazı tarihi"
 
-#: inc/template-tags.php:347
+#: inc/template-tags.php:350
 msgid "Post author"
 msgstr "Yazının yazarı"
 
-#: functions.php:502
+#: functions.php:499
 msgid "Subtle Background"
 msgstr "Hafif arka plan"
 
-#: functions.php:487
+#: functions.php:484
 msgid "Accent Color"
 msgstr "Vurgu rengi"
 
-#: functions.php:380
+#: functions.php:379
 msgid "Widgets in this area will be displayed in the second column in the footer."
 msgstr "Bu alandaki bileşenler alt kısımda ikinci sütunda görüntülenirler."
 
-#: functions.php:378
+#: functions.php:377
 msgid "Footer #2"
 msgstr "Alt kısım #2"
 
-#: functions.php:368
+#: functions.php:367
 msgid "Widgets in this area will be displayed in the first column in the footer."
 msgstr "Bu alandaki bileşenler alt kısımda birinci sütunda görüntülenirler."
 
-#: functions.php:366
+#: functions.php:365
 msgid "Footer #1"
 msgstr "Alt kısım #1"
 
-#: functions.php:341
+#: functions.php:340
 msgid "Skip to the content"
 msgstr "İçeriğe atla"
 
@@ -466,7 +466,7 @@ msgstr "İçeriğe atla"
 msgid "Desktop Horizontal Menu"
 msgstr "Masaüstü yatay menü"
 
-#: classes/class-twentytwenty-walker-page.php:107 inc/template-tags.php:555
+#: classes/class-twentytwenty-walker-page.php:107 inc/template-tags.php:558
 msgid "Show sub menu"
 msgstr "Alt menüyü göster"
 

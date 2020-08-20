@@ -17,6 +17,6 @@ require_once WPMU_PLUGIN_DIR . '/distributor/custom-distributor.php';
 
 require_once WPMU_PLUGIN_DIR . '/selling-points/points.php';
 
-require_once WPMU_PLUGIN_DIR . '/dealer-list/dealer-list.php';
+//require_once WPMU_PLUGIN_DIR . '/dealer-list/dealer-list.php';
 
 require_once WPMU_PLUGIN_DIR . '/social-share/share.php';

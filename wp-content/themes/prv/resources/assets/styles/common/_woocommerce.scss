@@ -514,6 +514,17 @@
     }
   }
 
+  &__dijital-katalog {
+    height: 59px !important;
+    top: 31px;
+    left: 30px;
+    @include media-breakpoint-between(xs, sm) {
+      height: 83px !important;
+      top: 60px;
+      left: 48px;
+    }
+  }
+
   &__single-product {
     height: 9vw !important;
     top: 6.5vw;

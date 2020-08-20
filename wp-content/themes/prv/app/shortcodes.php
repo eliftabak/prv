@@ -7,39 +7,36 @@ namespace App;
 add_shortcode('contact-form', function () {
 
     if (isset($_POST['submitted'])) {
-        if (trim($_POST['fname']) === '') {
+        if (sanitize_text_field($_POST['fname']) === '') {
             $nameError = 'Lütfen isminizi giriniz.';
             $hasError = true;
         } else {
-            $name = trim($_POST['fname']);
+            $name = sanitize_text_field($_POST['fname']);
         }
 
-        if (trim($_POST['lname']) === '') {
+        if (sanitize_text_field($_POST['lname']) === '') {
             $lastNameError = 'Lütfen soyisminizi giriniz.';
             $hasError = true;
         } else {
-            $lname = trim($_POST['lname']);
+            $lname = sanitize_text_field($_POST['lname']);
         }
 
-        if (trim($_POST['email']) === '') {
+        if (sanitize_email($_POST['email']) === '') {
             $emailError = 'Lütfen mail adresinizi giriniz.';
             $hasError = true;
-        } else if (!preg_match("/^[[:alnum:]][a-z0-9_.-]*@[a-z0-9.-]+\.[a-z]{2,4}$/i", trim($_POST['email']))) {
+        } else if (!preg_match("/^[[:alnum:]][a-z0-9_.-]*@[a-z0-9.-]+\.[a-z]{2,4}$/i", sanitize_email($_POST['email']))) {
             $emailError = 'Geçersiz bir mail adresi girdiniz. Lütfen tekrar deneyin.';
             $hasError = true;
         } else {
-            $email = trim($_POST['email']);
+            $email = sanitize_email($_POST['email']);
         }
 
-        if (trim($_POST['comments']) === '') {
+        if (esc_textarea($_POST['comments']) === '') {
             $commentError = 'Lütfen bir mesaj giriniz.';
             $hasError = true;
         } else {
-            if (function_exists('stripslashes')) {
-                $comments = stripslashes(trim($_POST['comments']));
-            } else {
-                $comments = trim($_POST['comments']);
-            }
+
+            $comments = esc_textarea($_POST['comments']);
         }
 
         if (!isset($hasError)) {
@@ -252,20 +249,19 @@ add_shortcode('digital-catalog', function () {
                     foreach ($data["products_inner"] as $product_id) {
                         $title = get_the_title($product_id);
                         $image = wp_get_attachment_image(get_post_thumbnail_id($product_id), 'medium', false, ["class" => "card-img-top"]);
-                        $badge = product_coming_soon_badge($product_id, "sorular-konusuyor");
+                        $badge = product_coming_soon_badge($product_id, "product-coming-soon__dijital-katalog");
                         $url = esc_url(get_permalink($product_id));
                         $video_tanitim = esc_url(get_post_meta($product_id, 'prv_video-tanitim_url', 1));
                         $demo_kitap = esc_url(get_post_meta($product_id, 'prv_kitap_inceleme_pdf', 1));
                         $html .= '<div class="col col-md-6 col-lg-3 card-container ' . $lesson_in_number . '">';
                         $html .= '<div class="card">';
+                        $html .= $badge;
                         $html .= '<a href="' . $url . '">' .  $image . '</a>';
                         $html .= '<div class="card-body">';
                         $html .= '<h5 class="card-title text-center">' . $title . '</h5>';
-                        $html .= '<p class="card-text">Lorem Ipsum, dizgi ve baskı endüstrisinde kullanılan mıgır metinlerdir.</p>';
                         $html .= \App\pdf_modal_html();
                         $html .= '<button type="button" class="btn btn-outline-warning btn-block pdf__view-button" data-toggle="modal" data-target="#PDFModal" data-src="' . $demo_kitap . '"><i class="fa fa-file-text pr-3" aria-hidden="true"></i>DEMO KİTAP</button>';
-                        $html .= '<!-- modal start -->
-                    <div class="modal fade neden-sorular-konusuyor__modal" id="Book-Video-Promotion" tabindex="-1" role="dialog"
+                        $html .= '<div class="modal fade neden-sorular-konusuyor__modal" id="Book-Video-Promotion" tabindex="-1" role="dialog"
                       aria-labelledby="exampleModalLabel" aria-hidden="true">
                       <div class="modal-dialog neden-sorular-konusuyor__modal-dialog" role="document">
                         <div class="modal-content shadow-lg">
@@ -275,7 +271,6 @@ add_shortcode('digital-catalog', function () {
                               data-dismiss="modal" aria-label="Close">
                               <span aria-hidden="true">&times;</span>
                             </button>
-                            <!-- 16:9 aspect ratio -->
                             <div class="embed-responsive embed-responsive-16by9">
                               <iframe class="embed-responsive-item" src="" id="Book-Promotion-Video" allowscriptaccess="always"
                                 allow="autoplay"></iframe>
@@ -284,7 +279,6 @@ add_shortcode('digital-catalog', function () {
                         </div>
                       </div>
                     </div>
-                    <!-- modal end -->
                   <button type="button" class="btn btn-outline-info btn-block mt-1 pr-3 book-advertise__play-button" data-toggle="modal"
                    data-src="' .  $video_tanitim . '" data-target="#Book-Video-Promotion"><i
                    class="fa fa-play book-advertise__play pr-3" aria-hidden="true"></i>TANITIM VİDEOSU</button>';
