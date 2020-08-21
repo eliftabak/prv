@@ -16,6 +16,7 @@ import akilliTahtaUygulamalari from './routes/akilliTahtaUygulamari';
 import bayiBasvuru from './routes/bayiBasvuru';
 import satisNoktalari from './routes/satisNoktalari';
 import dijitalKatalog from './routes/dijitalKatalog';
+import searchNoResults from './routes/searchNoResults';
 
 /** Populate Router instance with DOM routes */
 const routes = new Router({
@@ -39,6 +40,8 @@ const routes = new Router({
   satisNoktalari,
 
   dijitalKatalog,
+
+  searchNoResults,
 
 
 });

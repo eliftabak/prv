@@ -3,6 +3,8 @@
 define('WP_TEMP_NAME', "temp");
 define('WP_TEMP_DIR', dirname(__FILE__) . '/wp-content/' . WP_TEMP_NAME . '/');
 define('WP_PRV_THEME_DEBUG', false);
+define('WPMS_ON', true);
+define('WPMS_SMTP_PASS', "UMT123456-*"); // SMTP authentication
 
 /**
  * WordPress için taban ayar dosyası.

@@ -97,23 +97,23 @@ export default {
 
     });
 
-     // Slider lazy load logic
-    $(function() {
-      const lazyEls = $('.carousel.carousel-lazy .active').find('img[data-src]');7
+    // Slider lazy load logic
+    $(function () {
+      const lazyEls = $('.carousel.carousel-lazy .active').find('img[data-src]'); 7
 
 
-      lazyEls.each(function(){
-          $(this).attr('src',  $(this).data('src'));
-          $(this).removeAttr('data-src');
-        })
+      lazyEls.each(function () {
+        $(this).attr('src', $(this).data('src'));
+        $(this).removeAttr('data-src');
+      })
     });
 
-     // Slider lazy load logic
-    $(function() {
-      return $('.carousel.carousel-lazy').on('slid.bs.carousel', function(e) {
+    // Slider lazy load logic
+    $(function () {
+      return $('.carousel.carousel-lazy').on('slid.bs.carousel', function (e) {
         const lazyEls = $(e.relatedTarget).find('img[data-src]');
-        lazyEls.each(function(){
-          $(this).attr('src',  $(this).data('src'));
+        lazyEls.each(function () {
+          $(this).attr('src', $(this).data('src'));
           $(this).removeAttr('data-src');
         })
       });
@@ -125,11 +125,130 @@ export default {
       $cart.remove();
     }
 
+
     const $navbar = $('.navbar.navbar-expand-lg');
     if (window.matchMedia('(min-width: 992px)').matches) {
       $navbar.addClass('fixed-top');
     }
 
+    const $navbarSearchIcon = $('.navbar-search');
+
+
+    if (window.matchMedia('(max-width: 992px)').matches) {
+      const $togglerButton =  $('button.navbar-toggler ');
+      const $clonedNavbarSearchIcon =$navbarSearchIcon.clone()
+      $clonedNavbarSearchIcon.addClass('navbar-search__mobile');
+      const $clonedTogglerButton =$togglerButton.clone()
+      $navbarSearchIcon.remove();
+      $togglerButton.remove();
+      $clonedNavbarSearchIcon.find('>a').empty();
+      $('<div class="mobile-right-container"></div>').insertAfter('header .navbar-brand');
+      const $mobileContainer  = $('.mobile-right-container');
+      $mobileContainer.append($clonedNavbarSearchIcon);
+      $mobileContainer.append($clonedTogglerButton);
+    }
+
+    const searchHtml = (home) => `<li class="navbar-search-input navbar-search-input__container d-inline"><div class="searchbar d-inline">
+    <form role="search" method="get" id="searchform" class="searchform input-group input-group-lg"  action="${home}" >
+    <input class="navbar-search-input navbar-search-input__input" type="text" name="s" id="s" placeholder="Ara...">
+    <form>
+    </div></li>`;
+
+    function desktopLogic() {
+
+      // eslint-disable-next-line no-unused-vars
+      let previousElementsVisible = true;
+
+      $navbarSearchIcon.find('>a').empty();
+
+      $navbarSearchIcon.on('click', function () {
+
+        const $previousItem = $(this).prev();
+        const $previousElements = $(this).prevAll();
+
+        if (previousElementsVisible === true) {
+
+          $previousElements.each(function () {
+
+            $(this).addClass('d-none');
+
+            previousElementsVisible = false
+
+          })
+
+          const homeUrl = window.location.origin;
+
+          $previousItem.after(searchHtml(homeUrl));
+
+          $('.navbar-search-input__input').select();
+
+        } else {
+
+          $previousElements.each(function () {
+
+            $(this).removeClass('d-none');
+
+            previousElementsVisible = true
+
+          })
+
+          $previousItem.remove();
+
+        }
+
+
+      })
+
+    }
+
+   function mobileLogic(){
+
+    const $navbarSearchIcon = $('.navbar-search');
+    const $navbarBrand = $('header .navbar-brand');
+    const $navbar = $('nav.navbar');
+
+    // eslint-disable-next-line no-unused-vars
+    let previousElementsVisible = true;
+
+    $navbarSearchIcon.on('click', function () {
+
+      $navbarBrand.addClass('d-none');
+
+      if (previousElementsVisible === true) {
+
+        const homeUrl = window.location.origin;
+
+        $navbarSearchIcon.before(searchHtml(homeUrl));
+
+        $navbar.css({'justify-content':'flex-end'});
+
+        $('.navbar-search-input__input').select();
+
+        previousElementsVisible = false;
+
+      } else {
+        $navbarBrand.removeClass('d-none');
+        $(this).prev().remove();
+        $navbar.css({'justify-content':'space-between'});
+        previousElementsVisible = true;
+
+      }
+
+
+    })
+
+   }
+
+    if (window.matchMedia('(min-width: 992px)').matches) {
+      desktopLogic();
+
+    }
+
+
+    if (window.matchMedia('(max-width: 992px)').matches) {
+      mobileLogic();
+
+    }
   },
   finalize() {
     // JavaScript to be fired on all pages, after page specific JS is fired

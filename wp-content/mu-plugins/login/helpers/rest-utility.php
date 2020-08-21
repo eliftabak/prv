@@ -28,6 +28,7 @@ class RestRoutes
       register_rest_route($this->route_namescape, 'cities', array(
         'methods' => 'GET',
         'callback' => array($this, 'get_all_cities'),
+        'permission_callback' => '__return_true',
       ));
     });
   }
@@ -38,6 +39,7 @@ class RestRoutes
       register_rest_route($this->route_namescape, 'districts', array(
         'methods' => 'GET',
         'callback' => array($this, 'district_route'),
+        'permission_callback' => '__return_true',
       ));
     });
   }
@@ -49,6 +51,7 @@ class RestRoutes
       register_rest_route($this->route_namescape, 'schools', array(
         'methods' => 'GET',
         'callback' => array($this, 'schools_route'),
+        'permission_callback' => '__return_true',
       ));
     });
   }

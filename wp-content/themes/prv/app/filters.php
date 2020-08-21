@@ -507,3 +507,22 @@ add_filter('woocommerce_product_add_to_cart_text', function () {
     $text = $product->is_purchasable() && $product->is_in_stock() ? __('Add to cart', 'woocommerce') : __('İncele', 'woocommerce');
     return $text;
 });
+
+
+/**
+ * Generate custom search form
+ *
+ * @param string $form Form HTML.
+ * @return string Modified form HTML.
+ */
+
+add_filter('get_search_form', function ($form) {
+    $form  = '<form role="search" method="get" id="searchform" class="searchform input-group input-group-lg" action="' . home_url('/') . '" >';
+    $form .= '<label class="screen-reader-text" for="s">' . __('Search for:') . '</label>';
+    $form .= '<input type="text" class="form-control form-control-lg" value="' . get_search_query() . '" name="s" id="s" />';
+    $form .=  '<div class="input-group-append">';
+    $form .= '<button type="submit" id="searchsubmit" class="btn btn-primary"><i class="fa fa-search" aria-hidden="true"></i></button>';
+    $form .=  '</div>';
+    $form .= '</form>';
+    return $form;
+});

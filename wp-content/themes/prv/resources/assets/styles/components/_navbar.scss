@@ -5,8 +5,75 @@
 * ==========================================
 *
 */
+
+.mobile-right-container {
+  display: flex;
+  @include media-breakpoint-between(xs, sm) {
+    padding: 11px 0;
+  }
+}
+
 .navbar {
   transition: all 0.4s;
+}
+
+.navbar-search-input {
+  &__container {
+    &:hover {
+      cursor: text;
+    }
+  }
+
+  &__input {
+    position: relative;
+    right: -67px;
+    margin-left: -67px;
+    z-index: 0;
+    border-radius: 29px;
+    padding: 6px 6px 6px 21px;
+    min-width: 310px;
+    box-shadow: 0 12px 47px rgba(0, 0, 0, 0.5);
+    border: unset;
+
+    @include media-breakpoint-between(xs, sm) {
+      right: -30px;
+      margin-left: -30px;
+      min-width: 50vw;
+    }
+  }
+
+  &__input:hover,
+  &__input:focus,
+  &__input:visited {
+    outline: none;
+  }
+}
+
+.navbar-search {
+  z-index: 1;
+
+  a {
+    display: inline-block;
+    font: normal normal normal 22px/1 FontAwesome;
+    text-rendering: auto;
+    background-color: white;
+    color: #a9a5a0 !important;
+    border-radius: 50%;
+    padding: 0.4rem 0.5rem 0.5rem 0.5rem;
+  }
+
+  a::before {
+    content: "\f002";
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &__mobile {
+    list-style: none;
+    margin-right: 0.9rem;
+  }
 }
 
 .nav.navbar-nav ul * {
