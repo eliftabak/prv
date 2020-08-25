@@ -1,0 +1,25 @@
+.sorular-konusuyor {
+  .questions-talking-container {
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(99deg, #fff 70%, #00aeef 30%);
+  }
+
+  p {
+    color: red;
+  }
+
+  .blue-text {
+    color: #00aeef;
+    position: absolute;
+    top: 0;
+  }
+
+  .box {
+    position: block;
+  }
+
+  .dots-image {
+    position: absolute;
+  }
+}
