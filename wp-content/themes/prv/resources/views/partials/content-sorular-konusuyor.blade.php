@@ -12,10 +12,15 @@ $home = App::home_url_with_slash();
             <h1 class="blue-text">Mavi</h1>
           </div>
         </div>
-        <div>
-          <h1 class="second-text-line">Sayfalar</h1>
+        <div class="second-text-line">
+          <h1 class="text-inside">Sayfalar</h1>
         </div>
       </div>
-      <img src="{{$home}}wp-content/themes/prv/resources/assets/images/sorular-konusuyor.png" alt="22x6 dots">
+      <img src="{{$home}}wp-content/themes/prv/resources/assets/images/sorular-konusuyor.png" alt="sorular konusuyor"
+        class="sorular-image">
+      <div class="logo-questions-page">
+        <img src="{{$home}}wp-content/themes/prv/resources/assets/images/pruva-akademi-logo.png" alt="pruva-logo">
+      </div>
     </div>
+  </div>
 </section>

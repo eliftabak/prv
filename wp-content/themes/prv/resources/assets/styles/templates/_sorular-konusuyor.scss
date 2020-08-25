@@ -5,10 +5,6 @@
     background: linear-gradient(99deg, #fff 70%, #00aeef 30%);
   }
 
-  p {
-    color: red;
-  }
-
   .blue-text {
     color: #00aeef;
     position: absolute;
@@ -17,9 +13,44 @@
 
   .box {
     position: block;
+    display: inline-block;
+    padding-top: 5em;
+  }
+
+  .second-text-line {
+    position: relative;
+    display: block;
+    padding-top: 2em;
+  }
+
+  .text-inside {
+    display: block;
+  }
+
+  .text-inside,
+  .blue-text {
+    font-size: 6.5rem;
+    font-weight: 900;
   }
 
   .dots-image {
     position: absolute;
+    margin-left: 0.4em;
+    width: 15.6em;
+    z-index: 2;
+    top: 3em;
+  }
+
+  .sorular-image {
+    display: block;
+    margin-left: 8em;
+    margin-top: 10em;
+    width: 50%;
+  }
+
+  .logo-questions-page {
+    margin-left: 1em;
+    position: absolute;
+    bottom: 0;
   }
 }
