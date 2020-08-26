@@ -36,17 +36,28 @@ $home = App::home_url_with_slash();
               class="page2__dots-image">
             <div class="page2__text">
               <h1 class="page2__text-inside">Neden</h1>
-            </div>git add .
+            </div>
           </div>
           <div class="page2__second-text-line">
             <h1 class="page2__text-inside">Sorular</h1>
             <h1 class="page2__text-inside">Konuşuyor</h1>
           </div>
         </div>
-        <div class="page2__">
-          <p><b>KİTABIMIZI,<b> BİR BÜTÜN OLARAK ya da TEST TEST Kolay, Orta, Zor şeklinde GRUPLANDIRARAK değil, her
-                bir
-                soruyu tek tek ele alıp <b>SORU TEMELLİ BİR SINIFLANDIRMA<b> yaparak oluşturduk.</p>
+        <div class="page2__ourbook-text">
+          <p class="page2__ourbook-text-line"><span style="font-weight:900">KİTABIMIZI,</span> BİR BÜTÜN OLARAK ya da
+            TEST TEST Kolay, Orta,
+            Zor
+            şeklinde GRUPLANDIRARAK değil, her
+            bir
+            soruyu tek tek ele alıp <span style="font-weight:900">SORU TEMELLİ BİR SINIFLANDIRMA</span> yaparak
+            oluşturduk.</p>
+        </div>
+        <div class="page2__round-container">
+          <p class="page2__round-container-lines">Yaptığımız detaylı araştırmalarda öğrencilerimizin temel probleminin
+            Yeni Nesil Soruları çözemediği
+            noktasında değil, onlarla barışamadığı noktasında olduğunu tespit ettik. Klasik soru kalıplarında en zor
+            soruları çözebilen öğrencilerimizin, aslında çok basit diyebileceğimiz <span
+              style="font-weight:900">KURGUSAL SORULARDA</span> ciddi problemler yaşadığını gördük.</p>
         </div>
         <!----End of second page----->
       </div>

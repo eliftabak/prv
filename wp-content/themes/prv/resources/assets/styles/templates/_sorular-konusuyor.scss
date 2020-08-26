@@ -83,6 +83,25 @@
       width: 13.5em;
     }
 
+    &__ourbook-text {
+      margin: 3em;
+    }
+
+    &__ourbook-text-line {
+      color: white;
+    }
+
+    &__round-container {
+      background-color: white;
+      margin: 3em;
+      font-size: 10.5px;
+      border-radius: 2em;
+    }
+
+    &__round-container-lines {
+      padding: 1em;
+    }
+
     &__text {
       color: #00aeef;
     }
