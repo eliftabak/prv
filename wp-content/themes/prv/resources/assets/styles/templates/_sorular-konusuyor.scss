@@ -1,8 +1,9 @@
 .sorular-konusuyor {
-  .questions-talking-container {
-    height: 100vh;
-    margin: 0;
-    background: linear-gradient(99deg, #fff 70%, #00aeef 30%);
+  .side-block {
+    position: absolute;
+    right: 0;
+    height: 100%;
+    width: 35%;
   }
 
   .blue-text {
@@ -21,6 +22,7 @@
     position: relative;
     display: block;
     padding-top: 2em;
+    padding-bottom: 4em;
   }
 
   .text-inside {
@@ -33,6 +35,10 @@
     font-weight: 900;
   }
 
+  .title-texts-container {
+    padding-left: 3em;
+  }
+
   .dots-image {
     position: absolute;
     margin-left: 0.4em;
@@ -43,8 +49,8 @@
 
   .sorular-image {
     display: block;
-    margin-left: 8em;
-    margin-top: 10em;
+    margin-left: 10em;
+    margin-bottom: 12em;
     width: 50%;
   }
 
@@ -52,5 +58,12 @@
     margin-left: 1em;
     position: absolute;
     bottom: 0;
+  }
+
+  .second-page {
+    height: 100%;
+    width: 100%;
+    display: block;
+    background-color: #00aeef;
   }
 }
