@@ -64,7 +64,7 @@
     height: 100%;
     width: 100%;
     display: block;
-    background-image: url(../../images/mavisayfalar-p2.png);
+    background-color: #00aeef;
     background-repeat: no-repeat;
     background-size: cover;
 
@@ -89,13 +89,15 @@
 
     &__ourbook-text-line {
       color: white;
+      font-size: 14.5px;
     }
 
     &__round-container {
       background-color: white;
-      margin: 3em;
+      margin: 3em 7em 3em 3em;
       font-size: 10.5px;
-      border-radius: 2em;
+      border-radius: 1.2em;
+      width: 80%;
     }
 
     &__round-container-lines {
@@ -106,11 +108,29 @@
       color: #00aeef;
     }
 
+    &__mavisayfalar-logo {
+      position: absolute;
+      left: 3em;
+      bottom: 1em;
+    }
+
     &__text-inside {
       margin: 0;
       display: block;
       background-color: white;
       width: fit-content;
+    }
+
+    &__square-container {
+      background-color: white;
+      border-radius: 1em;
+      margin: 3em auto 10em 3em;
+      font-size: 10.5px;
+      width: 50%;
+    }
+
+    &__square-container-lines {
+      padding: 1em;
     }
   }
 }

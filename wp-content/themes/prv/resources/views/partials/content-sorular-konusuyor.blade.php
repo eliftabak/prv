@@ -59,6 +59,29 @@ $home = App::home_url_with_slash();
             soruları çözebilen öğrencilerimizin, aslında çok basit diyebileceğimiz <span
               style="font-weight:900">KURGUSAL SORULARDA</span> ciddi problemler yaşadığını gördük.</p>
         </div>
+        <div class="page2__round-container">
+          <p class="page2__round-container-lines">Öncelikle yukarıda belirttiğimiz gibi soruların derecelendirme
+            sisteminde kullandığımız metodu,metodu, KİTABI BİR BÜTÜN OLARAK ya da TEST TEST GRUPLANDIRARAK değil, her
+            bir soruyu tek tek ele alarak <span style="font-weight:900">SORU TEMELLİ BİR SINIFLANDIRMA</span> ile
+            oluşturduk.</p>
+        </div>
+        <div class="page2__round-container">
+          <p class="page2__round-container-lines">Araştırma sonuçlarımıza göre öğrenim sürecinde YENİ NESİL SORULARLA
+            ilk olarak 8. sınıfta karşılaşan öğrencilerimizin; 5, 6 ve 7. sınıﬂarda bu konuda tecrübe yaşamadıkları
+            için ciddi <span style="font-weight:900">ADAPTASYON</span> sorunları yaşadıklarını tespit ettik.</p>
+        </div>
+        <div class="page2__square-container">
+          <p class="page2__square-container-lines">Bu sebeple uyguladığımız sistemi 5. sınıftan itibaren aynı formatta
+            planlayarak <span style="font-weight:900">SADECE 8. SINIFLARDA DEĞİL; 5, 6 ve 7. SINIFLARDA DA %100
+              KURGUYA DAYALI BİR METOT</span> ile öğrencilerimizin kademe kademe <span style="font-weight:900">YENİ
+              SİSTEMİ </span>özümsemesini sağlamaya çalıştık. Bunu yaparken de bu sınıf gruplarının seviyelerini en
+            önemli kriter olarak belirledik.
+          </p>
+        </div>
+        <div class="page2__mavisayfalar-logo">
+          <img src="{{$home}}wp-content/themes/prv/resources/assets/images/mavisayfalar-text-logo.png"
+            alt="mavisayfalar-logo">
+        </div>
         <!----End of second page----->
       </div>
     </div>
