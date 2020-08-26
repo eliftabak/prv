@@ -60,10 +60,38 @@
     bottom: 0;
   }
 
-  .second-page {
+  .page2 {
     height: 100%;
     width: 100%;
     display: block;
-    background-color: #00aeef;
+    background-image: url(../../images/mavisayfalar-p2.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    &__title-texts-container {
+      margin-left: 3em;
+
+      h1 {
+        font-size: 4rem;
+        font-weight: 900;
+      }
+    }
+
+    &__dots-image {
+      position: absolute;
+      z-index: 2;
+      width: 13.5em;
+    }
+
+    &__text {
+      color: #00aeef;
+    }
+
+    &__text-inside {
+      margin: 0;
+      display: block;
+      background-color: white;
+      width: fit-content;
+    }
   }
 }
