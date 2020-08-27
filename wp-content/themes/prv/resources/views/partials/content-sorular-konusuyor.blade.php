@@ -103,6 +103,28 @@ $home = App::home_url_with_slash();
               class="page2__number5" />
           </div>
         </div>
+        <div class="page2__background-emoji-container">
+          <img src="{{$home}}wp-content/themes/prv/resources/assets/images/mavisayfalar-white-dots.png" alt="white-dots"
+            class="page2__emoji page2__white-dots">
+          <img src="{{$home}}wp-content/themes/prv/resources/assets/images/mavisayfalar-emoji1.png" alt="1"
+            class="page2__emoji page2__emoji1">
+          <img src="{{$home}}wp-content/themes/prv/resources/assets/images/mavisayfalar-emoji2.png" alt="2"
+            class="page2__emoji  page2__emoji2">
+          <img src="{{$home}}wp-content/themes/prv/resources/assets/images/mavisayfalar-emoji3.png" alt="3"
+            class="page2__emoji  page2__emoji3">
+          <img src="{{$home}}wp-content/themes/prv/resources/assets/images/mavisayfalar-emoji4png" alt="4"
+            class="page2__emoji  page2__emoji4">
+          <img src="{{$home}}wp-content/themes/prv/resources/assets/images/mavisayfalar-emoji5.png" alt="5"
+            class="page2__emoji  page2__emoji5">
+          <img src="{{$home}}wp-content/themes/prv/resources/assets/images/mavisayfalar-emoji6.png" alt="6"
+            class="page2__emoji  page2__emoji6">
+          <img src="{{$home}}wp-content/themes/prv/resources/assets/images/mavisayfalar-emoji7.png" alt="7"
+            class="page2__emoji  page2__emoji7">
+          <img src="{{$home}}wp-content/themes/prv/resources/assets/images/mavisayfalar-emoji8.png" alt="8"
+            class="page2__emoji  page2__emoji8">
+          <img src="{{$home}}wp-content/themes/prv/resources/assets/images/mavisayfalar-emoji9.png" alt="9"
+            class="page2__emoji  page2__emoji9">
+        </div>
         <!----End of second page----->
       </div>
     </div>

@@ -192,5 +192,56 @@
     &__cup {
       margin: 0 01em 12em 1em;
     }
+
+    &__emoji {
+      position: absolute;
+      top: 0;
+      z-index: 0;
+    }
+
+    &__white-dots {
+      left: 91%;
+      top: 5em;
+    }
+
+    &__emoji1 {
+      left: 22em;
+      top: 5em;
+    }
+
+    &__emoji2 {
+      left: 42em;
+      top: 5em;
+    }
+
+    &__emoji3 {
+      top: 16em;
+      left: 30em;
+    }
+
+    &__emoji5 {
+      top: 16em;
+      left: 30em;
+    }
+
+    &__emoji6 {
+      top: 16em;
+      left: 30em;
+    }
+
+    &__emoji7 {
+      top: 16em;
+      left: 30em;
+    }
+
+    &__emoji8 {
+      top: 16em;
+      left: 30em;
+    }
+
+    &__emoji9 {
+      top: 16em;
+      left: 30em;
+    }
   }
 }
