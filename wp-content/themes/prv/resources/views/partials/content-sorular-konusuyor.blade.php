@@ -82,6 +82,23 @@ $home = App::home_url_with_slash();
           <img src="{{$home}}wp-content/themes/prv/resources/assets/images/mavisayfalar-text-logo.png"
             alt="mavisayfalar-logo">
         </div>
+        <div class="page2__numbers-container">
+          <div class="page2__container5">
+            <h1 class="page__numbers">5</h1>
+          </div>
+          <div class="page2__container6">
+            <h1 class="page__numbers">6</h1>
+          </div>
+          <div class="page2__container7">
+            <h1 class="page__numbers">7</h1>
+          </div>
+          <div class="page2__cup">
+            <img src="{{$home}}wp-content/themes/prv/resources/assets/images/mavisayfalar-cup.png" alt="">
+          </div>
+          <div class="page2__container8">
+            <h1 class="page__numbers">8</h1>
+          </div>
+        </div>
         <!----End of second page----->
       </div>
     </div>

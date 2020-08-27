@@ -132,5 +132,59 @@
     &__square-container-lines {
       padding: 1em;
     }
+
+    &__numbers-container {
+      display: flex;
+      justify-content: flex-end;
+      padding-top: 5em;
+    }
+
+    &__container5,
+    &__container6,
+    &__container7,
+    &__container8,
+    &__container9 {
+      width: 4em;
+      background: #fff;
+      margin: 0 1em 0 1em;
+      bottom: 0;
+      color: black;
+      position: absolute;
+      text-align: center;
+    }
+
+    &__container5 {
+      height: 6em;
+      opacity: 0.25;
+      margin-right: 16em;
+    }
+
+    &__container6 {
+      height: 8em;
+      opacity: 0.4;
+      margin-right: 11em;
+    }
+
+    &__container7 {
+      height: 10em;
+      opacity: 0.4;
+      margin-right: 6em;
+    }
+
+    &__container8 {
+      height: 12em;
+      opacity: 0.6;
+    }
+
+    &__numbers {
+      z-index: 2;
+      position: absolute;
+      font-size: 28px;
+      font-weight: 900;
+    }
+
+    &__cup {
+      margin: 0 0.5em 12em 1em;
+    }
   }
 }
