@@ -54,6 +54,13 @@
     display: none;
   }
 
+  ul.products {
+    display: flex;
+    float: left;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
   ul.products li.product .price {
     font-size: 1.457em;
     text-align: center;
@@ -63,10 +70,19 @@
   ul.products li.product .woocommerce-loop-product__title {
     font-size: 1.2em;
     min-height: 5em;
+    text-align: center;
   }
 
   ul.products li.product a.added_to_cart.wc-forward {
     display: none;
+  }
+
+  ul.products li.product a.add_to_cart_button {
+    font-weight: bolder;
+  }
+
+  ul.products li.product a.product_type_simple {
+    font-weight: bolder;
   }
 }
 
