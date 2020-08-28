@@ -5,7 +5,7 @@ export default {
     $(window).ready(function(){
       $('#magazine').turn({
           width: 1100,
-          height: 800,
+          height: 600,
           autoCenter: true,
           display:'double',
           acceleration: true,
