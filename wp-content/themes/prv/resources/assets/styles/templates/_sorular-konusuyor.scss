@@ -89,13 +89,14 @@
 
     &__ourbook-text-line {
       color: white;
-      font-size: 14.5px;
+      width: 80%;
+      font-size: 16px;
     }
 
     &__round-container {
       background-color: white;
       margin: 3em 7em 3em 3em;
-      font-size: 10.5px;
+      font-size: 13px;
       border-radius: 1.2em;
       width: 80%;
     }
@@ -124,8 +125,8 @@
     &__square-container {
       background-color: white;
       border-radius: 1em;
-      margin: 3em auto 10em 3em;
-      font-size: 10.5px;
+      margin: 3em auto 1em 3em;
+      font-size: 13px;
       width: 50%;
     }
 
@@ -136,7 +137,7 @@
     &__numbers-container {
       display: flex;
       justify-content: flex-end;
-      padding-top: 5em;
+      padding-top: 1em;
     }
 
     &__container5,
@@ -201,47 +202,63 @@
 
     &__white-dots {
       left: 91%;
-      top: 5em;
+      top: 5%;
     }
 
     &__emoji1 {
-      left: 22em;
-      top: 5em;
+      left: 45%;
+      width: 3em;
+      top: 7%;
     }
 
     &__emoji2 {
-      left: 42em;
-      top: 5em;
+      left: 80%;
+      width: 3em;
+      top: 7%;
     }
 
     &__emoji3 {
-      top: 16em;
-      left: 30em;
+      top: 18%;
+      left: 60%;
+    }
+
+    &__emoji4 {
+      top: 30%;
+      left: 80%;
     }
 
     &__emoji5 {
-      top: 16em;
-      left: 30em;
+      top: 40%;
+      left: 86%;
     }
 
     &__emoji6 {
-      top: 16em;
-      left: 30em;
+      top: 50%;
+      left: 86%;
     }
 
     &__emoji7 {
-      top: 16em;
-      left: 30em;
+      top: 65%;
+      left: 65%;
     }
 
     &__emoji8 {
-      top: 16em;
-      left: 30em;
+      top: 78%;
+      left: 26%;
     }
 
     &__emoji9 {
-      top: 16em;
-      left: 30em;
+      top: 78%;
+      left: 10%;
     }
+  }
+
+  #magazine {
+    width: 1100px;
+    height: 800px;
+  }
+
+  #magazine .turn-page {
+    background-color: #fff;
   }
 }

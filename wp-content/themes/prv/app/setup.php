@@ -12,6 +12,12 @@ use Roots\Sage\Template\BladeProvider;
  */
 add_action('wp_enqueue_scripts', function () {
 
+    if (!is_admin()) {
+        wp_deregister_script('jquery');
+        wp_register_script('jquery', get_stylesheet_directory_uri() . '/assets/scripts/vendor/jquery/jquery.min.js',);
+        wp_enqueue_script('jquery');
+    }
+
     if (class_exists('woocommerce')) {
         //dequeue select2 at woocommerce
         wp_dequeue_style('selectWoo');
@@ -33,6 +39,9 @@ add_action('wp_enqueue_scripts', function () {
     }
     if (is_search()) {
         wp_enqueue_script('slick.js', get_stylesheet_directory_uri() . '/assets/scripts/vendor/slick/slick.min.js',  ['jquery'], null, true);
+    }
+    if (is_page("sorular-konusuyor")) {
+        wp_enqueue_script('turn.js', get_stylesheet_directory_uri() . '/assets/scripts/vendor/turn/turn.min.js',  ['jquery'], null, true);
     }
     wp_enqueue_script('sage/main.js', asset_path('scripts/main.js'), ['jquery'], null, true);
 
