@@ -37,11 +37,8 @@ add_action('wp_enqueue_scripts', function () {
     if (is_page("dijital-katalog")) {
         wp_enqueue_script('isotope.js', "https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js", null, null, true);
     }
-    if (is_search()) {
+    if (is_search() || is_page("sorular-konusuyor")) {
         wp_enqueue_script('slick.js', get_stylesheet_directory_uri() . '/assets/scripts/vendor/slick/slick.min.js',  ['jquery'], null, true);
-    }
-    if (is_page("sorular-konusuyor")) {
-        wp_enqueue_script('turn.js', get_stylesheet_directory_uri() . '/assets/scripts/vendor/turn/turn.min.js',  ['jquery'], null, true);
     }
     wp_enqueue_script('sage/main.js', asset_path('scripts/main.js'), ['jquery'], null, true);
 

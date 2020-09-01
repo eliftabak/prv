@@ -2,22 +2,43 @@
 export default {
   init() {
 
-    $(window).ready(function(){
-      $('#magazine').turn({
-          width: 1100,
-          height: 600,
-          autoCenter: true,
-          display:'double',
-          acceleration: true,
-          elevation:50,
+    $(document).ready(function(){
+      $('.page2__your-class').slick({
+        dots: true,
+        infinite: true,
+        speed: 300,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        responsive: [
+          {
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+              infinite: true,
+              dots: true,
+            },
+          },
+          {
+            breakpoint: 600,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+            },
+          },
+          {
+            breakpoint: 480,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+            },
+          },
+          // You can unslick at a given breakpoint now by adding:
+          // settings: "unslick"
+          // instead of a settings object
+        ],
       });
-    })
-
-    $(window).bind('keydown',function(e){
-      if (e.keyCode==37)
-          $('#magazine').turn('previous');
-      else if (e.keyCode==39)
-          $('#magazine').turn('next');
     });
 
   },
