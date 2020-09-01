@@ -1,4 +1,8 @@
 .sorular-konusuyor {
+  .container__page-content {
+    background-color: #00aeef;
+  }
+
   .side-block {
     position: absolute;
     right: 0;
@@ -37,6 +41,8 @@
 
   .title-texts-container {
     padding-left: 3em;
+    border-radius: 40px;
+    background-color: #fff;
   }
 
   .dots-image {
@@ -48,10 +54,7 @@
   }
 
   .sorular-image {
-    display: block;
-    margin-left: 10em;
-    margin-bottom: 12em;
-    width: 50%;
+    width: 100%;
   }
 
   .logo-questions-page {
