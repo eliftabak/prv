@@ -93,37 +93,16 @@ $home = App::home_url_with_slash();
             </div>
           </div>
         </div>
-
-
-
-
-
-
-        <div class="page2__mavisayfalar-logo">
-          <img src="{{$home}}wp-content/themes/prv/resources/assets/images/mavisayfalar-text-logo.png"
-            alt="mavisayfalar-logo">
-        </div>
-        <div class="page2__numbers-container">
-          <div class="page2__container5">
-            <img src="{{$home}}wp-content/themes/prv/resources/assets/images/mavisayfalar-number5.png" alt="5"
-              class="page2__number5">
-          </div>
-          <div class="page2__container6">
-            <img src="{{$home}}wp-content/themes/prv/resources/assets/images/mavisayfalar-number6.png" alt=""
-              class="page2__number5" />
-          </div>
-          <div class="page2__container7">
-            <img src="{{$home}}wp-content/themes/prv/resources/assets/images/mavisayfalar-number7.png" alt=""
-              class="page2__number5" />
-          </div>
-          <div class="page2__cup">
-            <img src="{{$home}}wp-content/themes/prv/resources/assets/images/mavisayfalar-cup.png" alt="">
-          </div>
-          <div class="page2__container8">
-            <img src="{{$home}}wp-content/themes/prv/resources/assets/images/mavisayfalar-number8.png" alt=""
-              class="page2__number5" />
+        <div class="page2__system-section">
+          <img src="{{$home}}wp-content/themes/prv/resources/assets/images/sorular-konusuyor-white-bg.svg"
+            alt="white-wavy-bg" class="page2__white-wavy-bg">
+          <div class="page2__mavisayfalar-logo">
+            <img src="{{$home}}wp-content/themes/prv/resources/assets/images/sorular-konusuyor-pruva-logo.png"
+              class="page2__pruva-logo" alt="mavisayfalar-logo">
+            <h3>nasıl bir sisten sunuyor?</h3>
           </div>
         </div>
+
         <div class="page2__background-emoji-container">
           <img src="{{$home}}wp-content/themes/prv/resources/assets/images/mavisayfalar-white-dots.png" alt="white-dots"
             class="page2__emoji page2__white-dots">
@@ -145,6 +124,27 @@ $home = App::home_url_with_slash();
             class="page2__emoji  page2__emoji8">
           <img src="{{$home}}wp-content/themes/prv/resources/assets/images/mavisayfalar-emoji9.png" alt="9"
             class="page2__emoji  page2__emoji9">
+        </div>
+        <div class="page2__numbers-container">
+          <div class="page2__container5">
+            <img src="{{$home}}wp-content/themes/prv/resources/assets/images/mavisayfalar-number5.png" alt="5"
+              class="page2__number5">
+          </div>
+          <div class="page2__container6">
+            <img src="{{$home}}wp-content/themes/prv/resources/assets/images/mavisayfalar-number6.png" alt=""
+              class="page2__number5" />
+          </div>
+          <div class="page2__container7">
+            <img src="{{$home}}wp-content/themes/prv/resources/assets/images/mavisayfalar-number7.png" alt=""
+              class="page2__number5" />
+          </div>
+          <div class="page2__cup">
+            <img src="{{$home}}wp-content/themes/prv/resources/assets/images/mavisayfalar-cup.png" alt="">
+          </div>
+          <div class="page2__container8">
+            <img src="{{$home}}wp-content/themes/prv/resources/assets/images/mavisayfalar-number8.png" alt=""
+              class="page2__number5" />
+          </div>
         </div>
         <!----End of second page----->
       </div>

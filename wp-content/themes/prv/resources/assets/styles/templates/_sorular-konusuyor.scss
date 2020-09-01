@@ -116,7 +116,7 @@
     &__ourbook-text {
       margin: 3em;
       @include media-breakpoint-only(xs) {
-        margin: 1em;
+        margin: 3em 1em;
       }
     }
 
@@ -141,9 +141,20 @@
     }
 
     &__mavisayfalar-logo {
-      position: absolute;
-      left: 3em;
+      position: relative;
+      top: 6em;
       bottom: 1em;
+    }
+
+    &__pruva-logo {
+      width: 300px !important;
+      @include media-breakpoint-only(xs) {
+        width: 180px !important;
+      }
+    }
+
+    &__system-section {
+      display: block;
     }
 
     &__text-inside {
@@ -160,11 +171,28 @@
       min-height: 220px;
     }
 
+    &__white-wavy-bg {
+      position: absolute;
+      width: 100%;
+      left: 0;
+      right: 0;
+    }
+
     &__square-container-lines {
       padding: 1em;
     }
 
+    &__wavy-background {
+      position: absolute;
+      z-index: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      transform: rotate(180deg);
+    }
+
     &__numbers-container {
+      margin-top: 30em;
       display: flex;
       justify-content: flex-end;
       padding-top: 1em;
@@ -235,7 +263,7 @@
       top: 5%;
       @include media-breakpoint-only(xs) {
         left: 95%;
-        top: 44%;
+        top: 47%;
         height: 200px;
       }
     }
