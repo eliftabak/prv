@@ -99,7 +99,7 @@ $home = App::home_url_with_slash();
           <div class="page2__mavisayfalar-logo">
             <img src="{{$home}}wp-content/themes/prv/resources/assets/images/sorular-konusuyor-pruva-logo.png"
               class="page2__pruva-logo" alt="mavisayfalar-logo">
-            <span class="page2__system-text">nasıl bir sistem <br> sunuyor?</span>
+            <span class="page2__system-text">nasıl bir sistem sunuyor?</span>
             <img src="{{$home}}wp-content/themes/prv/resources/assets/images/sorular-konusuyor-blue-dots.png"
               alt="blue-dots" class="page2__blue-dots-image">
           </div>
