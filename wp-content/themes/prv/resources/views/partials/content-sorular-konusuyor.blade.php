@@ -94,18 +94,42 @@ $home = App::home_url_with_slash();
           </div>
         </div>
         <div class="page2__system-section">
-          <img src="{{$home}}wp-content/themes/prv/resources/assets/images/sorular-konusuyor-white-bg.svg"
-            alt="white-wavy-bg" class="page2__white-wavy-bg">
+          <img src="{{$home}}wp-content/themes/prv/resources/assets/images/white-long-wavy.svg" alt="white-wavy-bg"
+            class="page2__white-wavy-bg">
           <div class="page2__mavisayfalar-logo">
             <img src="{{$home}}wp-content/themes/prv/resources/assets/images/sorular-konusuyor-pruva-logo.png"
               class="page2__pruva-logo" alt="mavisayfalar-logo">
             <span class="page2__system-text">nasıl bir sistem sunuyor?</span>
             <img src="{{$home}}wp-content/themes/prv/resources/assets/images/sorular-konusuyor-blue-dots.png"
               alt="blue-dots" class="page2__blue-dots-image">
+            <span class="page2__new-system-text">Yeni sınav sisteminde öğrencilerimiz %20 oranında
+              <strong>Klasik</strong>, %80
+              oranında <strong>Yeni
+                Nesil
+                Sorularla</strong>
+              karşılaşıyor. Daha önceden olduğu gibi yine her iki soru tipinde de <strong>Kolay / Orta / Zor</strong>
+              kombinasyonları
+              kullanılıyor.
+              Fakat bunların kullanım tarzları soru içeriklerine göre farklılık gösteriyor.</span>
+            <div class="page2__all-blue-box-container">
+              <div class="page2__blue-box">
+                <span class="page2__blue-box-text">Sadece Yeni Nesil Sorular özelinde ebat
+                  olarak bir sayfayı ölçülendirmek
+                  suretiyle
+                  3 farklı soru modeli karşımıza çıkıyor.</span>
+              </div>
+              <img src="{{$home}}wp-content/themes/prv/resources/assets/images/sorular-konusuyor-blue-boxes.svg" alt="3"
+                class="page2__blue-boxes">
+            </div>
           </div>
+          <span class="page2__system-">Klasik ve Yeni Nesil Soruların Kolay / Orta / Zor kombinasyonlarını da içine
+            alarak
+            değerlendirdiğimizde;</span>
         </div>
 
         <div class="page2__background-emoji-container">
+          <img src="{{$home}}wp-content/themes/prv/resources/assets/images/sorular-konusuyor-all-emojis.png" alt="3"
+            class="page2__emoji  page2__all-emojis">
           <img src="{{$home}}wp-content/themes/prv/resources/assets/images/mavisayfalar-white-dots.png" alt="white-dots"
             class="page2__emoji page2__white-dots">
           <img src="{{$home}}wp-content/themes/prv/resources/assets/images/mavisayfalar-emoji1.png" alt="1"
