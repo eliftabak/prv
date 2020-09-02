@@ -68,8 +68,8 @@ $home = App::home_url_with_slash();
             <div class="page2__round-container">
               <p class="page2__round-container-lines">Öncelikle yukarıda belirttiğimiz gibi soruların derecelendirme
                 sisteminde kullandığımız metodu,metodu, KİTABI BİR BÜTÜN OLARAK ya da TEST TEST GRUPLANDIRARAK değil,
-                her
-                bir soruyu tek tek ele alarak <span style="font-weight:900">SORU TEMELLİ BİR SINIFLANDIRMA</span> ile
+                her bir soruyu tek tek ele alarak <span style="font-weight:900">SORU TEMELLİ BİR SINIFLANDIRMA</span>
+                ile
                 oluşturduk.</p>
             </div>
           </div>
@@ -94,23 +94,20 @@ $home = App::home_url_with_slash();
           </div>
         </div>
         <div class="page2__system-section">
-          <img src="{{$home}}wp-content/themes/prv/resources/assets/images/white-long-wavy.svg" alt="white-wavy-bg"
-            class="page2__white-wavy-bg">
+          <img src="{{$home}}wp-content/themes/prv/resources/assets/images/white-wavy-background.svg"
+            alt="white-wavy-bg" class="page2__white-wavy-bg">
           <div class="page2__mavisayfalar-logo">
             <img src="{{$home}}wp-content/themes/prv/resources/assets/images/sorular-konusuyor-pruva-logo.png"
               class="page2__pruva-logo" alt="mavisayfalar-logo">
-            <span class="page2__system-text">nasıl bir sistem sunuyor?</span>
+            <span class="page2__system-text">nasıl bir sistem <br> sunuyor?</span>
             <img src="{{$home}}wp-content/themes/prv/resources/assets/images/sorular-konusuyor-blue-dots.png"
               alt="blue-dots" class="page2__blue-dots-image">
             <span class="page2__new-system-text">Yeni sınav sisteminde öğrencilerimiz %20 oranında
               <strong>Klasik</strong>, %80
-              oranında <strong>Yeni
-                Nesil
-                Sorularla</strong>
-              karşılaşıyor. Daha önceden olduğu gibi yine her iki soru tipinde de <strong>Kolay / Orta / Zor</strong>
-              kombinasyonları
-              kullanılıyor.
-              Fakat bunların kullanım tarzları soru içeriklerine göre farklılık gösteriyor.</span>
+              oranında <strong>Yeni Nesil Sorularla</strong> karşılaşıyor. Daha önceden olduğu gibi yine her iki soru
+              tipinde de <strong>Kolay / Orta / Zor</strong>
+              kombinasyonları kullanılıyor. Fakat bunların kullanım tarzları soru içeriklerine göre farklılık
+              gösteriyor.</span>
             <div class="page2__all-blue-box-container">
               <div class="page2__blue-box">
                 <span class="page2__blue-box-text">Sadece Yeni Nesil Sorular özelinde ebat
@@ -121,10 +118,17 @@ $home = App::home_url_with_slash();
               <img src="{{$home}}wp-content/themes/prv/resources/assets/images/sorular-konusuyor-blue-boxes.svg" alt="3"
                 class="page2__blue-boxes">
             </div>
+            <span class="page2__system-explained-text"><span style="font-weight:900">Klasik</span> ve <span
+                style="font-weight:900">Yeni Nesil Soruların Kolay / Orta /
+                Zor</span> kombinasyonlarını da içine alarak değerlendirdiğimizde;</span>
+
+            <img src="{{$home}}wp-content/themes/prv/resources/assets/images/soru-modeli-title.svg" alt="blue-dots"
+              class="page2__soru-modeli-title">
+            <img src="{{$home}}wp-content/themes/prv/resources/assets/images/soru-modeli-types.svg" alt="blue-title"
+              class="page2__soru-modeli-ozellikleri">
           </div>
-          <span class="page2__system-">Klasik ve Yeni Nesil Soruların Kolay / Orta / Zor kombinasyonlarını da içine
-            alarak
-            değerlendirdiğimizde;</span>
+          <img src="{{$home}}wp-content/themes/prv/resources/assets/images/soru-modelleri-ozellikleri-title.svg"
+            alt="blue-dots" class="page2__soru-modeli-ozellikleri-title">
         </div>
 
         <div class="page2__background-emoji-container">
