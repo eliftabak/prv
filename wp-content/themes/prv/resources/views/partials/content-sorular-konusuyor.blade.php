@@ -129,6 +129,12 @@ $home = App::home_url_with_slash();
           </div>
           <img src="{{$home}}wp-content/themes/prv/resources/assets/images/soru-modelleri-ozellikleri-title.svg"
             alt="blue-dots" class="page2__soru-modeli-ozellikleri-title">
+          <span class="page2__description-text"><span style="font-weight:900">Yarım Sayfa</span> ve <span
+              style="font-weight:900">Tam
+              Sayfa</span>
+            sorular yoğunluk, kurgu, ölçtüğü beceri
+            alanı ve bilgi boyutu bakımından Çeyrek
+            Sayfa sorulara göre daha kapsamlıdır. </span>
         </div>
 
         <div class="page2__background-emoji-container">
