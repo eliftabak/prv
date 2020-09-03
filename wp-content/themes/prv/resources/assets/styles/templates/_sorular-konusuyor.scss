@@ -80,7 +80,7 @@
 
   .slick-dots {
     top: 70%;
-    padding-bottom: 3em;
+    padding-bottom: 1em;
     padding-top: 1em;
   }
 
@@ -92,6 +92,16 @@
     background-repeat: no-repeat;
     background-size: cover;
 
+    &__first-slider,
+    &__second-slider {
+      background-color: #fff;
+      border-radius: 7px;
+    }
+
+    &__second-slider {
+      padding: 1em;
+    }
+
     &__title-texts-container {
       margin-left: 1em;
 
@@ -102,6 +112,11 @@
           font-size: 2.8rem;
         }
       }
+    }
+
+    &__tum-uniteler-title {
+      width: 100%;
+      margin: 1em auto;
     }
 
     &__dots-image {
@@ -126,10 +141,7 @@
     }
 
     &__round-container {
-      background-color: white;
       font-size: 13px;
-      border-radius: 1.2em;
-      min-height: 220px;
     }
 
     &__round-container-lines {
@@ -173,10 +185,13 @@
     &__soru-modeli-title {
       margin: 1em auto;
       font-weight: 900;
+      width: 100%;
     }
 
     &__soru-modeli-ozellikleri-title {
-      margin-top: 20em;
+      margin-top: 5em;
+      z-index: 5;
+      width: 100%;
     }
 
     &__soru-modeli-types {
@@ -189,9 +204,47 @@
       margin-bottom: 2em;
     }
 
+    &__sorular-emoji-3 {
+      margin: 1em auto;
+      width: 70%;
+    }
+
+    &__3emoji-container {
+      text-align: center;
+    }
+
+    &__unit-test-text {
+      background-color: #fff;
+      border-radius: 7px;
+      margin: 1.5em auto;
+      padding: 1em;
+      font-size: 15px;
+    }
+
+    &__short-wavy-bg {
+      position: absolute;
+      z-index: 0;
+      width: 100%;
+    }
+
+    &__exam-mood-title {
+      z-index: 2;
+      position: absolute;
+      margin: 7em auto auto 1em;
+    }
+
+    &__exam-mood-title-image {
+      width: 70%;
+      display: block;
+    }
+
     &__blue-boxes {
       margin-bottom: 2em;
       width: 100%;
+    }
+
+    &__book-3 {
+      width: 110%;
     }
 
     &__text-inside {

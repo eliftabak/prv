@@ -53,7 +53,7 @@ $home = App::home_url_with_slash();
         </div>
 
 
-        <div class="page2__your-class">
+        <div class="page2__first-slider">
           <div>
             <div class="page2__round-container">
               <p class="page2__round-container-lines">Yaptığımız detaylı araştırmalarda öğrencilerimizin temel
@@ -122,13 +122,13 @@ $home = App::home_url_with_slash();
                 style="font-weight:900">Yeni Nesil Soruların Kolay / Orta /
                 Zor</span> kombinasyonlarını da içine alarak değerlendirdiğimizde;</span>
 
-            <img src="{{$home}}wp-content/themes/prv/resources/assets/images/soru-modeli-title.svg" alt="blue-dots"
+            <img src="{{$home}}wp-content/themes/prv/resources/assets/images/soru-modeli-title1.png" alt="blue-dots"
               class="page2__soru-modeli-title">
             <img src="{{$home}}wp-content/themes/prv/resources/assets/images/soru-modeli-types.svg" alt="blue-title"
               class="page2__soru-modeli-ozellikleri">
           </div>
-          <img src="{{$home}}wp-content/themes/prv/resources/assets/images/soru-modelleri-ozellikleri-title.svg"
-            alt="blue-dots" class="page2__soru-modeli-ozellikleri-title">
+          <img src="{{$home}}wp-content/themes/prv/resources/assets/images/soru-modeli-title2.png" alt="blue-dots"
+            class="page2__soru-modeli-ozellikleri-title">
           <span class="page2__description-text"><span style="font-weight:900">Yarım Sayfa</span> ve <span
               style="font-weight:900">Tam
               Sayfa</span>
@@ -136,6 +136,58 @@ $home = App::home_url_with_slash();
             alanı ve bilgi boyutu bakımından Çeyrek
             Sayfa sorulara göre daha kapsamlıdır. </span>
         </div>
+
+        <div class="page2__second-slider">
+          <div>Kurgusal yoğunluğu Çeyrek Sayfa Sorulara göre biraz daha fazla olduğu için Yarım Sayfa Soruların KOLAY
+            kombinasyonuyla çoğunlukla karşılaşılmıyor.
+            Tam Sayfa Sorularda ise derecelendirme sadece ZOR sınıfında yer alıyor. Yalnız bu zorluk sorunun kökünden
+            değil yapısından kaynaklanıyor. Bu tarz sorular genellikle cevabı içinde saklı olan ve öğrencileri zamana
+            karşı yarıştırarak çözüme ulaşmalarını sağlamaya çalışıyor.</div>
+          <div>Geliştirdiğimiz yöntemle bahsettiğimiz 9 Farklı Soru Modelinin her birini anlaşılabilir karakterlerle
+            soru soru sınıflandırdık. Ve öğrencilerimizin eğlenerek anlayabileceği ifadelerle tablolaştırdıktan sonra bu
+            karakterleri her sorunun yanına yerleştirdik. Hiçbir testimiz TAMAMEN KOLAY veya TAMAMEN ZOR şeklinde tasnif
+            edilmedi. Daha fazla soru çeşitliliğine ulaşmak için her test kendi içinde tüm soru tarzlarından beslenerek
+            oluşturuldu.</div>
+          <div>Böylece ilgili konuda hangi tarz soruda sıkıntı yaşandıysa, o tarz sorulara odaklanarak gerekli
+            tekrarların yapılması sağlandı.
+            Bu yöntemle öğrencilerimizin her ünitede tüm soru tarzlarıyla karşılaşmasına özen gösterdik ve hangi tarz
+            sorularda sıkıntı yaşadıklarını tespit etmelerine olanak sağladık.</div>
+        </div>
+        <img src="{{$home}}wp-content/themes/prv/resources/assets/images/tum-uniteler-title.png" alt="3"
+          class="page2__tum-uniteler-title">
+        <span style="color: #fff"><span style="font-weight:900">ÖĞRETEN SORULAR</span> ile klasik soru kalıplarının
+          üstünden geçerekYeni
+          Nesil Sorulara hazırlık yapmayı
+          amaçladık</span>
+        <div class="page2__3emoji-container">
+          <img src="{{$home}}wp-content/themes/prv/resources/assets/images/sorular-emoji-3.png" alt="3"
+            class="page2__sorular-emoji-3">
+        </div>
+        <div class="page2__unit-test-text">
+          <span><span style="font-weight:700">Sorular Konuşuyor Serisi</span> kurguya dayalı bir sistem sunsa da belli
+            oranda klasik soruların da olması
+            gerekmektedir. Kurgusal soruların bilgiyi ölçen klasik sorular üzerine inşa edildiği artık bilinen bir
+            gerçek.
+            Bu sebeple tüm ünitelerin/konuların ilk testlerini (ÖĞRETEN SORULAR) klasik sorulara ayırdık. Bu testlerde
+            klasik soruların öğrenim metodu olan kolaydan zora mantığı ile hareket ettik.
+            ÖĞRETEN SORULARLA klasik soru kalıplarının üstünden geçerek
+            Yeni Nesil Sorulara hazırlık yapmayı amaçladık. </span>
+        </div>
+        <img src="{{$home}}wp-content/themes/prv/resources/assets/images/3book.png" alt="book" class="page2__book-3">
+
+        <div>
+          <img src="{{$home}}wp-content/themes/prv/resources/assets/images/sorular-konusuyor-short-white-bg.svg" alt=""
+            class="page2__short-wavy-bg">
+          <div class="page2__exam-mood-title">
+            <img src="{{$home}}wp-content/themes/prv/resources/assets/images/exam-mood-title.png" alt=""
+              class="page2__exam-mood-title-image">
+            <span>2. üniteden itibaren her ünitenin sonuna sarmal olarak gerçek SINAV KİTAPÇIĞI’nın görsel altyapısından
+              esinlenerek ve Yeni Nesil Soru dağılımını ve gerçek sayfa yapısını dikkate alarak bir test hazırladık.
+            </span>
+          </div>
+
+        </div>
+
 
         <div class="page2__background-emoji-container">
           <img src="{{$home}}wp-content/themes/prv/resources/assets/images/sorular-konusuyor-all-emojis.png" alt="3"
