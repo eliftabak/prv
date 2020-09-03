@@ -189,7 +189,7 @@
     }
 
     &__soru-modeli-ozellikleri-title {
-      margin-top: 5em;
+      margin-top: 20em;
       z-index: 5;
       width: 100%;
     }
@@ -198,10 +198,24 @@
       width: 120%;
     }
 
+    &__round-div-container {
+      text-align: center;
+    }
+
+    &__explanation-of-book {
+      margin-top: 36em;
+      font-size: small;
+      color: #fff;
+    }
+
     &__blue-dots-image {
       width: 60%;
       display: block;
       margin-bottom: 2em;
+    }
+
+    &__3-dots {
+      width: 60%;
     }
 
     &__sorular-emoji-3 {
@@ -225,17 +239,23 @@
       position: absolute;
       z-index: 0;
       width: 100%;
+      left: 0;
+      right: 0;
     }
 
     &__exam-mood-title {
       z-index: 2;
       position: absolute;
-      margin: 7em auto auto 1em;
+      margin: 7em auto 0 1em;
+      font-size: small;
     }
 
     &__exam-mood-title-image {
+      width: 80%;
+    }
+
+    &__exam-mood-text {
       width: 70%;
-      display: block;
     }
 
     &__blue-boxes {

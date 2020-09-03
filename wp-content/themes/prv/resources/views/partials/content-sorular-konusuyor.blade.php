@@ -181,13 +181,30 @@ $home = App::home_url_with_slash();
           <div class="page2__exam-mood-title">
             <img src="{{$home}}wp-content/themes/prv/resources/assets/images/exam-mood-title.png" alt=""
               class="page2__exam-mood-title-image">
-            <span>2. üniteden itibaren her ünitenin sonuna sarmal olarak gerçek SINAV KİTAPÇIĞI’nın görsel altyapısından
-              esinlenerek ve Yeni Nesil Soru dağılımını ve gerçek sayfa yapısını dikkate alarak bir test hazırladık.
-            </span>
+            <div class="page2__exam-mood-text">
+              <span class="page2__exam-mood-text">2. üniteden itibaren her ünitenin sonuna sarmal olarak gerçek <span
+                  style="font-weight:700">SINAV
+                  KİTAPÇIĞI</span>’nın görsel altyapısından
+                esinlenerek ve <span style="font-weight:700">Yeni Nesil Soru dağılımını</span> ve <span
+                  style="font-weight:700">gerçek sayfa yapısını</span>
+                dikkate alarak bir test hazırladık.
+              </span>
+            </div>
           </div>
-
         </div>
-
+        <div class="page2__explanation-of-book">
+          <span>Üniversite sınavına hazırlanan bir öğrenci dilediği kadar sınava girebilir. Fakat ortaöğretim sınavına
+            hazırlanan bir öğrenci sadece 1 defa sınava girebilmektedir. Bu açıdan baktığımızda ortaokul öğrencisi
+            daha çok tedirgin olmakta, daha çok hata yapabilmektedir. Bir de söz konusu Yeni Nesil Sorular olunca
+            sadece bilgi yönünden değil, PSİKOLOJİK yönden de bazı takviyeler yapılması gerekmektedir.</span>
+          <div class="page2__round-div-container">
+            <img src="{{$home}}wp-content/themes/prv/resources/assets/images/3-dots.png" alt="" class="page2__3-dots">
+          </div>
+          <span>2. üniteden itibaren her ünitenin sonuna sarmal olarak gerçek SINAV KİTAPÇIĞI’nın görsel altyapısından
+            esinlenerek ve Yeni Nesil Soru dağılımını ve gerçek sayfa yapısını dikkate alarak bir test hazırladık.
+            Bu uygulamayla öğrencilerimize ünite kapsamında kademe kademe
+            SINAV MODU’nu hissettirmeyi amaçladık.</span>
+        </div>
 
         <div class="page2__background-emoji-container">
           <img src="{{$home}}wp-content/themes/prv/resources/assets/images/sorular-konusuyor-all-emojis.png" alt="3"
